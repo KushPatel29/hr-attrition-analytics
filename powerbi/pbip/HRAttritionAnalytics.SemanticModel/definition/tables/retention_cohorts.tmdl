@@ -1,9 +1,9 @@
 table retention_cohorts
-	lineageTag: fcf11065-fd99-41c5-bc3e-4987c510f62c
+	lineageTag: 76fb9f45-3ff8-4ce4-99a4-04e4beec4391
 
 	column cohort_year
 		dataType: string
-		lineageTag: fd5b4bc8-9da3-4ea6-bbfe-d7a3710de946
+		lineageTag: 72a01997-979b-4c1f-9468-02c6d17af5b5
 		summarizeBy: none
 		sourceColumn: cohort_year
 		sortByColumn: cohort_sort
@@ -11,40 +11,42 @@ table retention_cohorts
 	column cohort_sort
 		dataType: int64
 		formatString: 0
-		lineageTag: a35a713a-4011-48d4-a333-2eb39cbf864d
+		lineageTag: b2db3e38-e635-42a6-a4dd-7319315946f4
 		summarizeBy: none
 		sourceColumn: cohort_sort
 
 	column months_since_hire
 		dataType: int64
 		formatString: 0
-		lineageTag: 129f5571-0e01-4734-ae78-805acf949d59
+		lineageTag: 59652af7-2a35-482f-aa06-2df68500c7d2
 		summarizeBy: none
 		sourceColumn: months_since_hire
 
 	column eligible
 		dataType: int64
 		formatString: 0
-		lineageTag: d0984189-9e33-4128-9b31-0ccc78794a95
+		lineageTag: d5cf983b-3404-4f43-af69-7b9a0763984a
 		summarizeBy: sum
 		sourceColumn: eligible
 
 	column retained
 		dataType: int64
 		formatString: 0
-		lineageTag: 16da4537-b5ee-4050-86e2-57e95840aee3
+		lineageTag: 019ae2e8-f996-4ecc-9f9c-2d5cd31b5764
 		summarizeBy: sum
 		sourceColumn: retained
 
 	column retention_rate
 		dataType: double
-		lineageTag: 49da3998-416c-453b-a94a-fa94f99ac381
+		formatString: 0.0%
+		lineageTag: 1f43062d-0792-48a0-b00d-69c9186ddc22
 		summarizeBy: none
 		sourceColumn: retention_rate
 
 	column retention_delta
 		dataType: double
-		lineageTag: 1b22e2e1-6ab0-4266-81c5-d65120fcea8f
+		formatString: 0.0%
+		lineageTag: 5a1bf236-da06-4d0c-a4bc-4ed30b8e238a
 		summarizeBy: none
 		sourceColumn: retention_delta
 

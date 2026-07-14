@@ -22,10 +22,13 @@ whole dashboard diffs and reviews like code.
 
 ## What's inside
 
-- **Semantic model** (`HRAttritionAnalytics.SemanticModel/`): 16 tables
+- **Semantic model** (`HRAttritionAnalytics.SemanticModel/`): 16 data tables
   (4 conformed dimensions, the employee master, and the SQL/ML output tables),
-  5 relationships, and 32 DAX measures in `_Measures`. Model reads from
-  `data/` (dimensions + employee master) and `output/` (SQL and ML results).
+  5 relationships, and 39 DAX measures in a dedicated `_Measures` table.
+  Percent and currency columns carry display formats, and category columns
+  (funnel stage, bridge bucket, cohort year, tenure band) sort by hidden
+  ordinal keys, not alphabetically. Model reads from `data/` (dimensions +
+  employee master) and `output/` (SQL and ML results).
 - **Report** (`HRAttritionAnalytics.Report/`): 6 pages / 53 visuals, styled
   with the shared **Meridian Corporate** theme.
 

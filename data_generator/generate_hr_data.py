@@ -255,6 +255,7 @@ def gen_fact_employees(dim_dept, dim_job, dim_loc) -> pd.DataFrame:
 
         rows.append({
             "employee_id": eid,
+            "employee_name": fake.name(),
             "department_id": dept_id,
             "job_id": int(job["job_id"]),
             "location_id": loc_id,
@@ -293,12 +294,15 @@ def gen_fact_employees(dim_dept, dim_job, dim_loc) -> pd.DataFrame:
 
     df["manager_id"] = df.apply(pick_manager, axis=1)
 
-    # Tenure band (data column so the dashboard can group without extra DAX).
-    df["tenure_band"] = pd.cut(
+    # Tenure band (data column so the dashboard can group without extra DAX);
+    # tenure_band_sort keeps clean labels while sorting chronologically.
+    banded = pd.cut(
         df["tenure_months"],
         bins=[-0.1, 12, 24, 48, 72, 10_000],
-        labels=["0. <1 yr", "1. 1-2 yr", "2. 2-4 yr", "3. 4-6 yr", "4. 6+ yr"],
-    ).astype(str)
+        labels=["<1 yr", "1-2 yr", "2-4 yr", "4-6 yr", "6+ yr"],
+    )
+    df["tenure_band"] = banded.astype(str)
+    df["tenure_band_sort"] = banded.cat.codes.astype(int)
     return df
 
 

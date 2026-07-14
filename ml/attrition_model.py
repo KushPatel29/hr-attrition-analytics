@@ -222,8 +222,14 @@ def main() -> dict:
 
     imp.round(4).to_csv(OUT / "feature_importance.csv", index=False)
 
+    # Attach the (synthetic) employee name so the watch list reads like a real
+    # worklist instead of a bare ID column.
+    names = pd.read_csv(ROOT / "data" / "fact_employees.csv",
+                        usecols=["employee_id", "employee_name"])
+    active = active.merge(names, on="employee_id", how="left")
+
     scores_out = active[[
-        "employee_id", "department", "job_level", "region",
+        "employee_id", "employee_name", "department", "job_level", "region",
         "tenure_months", "engagement_score",
         "risk_score", "risk_band", "top_reason",
     ]]

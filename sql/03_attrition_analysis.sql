@@ -22,14 +22,7 @@ WITH emp AS (
         d.division,
         j.job_level,
         j.level_rank,
-        l.region,
-        CASE
-            WHEN e.tenure_months < 12  THEN '0. <1 yr'
-            WHEN e.tenure_months < 24  THEN '1. 1-2 yr'
-            WHEN e.tenure_months < 48  THEN '2. 2-4 yr'
-            WHEN e.tenure_months < 72  THEN '3. 4-6 yr'
-            ELSE '4. 6+ yr'
-        END AS tenure_band
+        l.region
     FROM fact_employees e
     JOIN dim_department d ON e.department_id = d.department_id
     JOIN dim_job        j ON e.job_id        = j.job_id
@@ -49,7 +42,7 @@ agg AS (
         UNION ALL SELECT 'Region', region, region, is_active, term_type FROM emp
         UNION ALL SELECT 'Gender', gender, gender, is_active, term_type FROM emp
         UNION ALL SELECT 'Age Band', age_band, age_band, is_active, term_type FROM emp
-        UNION ALL SELECT 'Tenure Band', tenure_band, tenure_band, is_active, term_type FROM emp
+        UNION ALL SELECT 'Tenure Band', tenure_band, printf('%d', tenure_band_sort), is_active, term_type FROM emp
     )
     GROUP BY dimension, category
 )

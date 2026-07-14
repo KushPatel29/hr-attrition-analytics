@@ -15,13 +15,16 @@ def emp():
 
 def test_expected_columns(emp):
     expected = {
-        "employee_id", "department_id", "job_id", "location_id", "gender",
-        "ethnicity_group", "age_band", "hire_date", "termination_date",
+        "employee_id", "employee_name", "department_id", "job_id", "location_id",
+        "gender", "ethnicity_group", "age_band", "hire_date", "termination_date",
         "term_type", "is_active", "tenure_months", "base_salary", "compa_ratio",
         "performance_rating", "engagement_score", "overtime_hours", "commute_km",
-        "months_since_promotion", "manager_id", "tenure_band",
+        "months_since_promotion", "manager_id", "tenure_band", "tenure_band_sort",
     }
     assert expected.issubset(set(emp.columns))
+    # synthetic names present and tenure sort key aligned with its label
+    assert (emp["employee_name"].str.len() > 0).all()
+    assert emp["tenure_band_sort"].between(0, 4).all()
 
 
 def test_unique_employee_ids(emp):

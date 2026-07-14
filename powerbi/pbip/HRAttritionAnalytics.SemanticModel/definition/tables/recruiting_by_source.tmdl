@@ -1,55 +1,58 @@
 table recruiting_by_source
-	lineageTag: b1557ab5-d908-48d7-b68d-1069ee9bb983
+	lineageTag: 7166119c-cab6-4660-ae74-f1d7d05c8631
 
 	column source
 		dataType: string
-		lineageTag: 02183536-f881-4b96-af17-7458d1795603
+		lineageTag: ff50929d-566d-4bce-937a-298617751f13
 		summarizeBy: none
 		sourceColumn: source
 
 	column applications
 		dataType: int64
 		formatString: 0
-		lineageTag: abd649fe-8af4-4043-8cb3-2dc5c46b997d
+		lineageTag: b83aa66a-3872-4c3e-9a35-059de639861f
 		summarizeBy: sum
 		sourceColumn: applications
 
 	column offers
 		dataType: int64
 		formatString: 0
-		lineageTag: e01a04f8-9500-450e-8410-fe4e4b264ec5
+		lineageTag: c80ddcf4-1a36-4657-b677-70428f16b07c
 		summarizeBy: sum
 		sourceColumn: offers
 
 	column hires
 		dataType: int64
 		formatString: 0
-		lineageTag: 72e4a63c-6d43-4146-b115-0370efd95129
+		lineageTag: dea6f966-661c-4405-9489-799ecf4e486f
 		summarizeBy: sum
 		sourceColumn: hires
 
 	column hire_rate
 		dataType: double
-		lineageTag: cd4a1999-e114-431b-ac23-4d396454a5ac
+		formatString: 0.0%
+		lineageTag: 7ef60f00-3ac1-4a93-8142-e0794935a7a9
 		summarizeBy: none
 		sourceColumn: hire_rate
 
 	column offer_accept_rate
 		dataType: double
-		lineageTag: 6b792601-f355-4697-9487-80d1916cef2d
+		formatString: 0.0%
+		lineageTag: dc4f12ff-cb7c-48b8-86a1-bc68070bebb5
 		summarizeBy: none
 		sourceColumn: offer_accept_rate
 
 	column avg_days_to_fill
 		dataType: double
-		lineageTag: 8f13aa01-a247-47a6-abc7-df05b914059c
+		formatString: #,0.0
+		lineageTag: 63891197-3c7e-4e4c-b72e-f22362e3d993
 		summarizeBy: none
 		sourceColumn: avg_days_to_fill
 
 	column hire_rate_rank
 		dataType: int64
 		formatString: 0
-		lineageTag: 9f48c2e6-c07a-42c1-95fa-150cc2460609
+		lineageTag: b9c5d6c0-fcf6-4745-afbc-1effc794b71c
 		summarizeBy: none
 		sourceColumn: hire_rate_rank
 

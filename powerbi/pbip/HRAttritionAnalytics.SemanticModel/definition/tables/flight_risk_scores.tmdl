@@ -1,58 +1,67 @@
 table flight_risk_scores
-	lineageTag: 1f0fb488-178b-4ffa-a431-85d9e87bdca6
+	lineageTag: 4e817a77-5e6a-4c06-84b6-e7c7ce8df57c
 
 	column employee_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 4b48a4f4-9167-4afd-89d7-335e75d87ee0
+		lineageTag: 1c8bfe76-65f5-428d-b2b7-4151741274ea
 		summarizeBy: none
 		sourceColumn: employee_id
 
+	column employee_name
+		dataType: string
+		lineageTag: a50d0511-232e-4f24-b3e5-36246a329af5
+		summarizeBy: none
+		sourceColumn: employee_name
+
 	column department
 		dataType: string
-		lineageTag: 0be557ce-e36c-4a8b-8d69-a55fed97abc8
+		lineageTag: 9553dd17-9e84-4d39-82a2-53d87306f1b7
 		summarizeBy: none
 		sourceColumn: department
 
 	column job_level
 		dataType: string
-		lineageTag: 0d047190-7ced-4bf9-aa67-5c73d06f1407
+		lineageTag: 601e64a9-6554-4191-a042-8452cd3fa057
 		summarizeBy: none
 		sourceColumn: job_level
 
 	column region
 		dataType: string
-		lineageTag: d1ef023c-9756-4114-bfff-06e14460bf6c
+		lineageTag: 811f1674-6b96-4431-b83f-938b88b3e9e3
 		summarizeBy: none
 		sourceColumn: region
 
 	column tenure_months
 		dataType: double
-		lineageTag: 9bb38338-202e-4aa7-8391-161fcec12f22
+		formatString: #,0.0
+		lineageTag: 69e64545-95b4-461c-8861-52f0ef0fc3aa
 		summarizeBy: none
 		sourceColumn: tenure_months
 
 	column engagement_score
 		dataType: double
-		lineageTag: 4fd63cc6-e762-4351-96ed-02e0479fb11b
+		formatString: #,0.0
+		lineageTag: b5fadba3-1d84-4f8e-a602-83637eedc75a
 		summarizeBy: none
 		sourceColumn: engagement_score
 
 	column risk_score
 		dataType: double
-		lineageTag: 238b5f55-f68e-4f5d-8af0-da9dc805ec33
+		formatString: 0.00
+		lineageTag: 68988d45-1abf-4a97-adc5-5f202ecb2a09
 		summarizeBy: none
 		sourceColumn: risk_score
 
 	column risk_band
 		dataType: string
-		lineageTag: 1e47d81f-d794-4168-82af-a39788e4ca85
+		lineageTag: 3e2e9e97-c239-4380-9c02-e8d42e4fdf5c
 		summarizeBy: none
 		sourceColumn: risk_band
 
 	column top_reason
 		dataType: string
-		lineageTag: b40454a5-aa3f-463d-9050-d1a17db1dda0
+		lineageTag: 7ee98079-323e-4558-ab97-4e07e16e9fce
 		summarizeBy: none
 		sourceColumn: top_reason
 
@@ -62,6 +71,6 @@ table flight_risk_scores
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\output\flight_risk_scores.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"employee_id", Int64.Type}, {"department", type text}, {"job_level", type text}, {"region", type text}, {"tenure_months", type number}, {"engagement_score", type number}, {"risk_score", type number}, {"risk_band", type text}, {"top_reason", type text}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"employee_id", Int64.Type}, {"employee_name", type text}, {"department", type text}, {"job_level", type text}, {"region", type text}, {"tenure_months", type number}, {"engagement_score", type number}, {"risk_score", type number}, {"risk_band", type text}, {"top_reason", type text}})
 				in
 				    Typed

@@ -1,19 +1,19 @@
-relationship 4d61d54a-e682-4638-9542-c1455331516c
+relationship 0d802df8-5ec6-4301-86dd-f32058ea0a74
 	fromColumn: fact_employees.department_id
 	toColumn: dim_department.department_id
 
-relationship 57f72b97-3870-4cee-addb-2e3985876add
+relationship 9a10e737-e867-4417-9454-c42c3609df29
 	fromColumn: fact_employees.job_id
 	toColumn: dim_job.job_id
 
-relationship 6d75cd0b-5eb7-4f75-abbf-0e78bda5440d
+relationship c312caf1-6437-40f3-b0e5-6fb60d382cbe
 	fromColumn: fact_employees.location_id
 	toColumn: dim_location.location_id
 
-relationship 51097311-e3af-43de-98ce-17f3349d8c7e
+relationship 465943ed-c21f-41d9-a76c-3a5576d537ff
 	fromColumn: flight_risk_scores.employee_id
 	toColumn: fact_employees.employee_id
 
-relationship 5f5a4fcb-f15a-41b4-92d6-d0ba513e15f1
+relationship 67100f49-8445-49b6-9188-a7f7299b930f
 	fromColumn: workforce_kpis.month
 	toColumn: dim_date.month

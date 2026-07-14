@@ -1,9 +1,9 @@
 table funnel_stages
-	lineageTag: b1e65ce0-158b-4839-92d3-26c054fe569f
+	lineageTag: 669046f0-9cdf-4806-af08-39d29de4970e
 
 	column stage
 		dataType: string
-		lineageTag: c08e74a1-4e49-45b2-bccd-2c9bcec71462
+		lineageTag: 2ecea7ae-6d4e-4b6f-ade2-033ca2372abd
 		summarizeBy: none
 		sourceColumn: stage
 		sortByColumn: stage_order
@@ -11,26 +11,28 @@ table funnel_stages
 	column stage_order
 		dataType: int64
 		formatString: 0
-		lineageTag: 58208005-09c1-4d5f-9711-49dec62cb1aa
+		lineageTag: 081127dc-f56d-440b-93a8-528ee3d97958
 		summarizeBy: none
 		sourceColumn: stage_order
 
 	column candidates
 		dataType: int64
 		formatString: 0
-		lineageTag: 8ac4d118-6ea3-4a53-85b4-0334b0ed5a71
+		lineageTag: 82bc8f1c-7ea6-46d3-b427-b2d3ec6f1ffe
 		summarizeBy: sum
 		sourceColumn: candidates
 
 	column conversion_from_prev
 		dataType: double
-		lineageTag: dc2080de-0de6-44f2-b9eb-6da13254d015
+		formatString: 0.0%
+		lineageTag: 9bd84568-5301-4aa8-ad03-81e90a4e15c2
 		summarizeBy: none
 		sourceColumn: conversion_from_prev
 
 	column overall_conversion
 		dataType: double
-		lineageTag: 115bf69c-9dab-4894-b131-a8c3fd4fbc85
+		formatString: 0.0%
+		lineageTag: a26bfb7b-3867-44c9-a579-dd80e3dcc6ce
 		summarizeBy: none
 		sourceColumn: overall_conversion
 

@@ -1,34 +1,37 @@
 table model_evaluation
-	lineageTag: dc3d2527-fb58-4870-b7e8-fb1081f4a01f
+	lineageTag: 583bd063-ff8b-49c9-9899-8180a5678c33
 
 	column model
 		dataType: string
-		lineageTag: 4e76fd5b-b4c2-4886-baef-8f9fdfe92e84
+		lineageTag: 760c9ba3-1cf2-4e08-8267-46516ab91d18
 		summarizeBy: none
 		sourceColumn: model
 
 	column roc_auc
 		dataType: double
-		lineageTag: 64a9fdbb-371c-47b1-bb20-c125042966c3
+		formatString: 0.000
+		lineageTag: c8300005-a91f-4181-8dc7-b5640b2af9c6
 		summarizeBy: none
 		sourceColumn: roc_auc
 
 	column pr_auc
 		dataType: double
-		lineageTag: c1519d75-a079-47a1-938e-f40b6c1fbbd3
+		formatString: 0.000
+		lineageTag: 899ac91a-6ae8-460c-b7d0-59d191346a0d
 		summarizeBy: none
 		sourceColumn: pr_auc
 
 	column lift_at_decile
 		dataType: double
-		lineageTag: 9eb85c42-2634-45d3-a3d5-346712f948c5
+		formatString: #,0.0
+		lineageTag: 7f33c168-00e7-44f1-a67e-d0698da311e0
 		summarizeBy: none
 		sourceColumn: lift_at_decile
 
 	column is_chosen
 		dataType: int64
 		formatString: 0
-		lineageTag: d0613bd7-ecf9-41c9-9130-abd13c0101ff
+		lineageTag: 212e11e2-be71-4018-8dde-16856ad79ad6
 		summarizeBy: none
 		sourceColumn: is_chosen
 

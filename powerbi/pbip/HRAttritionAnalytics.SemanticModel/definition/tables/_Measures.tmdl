@@ -1,167 +1,167 @@
 table _Measures
-	lineageTag: 25e629c6-3917-4c19-9001-869ee9b2861f
+	lineageTag: 3bfbd78c-7d53-4ddf-a377-ad73b50c2c49
 
 	measure 'Total Employees' = COUNTROWS(fact_employees)
 		formatString: #,0
-		lineageTag: ae0dc360-44e2-4592-abb4-e151ca451692
+		lineageTag: 6fb5be48-9231-4a88-829e-e2aff085f89a
 
 	measure 'Headcount' = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 1)
 		formatString: #,0
-		lineageTag: f410f942-ee0d-449b-ac8f-a9f9be7eaf20
+		lineageTag: ee9bbd7f-d71e-4ca7-9afe-699f43f59a59
 
 	measure 'Terminations' = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 0)
 		formatString: #,0
-		lineageTag: 8ac0b18e-ad70-457a-afff-29fb23cde67f
+		lineageTag: 743aef94-0ecc-4745-a662-7a23c7ae381b
 
 	measure 'Voluntary Terminations' = CALCULATE(COUNTROWS(fact_employees), fact_employees[term_type] = "Voluntary")
 		formatString: #,0
-		lineageTag: ab11f76c-5635-4830-a4e0-0b7fd2757d9d
+		lineageTag: 04e5023c-bd71-45d7-b0a0-7f5424e3e046
 
 	measure 'Involuntary Terminations' = CALCULATE(COUNTROWS(fact_employees), fact_employees[term_type] = "Involuntary")
 		formatString: #,0
-		lineageTag: 71ba272e-ca77-4086-bb35-18fc1140b3c4
+		lineageTag: cb33505f-04a1-4191-8912-93d44c8cf48e
 
 	measure 'Separation Rate' = DIVIDE([Terminations], [Total Employees])
 		formatString: 0.0%
-		lineageTag: 6b2914a2-0cc8-4273-addd-bf16a396b036
+		lineageTag: 25f51636-0f11-45fe-888e-24c5edd0819e
 
 	measure 'Voluntary %' = DIVIDE([Voluntary Terminations], [Terminations])
 		formatString: 0.0%
-		lineageTag: 4bb58a22-7a79-4970-a9a6-fa8d645ad933
+		lineageTag: 97196e9c-27f0-47f0-b094-b36849be625d
 
 	measure 'Avg Tenure (Months)' = AVERAGE(fact_employees[tenure_months])
 		formatString: #,0.0
-		lineageTag: baf8b1dd-7062-4012-a738-2d35b982f8d4
+		lineageTag: 0c6f6ea7-5b3e-4dc6-b431-127393b2d3b0
 
 	measure 'Avg Tenure (Yrs)' = DIVIDE([Avg Tenure (Months)], 12)
 		formatString: #,0.0
-		lineageTag: 48ee12a6-6152-42a1-a69f-508e6fd7016a
+		lineageTag: 2b03002c-ae00-4ef3-af31-c11aa576e5ce
 
 	measure 'Avg Salary' = AVERAGE(fact_employees[base_salary])
 		formatString: \$#,0
-		lineageTag: 535c10ab-fb50-4919-aefd-859ae1dd0d99
+		lineageTag: 9da29fd1-a646-4344-bd69-48ab03c7cd28
 
 	measure 'Avg Engagement' = AVERAGE(fact_employees[engagement_score])
 		formatString: #,0.0
-		lineageTag: 4832cd2b-af0d-46ac-9001-f3fad03f67fc
+		lineageTag: e33ede9c-d4a9-4bc6-a655-d866e297a8f8
 
 	measure 'Avg Compa-Ratio' = AVERAGE(fact_employees[compa_ratio])
 		formatString: 0.00
-		lineageTag: feea096e-d19d-44ec-b932-527d4a103384
+		lineageTag: b4b147c1-6fed-47dd-8b07-78c2d2ae7cf7
 
 	measure 'Attrition Rate (T12M)' = VAR L = CALCULATE(MAX(workforce_kpis[month]), ALL(workforce_kpis)) RETURN CALCULATE(MAX(workforce_kpis[rolling_12m_attrition_rate]), workforce_kpis[month] = L)
 		formatString: 0.0%
-		lineageTag: 181e1999-4820-4464-9dc4-e7520f434647
+		lineageTag: 3754c426-f2ea-4af8-b8be-adfb17dd84fb
 
 	measure 'Attrition Target' = 0.15
 		formatString: 0.0%
-		lineageTag: 25c839a8-3af6-485d-983f-8acd0a2d41aa
+		lineageTag: ab3b4606-412a-4b4f-a375-57eeb1c3f34e
 
 	measure 'Compa Target' = 1
 		formatString: 0.00
-		lineageTag: 0d905e00-fcd5-499a-a47b-24f6e6199619
+		lineageTag: 9b637c93-ea10-42b5-858f-22d53caa6351
 
 	measure 'Scored Employees' = COUNTROWS(flight_risk_scores)
 		formatString: #,0
-		lineageTag: faf31e9d-a44e-456f-8c96-8fefff8ddc9d
+		lineageTag: cfab1e83-c75c-4e43-bcac-b05bfe6d8a3f
 
 	measure 'High Risk Count' = CALCULATE(COUNTROWS(flight_risk_scores), flight_risk_scores[risk_band] = "High")
 		formatString: #,0
-		lineageTag: 1512a549-e123-47f3-af2b-c6789db76ab6
+		lineageTag: 89beb2ff-0cce-4fde-ab28-6e8063d7a598
 
 	measure 'High Risk %' = DIVIDE([High Risk Count], [Scored Employees])
 		formatString: 0.0%
-		lineageTag: 388252c9-7eee-4d71-8377-692a3795168e
+		lineageTag: ceccf228-16a1-4b2a-b673-176952527b22
 
 	measure 'Avg Risk Score' = AVERAGE(flight_risk_scores[risk_score])
 		formatString: 0.00
-		lineageTag: 93127413-04c0-491e-b0ed-c44b70148299
+		lineageTag: d6496bdb-2280-4979-a597-8480d6a37bf5
 
 	measure 'Avg Tenure (Scored)' = AVERAGE(flight_risk_scores[tenure_months])
 		formatString: #,0.0
-		lineageTag: b4944448-868b-4a73-974f-f7d9e5c0c93c
+		lineageTag: 37023e18-f6e0-4755-9cbd-41ad4bda0816
 
 	measure 'Avg Engagement (Scored)' = AVERAGE(flight_risk_scores[engagement_score])
 		formatString: #,0.0
-		lineageTag: a3133c58-3ee1-46ed-9929-910b490bb37d
+		lineageTag: 97d8673f-c84c-462e-a7b4-f1c340f37ae9
 
 	measure 'Adjusted Pay Gap' = CALCULATE(MAX(pay_equity[raw_gap_pct]), pay_equity[job_level] = "ALL (level-adjusted)")
 		formatString: 0.0%
-		lineageTag: 355c4678-20f3-4d11-a49b-2783bb6a4ddb
+		lineageTag: cad34d04-7e04-44ba-8c53-5939446655fb
 
 	measure 'Total Applications' = MAX(recruiting_kpis[total_applications])
 		formatString: #,0
-		lineageTag: 77a2449e-7bd3-49a8-8b6b-df2b839109b2
+		lineageTag: b0a9b4e9-d80f-4f47-b1bd-abe67764569f
 
 	measure 'Total Hires' = MAX(recruiting_kpis[total_hires])
 		formatString: #,0
-		lineageTag: 507ba23d-0d36-47c8-9994-82f2b1c0dd48
+		lineageTag: 3eebbb0c-177d-4448-b50e-0ecd99972c97
 
 	measure 'Applied to Hired %' = MAX(recruiting_kpis[overall_hire_rate])
 		formatString: 0.0%
-		lineageTag: ee3d2bea-8d79-4fec-8379-554bb597275b
+		lineageTag: 462aa664-60ae-4ecf-956d-7a264e15ec07
 
 	measure 'Offer Accept Rate' = MAX(recruiting_kpis[offer_accept_rate])
 		formatString: 0.0%
-		lineageTag: 5f368603-b794-4d64-b089-5fef29810bae
+		lineageTag: 5de964e4-b4ec-48ac-a487-d587107a8b0e
 
 	measure 'Median Time to Fill' = MAX(recruiting_kpis[median_days_to_fill])
 		formatString: #,0
-		lineageTag: 806db816-55fc-45b7-ab2a-b8781389aa99
+		lineageTag: 110489b9-fc99-4db7-aac9-9e63a87985c0
 
 	measure 'Model ROC-AUC' = CALCULATE(MAX(model_evaluation[roc_auc]), model_evaluation[is_chosen] = 1)
 		formatString: 0.000
-		lineageTag: 92040df0-3d03-4392-a231-1dfa0967e8f5
+		lineageTag: d9574c13-fbd2-4be0-aa46-1c73da5248ac
 
 	measure 'Top Decile Lift' = CALCULATE(MAX(model_evaluation[lift_at_decile]), model_evaluation[is_chosen] = 1)
 		formatString: 0.0
-		lineageTag: dbb5ed79-96ac-43da-be67-fdf29d3dd4ab
+		lineageTag: 1de4a2e0-3717-4a20-b73d-fa33b3af1328
 
 	measure 'Retention Rate' = AVERAGE(retention_cohorts[retention_rate])
 		formatString: 0.0%
-		lineageTag: 96d4e737-5c88-457e-94d3-f596a60d38a3
+		lineageTag: 8651da2b-8339-44a8-b4a5-5332eccb5bbf
 
 	measure 'Retention @ 12mo' = CALCULATE(AVERAGE(retention_cohorts[retention_rate]), retention_cohorts[cohort_year] = "All", retention_cohorts[months_since_hire] = 12)
 		formatString: 0.0%
-		lineageTag: 56c77e6e-df32-45b0-a292-c6cce1330eec
+		lineageTag: 08c89421-8a62-4af3-8d01-87c4f3a2909b
 
 	measure 'Candidates' = SUM(funnel_stages[candidates])
 		formatString: #,0
-		lineageTag: 3234ac4e-bc92-4d25-b1e2-e199cd219e06
+		lineageTag: d1a50635-1900-42ab-9363-234d529fe952
 
 	measure 'Monthly Headcount' = SUM(workforce_kpis[headcount])
 		formatString: #,0
-		lineageTag: 95453c72-ac94-47f6-be78-34ea3b7550df
+		lineageTag: 7a06a43a-1914-49c0-875b-ce5ece0947aa
 
 	measure 'Bridge Value' = SUM(headcount_bridge[value])
 		formatString: #,0
-		lineageTag: e48f57e3-7855-4879-a4fa-8d11d1ba32e2
+		lineageTag: ccfc8468-8f0a-48be-ad6e-677f2fc41e88
 
 	measure 'Rolling 12m Attrition' = AVERAGE(workforce_kpis[rolling_12m_attrition_rate])
 		formatString: 0.0%
-		lineageTag: 947b17c8-22d3-47d2-9c9c-57b23a89f849
+		lineageTag: 5e7aa984-9a97-4128-a8ca-b7a18c5528f8
 
 	measure 'Avg Salary (F)' = AVERAGE(pay_equity_levels[avg_salary_female])
 		formatString: \$#,0
-		lineageTag: e6e02070-f305-48d0-91e3-6eeb8a14afd3
+		lineageTag: 3c4a2614-6340-4ad5-8304-da98b778325d
 
 	measure 'Avg Salary (M)' = AVERAGE(pay_equity_levels[avg_salary_male])
 		formatString: \$#,0
-		lineageTag: 70a987cc-cb06-4e96-ad83-7de4ec9f795c
+		lineageTag: 95ec477c-32f4-4abf-abc0-1b6020e04812
 
 	measure 'Src Hire Rate' = AVERAGE(recruiting_by_source[hire_rate])
 		formatString: 0.0%
-		lineageTag: 5885034f-5f4a-4047-9224-e75803ffdd8b
+		lineageTag: aca7bba3-e230-42da-ad9d-3109fd54da31
 
 	measure 'Src Time to Fill' = AVERAGE(recruiting_by_source[avg_days_to_fill])
 		formatString: #,0
-		lineageTag: 7ed5e972-ffb3-45d8-87ce-b98c6f259cb2
+		lineageTag: 2fe16b7d-b7dc-4c22-9bfb-5a62e01ff644
 
 	column Value
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: ee4214b5-e173-475c-9a4c-c5b12d656905
+		lineageTag: 06890663-86f6-428a-9e78-62eaf601d760
 		summarizeBy: none
 		sourceColumn: Value
 

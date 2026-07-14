@@ -54,6 +54,7 @@ CREATE TABLE comp_benchmark (
 
 CREATE TABLE fact_employees (
     employee_id            INT          NOT NULL PRIMARY KEY,
+    employee_name          VARCHAR(80)  NOT NULL,   -- synthetic (Faker)
     department_id          INT          NOT NULL REFERENCES dim_department(department_id),
     job_id                 INT          NOT NULL REFERENCES dim_job(job_id),
     location_id            INT          NOT NULL REFERENCES dim_location(location_id),
@@ -72,7 +73,9 @@ CREATE TABLE fact_employees (
     overtime_hours         DECIMAL(6,1) NOT NULL,  -- monthly
     commute_km             DECIMAL(6,1) NOT NULL,
     months_since_promotion DECIMAL(8,1) NOT NULL,
-    manager_id             INT          NULL REFERENCES fact_employees(employee_id)
+    manager_id             INT          NULL REFERENCES fact_employees(employee_id),
+    tenure_band            VARCHAR(10)  NOT NULL,   -- '<1 yr' .. '6+ yr'
+    tenure_band_sort       INT          NOT NULL    -- 0..4 chronological sort key
 );
 
 CREATE TABLE fact_applications (

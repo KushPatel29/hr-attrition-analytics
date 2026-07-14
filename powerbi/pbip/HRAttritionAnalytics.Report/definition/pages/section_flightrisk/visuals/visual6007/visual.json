@@ -23,11 +23,11 @@
                       "Entity": "flight_risk_scores"
                     }
                   },
-                  "Property": "employee_id"
+                  "Property": "employee_name"
                 }
               },
-              "queryRef": "flight_risk_scores.employee_id",
-              "nativeQueryRef": "employee_id"
+              "queryRef": "flight_risk_scores.employee_name",
+              "nativeQueryRef": "employee_name"
             },
             {
               "field": {
@@ -56,20 +56,6 @@
               },
               "queryRef": "flight_risk_scores.job_level",
               "nativeQueryRef": "job_level"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "flight_risk_scores"
-                    }
-                  },
-                  "Property": "region"
-                }
-              },
-              "queryRef": "flight_risk_scores.region",
-              "nativeQueryRef": "region"
             },
             {
               "field": {

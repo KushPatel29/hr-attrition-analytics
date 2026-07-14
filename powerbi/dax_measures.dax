@@ -21,10 +21,15 @@ Attrition Rate (T12M) =
     VAR L = CALCULATE(MAX(workforce_kpis[month]), ALL(workforce_kpis))
     RETURN CALCULATE(MAX(workforce_kpis[rolling_12m_attrition_rate]), workforce_kpis[month] = L)
 Attrition Target     = 0.15
+Monthly Headcount    = SUM(workforce_kpis[headcount])
+Bridge Value         = SUM(headcount_bridge[value])
+Rolling 12m Attrition = AVERAGE(workforce_kpis[rolling_12m_attrition_rate])
 
 // ---- Pay equity ----
 Adjusted Pay Gap     = CALCULATE(MAX(pay_equity[raw_gap_pct]), pay_equity[job_level] = "ALL (level-adjusted)")
 Compa Target         = 1
+Avg Salary (F)       = AVERAGE(pay_equity_levels[avg_salary_female])
+Avg Salary (M)       = AVERAGE(pay_equity_levels[avg_salary_male])
 
 // ---- Retention ----
 Retention Rate       = AVERAGE(retention_cohorts[retention_rate])
@@ -40,6 +45,8 @@ Applied to Hired %   = MAX(recruiting_kpis[overall_hire_rate])
 Offer Accept Rate    = MAX(recruiting_kpis[offer_accept_rate])
 Median Time to Fill  = MAX(recruiting_kpis[median_days_to_fill])
 Candidates           = SUM(funnel_stages[candidates])
+Src Hire Rate        = AVERAGE(recruiting_by_source[hire_rate])
+Src Time to Fill     = AVERAGE(recruiting_by_source[avg_days_to_fill])
 
 // ---- Flight risk (ML) ----
 Scored Employees     = COUNTROWS(flight_risk_scores)

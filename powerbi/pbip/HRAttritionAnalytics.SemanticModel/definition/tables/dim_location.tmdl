@@ -1,35 +1,35 @@
 table dim_location
-	lineageTag: 0ecba40b-fd7c-422b-9d35-beaf9a8a9d88
+	lineageTag: e2c7e32a-9a2d-42d0-80c7-a98f9616d74b
 
 	column location_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 30f7c520-8279-4f81-86ca-dce5802e8798
+		lineageTag: 9757292e-1e83-4d9b-8cbe-87f763d1fc3a
 		summarizeBy: none
 		sourceColumn: location_id
 
 	column city
 		dataType: string
-		lineageTag: b8675a0b-377b-40c1-a03f-feb9dbe21053
+		lineageTag: 9b88f50c-f096-442b-b979-43d41e262a45
 		summarizeBy: none
 		sourceColumn: city
 
 	column region
 		dataType: string
-		lineageTag: dbecb939-3afd-4a2d-8db8-96aa4d0534b4
+		lineageTag: 5798dce0-6f5f-41de-a2f1-d6fc503d5a39
 		summarizeBy: none
 		sourceColumn: region
 
 	column country
 		dataType: string
-		lineageTag: ff6c600d-0b6a-4073-8441-fc04193e3498
+		lineageTag: 51c25be5-b7b6-4977-b64c-6ca863c69ebb
 		summarizeBy: none
 		sourceColumn: country
 
 	column is_remote
 		dataType: int64
 		formatString: 0
-		lineageTag: 4b9cb29c-e841-4d2c-b341-22e2b554890c
+		lineageTag: 074d5d87-50e1-45cc-b750-55120f20e42e
 		summarizeBy: none
 		sourceColumn: is_remote
 

@@ -1,41 +1,45 @@
 table recruiting_kpis
-	lineageTag: f6c50c0a-2713-4dd5-995e-3a016c4b8822
+	lineageTag: 980e86d7-1b74-4b8b-b084-092f4bcca225
 
 	column total_applications
 		dataType: int64
 		formatString: 0
-		lineageTag: 1fdde486-8a9f-48ff-b422-13344fc112ae
+		lineageTag: 2859bdb1-2c15-4328-a7d4-19382bec209a
 		summarizeBy: none
 		sourceColumn: total_applications
 
 	column total_hires
 		dataType: int64
 		formatString: 0
-		lineageTag: 0b80c62b-96b4-4508-a6fc-7c200fc5523c
+		lineageTag: 7ff2f392-4e2a-40f3-9399-24cac97ecc43
 		summarizeBy: none
 		sourceColumn: total_hires
 
 	column overall_hire_rate
 		dataType: double
-		lineageTag: 50e71f46-4069-488a-93e8-32ce1ba54683
+		formatString: 0.0%
+		lineageTag: 19fe82e1-d06b-4851-8eb1-bbe9ad5ae4f5
 		summarizeBy: none
 		sourceColumn: overall_hire_rate
 
 	column offer_accept_rate
 		dataType: double
-		lineageTag: 4ce6e07e-4f29-4986-8867-f8ccaf62ca86
+		formatString: 0.0%
+		lineageTag: b825711e-11b0-4466-a99c-07a3124d6fcb
 		summarizeBy: none
 		sourceColumn: offer_accept_rate
 
 	column median_days_to_fill
 		dataType: double
-		lineageTag: 241af3f2-f3e7-4250-99fd-a0f2c1f1b639
+		formatString: #,0.0
+		lineageTag: 20690bb7-9bb7-4485-b1c9-d58ac64dd538
 		summarizeBy: none
 		sourceColumn: median_days_to_fill
 
 	column avg_days_to_fill
 		dataType: double
-		lineageTag: e043a66e-1db6-4a67-9641-7a07a1fe7c3a
+		formatString: #,0.0
+		lineageTag: a9575bae-b623-4c4d-8355-1490f5dca87b
 		summarizeBy: none
 		sourceColumn: avg_days_to_fill
 

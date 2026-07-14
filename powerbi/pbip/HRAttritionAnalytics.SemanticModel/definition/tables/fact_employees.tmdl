@@ -1,137 +1,155 @@
 table fact_employees
-	lineageTag: 9a1b4064-958a-4305-a0d5-6162787914ee
+	lineageTag: f58e7ec6-54ce-40a3-a489-8113edc21210
 
 	column employee_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 1dc6d4e6-2976-431d-bdf7-7b6db351b465
+		lineageTag: 3c0e1d77-5bc4-40c0-8d03-45d2c30d5985
 		summarizeBy: none
 		sourceColumn: employee_id
+
+	column employee_name
+		dataType: string
+		lineageTag: 1bfa190a-1da0-4348-8427-5a0bf3f8fb87
+		summarizeBy: none
+		sourceColumn: employee_name
 
 	column department_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 328431d3-1a18-4c90-9106-c14505a549d5
+		lineageTag: 59314e97-bdc5-4969-89f6-8fe5f7c1863e
 		summarizeBy: none
 		sourceColumn: department_id
 
 	column job_id
 		dataType: int64
 		formatString: 0
-		lineageTag: a01635f5-366f-46bc-adf7-9defe384f415
+		lineageTag: c04f1d0b-886f-42f8-bd63-15a53ee17f07
 		summarizeBy: none
 		sourceColumn: job_id
 
 	column location_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 415c299e-7016-4d5a-9b4f-595d7c491def
+		lineageTag: 14ff6476-c89c-42a4-a86f-7d0d8d2daffe
 		summarizeBy: none
 		sourceColumn: location_id
 
 	column gender
 		dataType: string
-		lineageTag: 1f847fd5-e2a8-43c4-95b8-a7ee23b49abd
+		lineageTag: 77c4772e-9063-4ad8-9f1c-2b36957c7459
 		summarizeBy: none
 		sourceColumn: gender
 
 	column ethnicity_group
 		dataType: string
-		lineageTag: 386cfc16-6af1-496e-bd96-0d65219b0cb1
+		lineageTag: a75fbdd9-7dbc-4e2a-a973-5f578263406f
 		summarizeBy: none
 		sourceColumn: ethnicity_group
 
 	column age_band
 		dataType: string
-		lineageTag: f3db449d-64ff-48a8-a6ec-49a1c016acb3
+		lineageTag: ed5ded43-d5e8-4c7f-9373-92cb3bd61aca
 		summarizeBy: none
 		sourceColumn: age_band
 
 	column hire_date
 		dataType: string
-		lineageTag: 4e0aef82-33c0-490d-8589-37d6daceb809
+		lineageTag: 7fe476c8-c1b8-4eda-a250-30b08d9754b4
 		summarizeBy: none
 		sourceColumn: hire_date
 
 	column termination_date
 		dataType: string
-		lineageTag: 126fab32-fd33-4457-b13b-f30b41cfc741
+		lineageTag: 363fd892-ee3b-4c13-b7ab-e86e70fb541b
 		summarizeBy: none
 		sourceColumn: termination_date
 
 	column term_type
 		dataType: string
-		lineageTag: 7fb3a2e2-3566-4d83-a125-1d270396ccc3
+		lineageTag: 261e6734-03d0-4043-a05e-3c0c81a68e03
 		summarizeBy: none
 		sourceColumn: term_type
 
 	column is_active
 		dataType: int64
 		formatString: 0
-		lineageTag: cbd80609-26c4-4f0d-8eb8-7cf7fd3a41f2
+		lineageTag: 1024f5c2-7b30-490f-b921-17a2943920e1
 		summarizeBy: none
 		sourceColumn: is_active
 
 	column tenure_months
 		dataType: double
-		lineageTag: 3a7572b5-fda6-4afc-819a-7c78728fc476
+		formatString: #,0.0
+		lineageTag: 3d900ed9-26d0-40d9-a589-4e6b02eb7dbd
 		summarizeBy: none
 		sourceColumn: tenure_months
 
 	column base_salary
 		dataType: double
-		lineageTag: 54f2c3b1-8a52-4378-8e43-090fceaf11ab
+		formatString: \$#,0
+		lineageTag: 71f0b96a-1295-48b3-8341-6038a2b267aa
 		summarizeBy: none
 		sourceColumn: base_salary
 
 	column compa_ratio
 		dataType: double
-		lineageTag: 2722f4de-c2d5-4c63-ac7c-b8748ba6ea9c
+		formatString: 0.00
+		lineageTag: c0a9323c-83b1-439d-bd60-ce69823a3a5d
 		summarizeBy: none
 		sourceColumn: compa_ratio
 
 	column performance_rating
 		dataType: int64
 		formatString: 0
-		lineageTag: a3450814-1685-4529-a609-1f20e8020767
+		lineageTag: 5c901179-a343-4bb5-a517-e0abc51f5e74
 		summarizeBy: none
 		sourceColumn: performance_rating
 
 	column engagement_score
 		dataType: double
-		lineageTag: 1ad6910f-bc1d-4878-a618-61cf86e5dbbb
+		formatString: #,0.0
+		lineageTag: 97b21938-609d-4c1e-b4f0-293300899e20
 		summarizeBy: none
 		sourceColumn: engagement_score
 
 	column overtime_hours
 		dataType: double
-		lineageTag: afbf10df-a73d-4429-b64a-733b06c29244
+		lineageTag: f3b7bc89-12ee-4117-804a-59e09a2e9a9f
 		summarizeBy: none
 		sourceColumn: overtime_hours
 
 	column commute_km
 		dataType: double
-		lineageTag: a279e145-2288-47d1-b762-4a7fab960535
+		lineageTag: 8bb7cc6a-77eb-4f0f-a251-e40b1e51a4f7
 		summarizeBy: none
 		sourceColumn: commute_km
 
 	column months_since_promotion
 		dataType: double
-		lineageTag: 44bc67fb-b6f9-4202-b19e-3277f41642e0
+		lineageTag: 7eddc511-174a-4a90-b8ec-60ce6588c01c
 		summarizeBy: none
 		sourceColumn: months_since_promotion
 
 	column manager_id
 		dataType: string
-		lineageTag: cf29c351-0554-4dbb-8406-c2a9c6f87487
+		lineageTag: f8c5be50-ea74-4dd3-b82b-246854ff5b87
 		summarizeBy: none
 		sourceColumn: manager_id
 
 	column tenure_band
 		dataType: string
-		lineageTag: ce2ab88d-fbce-4660-96e8-d8992469b2f5
+		lineageTag: 108260a3-0757-40bb-af7b-410291274d7f
 		summarizeBy: none
 		sourceColumn: tenure_band
+		sortByColumn: tenure_band_sort
+
+	column tenure_band_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 4eb1ea09-5c52-41ef-bc12-f05dd29d3173
+		summarizeBy: none
+		sourceColumn: tenure_band_sort
 
 	partition fact_employees = m
 		mode: import
@@ -139,6 +157,6 @@ table fact_employees
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\data\fact_employees.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"employee_id", Int64.Type}, {"department_id", Int64.Type}, {"job_id", Int64.Type}, {"location_id", Int64.Type}, {"gender", type text}, {"ethnicity_group", type text}, {"age_band", type text}, {"hire_date", type text}, {"termination_date", type text}, {"term_type", type text}, {"is_active", Int64.Type}, {"tenure_months", type number}, {"base_salary", type number}, {"compa_ratio", type number}, {"performance_rating", Int64.Type}, {"engagement_score", type number}, {"overtime_hours", type number}, {"commute_km", type number}, {"months_since_promotion", type number}, {"manager_id", type text}, {"tenure_band", type text}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"employee_id", Int64.Type}, {"employee_name", type text}, {"department_id", Int64.Type}, {"job_id", Int64.Type}, {"location_id", Int64.Type}, {"gender", type text}, {"ethnicity_group", type text}, {"age_band", type text}, {"hire_date", type text}, {"termination_date", type text}, {"term_type", type text}, {"is_active", Int64.Type}, {"tenure_months", type number}, {"base_salary", type number}, {"compa_ratio", type number}, {"performance_rating", Int64.Type}, {"engagement_score", type number}, {"overtime_hours", type number}, {"commute_km", type number}, {"months_since_promotion", type number}, {"manager_id", type text}, {"tenure_band", type text}, {"tenure_band_sort", Int64.Type}})
 				in
 				    Typed

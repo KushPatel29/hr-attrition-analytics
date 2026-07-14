@@ -1,72 +1,78 @@
 table pay_equity_levels
-	lineageTag: 6a9ed081-7315-4937-aafb-18de83e5671b
+	lineageTag: f9b62acd-d3d0-4cec-a92a-6f7af2242cab
 
 	column job_level
 		dataType: string
-		lineageTag: de616f1c-ba17-4e87-a1df-36665ada946f
+		lineageTag: 00433478-a225-43cc-b639-b84f3bbe45d1
 		summarizeBy: none
 		sourceColumn: job_level
 
 	column level_rank
 		dataType: int64
 		formatString: 0
-		lineageTag: fb341f40-656f-4b79-ba3d-ff0d16527ee9
+		lineageTag: d2d5878e-5605-4181-a4cd-420cd81c8a32
 		summarizeBy: none
 		sourceColumn: level_rank
 
 	column market_median
 		dataType: double
-		lineageTag: 044b5217-befb-4fa0-ab0d-deb3662fb975
+		formatString: \$#,0
+		lineageTag: 93de41fe-82f2-42b5-bc59-633ed3123b65
 		summarizeBy: none
 		sourceColumn: market_median
 
 	column n_female
 		dataType: int64
 		formatString: 0
-		lineageTag: 85278683-30aa-4c3d-aa60-652d405fe9d3
+		lineageTag: 23dfb5ce-50d1-439b-8957-6b26896ca1fe
 		summarizeBy: sum
 		sourceColumn: n_female
 
 	column n_male
 		dataType: int64
 		formatString: 0
-		lineageTag: c9987d67-b14b-4359-8e72-569029303217
+		lineageTag: 0b5327e3-2a80-4e29-8ada-7cb9acd8ec0f
 		summarizeBy: sum
 		sourceColumn: n_male
 
 	column avg_salary_female
 		dataType: double
-		lineageTag: c4263681-678e-4447-8a00-272b27eeca89
+		formatString: \$#,0
+		lineageTag: e4900655-c93f-4b94-8db9-af1d9839a678
 		summarizeBy: none
 		sourceColumn: avg_salary_female
 
 	column avg_salary_male
 		dataType: double
-		lineageTag: 69310293-16a7-4997-b496-1c2484e0a770
+		formatString: \$#,0
+		lineageTag: 72d585d5-b013-44a9-a701-174fbb1570c5
 		summarizeBy: none
 		sourceColumn: avg_salary_male
 
 	column female_compa_ratio
 		dataType: double
-		lineageTag: 2479ad01-ae30-455e-94c3-5ee09ac55009
+		formatString: 0.00
+		lineageTag: 5ae6d00b-7134-4cd2-bfe0-9c768764e197
 		summarizeBy: none
 		sourceColumn: female_compa_ratio
 
 	column male_compa_ratio
 		dataType: double
-		lineageTag: b1db512f-04dc-4ed3-ab75-43d5d66a74fd
+		formatString: 0.00
+		lineageTag: 6265e3c6-6bc9-41e6-98d9-43e10226e639
 		summarizeBy: none
 		sourceColumn: male_compa_ratio
 
 	column raw_gap_pct
 		dataType: double
-		lineageTag: 85de0aab-57a7-4ed5-8e8b-7f89854ab206
+		formatString: 0.0%
+		lineageTag: 3267b02b-f24c-4a46-9fec-67970afb1c78
 		summarizeBy: none
 		sourceColumn: raw_gap_pct
 
 	column gap_flag
 		dataType: string
-		lineageTag: 8d91ea81-0f90-44bc-94a8-ec382b755b47
+		lineageTag: 6c47b017-72ac-4a79-b2f9-0a9df96fe229
 		summarizeBy: none
 		sourceColumn: gap_flag
 

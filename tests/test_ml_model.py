@@ -30,6 +30,7 @@ def test_scores_valid():
     assert s["risk_score"].between(0, 1).all()
     assert s["risk_band"].isin(["High", "Medium", "Low"]).all()
     assert s["employee_id"].is_unique
+    assert s["employee_name"].notna().all()
 
 
 def test_all_active_employees_scored():

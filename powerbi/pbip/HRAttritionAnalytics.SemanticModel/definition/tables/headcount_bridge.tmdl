@@ -1,9 +1,9 @@
 table headcount_bridge
-	lineageTag: 33415a38-ee29-4251-8ce3-5734a8b23fc6
+	lineageTag: 3be6c871-93e9-4420-b327-d7143e13567c
 
 	column bucket
 		dataType: string
-		lineageTag: 682cfae8-4509-42ae-85f4-a73d799e1a2e
+		lineageTag: 50fe1379-41c0-4685-bb30-b0cfb15eb5da
 		summarizeBy: none
 		sourceColumn: bucket
 		sortByColumn: sort_order
@@ -11,14 +11,14 @@ table headcount_bridge
 	column sort_order
 		dataType: int64
 		formatString: 0
-		lineageTag: 36c8333b-1a11-43d9-9927-9551ea2aaf9f
+		lineageTag: 19ec5657-8074-4fe1-a550-1b5931047585
 		summarizeBy: none
 		sourceColumn: sort_order
 
 	column value
 		dataType: int64
 		formatString: 0
-		lineageTag: 14f6330b-0217-43cc-8f7f-b93ebaca4df0
+		lineageTag: 81707c34-c049-4f69-accb-e131a2c5c735
 		summarizeBy: sum
 		sourceColumn: value
 

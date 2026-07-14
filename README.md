@@ -30,6 +30,9 @@ pipeline and 27 tests on every push.
 | Applied → Hired conversion | **8.8%** · median time-to-fill **48 days** |
 | Flight-risk model | ROC-AUC **0.736**, top-decile lift **2.4×** (beats 0.500 baseline) |
 
+The full write-up with the "so what" behind each number is in
+[`docs/INSIGHTS.md`](docs/INSIGHTS.md).
+
 ## Why SQL-first
 
 The heart of this project is [`sql/`](sql/) — seven files that do the real
@@ -48,18 +51,22 @@ A few of the techniques on show:
   ([`05_pay_equity.sql`](sql/05_pay_equity.sql)).
 
 ```sql
--- 04_retention_cohorts.sql (excerpt): survival that respects censoring
-SELECT
-    cohort_year,
-    months_since_hire,
-    SUM(CASE WHEN opportunity_months >= months_since_hire THEN 1 ELSE 0 END)              AS eligible,
-    SUM(CASE WHEN opportunity_months >= months_since_hire
-              AND tenure_months      >= months_since_hire THEN 1 ELSE 0 END)              AS retained,
+-- 04_retention_cohorts.sql (excerpts): survival that respects censoring
+by_cohort AS (
+    SELECT
+        CAST(cohort_year AS TEXT) AS cohort_year,
+        months_since_hire,
+        SUM(CASE WHEN opportunity_months >= months_since_hire THEN 1 ELSE 0 END) AS eligible,
+        SUM(CASE WHEN opportunity_months >= months_since_hire
+                  AND tenure_months      >= months_since_hire THEN 1 ELSE 0 END) AS retained
+    FROM cohort_grid
+    GROUP BY cohort_year, months_since_hire
+)
+...
+    /* month-over-month drop within a cohort, via LAG */
     ROUND(1.0 * retained / NULLIF(eligible, 0)
           - LAG(1.0 * retained / NULLIF(eligible, 0))
               OVER (PARTITION BY cohort_year ORDER BY months_since_hire), 4) AS retention_delta
-FROM cohort_grid
-GROUP BY cohort_year, months_since_hire;
 ```
 
 The runnable engine [`engine/run_hr_analytics.py`](engine/run_hr_analytics.py)
@@ -178,8 +185,8 @@ hr-attrition-analytics/
 ├── ml/               attrition_model.py   (bake-off, scores, explainability)
 ├── analytics/        make_visuals.py      (README figures)
 ├── output/           SQL + ML results consumed by Power BI
-├── docs/             rendered figures
-├── powerbi/          pbip/ (TMDL + PBIR), dax_measures.dax, BUILD_GUIDE.md
+├── docs/             rendered figures + INSIGHTS.md (findings write-up)
+├── powerbi/          pbip/ (TMDL + PBIR), screenshots/, dax_measures.dax, BUILD_GUIDE.md
 └── tests/            data / SQL / ML / Power BI-integrity invariants
 ```
 

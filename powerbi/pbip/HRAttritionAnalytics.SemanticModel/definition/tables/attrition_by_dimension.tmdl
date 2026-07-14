@@ -1,74 +1,77 @@
 table attrition_by_dimension
-	lineageTag: c4b072ed-aec2-4bbe-bbca-dd2a9b590fd9
+	lineageTag: 6be50cb6-488e-4d21-9aa7-0d235a50895e
 
 	column dimension
 		dataType: string
-		lineageTag: b85c2110-b1d5-4001-a2c5-46dd68acb5f7
+		lineageTag: 7d43b000-c218-4446-b1a2-054c3a466ddc
 		summarizeBy: none
 		sourceColumn: dimension
 
 	column category
 		dataType: string
-		lineageTag: b7d7e974-c4f1-46b9-8554-ab318563e5ba
+		lineageTag: 3af8c0dd-2479-4515-846a-a0da81e8d211
 		summarizeBy: none
 		sourceColumn: category
 
 	column sort_key
 		dataType: string
-		lineageTag: 7b0fc5c8-bc9d-4200-831c-6722adda2f19
+		lineageTag: 892ba4c2-8575-4643-9e02-7b4e4866d940
 		summarizeBy: none
 		sourceColumn: sort_key
 
 	column headcount_ever
 		dataType: int64
 		formatString: 0
-		lineageTag: a82471c9-a506-4022-865a-d9cc2aedaa44
+		lineageTag: 67741dfb-1b20-4d08-96cd-97bf67abb25d
 		summarizeBy: sum
 		sourceColumn: headcount_ever
 
 	column active_headcount
 		dataType: int64
 		formatString: 0
-		lineageTag: 3ea5ba37-7cf3-4440-b2f1-bf5dd982aac6
+		lineageTag: 90ce8271-6cb2-4d96-a6a4-021c8ea41c81
 		summarizeBy: sum
 		sourceColumn: active_headcount
 
 	column terminations
 		dataType: int64
 		formatString: 0
-		lineageTag: d2353947-71ab-41cc-bcfd-a3ac1ba82865
+		lineageTag: 7a52144b-1293-4c62-ac0a-8ffa870c168b
 		summarizeBy: sum
 		sourceColumn: terminations
 
 	column voluntary_terms
 		dataType: int64
 		formatString: 0
-		lineageTag: 32bffe8c-57f9-4af7-a243-ce0d8d1cd780
+		lineageTag: e4be35f5-0c00-4771-92fc-49564a4b0fd4
 		summarizeBy: sum
 		sourceColumn: voluntary_terms
 
 	column attrition_rate
 		dataType: double
-		lineageTag: a1c3e730-56fd-43a8-8f78-7ea7402cc7c6
+		formatString: 0.0%
+		lineageTag: 369e2fc4-c49c-4f5c-9437-c30e44cbb980
 		summarizeBy: none
 		sourceColumn: attrition_rate
 
 	column voluntary_share
 		dataType: double
-		lineageTag: bf7b153a-dfc5-4805-9261-71db0a28ba7b
+		formatString: 0.0%
+		lineageTag: 18d8b9d6-f0ff-4cbd-9a52-8468ae7fdaf4
 		summarizeBy: none
 		sourceColumn: voluntary_share
 
 	column pct_of_dimension_exits
 		dataType: double
-		lineageTag: 4ddf858a-c843-4835-aee2-17d74b3f1567
+		formatString: 0.0%
+		lineageTag: 7e706c47-2787-4880-beaf-aff8df4c9900
 		summarizeBy: none
 		sourceColumn: pct_of_dimension_exits
 
 	column attrition_rank
 		dataType: int64
 		formatString: 0
-		lineageTag: 91089e50-5b4c-417e-80e4-b9709e0f236b
+		lineageTag: a790c099-1451-4668-b5bf-8b9f85a29824
 		summarizeBy: none
 		sourceColumn: attrition_rank
 
