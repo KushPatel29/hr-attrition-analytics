@@ -1,0 +1,43 @@
+table model_evaluation
+	lineageTag: dfe9b615-5519-4a07-a66a-be8a630e3bec
+
+	column model
+		dataType: string
+		lineageTag: 02bd07e9-7abe-482d-a5ba-ace14573cefc
+		summarizeBy: none
+		sourceColumn: model
+
+	column roc_auc
+		dataType: double
+		lineageTag: 89825981-98da-4d34-854a-2da9fc6a302e
+		summarizeBy: none
+		sourceColumn: roc_auc
+
+	column pr_auc
+		dataType: double
+		lineageTag: 69a79c81-fb21-4664-be7e-92f69def436b
+		summarizeBy: none
+		sourceColumn: pr_auc
+
+	column lift_at_decile
+		dataType: double
+		lineageTag: 3a91c76e-4d36-4020-afba-f399f892fbd3
+		summarizeBy: none
+		sourceColumn: lift_at_decile
+
+	column is_chosen
+		dataType: int64
+		formatString: 0
+		lineageTag: 78b20d97-33aa-4d04-9c51-175210526faf
+		summarizeBy: none
+		sourceColumn: is_chosen
+
+	partition model_evaluation = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\model_evaluation.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"model", type text}, {"roc_auc", type number}, {"pr_auc", type number}, {"lift_at_decile", type number}, {"is_chosen", Int64.Type}})
+				in
+				    Typed

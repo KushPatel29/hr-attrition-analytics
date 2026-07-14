@@ -1,0 +1,45 @@
+table dim_job
+	lineageTag: b7f50644-a961-428f-9ff2-6aa91c70ff52
+
+	column job_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 39f8c142-19b6-4d58-8e57-8bff72d8e9e2
+		summarizeBy: none
+		sourceColumn: job_id
+
+	column job_title
+		dataType: string
+		lineageTag: ec19b6d5-b132-474a-b346-a57928b39790
+		summarizeBy: none
+		sourceColumn: job_title
+
+	column job_level
+		dataType: string
+		lineageTag: 94e973a4-6199-4cae-9331-42d5291f5400
+		summarizeBy: none
+		sourceColumn: job_level
+
+	column level_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f9ababb-ab66-4467-a830-a56c051f2be5
+		summarizeBy: none
+		sourceColumn: level_rank
+
+	column is_management
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bca3b8d-cf89-4e81-9f38-33af37833146
+		summarizeBy: none
+		sourceColumn: is_management
+
+	partition dim_job = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_job.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"job_id", Int64.Type}, {"job_title", type text}, {"job_level", type text}, {"level_rank", Int64.Type}, {"is_management", Int64.Type}})
+				in
+				    Typed

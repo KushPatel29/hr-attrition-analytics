@@ -1,0 +1,44 @@
+table funnel_stages
+	lineageTag: 282c6442-7a3a-42e7-972c-3f14c814bbdd
+
+	column stage
+		dataType: string
+		lineageTag: 88cc3c70-3029-458e-b587-c1c6a3bc7a9b
+		summarizeBy: none
+		sourceColumn: stage
+
+	column stage_order
+		dataType: int64
+		formatString: 0
+		lineageTag: b2104d68-9275-4e4d-843d-9e84a11e75d9
+		summarizeBy: none
+		sourceColumn: stage_order
+
+	column candidates
+		dataType: int64
+		formatString: 0
+		lineageTag: 601fd11d-d11d-4758-9415-c92892a98d28
+		summarizeBy: sum
+		sourceColumn: candidates
+
+	column conversion_from_prev
+		dataType: double
+		lineageTag: cd3bf7bb-06c7-476b-862d-2744a3223e9c
+		summarizeBy: none
+		sourceColumn: conversion_from_prev
+
+	column overall_conversion
+		dataType: double
+		lineageTag: 617c9a6d-17c4-4b15-b2a7-fcbc894f1416
+		summarizeBy: none
+		sourceColumn: overall_conversion
+
+	partition funnel_stages = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\funnel_stages.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"stage", type text}, {"stage_order", Int64.Type}, {"candidates", Int64.Type}, {"conversion_from_prev", type number}, {"overall_conversion", type number}})
+				in
+				    Typed

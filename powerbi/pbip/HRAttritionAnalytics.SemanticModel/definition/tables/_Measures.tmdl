@@ -1,0 +1,146 @@
+table _Measures
+	lineageTag: 1bd711cd-2729-413b-afad-a9f4df45d07c
+
+	measure 'Total Employees' = COUNTROWS(fact_employees)
+		formatString: #,0
+		lineageTag: 81f51271-92a3-4ebb-95fa-6838b6602907
+
+	measure 'Headcount' = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 1)
+		formatString: #,0
+		lineageTag: 2c4783be-4d54-4f64-9b8f-829d6b3762bc
+
+	measure 'Terminations' = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 0)
+		formatString: #,0
+		lineageTag: db9ce938-cd9d-4200-8ea5-626c67a16d11
+
+	measure 'Voluntary Terminations' = CALCULATE(COUNTROWS(fact_employees), fact_employees[term_type] = "Voluntary")
+		formatString: #,0
+		lineageTag: 46434b6b-7302-407e-addd-b603adef7664
+
+	measure 'Involuntary Terminations' = CALCULATE(COUNTROWS(fact_employees), fact_employees[term_type] = "Involuntary")
+		formatString: #,0
+		lineageTag: 0f7fd91f-0bef-4752-bcfc-55b49682c29e
+
+	measure 'Separation Rate' = DIVIDE([Terminations], [Total Employees])
+		formatString: 0.0%
+		lineageTag: 23e56387-7433-4338-9a42-7ecc0fe30982
+
+	measure 'Voluntary %' = DIVIDE([Voluntary Terminations], [Terminations])
+		formatString: 0.0%
+		lineageTag: 8c3daf7f-6dfe-41c5-90b6-757588ede9f4
+
+	measure 'Avg Tenure (Months)' = AVERAGE(fact_employees[tenure_months])
+		formatString: #,0.0
+		lineageTag: 91c1331e-b92e-42e4-9d96-a8e97bd27502
+
+	measure 'Avg Tenure (Yrs)' = DIVIDE([Avg Tenure (Months)], 12)
+		formatString: #,0.0
+		lineageTag: f3051d23-9ec9-4902-952a-072189aa220d
+
+	measure 'Avg Salary' = AVERAGE(fact_employees[base_salary])
+		formatString: \$#,0
+		lineageTag: 11947fd9-a4bd-4173-ac9f-c338e14400f7
+
+	measure 'Avg Engagement' = AVERAGE(fact_employees[engagement_score])
+		formatString: #,0.0
+		lineageTag: 069b99d4-2aa0-42fb-bb69-69d5fc9ca86c
+
+	measure 'Avg Compa-Ratio' = AVERAGE(fact_employees[compa_ratio])
+		formatString: 0.00
+		lineageTag: 15d0bdb7-076a-458f-8307-52beef97a47c
+
+	measure 'Attrition Rate (T12M)' = VAR L = CALCULATE(MAX(workforce_kpis[month]), ALL(workforce_kpis)) RETURN CALCULATE(MAX(workforce_kpis[rolling_12m_attrition_rate]), workforce_kpis[month] = L)
+		formatString: 0.0%
+		lineageTag: af827617-900c-4b5c-bcb8-ca1f32e2ca0b
+
+	measure 'Attrition Target' = 0.15
+		formatString: 0.0%
+		lineageTag: bbd3e2db-d80f-4ee3-87c6-a95751bf5c23
+
+	measure 'Compa Target' = 1
+		formatString: 0.00
+		lineageTag: 952f9d6b-da2c-4da5-8350-20943a072637
+
+	measure 'Scored Employees' = COUNTROWS(flight_risk_scores)
+		formatString: #,0
+		lineageTag: 7537ab45-0150-47f4-ac30-d060b8fcb344
+
+	measure 'High Risk Count' = CALCULATE(COUNTROWS(flight_risk_scores), flight_risk_scores[risk_band] = "High")
+		formatString: #,0
+		lineageTag: 685fdb49-81b7-4fa5-8342-4a2f8323c04c
+
+	measure 'High Risk %' = DIVIDE([High Risk Count], [Scored Employees])
+		formatString: 0.0%
+		lineageTag: 8a026a80-e550-4522-9d1e-e74e2a6aa365
+
+	measure 'Avg Risk Score' = AVERAGE(flight_risk_scores[risk_score])
+		formatString: 0.00
+		lineageTag: 0b00d8e8-ddbc-40e8-a1af-c25ae372f8e2
+
+	measure 'Avg Tenure (Scored)' = AVERAGE(flight_risk_scores[tenure_months])
+		formatString: #,0.0
+		lineageTag: f753622a-aaeb-49cf-bc27-7c8d1566fde3
+
+	measure 'Avg Engagement (Scored)' = AVERAGE(flight_risk_scores[engagement_score])
+		formatString: #,0.0
+		lineageTag: 3e6c5ee4-90d3-49ad-82f3-2ed18e877f55
+
+	measure 'Adjusted Pay Gap' = CALCULATE(MAX(pay_equity[raw_gap_pct]), pay_equity[job_level] = "ALL (level-adjusted)")
+		formatString: 0.0%
+		lineageTag: 75f2fdca-43d1-4f9e-84a4-a270766604fe
+
+	measure 'Total Applications' = MAX(recruiting_kpis[total_applications])
+		formatString: #,0
+		lineageTag: 9769f0bd-c4af-4513-ba13-c1ee2ba71fd3
+
+	measure 'Total Hires' = MAX(recruiting_kpis[total_hires])
+		formatString: #,0
+		lineageTag: 1544df0b-9ed3-4aa4-96af-13eecee2aaa9
+
+	measure 'Applied to Hired %' = MAX(recruiting_kpis[overall_hire_rate])
+		formatString: 0.0%
+		lineageTag: a8b15a46-0d22-4ec5-aab6-eca17b574f6b
+
+	measure 'Offer Accept Rate' = MAX(recruiting_kpis[offer_accept_rate])
+		formatString: 0.0%
+		lineageTag: 417ba3aa-0046-48c9-b040-f7d9b9715893
+
+	measure 'Median Time to Fill' = MAX(recruiting_kpis[median_days_to_fill])
+		formatString: #,0
+		lineageTag: 7e5e73d4-2cb3-4ac2-87ba-3aa6ccd9248a
+
+	measure 'Model ROC-AUC' = CALCULATE(MAX(model_evaluation[roc_auc]), model_evaluation[is_chosen] = 1)
+		formatString: 0.000
+		lineageTag: ea949589-2f89-4333-9607-b537efa2edb7
+
+	measure 'Top Decile Lift' = CALCULATE(MAX(model_evaluation[lift_at_decile]), model_evaluation[is_chosen] = 1)
+		formatString: 0.0
+		lineageTag: 0927e390-9ddf-4d57-8e05-b14b83266370
+
+	measure 'Retention Rate' = AVERAGE(retention_cohorts[retention_rate])
+		formatString: 0.0%
+		lineageTag: e86c468d-a252-4111-b403-89f8b0f901f0
+
+	measure 'Retention @ 12mo' = CALCULATE(AVERAGE(retention_cohorts[retention_rate]), retention_cohorts[cohort_year] = "All", retention_cohorts[months_since_hire] = 12)
+		formatString: 0.0%
+		lineageTag: 06bce280-1825-4ced-876e-b00adf691bb5
+
+	measure 'Candidates' = SUM(funnel_stages[candidates])
+		formatString: #,0
+		lineageTag: a4705d20-2f2c-4769-aea5-aa8be4a51d20
+
+	column Value
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ab763414-9f24-4409-a91a-3edf1c94d782
+		summarizeBy: none
+		sourceColumn: Value
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table [Value = Int64.Type], {})
+				in
+				    Source

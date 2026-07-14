@@ -1,0 +1,44 @@
+table dim_location
+	lineageTag: e1958575-95d1-45ad-ae84-55ce36bd736a
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 321c4eba-cc30-4555-8a38-3c24a57a0542
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column city
+		dataType: string
+		lineageTag: 7179c30f-9bdc-4603-ae13-f88b161eedcd
+		summarizeBy: none
+		sourceColumn: city
+
+	column region
+		dataType: string
+		lineageTag: 4d47cce0-d62a-4128-9a0e-818ae0bee445
+		summarizeBy: none
+		sourceColumn: region
+
+	column country
+		dataType: string
+		lineageTag: cf64e0f6-fd6a-451d-a2f0-75f12f5c26c1
+		summarizeBy: none
+		sourceColumn: country
+
+	column is_remote
+		dataType: int64
+		formatString: 0
+		lineageTag: 91836683-4dcf-462a-a871-03db38625b53
+		summarizeBy: none
+		sourceColumn: is_remote
+
+	partition dim_location = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_location.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"location_id", Int64.Type}, {"city", type text}, {"region", type text}, {"country", type text}, {"is_remote", Int64.Type}})
+				in
+				    Typed

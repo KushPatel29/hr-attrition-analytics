@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual5002",
+  "position": {
+    "x": 620,
+    "y": 20,
+    "z": 5002,
+    "height": 100,
+    "width": 290,
+    "tabOrder": 5002
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Offer Accept Rate"
+                }
+              },
+              "queryRef": "_Measures.Offer Accept Rate",
+              "nativeQueryRef": "Offer Accept Rate"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

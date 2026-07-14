@@ -1,0 +1,38 @@
+feature,weight,abs_weight
+tenure_months,-1.4842,1.4842
+comp_gap_vs_level,-0.6442,0.6442
+department_Customer Support,-0.6297,0.6297
+department_Data & Analytics,0.534,0.534
+compa_ratio,0.4676,0.4676
+months_since_promotion,0.4437,0.4437
+level_rank,0.3395,0.3395
+performance_rating,-0.3076,0.3076
+department_Manufacturing,0.2881,0.2881
+department_Human Resources,-0.274,0.274
+department_Supply Chain,0.2525,0.2525
+department_Software Engineering,-0.2424,0.2424
+gender_Male,-0.1865,0.1865
+engagement_score,-0.1734,0.1734
+engagement_vs_dept,-0.1698,0.1698
+age_band_35-44,-0.1689,0.1689
+department_Finance & Accounting,0.1462,0.1462
+division_Technology,0.145,0.145
+age_band_45-54,0.1442,0.1442
+department_Product Management,-0.1414,0.1414
+gender_Non-binary,0.1376,0.1376
+overtime_hours,0.1348,0.1348
+division_Corporate,-0.1278,0.1278
+department_Field Sales,-0.1093,0.1093
+region_East,-0.094,0.094
+division_Operations,-0.0892,0.0892
+commute_km,0.0814,0.0814
+gender_Female,-0.0773,0.0773
+age_band_55+,-0.0737,0.0737
+region_Remote,-0.0685,0.0685
+division_Go-To-Market,-0.0543,0.0543
+age_band_<25,-0.0465,0.0465
+region_West,0.0362,0.0362
+department_Marketing,0.0316,0.0316
+department_Inside Sales,0.0234,0.0234
+age_band_25-34,0.0187,0.0187
+department_IT Operations,-0.0053,0.0053

@@ -1,0 +1,16 @@
+HR ATTRITION & RETENTION - HEADLINE METRICS
+====================================================
+Snapshot date              : 2026-06-30
+Active headcount           :    1,483
+Trailing-12m attrition     :    19.4%
+Trailing-12m terminations  :      278
+----------------------------------------------------
+Adjusted gender pay gap     :     3.3%  (level-weighted)
+  female avg salary         : $    90,792
+  male   avg salary         : $    93,857
+----------------------------------------------------
+Applications                :    9,538
+Applied -> Hired conversion :     8.8%
+Offer accept rate           :    74.3%
+Median time-to-fill (days)  :       48
+====================================================

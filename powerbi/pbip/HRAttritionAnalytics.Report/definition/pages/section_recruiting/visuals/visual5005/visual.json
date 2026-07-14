@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual5005",
+  "position": {
+    "x": 660,
+    "y": 140,
+    "z": 5005,
+    "height": 270,
+    "width": 600,
+    "tabOrder": 5005
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "source"
+                }
+              },
+              "queryRef": "recruiting_by_source.source",
+              "nativeQueryRef": "source"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "hire_rate"
+                }
+              },
+              "queryRef": "recruiting_by_source.hire_rate",
+              "nativeQueryRef": "hire_rate"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Hire Rate by Source'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

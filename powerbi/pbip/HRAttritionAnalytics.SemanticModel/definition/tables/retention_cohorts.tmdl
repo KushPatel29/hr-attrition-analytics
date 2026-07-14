@@ -1,0 +1,58 @@
+table retention_cohorts
+	lineageTag: 16b26054-0ab0-4bd6-af17-43e08779dcd7
+
+	column cohort_year
+		dataType: string
+		lineageTag: 3c99e883-5a6b-4952-b863-1fcf8892ffdc
+		summarizeBy: none
+		sourceColumn: cohort_year
+
+	column cohort_sort
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b947f8a-2c30-4e5c-ac27-300901fd2f59
+		summarizeBy: none
+		sourceColumn: cohort_sort
+
+	column months_since_hire
+		dataType: int64
+		formatString: 0
+		lineageTag: 0eed00c7-7635-420a-8e13-f415b3b1d08e
+		summarizeBy: none
+		sourceColumn: months_since_hire
+
+	column eligible
+		dataType: int64
+		formatString: 0
+		lineageTag: cd245a7b-6fa4-487f-a5f0-705b61ababfc
+		summarizeBy: sum
+		sourceColumn: eligible
+
+	column retained
+		dataType: int64
+		formatString: 0
+		lineageTag: ee6e8be0-89da-4716-bf57-11410d2eac23
+		summarizeBy: sum
+		sourceColumn: retained
+
+	column retention_rate
+		dataType: double
+		lineageTag: fe3b9c0f-0949-4fb5-a601-ce01aad4126d
+		summarizeBy: none
+		sourceColumn: retention_rate
+
+	column retention_delta
+		dataType: double
+		lineageTag: eae8b694-0d98-4015-b4f6-7c2c0ce5e8f4
+		summarizeBy: none
+		sourceColumn: retention_delta
+
+	partition retention_cohorts = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\retention_cohorts.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"cohort_year", type text}, {"cohort_sort", Int64.Type}, {"months_since_hire", Int64.Type}, {"eligible", Int64.Type}, {"retained", Int64.Type}, {"retention_rate", type number}, {"retention_delta", type number}})
+				in
+				    Typed

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual6002",
+  "position": {
+    "x": 620,
+    "y": 20,
+    "z": 6002,
+    "height": 100,
+    "width": 290,
+    "tabOrder": 6002
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Risk Score"
+                }
+              },
+              "queryRef": "_Measures.Avg Risk Score",
+              "nativeQueryRef": "Avg Risk Score"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

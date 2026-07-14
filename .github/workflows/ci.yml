@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  hr-analytics-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r data_generator/requirements.txt
+          pip install pytest
+
+      - name: Generate synthetic HR data
+        run: python data_generator/generate_hr_data.py
+
+      - name: Run SQL analytics engine (SQLite)
+        run: python engine/run_hr_analytics.py
+
+      - name: Train + score flight-risk model
+        run: python ml/attrition_model.py
+
+      - name: Render README figures
+        run: python analytics/make_visuals.py
+
+      - name: Run test suite
+        run: pytest tests/ -v

@@ -1,0 +1,144 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual5007",
+  "position": {
+    "x": 470,
+    "y": 430,
+    "z": 5007,
+    "height": 270,
+    "width": 620,
+    "tabOrder": 5007
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "source"
+                }
+              },
+              "queryRef": "recruiting_by_source.source",
+              "nativeQueryRef": "source"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "applications"
+                }
+              },
+              "queryRef": "recruiting_by_source.applications",
+              "nativeQueryRef": "applications"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "offers"
+                }
+              },
+              "queryRef": "recruiting_by_source.offers",
+              "nativeQueryRef": "offers"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "hires"
+                }
+              },
+              "queryRef": "recruiting_by_source.hires",
+              "nativeQueryRef": "hires"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "hire_rate"
+                }
+              },
+              "queryRef": "recruiting_by_source.hire_rate",
+              "nativeQueryRef": "hire_rate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "offer_accept_rate"
+                }
+              },
+              "queryRef": "recruiting_by_source.offer_accept_rate",
+              "nativeQueryRef": "offer_accept_rate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "avg_days_to_fill"
+                }
+              },
+              "queryRef": "recruiting_by_source.avg_days_to_fill",
+              "nativeQueryRef": "avg_days_to_fill"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Source Scorecard'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

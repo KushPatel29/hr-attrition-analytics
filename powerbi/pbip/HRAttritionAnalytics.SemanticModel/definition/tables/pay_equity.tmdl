@@ -1,0 +1,81 @@
+table pay_equity
+	lineageTag: 479a3d41-c074-4a68-92df-d1e2f536e740
+
+	column job_level
+		dataType: string
+		lineageTag: 63ee295c-c4f5-4cd3-aefe-84e76444b7d9
+		summarizeBy: none
+		sourceColumn: job_level
+
+	column level_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: aa898acd-01c6-4554-bd1a-ff9acfbec95b
+		summarizeBy: none
+		sourceColumn: level_rank
+
+	column market_median
+		dataType: double
+		lineageTag: eb1241a6-017c-40fc-a4c2-22b157f90fe8
+		summarizeBy: none
+		sourceColumn: market_median
+
+	column n_female
+		dataType: int64
+		formatString: 0
+		lineageTag: 55288a00-dbee-4cca-ae30-c2485816c29f
+		summarizeBy: sum
+		sourceColumn: n_female
+
+	column n_male
+		dataType: int64
+		formatString: 0
+		lineageTag: 48002f88-b585-4aed-8718-a3ff78695b55
+		summarizeBy: sum
+		sourceColumn: n_male
+
+	column avg_salary_female
+		dataType: double
+		lineageTag: 85fe951c-95ed-4e4c-a30f-f8be803eb2e4
+		summarizeBy: none
+		sourceColumn: avg_salary_female
+
+	column avg_salary_male
+		dataType: double
+		lineageTag: c582f7a0-a8bd-4ca7-a20c-e81b23b75846
+		summarizeBy: none
+		sourceColumn: avg_salary_male
+
+	column female_compa_ratio
+		dataType: double
+		lineageTag: a2a9a94a-5944-4413-9350-387a42f540c8
+		summarizeBy: none
+		sourceColumn: female_compa_ratio
+
+	column male_compa_ratio
+		dataType: double
+		lineageTag: acf531f7-8125-4d32-a68b-8a475879693d
+		summarizeBy: none
+		sourceColumn: male_compa_ratio
+
+	column raw_gap_pct
+		dataType: double
+		lineageTag: 354906c9-95ac-4534-b819-dee868e51c8f
+		summarizeBy: none
+		sourceColumn: raw_gap_pct
+
+	column gap_flag
+		dataType: string
+		lineageTag: f598e0db-9c1f-4b6f-a5fb-9203ee488daa
+		summarizeBy: none
+		sourceColumn: gap_flag
+
+	partition pay_equity = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\pay_equity.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"job_level", type text}, {"level_rank", Int64.Type}, {"market_median", type number}, {"n_female", Int64.Type}, {"n_male", Int64.Type}, {"avg_salary_female", type number}, {"avg_salary_male", type number}, {"female_compa_ratio", type number}, {"male_compa_ratio", type number}, {"raw_gap_pct", type number}, {"gap_flag", type text}})
+				in
+				    Typed

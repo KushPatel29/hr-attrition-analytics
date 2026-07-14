@@ -1,0 +1,50 @@
+table recruiting_kpis
+	lineageTag: 8ba0e235-25dd-4692-9558-354934e0727a
+
+	column total_applications
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a5e31d7-cc13-4ed4-9f15-bcb7faa1553e
+		summarizeBy: none
+		sourceColumn: total_applications
+
+	column total_hires
+		dataType: int64
+		formatString: 0
+		lineageTag: 22ed2d9e-99c0-45e0-b240-9215f963a7cd
+		summarizeBy: none
+		sourceColumn: total_hires
+
+	column overall_hire_rate
+		dataType: double
+		lineageTag: 3a571306-7cfa-44eb-b47a-c5b8e33fa097
+		summarizeBy: none
+		sourceColumn: overall_hire_rate
+
+	column offer_accept_rate
+		dataType: double
+		lineageTag: 53376bf5-fbdb-4131-a8da-db76319f871a
+		summarizeBy: none
+		sourceColumn: offer_accept_rate
+
+	column median_days_to_fill
+		dataType: double
+		lineageTag: 304eba29-51e1-4f8e-8698-6f495f914ad8
+		summarizeBy: none
+		sourceColumn: median_days_to_fill
+
+	column avg_days_to_fill
+		dataType: double
+		lineageTag: c7c70ebe-8647-4c22-99e3-aa2ca7d40bb3
+		summarizeBy: none
+		sourceColumn: avg_days_to_fill
+
+	partition recruiting_kpis = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\recruiting_kpis.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"total_applications", Int64.Type}, {"total_hires", Int64.Type}, {"overall_hire_rate", type number}, {"offer_accept_rate", type number}, {"median_days_to_fill", type number}, {"avg_days_to_fill", type number}})
+				in
+				    Typed

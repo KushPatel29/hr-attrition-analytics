@@ -1,0 +1,83 @@
+table attrition_by_dimension
+	lineageTag: 3099184f-9c6a-46b2-ac5c-1205d928e95c
+
+	column dimension
+		dataType: string
+		lineageTag: 4cae5761-6757-4287-825a-6cce1a2d05ac
+		summarizeBy: none
+		sourceColumn: dimension
+
+	column category
+		dataType: string
+		lineageTag: 9aed48de-6bef-4fc5-a2e0-bf355167f51c
+		summarizeBy: none
+		sourceColumn: category
+
+	column sort_key
+		dataType: string
+		lineageTag: a408aebc-53f0-4977-82af-9f63f8ed0c7a
+		summarizeBy: none
+		sourceColumn: sort_key
+
+	column headcount_ever
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ffc3a5b-e185-4781-bd9e-62e434552c6a
+		summarizeBy: sum
+		sourceColumn: headcount_ever
+
+	column active_headcount
+		dataType: int64
+		formatString: 0
+		lineageTag: 8422b3a6-0427-4977-821f-df84eab9b0fe
+		summarizeBy: sum
+		sourceColumn: active_headcount
+
+	column terminations
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a24858e-e303-4fef-827e-751a330bab95
+		summarizeBy: sum
+		sourceColumn: terminations
+
+	column voluntary_terms
+		dataType: int64
+		formatString: 0
+		lineageTag: 8902fe7d-8671-4c73-8bb1-297220484d50
+		summarizeBy: sum
+		sourceColumn: voluntary_terms
+
+	column attrition_rate
+		dataType: double
+		lineageTag: dc1adb79-669a-4db6-a47a-45e2959cb492
+		summarizeBy: none
+		sourceColumn: attrition_rate
+
+	column voluntary_share
+		dataType: double
+		lineageTag: b33a769d-3bec-4c07-94f6-58501133d166
+		summarizeBy: none
+		sourceColumn: voluntary_share
+
+	column pct_of_dimension_exits
+		dataType: double
+		lineageTag: be976623-caf5-483c-923f-7e24455ac4d3
+		summarizeBy: none
+		sourceColumn: pct_of_dimension_exits
+
+	column attrition_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 29a469fc-5ac5-48d1-b258-91611b7ac4f1
+		summarizeBy: none
+		sourceColumn: attrition_rank
+
+	partition attrition_by_dimension = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\attrition_by_dimension.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dimension", type text}, {"category", type text}, {"sort_key", type text}, {"headcount_ever", Int64.Type}, {"active_headcount", Int64.Type}, {"terminations", Int64.Type}, {"voluntary_terms", Int64.Type}, {"attrition_rate", type number}, {"voluntary_share", type number}, {"pct_of_dimension_exits", type number}, {"attrition_rank", Int64.Type}})
+				in
+				    Typed

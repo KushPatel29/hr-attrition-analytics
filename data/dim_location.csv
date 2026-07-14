@@ -1,0 +1,6 @@
+location_id,city,region,country,is_remote
+1,Vancouver,West,Canada,0
+2,Calgary,West,Canada,0
+3,Toronto,East,Canada,0
+4,Montreal,East,Canada,0
+5,Remote - Canada,Remote,Canada,1

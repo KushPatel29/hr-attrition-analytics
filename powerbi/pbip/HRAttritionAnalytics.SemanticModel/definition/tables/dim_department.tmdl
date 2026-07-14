@@ -1,0 +1,31 @@
+table dim_department
+	lineageTag: 44e96b40-e302-4291-bcf7-765e8d4d1a12
+
+	column department_id
+		dataType: int64
+		formatString: 0
+		lineageTag: e25bf945-89b4-4ada-9577-6acedeb087e0
+		summarizeBy: none
+		sourceColumn: department_id
+
+	column department
+		dataType: string
+		lineageTag: 4c49b97a-9506-4b35-8a7f-f266a229e455
+		summarizeBy: none
+		sourceColumn: department
+
+	column division
+		dataType: string
+		lineageTag: 91d084f3-54b1-494a-bee1-0dd299e27154
+		summarizeBy: none
+		sourceColumn: division
+
+	partition dim_department = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_department.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"department_id", Int64.Type}, {"department", type text}, {"division", type text}})
+				in
+				    Typed

@@ -1,0 +1,19 @@
+relationship e69a06b3-637f-4d99-925a-5d518dfbab90
+	fromColumn: fact_employees.department_id
+	toColumn: dim_department.department_id
+
+relationship 38bf455d-7cd1-4aa6-b99f-485f70a82edc
+	fromColumn: fact_employees.job_id
+	toColumn: dim_job.job_id
+
+relationship 831f350a-bcca-407b-9079-0b3c58d6104c
+	fromColumn: fact_employees.location_id
+	toColumn: dim_location.location_id
+
+relationship e2424f91-9916-4b3f-a61f-c978c6115005
+	fromColumn: flight_risk_scores.employee_id
+	toColumn: fact_employees.employee_id
+
+relationship 4ab294fb-e6ca-4005-8589-58beb2bb1236
+	fromColumn: workforce_kpis.month
+	toColumn: dim_date.month

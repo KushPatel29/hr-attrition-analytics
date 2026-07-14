@@ -1,0 +1,10 @@
+job_id,job_title,job_level,level_rank,is_management
+1,Associate,Associate,1,0
+2,Analyst,Analyst,2,0
+3,Senior Analyst,Senior Analyst,3,0
+4,Specialist,Specialist,3,0
+5,Senior Specialist,Senior Specialist,4,0
+6,Lead,Lead,5,0
+7,Manager,Manager,6,1
+8,Senior Manager,Senior Manager,7,1
+9,Director,Director,8,1

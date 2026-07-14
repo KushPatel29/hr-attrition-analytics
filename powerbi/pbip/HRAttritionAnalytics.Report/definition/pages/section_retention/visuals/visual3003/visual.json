@@ -1,0 +1,96 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual3003",
+  "position": {
+    "x": 20,
+    "y": 140,
+    "z": 3003,
+    "height": 270,
+    "width": 620,
+    "tabOrder": 3003
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_cohorts"
+                    }
+                  },
+                  "Property": "months_since_hire"
+                }
+              },
+              "queryRef": "retention_cohorts.months_since_hire",
+              "nativeQueryRef": "months_since_hire"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_cohorts"
+                    }
+                  },
+                  "Property": "cohort_year"
+                }
+              },
+              "queryRef": "retention_cohorts.cohort_year",
+              "nativeQueryRef": "cohort_year"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_cohorts"
+                    }
+                  },
+                  "Property": "retention_rate"
+                }
+              },
+              "queryRef": "retention_cohorts.retention_rate",
+              "nativeQueryRef": "retention_rate"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Retention Curve by Cohort'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

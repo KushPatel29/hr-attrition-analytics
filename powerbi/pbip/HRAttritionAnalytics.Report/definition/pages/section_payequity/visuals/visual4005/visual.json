@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual4005",
+  "position": {
+    "x": 600,
+    "y": 140,
+    "z": 4005,
+    "height": 270,
+    "width": 660,
+    "tabOrder": 4005
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "job_level"
+                }
+              },
+              "queryRef": "pay_equity_levels.job_level",
+              "nativeQueryRef": "job_level"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "avg_salary_female"
+                }
+              },
+              "queryRef": "pay_equity_levels.avg_salary_female",
+              "nativeQueryRef": "avg_salary_female"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "avg_salary_male"
+                }
+              },
+              "queryRef": "pay_equity_levels.avg_salary_male",
+              "nativeQueryRef": "avg_salary_male"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Avg Salary by Level & Gender'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

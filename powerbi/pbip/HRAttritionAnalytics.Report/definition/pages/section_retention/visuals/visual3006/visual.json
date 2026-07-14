@@ -1,0 +1,116 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual3006",
+  "position": {
+    "x": 440,
+    "y": 430,
+    "z": 3006,
+    "height": 270,
+    "width": 620,
+    "tabOrder": 3006
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_cohorts"
+                    }
+                  },
+                  "Property": "cohort_year"
+                }
+              },
+              "queryRef": "retention_cohorts.cohort_year",
+              "nativeQueryRef": "cohort_year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_cohorts"
+                    }
+                  },
+                  "Property": "months_since_hire"
+                }
+              },
+              "queryRef": "retention_cohorts.months_since_hire",
+              "nativeQueryRef": "months_since_hire"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_cohorts"
+                    }
+                  },
+                  "Property": "eligible"
+                }
+              },
+              "queryRef": "retention_cohorts.eligible",
+              "nativeQueryRef": "eligible"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_cohorts"
+                    }
+                  },
+                  "Property": "retained"
+                }
+              },
+              "queryRef": "retention_cohorts.retained",
+              "nativeQueryRef": "retained"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "retention_cohorts"
+                    }
+                  },
+                  "Property": "retention_rate"
+                }
+              },
+              "queryRef": "retention_cohorts.retention_rate",
+              "nativeQueryRef": "retention_rate"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cohort Survival Detail'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

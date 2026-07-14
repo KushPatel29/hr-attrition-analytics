@@ -1,0 +1,13 @@
+department_id,department,division
+1,Software Engineering,Technology
+2,Data & Analytics,Technology
+3,IT Operations,Technology
+4,Product Management,Technology
+5,Field Sales,Go-To-Market
+6,Inside Sales,Go-To-Market
+7,Marketing,Go-To-Market
+8,Customer Support,Operations
+9,Supply Chain,Operations
+10,Manufacturing,Operations
+11,Finance & Accounting,Corporate
+12,Human Resources,Corporate

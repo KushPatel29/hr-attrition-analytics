@@ -1,0 +1,4 @@
+model,roc_auc,pr_auc,lift_at_decile,is_chosen
+Baseline (prevalence),0.5,0.2193,1.36,0
+Logistic Regression,0.7359,0.4407,2.4,1
+Random Forest,0.7302,0.4778,2.4,0

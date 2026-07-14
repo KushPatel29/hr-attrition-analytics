@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+  "pageOrder": [
+    "section_workforce",
+    "section_attrition",
+    "section_retention",
+    "section_payequity",
+    "section_recruiting",
+    "section_flightrisk"
+  ],
+  "activePageName": "section_workforce"
+}

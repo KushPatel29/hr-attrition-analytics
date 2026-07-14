@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "HRAttritionAnalytics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "410cc664-7f66-4518-bd25-24a3361e02d5"
+  }
+}

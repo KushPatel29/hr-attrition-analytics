@@ -1,0 +1,6 @@
+stage,stage_order,candidates,conversion_from_prev,overall_conversion
+Applied,1,9538,,1.0
+Screened,2,5884,0.6169,0.6169
+Interviewed,3,3323,0.5648,0.3484
+Offer,4,1135,0.3416,0.119
+Hired,5,843,0.7427,0.0884

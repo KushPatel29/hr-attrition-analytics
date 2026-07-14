@@ -1,0 +1,64 @@
+table recruiting_by_source
+	lineageTag: cdcfb2ff-32bc-4077-a874-91c3a6f5486a
+
+	column source
+		dataType: string
+		lineageTag: 7ceba208-5722-48b8-8226-118be2dacb7e
+		summarizeBy: none
+		sourceColumn: source
+
+	column applications
+		dataType: int64
+		formatString: 0
+		lineageTag: a43d8e61-0a6f-48a0-bc6c-5448734f8169
+		summarizeBy: sum
+		sourceColumn: applications
+
+	column offers
+		dataType: int64
+		formatString: 0
+		lineageTag: 348380e4-ff9f-485c-a280-3c630a109566
+		summarizeBy: sum
+		sourceColumn: offers
+
+	column hires
+		dataType: int64
+		formatString: 0
+		lineageTag: b97a19d1-24e1-49bb-b4bd-075e9300ae3d
+		summarizeBy: sum
+		sourceColumn: hires
+
+	column hire_rate
+		dataType: double
+		lineageTag: 6f95a1a1-cdf8-4645-81f7-7e9c0629e228
+		summarizeBy: none
+		sourceColumn: hire_rate
+
+	column offer_accept_rate
+		dataType: double
+		lineageTag: c22ae7e2-e372-4169-a6e4-a4d3678362d1
+		summarizeBy: none
+		sourceColumn: offer_accept_rate
+
+	column avg_days_to_fill
+		dataType: double
+		lineageTag: 65c7be29-cab0-4d10-a966-b20057d2cae2
+		summarizeBy: none
+		sourceColumn: avg_days_to_fill
+
+	column hire_rate_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: dbf4b77d-e7b7-4f90-9759-41247bb146d3
+		summarizeBy: none
+		sourceColumn: hire_rate_rank
+
+	partition recruiting_by_source = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\recruiting_by_source.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"source", type text}, {"applications", Int64.Type}, {"offers", Int64.Type}, {"hires", Int64.Type}, {"hire_rate", type number}, {"offer_accept_rate", type number}, {"avg_days_to_fill", type number}, {"hire_rate_rank", Int64.Type}})
+				in
+				    Typed

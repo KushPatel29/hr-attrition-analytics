@@ -1,0 +1,78 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual5006",
+  "position": {
+    "x": 20,
+    "y": 430,
+    "z": 5006,
+    "height": 270,
+    "width": 430,
+    "tabOrder": 5006
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "source"
+                }
+              },
+              "queryRef": "recruiting_by_source.source",
+              "nativeQueryRef": "source"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "recruiting_by_source"
+                    }
+                  },
+                  "Property": "avg_days_to_fill"
+                }
+              },
+              "queryRef": "recruiting_by_source.avg_days_to_fill",
+              "nativeQueryRef": "avg_days_to_fill"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Avg Time-to-Fill by Source'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

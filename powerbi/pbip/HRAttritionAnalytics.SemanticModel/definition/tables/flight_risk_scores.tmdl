@@ -1,0 +1,67 @@
+table flight_risk_scores
+	lineageTag: dff7d929-f32f-4773-9ea3-017778c39445
+
+	column employee_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 5fa35679-d3aa-41ce-a651-dabc4a9be1d9
+		summarizeBy: none
+		sourceColumn: employee_id
+
+	column department
+		dataType: string
+		lineageTag: 3c124ed5-02cf-4f27-bc05-63373f59e3ef
+		summarizeBy: none
+		sourceColumn: department
+
+	column job_level
+		dataType: string
+		lineageTag: e26839b7-1759-4aa4-8ec8-aeadbaa600b1
+		summarizeBy: none
+		sourceColumn: job_level
+
+	column region
+		dataType: string
+		lineageTag: 7be2b2f0-2b1f-4d3b-ab11-4f07e63b9e76
+		summarizeBy: none
+		sourceColumn: region
+
+	column tenure_months
+		dataType: double
+		lineageTag: ae8b86e1-e70a-4b1b-b752-818cc9ad2730
+		summarizeBy: none
+		sourceColumn: tenure_months
+
+	column engagement_score
+		dataType: double
+		lineageTag: 3c6aaaf3-85af-4b16-995d-a9b0a6e5ac28
+		summarizeBy: none
+		sourceColumn: engagement_score
+
+	column risk_score
+		dataType: double
+		lineageTag: 1094463f-0b03-49ac-ab93-a8a66f434dcd
+		summarizeBy: none
+		sourceColumn: risk_score
+
+	column risk_band
+		dataType: string
+		lineageTag: 5aa2eedb-4095-4ffc-b812-b865b4fad4e3
+		summarizeBy: none
+		sourceColumn: risk_band
+
+	column top_reason
+		dataType: string
+		lineageTag: de030576-34fd-4e66-9a91-8fe9e126e2be
+		summarizeBy: none
+		sourceColumn: top_reason
+
+	partition flight_risk_scores = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\flight_risk_scores.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"employee_id", Int64.Type}, {"department", type text}, {"job_level", type text}, {"region", type text}, {"tenure_months", type number}, {"engagement_score", type number}, {"risk_score", type number}, {"risk_band", type text}, {"top_reason", type text}})
+				in
+				    Typed

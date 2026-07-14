@@ -1,0 +1,144 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual4007",
+  "position": {
+    "x": 660,
+    "y": 430,
+    "z": 4007,
+    "height": 270,
+    "width": 600,
+    "tabOrder": 4007
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "job_level"
+                }
+              },
+              "queryRef": "pay_equity_levels.job_level",
+              "nativeQueryRef": "job_level"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "n_female"
+                }
+              },
+              "queryRef": "pay_equity_levels.n_female",
+              "nativeQueryRef": "n_female"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "n_male"
+                }
+              },
+              "queryRef": "pay_equity_levels.n_male",
+              "nativeQueryRef": "n_male"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "avg_salary_female"
+                }
+              },
+              "queryRef": "pay_equity_levels.avg_salary_female",
+              "nativeQueryRef": "avg_salary_female"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "avg_salary_male"
+                }
+              },
+              "queryRef": "pay_equity_levels.avg_salary_male",
+              "nativeQueryRef": "avg_salary_male"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "raw_gap_pct"
+                }
+              },
+              "queryRef": "pay_equity_levels.raw_gap_pct",
+              "nativeQueryRef": "raw_gap_pct"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "gap_flag"
+                }
+              },
+              "queryRef": "pay_equity_levels.gap_flag",
+              "nativeQueryRef": "gap_flag"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Pay Equity by Level'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

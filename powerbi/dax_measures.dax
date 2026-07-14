@@ -1,0 +1,55 @@
+// DAX measures for the HR Attrition Analytics model (_Measures table).
+// This is a readable reference; the authoritative definitions live in the
+// TMDL at powerbi/pbip/HRAttritionAnalytics.SemanticModel/definition/tables/_Measures.tmdl
+
+// ---- Workforce ----
+Total Employees      = COUNTROWS(fact_employees)
+Headcount            = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 1)
+Terminations         = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 0)
+Voluntary Terminations   = CALCULATE(COUNTROWS(fact_employees), fact_employees[term_type] = "Voluntary")
+Involuntary Terminations = CALCULATE(COUNTROWS(fact_employees), fact_employees[term_type] = "Involuntary")
+Separation Rate      = DIVIDE([Terminations], [Total Employees])
+Voluntary %          = DIVIDE([Voluntary Terminations], [Terminations])
+Avg Tenure (Months)  = AVERAGE(fact_employees[tenure_months])
+Avg Tenure (Yrs)     = DIVIDE([Avg Tenure (Months)], 12)
+Avg Salary           = AVERAGE(fact_employees[base_salary])
+Avg Engagement       = AVERAGE(fact_employees[engagement_score])
+Avg Compa-Ratio      = AVERAGE(fact_employees[compa_ratio])
+
+// ---- Trailing-12-month attrition (from the SQL-built monthly series) ----
+Attrition Rate (T12M) =
+    VAR L = CALCULATE(MAX(workforce_kpis[month]), ALL(workforce_kpis))
+    RETURN CALCULATE(MAX(workforce_kpis[rolling_12m_attrition_rate]), workforce_kpis[month] = L)
+Attrition Target     = 0.15
+
+// ---- Pay equity ----
+Adjusted Pay Gap     = CALCULATE(MAX(pay_equity[raw_gap_pct]), pay_equity[job_level] = "ALL (level-adjusted)")
+Compa Target         = 1
+
+// ---- Retention ----
+Retention Rate       = AVERAGE(retention_cohorts[retention_rate])
+Retention @ 12mo     =
+    CALCULATE(AVERAGE(retention_cohorts[retention_rate]),
+              retention_cohorts[cohort_year] = "All",
+              retention_cohorts[months_since_hire] = 12)
+
+// ---- Recruiting ----
+Total Applications   = MAX(recruiting_kpis[total_applications])
+Total Hires          = MAX(recruiting_kpis[total_hires])
+Applied to Hired %   = MAX(recruiting_kpis[overall_hire_rate])
+Offer Accept Rate    = MAX(recruiting_kpis[offer_accept_rate])
+Median Time to Fill  = MAX(recruiting_kpis[median_days_to_fill])
+Candidates           = SUM(funnel_stages[candidates])
+
+// ---- Flight risk (ML) ----
+Scored Employees     = COUNTROWS(flight_risk_scores)
+High Risk Count      = CALCULATE(COUNTROWS(flight_risk_scores), flight_risk_scores[risk_band] = "High")
+High Risk %          = DIVIDE([High Risk Count], [Scored Employees])
+Avg Risk Score       = AVERAGE(flight_risk_scores[risk_score])
+Avg Tenure (Scored)      = AVERAGE(flight_risk_scores[tenure_months])
+Avg Engagement (Scored)  = AVERAGE(flight_risk_scores[engagement_score])
+Model ROC-AUC        = CALCULATE(MAX(model_evaluation[roc_auc]), model_evaluation[is_chosen] = 1)
+Top Decile Lift      = CALCULATE(MAX(model_evaluation[lift_at_decile]), model_evaluation[is_chosen] = 1)
+
+// ---- Attrition-by-segment helper ----
+Segment Attrition Rate = AVERAGE(attrition_by_dimension[attrition_rate])

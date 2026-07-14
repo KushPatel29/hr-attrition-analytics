@@ -1,0 +1,114 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual6006",
+  "position": {
+    "x": 840,
+    "y": 140,
+    "z": 6006,
+    "height": 270,
+    "width": 420,
+    "tabOrder": 6006
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "flight_risk_scores"
+                    }
+                  },
+                  "Property": "employee_id"
+                }
+              },
+              "queryRef": "flight_risk_scores.employee_id",
+              "nativeQueryRef": "employee_id"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "flight_risk_scores"
+                    }
+                  },
+                  "Property": "risk_band"
+                }
+              },
+              "queryRef": "flight_risk_scores.risk_band",
+              "nativeQueryRef": "risk_band"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "flight_risk_scores"
+                    }
+                  },
+                  "Property": "tenure_months"
+                }
+              },
+              "queryRef": "flight_risk_scores.tenure_months",
+              "nativeQueryRef": "tenure_months"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "flight_risk_scores"
+                    }
+                  },
+                  "Property": "engagement_score"
+                }
+              },
+              "queryRef": "flight_risk_scores.engagement_score",
+              "nativeQueryRef": "engagement_score"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tenure vs Engagement by Risk'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
