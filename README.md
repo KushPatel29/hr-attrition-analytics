@@ -115,21 +115,42 @@ stops beating the baseline or drops below 0.68 AUC.
 A 6-page interactive Power BI report, hand-authored as a Power BI Project
 (TMDL model + PBIR definition) in [`powerbi/pbip/`](powerbi/pbip/) — open
 `HRAttritionAnalytics.pbip` in Power BI Desktop and Refresh
-([build guide](powerbi/BUILD_GUIDE.md)):
+([build guide](powerbi/BUILD_GUIDE.md)). 53 visuals across 6 pages, styled with
+the shared Meridian Corporate theme. Screenshots below are the live report
+rendered in Power BI Desktop against the pipeline outputs.
 
-1. **Workforce Scorecard** — KPI cards, attrition gauge vs target, headcount
-   trend, 12-month **waterfall** bridge.
-2. **Attrition Deep-Dive** — rate by department, voluntary/involuntary
-   **donut**, exits-by-level **treemap**, rolling-attrition line.
-3. **Retention & Cohorts** — cohort survival lines and a **retention-triangle
-   matrix**.
-4. **Pay Equity** — compa-ratio gauge, salary-by-gender columns, **scatter**,
-   per-level gap table.
-5. **Recruiting Funnel** — pipeline **funnel**, source ROI, time-to-fill.
-6. **Flight Risk (ML)** — high-risk **treemap**, risk-band mix, tenure ×
-   engagement **scatter**, and an actionable **retention watch list**.
+**Workforce Scorecard** — KPI cards, attrition gauge vs target, headcount trend,
+and a 12-month **waterfall** bridge (begin + hires − terms = end):
 
-53 visuals in total, styled with the shared Meridian Corporate theme.
+![Workforce Scorecard](powerbi/screenshots/01-workforce-scorecard.png)
+
+**Attrition Deep-Dive** — rate by department, voluntary/involuntary **donut**,
+exits-by-level **treemap**, rolling-attrition trend, and the early-tenure risk
+spike:
+
+![Attrition Deep-Dive](powerbi/screenshots/02-attrition-deep-dive.png)
+
+**Retention & Cohorts** — cohort survival curves and the **retention-triangle
+matrix** (each hire-year cohort's % retained at each tenure milestone):
+
+![Retention & Cohorts](powerbi/screenshots/03-retention-cohorts.png)
+
+**Pay Equity** — compa-ratio gauge, salary-by-gender columns, a **scatter**, and
+the per-level gap table straight from the SQL:
+
+![Pay Equity](powerbi/screenshots/04-pay-equity.png)
+
+**Recruiting Funnel** — the hiring **funnel**, hire-rate and time-to-fill by
+source, and a source scorecard:
+
+![Recruiting Funnel](powerbi/screenshots/05-recruiting-funnel.png)
+
+**Flight Risk (ML)** — high-risk **treemap**, risk-band mix, a tenure ×
+engagement **scatter** (the high-risk cluster sits at low tenure / low
+engagement), and an actionable **retention watch list** with per-employee
+reasons:
+
+![Flight Risk (ML)](powerbi/screenshots/06-flight-risk-ml.png)
 
 ## Architecture
 

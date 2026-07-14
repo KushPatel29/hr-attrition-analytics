@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "recruiting_by_source"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "avg_days_to_fill"
+                  "Property": "Src Time to Fill"
                 }
               },
-              "queryRef": "recruiting_by_source.avg_days_to_fill",
-              "nativeQueryRef": "avg_days_to_fill"
+              "queryRef": "_Measures.Src Time to Fill",
+              "nativeQueryRef": "Src Time to Fill"
             }
           ]
         }

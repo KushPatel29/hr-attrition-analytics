@@ -55,8 +55,10 @@ def _style(ax, title, subtitle=None):
 
 def headcount_bridge():
     df = pd.read_csv(OUT / "headcount_bridge.csv").sort_values("sort_order")
-    labels = df["bucket"].tolist()
-    values = df["value"].tolist()
+    # Append the computed ending headcount as the closing absolute bar.
+    end_val = int(df["value"].sum())
+    labels = df["bucket"].tolist() + ["Headcount now"]
+    values = df["value"].tolist() + [end_val]
     fig, ax = plt.subplots(figsize=(8, 4.5))
     running = 0
     for i, (lab, val) in enumerate(zip(labels, values)):

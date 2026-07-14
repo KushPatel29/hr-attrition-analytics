@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "workforce_kpis"
+                      "Entity": "dim_date"
                     }
                   },
-                  "Property": "month"
+                  "Property": "month_start"
                 }
               },
-              "queryRef": "workforce_kpis.month",
-              "nativeQueryRef": "month"
+              "queryRef": "dim_date.month_start",
+              "nativeQueryRef": "month_start"
             }
           ]
         },
@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "workforce_kpis"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "headcount"
+                  "Property": "Monthly Headcount"
                 }
               },
-              "queryRef": "workforce_kpis.headcount",
-              "nativeQueryRef": "headcount"
+              "queryRef": "_Measures.Monthly Headcount",
+              "nativeQueryRef": "Monthly Headcount"
             }
           ]
         }

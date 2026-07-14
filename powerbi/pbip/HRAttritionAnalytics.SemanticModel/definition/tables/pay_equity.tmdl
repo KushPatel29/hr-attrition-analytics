@@ -1,72 +1,72 @@
 table pay_equity
-	lineageTag: 479a3d41-c074-4a68-92df-d1e2f536e740
+	lineageTag: 9705fa87-9ba1-44fc-bf27-4ac966498d72
 
 	column job_level
 		dataType: string
-		lineageTag: 63ee295c-c4f5-4cd3-aefe-84e76444b7d9
+		lineageTag: ea4a9c75-c6c2-422a-ba09-c43da2dbc04e
 		summarizeBy: none
 		sourceColumn: job_level
 
 	column level_rank
 		dataType: int64
 		formatString: 0
-		lineageTag: aa898acd-01c6-4554-bd1a-ff9acfbec95b
+		lineageTag: f5349042-d652-43fb-bcca-c9f96f272a06
 		summarizeBy: none
 		sourceColumn: level_rank
 
 	column market_median
 		dataType: double
-		lineageTag: eb1241a6-017c-40fc-a4c2-22b157f90fe8
+		lineageTag: d7dfd86f-5577-4a56-953d-986178a37fc1
 		summarizeBy: none
 		sourceColumn: market_median
 
 	column n_female
 		dataType: int64
 		formatString: 0
-		lineageTag: 55288a00-dbee-4cca-ae30-c2485816c29f
+		lineageTag: 6ea4e20e-25c4-41fc-8407-818bb9e87db3
 		summarizeBy: sum
 		sourceColumn: n_female
 
 	column n_male
 		dataType: int64
 		formatString: 0
-		lineageTag: 48002f88-b585-4aed-8718-a3ff78695b55
+		lineageTag: 6a5694ff-3df5-4370-b65c-2b03d9f00fb1
 		summarizeBy: sum
 		sourceColumn: n_male
 
 	column avg_salary_female
 		dataType: double
-		lineageTag: 85fe951c-95ed-4e4c-a30f-f8be803eb2e4
+		lineageTag: fcade52a-cc62-4490-8b64-2c0243938a5e
 		summarizeBy: none
 		sourceColumn: avg_salary_female
 
 	column avg_salary_male
 		dataType: double
-		lineageTag: c582f7a0-a8bd-4ca7-a20c-e81b23b75846
+		lineageTag: 02b902b5-8688-4e3d-bdf0-171a64901853
 		summarizeBy: none
 		sourceColumn: avg_salary_male
 
 	column female_compa_ratio
 		dataType: double
-		lineageTag: a2a9a94a-5944-4413-9350-387a42f540c8
+		lineageTag: beaa78bd-f42e-4ed6-a8d7-e5468ada191e
 		summarizeBy: none
 		sourceColumn: female_compa_ratio
 
 	column male_compa_ratio
 		dataType: double
-		lineageTag: acf531f7-8125-4d32-a68b-8a475879693d
+		lineageTag: 4713ff71-b687-4e0f-9894-275a8b6fced7
 		summarizeBy: none
 		sourceColumn: male_compa_ratio
 
 	column raw_gap_pct
 		dataType: double
-		lineageTag: 354906c9-95ac-4534-b819-dee868e51c8f
+		lineageTag: 039b1706-310f-4222-aa97-1f8899f5ec5d
 		summarizeBy: none
 		sourceColumn: raw_gap_pct
 
 	column gap_flag
 		dataType: string
-		lineageTag: f598e0db-9c1f-4b6f-a5fb-9203ee488daa
+		lineageTag: fe2ee887-b7b4-4328-bd4a-ec721e7ef9d1
 		summarizeBy: none
 		sourceColumn: gap_flag
 

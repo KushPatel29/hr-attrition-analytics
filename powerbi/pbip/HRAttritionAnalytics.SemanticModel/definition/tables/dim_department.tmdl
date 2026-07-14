@@ -1,22 +1,22 @@
 table dim_department
-	lineageTag: 44e96b40-e302-4291-bcf7-765e8d4d1a12
+	lineageTag: ba14263e-e69e-4383-8dfd-d0e0c6e96fb6
 
 	column department_id
 		dataType: int64
 		formatString: 0
-		lineageTag: e25bf945-89b4-4ada-9577-6acedeb087e0
+		lineageTag: 33ff69d4-eee9-4df4-8651-426cf25f8dbc
 		summarizeBy: none
 		sourceColumn: department_id
 
 	column department
 		dataType: string
-		lineageTag: 4c49b97a-9506-4b35-8a7f-f266a229e455
+		lineageTag: f434f438-1668-45cc-8747-e4d1b5489a6f
 		summarizeBy: none
 		sourceColumn: department
 
 	column division
 		dataType: string
-		lineageTag: 91d084f3-54b1-494a-bee1-0dd299e27154
+		lineageTag: 9a35ef2e-218e-4ac8-a0d7-eb4d5f1fabf1
 		summarizeBy: none
 		sourceColumn: division
 

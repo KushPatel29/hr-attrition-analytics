@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "workforce_kpis"
+                      "Entity": "dim_date"
                     }
                   },
-                  "Property": "month"
+                  "Property": "month_start"
                 }
               },
-              "queryRef": "workforce_kpis.month",
-              "nativeQueryRef": "month"
+              "queryRef": "dim_date.month_start",
+              "nativeQueryRef": "month_start"
             }
           ]
         },
@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "workforce_kpis"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "rolling_12m_attrition_rate"
+                  "Property": "Rolling 12m Attrition"
                 }
               },
-              "queryRef": "workforce_kpis.rolling_12m_attrition_rate",
-              "nativeQueryRef": "rolling_12m_attrition_rate"
+              "queryRef": "_Measures.Rolling 12m Attrition",
+              "nativeQueryRef": "Rolling 12m Attrition"
             }
           ]
         }

@@ -53,17 +53,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "flight_risk_scores"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "tenure_months"
+                  "Property": "Avg Tenure (Scored)"
                 }
               },
-              "queryRef": "flight_risk_scores.tenure_months",
-              "nativeQueryRef": "tenure_months"
+              "queryRef": "_Measures.Avg Tenure (Scored)",
+              "nativeQueryRef": "Avg Tenure (Scored)"
             }
           ]
         },
@@ -71,17 +71,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "flight_risk_scores"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "engagement_score"
+                  "Property": "Avg Engagement (Scored)"
                 }
               },
-              "queryRef": "flight_risk_scores.engagement_score",
-              "nativeQueryRef": "engagement_score"
+              "queryRef": "_Measures.Avg Engagement (Scored)",
+              "nativeQueryRef": "Avg Engagement (Scored)"
             }
           ]
         }

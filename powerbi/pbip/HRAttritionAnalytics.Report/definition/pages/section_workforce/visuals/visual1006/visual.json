@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "headcount_bridge"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "value"
+                  "Property": "Bridge Value"
                 }
               },
-              "queryRef": "headcount_bridge.value",
-              "nativeQueryRef": "value"
+              "queryRef": "_Measures.Bridge Value",
+              "nativeQueryRef": "Bridge Value"
             }
           ]
         }

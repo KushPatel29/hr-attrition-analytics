@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "funnel_stages"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "candidates"
+                  "Property": "Candidates"
                 }
               },
-              "queryRef": "funnel_stages.candidates",
-              "nativeQueryRef": "candidates"
+              "queryRef": "_Measures.Candidates",
+              "nativeQueryRef": "Candidates"
             }
           ]
         }

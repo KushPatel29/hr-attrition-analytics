@@ -1,69 +1,69 @@
 table workforce_kpis
-	lineageTag: 861bae61-75e5-4e35-82d0-9ba5fa3f7034
+	lineageTag: 41f3e812-93a5-4854-8ad0-6df471d29d13
 
 	column month
 		dataType: string
-		lineageTag: 533ea486-effe-408a-a9f0-ad3208a613d2
+		lineageTag: 46326b71-b2cc-4a4a-84db-fffeebbe9acb
 		summarizeBy: none
 		sourceColumn: month
 
 	column headcount
 		dataType: int64
 		formatString: 0
-		lineageTag: ad0c7305-a24b-4541-afe2-b3a521649661
+		lineageTag: 6075603a-92c2-42ca-8771-5eddb5204829
 		summarizeBy: sum
 		sourceColumn: headcount
 
 	column hires
 		dataType: int64
 		formatString: 0
-		lineageTag: ba603e30-7357-4823-8db5-295fc48dc0ed
+		lineageTag: bbae7663-a189-49b7-b055-78867a33bb28
 		summarizeBy: sum
 		sourceColumn: hires
 
 	column terminations
 		dataType: int64
 		formatString: 0
-		lineageTag: bb2f0076-3506-4322-aa0c-d09ba81ae612
+		lineageTag: 8073a35d-a945-4982-9d3c-c81a96ae1b94
 		summarizeBy: sum
 		sourceColumn: terminations
 
 	column voluntary_terms
 		dataType: int64
 		formatString: 0
-		lineageTag: 96c48ab4-cce9-4e09-8f93-e958c18e2dab
+		lineageTag: 59f2c8c9-19c7-426d-b3d6-d45843be4816
 		summarizeBy: sum
 		sourceColumn: voluntary_terms
 
 	column involuntary_terms
 		dataType: int64
 		formatString: 0
-		lineageTag: d81e4816-c543-402d-9fb9-eae19b41ce1c
+		lineageTag: 50e0b9d5-4cea-4ba8-8df0-b48524ec16e4
 		summarizeBy: sum
 		sourceColumn: involuntary_terms
 
 	column monthly_turnover_rate
 		dataType: double
-		lineageTag: bb7c120d-e2da-43f0-8e09-8a6b4cb137e5
+		lineageTag: 6449d0bf-b314-439e-9f61-34b2d78dd263
 		summarizeBy: none
 		sourceColumn: monthly_turnover_rate
 
 	column rolling_12m_terms
 		dataType: int64
 		formatString: 0
-		lineageTag: a4636bc5-e6b7-4cc5-b94d-126e610d7ba5
+		lineageTag: 3a4292a1-d256-4f74-8750-6946705f776a
 		summarizeBy: sum
 		sourceColumn: rolling_12m_terms
 
 	column rolling_12m_avg_headcount
 		dataType: double
-		lineageTag: 7062f70c-e413-4725-920b-a84b9c6a4345
+		lineageTag: a0ca90c2-8c8c-4601-93ee-c435aab4f27c
 		summarizeBy: none
 		sourceColumn: rolling_12m_avg_headcount
 
 	column rolling_12m_attrition_rate
 		dataType: double
-		lineageTag: 7367fbba-4de4-4f66-9c2b-d6320d7fca74
+		lineageTag: 2ccd3d2f-2f51-4468-be9f-1c5ca9637e7c
 		summarizeBy: none
 		sourceColumn: rolling_12m_attrition_rate
 

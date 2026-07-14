@@ -1,4 +1,4 @@
 expression DataPath = "C:\Users\kush2\Claude\portfolio-projects\hr-attrition-analytics" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
-	lineageTag: 91a38019-0c1e-4fc4-89cb-794426f38d7e
+	lineageTag: 7267aa79-49ed-4f47-b883-b20c1df61f25
 
 	annotation PBI_ResultType = Text

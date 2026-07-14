@@ -1,35 +1,35 @@
 table dim_date
-	lineageTag: c911e3bf-50bd-4153-bd0b-7bb43a138503
+	lineageTag: d5343fe0-8bf3-48ac-b8f9-f236e61719df
 
 	column month
 		dataType: string
-		lineageTag: fae9c29b-2a01-4f79-9438-85e9a1057a53
+		lineageTag: 1a2686d6-c267-4a94-8530-a44057802fff
 		summarizeBy: none
 		sourceColumn: month
 
 	column month_start
-		dataType: string
-		lineageTag: e76c5db8-d1d2-4c1e-ae94-bcc2ae912837
+		dataType: datetime
+		lineageTag: 0a21f70c-e247-4c0d-9cbb-94148b72b1ab
 		summarizeBy: none
 		sourceColumn: month_start
 
 	column year
 		dataType: int64
 		formatString: 0
-		lineageTag: 259c44aa-f002-4a27-b224-1dea51b568ce
+		lineageTag: 816120b9-8c1a-40d9-bd21-4c07a113ed87
 		summarizeBy: none
 		sourceColumn: year
 
 	column quarter
 		dataType: string
-		lineageTag: 589268b8-d017-4621-8cf6-4dcb277809b1
+		lineageTag: 8a68a3e2-0085-4018-abc0-817945c20680
 		summarizeBy: none
 		sourceColumn: quarter
 
 	column month_num
 		dataType: int64
 		formatString: 0
-		lineageTag: 79401a6c-10de-4ff5-9f8d-cb346b5ac03f
+		lineageTag: 99e894bb-157e-4712-8cb1-f76fa0cd3b87
 		summarizeBy: none
 		sourceColumn: month_num
 
@@ -39,6 +39,6 @@ table dim_date
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_date.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"month_start", type text}, {"year", Int64.Type}, {"quarter", type text}, {"month_num", Int64.Type}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"month_start", type date}, {"year", Int64.Type}, {"quarter", type text}, {"month_num", Int64.Type}})
 				in
 				    Typed

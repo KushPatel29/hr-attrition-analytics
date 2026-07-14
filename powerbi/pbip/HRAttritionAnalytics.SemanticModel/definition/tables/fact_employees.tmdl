@@ -1,135 +1,135 @@
 table fact_employees
-	lineageTag: 41ff2b8e-442a-4798-a6a3-8b9984143ad6
+	lineageTag: 9a1b4064-958a-4305-a0d5-6162787914ee
 
 	column employee_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 9bf4fc1a-74f6-4f82-a1c5-7920d10cecf4
+		lineageTag: 1dc6d4e6-2976-431d-bdf7-7b6db351b465
 		summarizeBy: none
 		sourceColumn: employee_id
 
 	column department_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 02488ac7-2ca2-4303-9530-70461b76d48b
+		lineageTag: 328431d3-1a18-4c90-9106-c14505a549d5
 		summarizeBy: none
 		sourceColumn: department_id
 
 	column job_id
 		dataType: int64
 		formatString: 0
-		lineageTag: a5442323-bfdf-4aa7-b4ff-f4ad2854d08c
+		lineageTag: a01635f5-366f-46bc-adf7-9defe384f415
 		summarizeBy: none
 		sourceColumn: job_id
 
 	column location_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 439d871a-d9e1-402a-938b-fbc6376c3e9a
+		lineageTag: 415c299e-7016-4d5a-9b4f-595d7c491def
 		summarizeBy: none
 		sourceColumn: location_id
 
 	column gender
 		dataType: string
-		lineageTag: 2051b514-aecc-43db-a55f-e98c3eaba397
+		lineageTag: 1f847fd5-e2a8-43c4-95b8-a7ee23b49abd
 		summarizeBy: none
 		sourceColumn: gender
 
 	column ethnicity_group
 		dataType: string
-		lineageTag: a0dc24d8-a21a-4660-ad05-73603c5b5ef4
+		lineageTag: 386cfc16-6af1-496e-bd96-0d65219b0cb1
 		summarizeBy: none
 		sourceColumn: ethnicity_group
 
 	column age_band
 		dataType: string
-		lineageTag: f63937fa-7ca3-44dc-9eb4-1e239664b0f6
+		lineageTag: f3db449d-64ff-48a8-a6ec-49a1c016acb3
 		summarizeBy: none
 		sourceColumn: age_band
 
 	column hire_date
 		dataType: string
-		lineageTag: 7b2e02eb-817c-4d75-8050-b090496b112b
+		lineageTag: 4e0aef82-33c0-490d-8589-37d6daceb809
 		summarizeBy: none
 		sourceColumn: hire_date
 
 	column termination_date
 		dataType: string
-		lineageTag: b22eaf2d-1f2f-40a2-b288-635a8ae8358c
+		lineageTag: 126fab32-fd33-4457-b13b-f30b41cfc741
 		summarizeBy: none
 		sourceColumn: termination_date
 
 	column term_type
 		dataType: string
-		lineageTag: 9e2c08b6-3463-4ea5-9369-d7d83a19b13d
+		lineageTag: 7fb3a2e2-3566-4d83-a125-1d270396ccc3
 		summarizeBy: none
 		sourceColumn: term_type
 
 	column is_active
 		dataType: int64
 		formatString: 0
-		lineageTag: d7bc4de3-cef5-4352-a5d1-c4981f28ffb0
+		lineageTag: cbd80609-26c4-4f0d-8eb8-7cf7fd3a41f2
 		summarizeBy: none
 		sourceColumn: is_active
 
 	column tenure_months
 		dataType: double
-		lineageTag: 36895696-6474-426a-9a43-abdd8256ee73
+		lineageTag: 3a7572b5-fda6-4afc-819a-7c78728fc476
 		summarizeBy: none
 		sourceColumn: tenure_months
 
 	column base_salary
 		dataType: double
-		lineageTag: 52190990-20a2-4c6e-8f2c-b10fec0f5524
+		lineageTag: 54f2c3b1-8a52-4378-8e43-090fceaf11ab
 		summarizeBy: none
 		sourceColumn: base_salary
 
 	column compa_ratio
 		dataType: double
-		lineageTag: 38e1ad42-abfd-42a1-82d1-2a922485f86b
+		lineageTag: 2722f4de-c2d5-4c63-ac7c-b8748ba6ea9c
 		summarizeBy: none
 		sourceColumn: compa_ratio
 
 	column performance_rating
 		dataType: int64
 		formatString: 0
-		lineageTag: 760aaf7f-e93e-493a-b8c8-affc47c8ec65
+		lineageTag: a3450814-1685-4529-a609-1f20e8020767
 		summarizeBy: none
 		sourceColumn: performance_rating
 
 	column engagement_score
 		dataType: double
-		lineageTag: 583ad906-5eb8-40d5-baf3-29c31bca5898
+		lineageTag: 1ad6910f-bc1d-4878-a618-61cf86e5dbbb
 		summarizeBy: none
 		sourceColumn: engagement_score
 
 	column overtime_hours
 		dataType: double
-		lineageTag: 2a8698fc-0e59-4739-9051-a267934d2655
+		lineageTag: afbf10df-a73d-4429-b64a-733b06c29244
 		summarizeBy: none
 		sourceColumn: overtime_hours
 
 	column commute_km
 		dataType: double
-		lineageTag: 70dab233-1d8d-472d-9520-ad577885fa71
+		lineageTag: a279e145-2288-47d1-b762-4a7fab960535
 		summarizeBy: none
 		sourceColumn: commute_km
 
 	column months_since_promotion
 		dataType: double
-		lineageTag: 4bfdeab9-fd1c-4592-a317-e0ac55b99657
+		lineageTag: 44bc67fb-b6f9-4202-b19e-3277f41642e0
 		summarizeBy: none
 		sourceColumn: months_since_promotion
 
 	column manager_id
 		dataType: string
-		lineageTag: 23874309-da53-4464-8655-433b3fdd6fbf
+		lineageTag: cf29c351-0554-4dbb-8406-c2a9c6f87487
 		summarizeBy: none
 		sourceColumn: manager_id
 
 	column tenure_band
 		dataType: string
-		lineageTag: aa3764ab-6a59-496b-8112-dd211d4866d7
+		lineageTag: ce2ab88d-fbce-4660-96e8-d8992469b2f5
 		summarizeBy: none
 		sourceColumn: tenure_band
 

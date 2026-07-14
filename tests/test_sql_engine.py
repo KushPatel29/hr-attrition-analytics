@@ -32,8 +32,12 @@ def test_workforce_kpis_sane():
 
 def test_headcount_bridge_balances():
     b = _read("headcount_bridge").sort_values("sort_order")
-    begin, hires, terms, end = b["value"].tolist()
-    assert begin + hires + terms == end, "bridge does not reconcile begin+hires-terms=end"
+    begin, hires, terms = b["value"].tolist()
+    assert hires > 0 and terms < 0 and begin > 0
+    # running total of the three deltas equals the current headcount
+    end = begin + hires + terms
+    latest_headcount = _read("workforce_kpis").iloc[-1]["headcount"]
+    assert end == latest_headcount, "bridge total should equal current headcount"
 
 
 def test_funnel_monotone_non_increasing():

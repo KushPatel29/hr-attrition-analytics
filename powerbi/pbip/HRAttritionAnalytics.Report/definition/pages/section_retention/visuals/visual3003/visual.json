@@ -53,17 +53,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "retention_cohorts"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "retention_rate"
+                  "Property": "Retention Rate"
                 }
               },
-              "queryRef": "retention_cohorts.retention_rate",
-              "nativeQueryRef": "retention_rate"
+              "queryRef": "_Measures.Retention Rate",
+              "nativeQueryRef": "Retention Rate"
             }
           ]
         }

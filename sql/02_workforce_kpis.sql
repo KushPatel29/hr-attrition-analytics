@@ -52,7 +52,9 @@ FROM monthly
 WINDOW w AS (ORDER BY month ROWS BETWEEN 11 PRECEDING AND CURRENT ROW)
 ORDER BY month;
 
-/* 12-month headcount bridge for the waterfall visual. */
+/* 12-month headcount bridge for the waterfall visual. Three delta bars whose
+   running total (begin + hires - terms) equals the current headcount — the
+   waterfall's own Total bar renders that ending headcount. */
 DROP TABLE IF EXISTS headcount_bridge;
 CREATE TABLE headcount_bridge AS
 WITH anchor AS (
@@ -62,11 +64,9 @@ b AS (
     SELECT
         (SELECT headcount FROM workforce_kpis, anchor WHERE month = anchor.start_month)          AS hc_begin,
         (SELECT SUM(hires) FROM workforce_kpis, anchor WHERE month > anchor.start_month)          AS hires_12m,
-        (SELECT SUM(terminations) FROM workforce_kpis, anchor WHERE month > anchor.start_month)   AS terms_12m,
-        (SELECT headcount FROM workforce_kpis ORDER BY month DESC LIMIT 1)                        AS hc_end
+        (SELECT SUM(terminations) FROM workforce_kpis, anchor WHERE month > anchor.start_month)   AS terms_12m
     FROM anchor
 )
 SELECT 'Headcount 12mo ago' AS bucket, 1 AS sort_order, hc_begin        AS value FROM b
 UNION ALL SELECT '+ Hires',            2, hires_12m                                   FROM b
-UNION ALL SELECT '- Terminations',     3, -terms_12m                                  FROM b
-UNION ALL SELECT 'Headcount now',      4, hc_end                                      FROM b;
+UNION ALL SELECT '- Terminations',     3, -terms_12m                                  FROM b;

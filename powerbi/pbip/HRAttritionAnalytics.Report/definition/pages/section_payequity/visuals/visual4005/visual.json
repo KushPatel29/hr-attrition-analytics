@@ -35,31 +35,31 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "pay_equity_levels"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "avg_salary_female"
+                  "Property": "Avg Salary (F)"
                 }
               },
-              "queryRef": "pay_equity_levels.avg_salary_female",
-              "nativeQueryRef": "avg_salary_female"
+              "queryRef": "_Measures.Avg Salary (F)",
+              "nativeQueryRef": "Avg Salary (F)"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "pay_equity_levels"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "avg_salary_male"
+                  "Property": "Avg Salary (M)"
                 }
               },
-              "queryRef": "pay_equity_levels.avg_salary_male",
-              "nativeQueryRef": "avg_salary_male"
+              "queryRef": "_Measures.Avg Salary (M)",
+              "nativeQueryRef": "Avg Salary (M)"
             }
           ]
         }

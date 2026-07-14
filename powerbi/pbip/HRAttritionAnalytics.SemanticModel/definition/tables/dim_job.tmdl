@@ -1,36 +1,36 @@
 table dim_job
-	lineageTag: b7f50644-a961-428f-9ff2-6aa91c70ff52
+	lineageTag: f20ee557-2b89-4a43-90b5-8d8a889b1ece
 
 	column job_id
 		dataType: int64
 		formatString: 0
-		lineageTag: 39f8c142-19b6-4d58-8e57-8bff72d8e9e2
+		lineageTag: b3e27356-e38a-4c68-a84e-218458e352c3
 		summarizeBy: none
 		sourceColumn: job_id
 
 	column job_title
 		dataType: string
-		lineageTag: ec19b6d5-b132-474a-b346-a57928b39790
+		lineageTag: 0de95ca8-29a1-47af-857c-dcfccdc2e341
 		summarizeBy: none
 		sourceColumn: job_title
 
 	column job_level
 		dataType: string
-		lineageTag: 94e973a4-6199-4cae-9331-42d5291f5400
+		lineageTag: 948c6188-28bc-48cc-bb6b-3df6618d529e
 		summarizeBy: none
 		sourceColumn: job_level
 
 	column level_rank
 		dataType: int64
 		formatString: 0
-		lineageTag: 3f9ababb-ab66-4467-a830-a56c051f2be5
+		lineageTag: cc2ab7b5-e9ee-4dac-a57e-e52f6e24f2c9
 		summarizeBy: none
 		sourceColumn: level_rank
 
 	column is_management
 		dataType: int64
 		formatString: 0
-		lineageTag: 7bca3b8d-cf89-4e81-9f38-33af37833146
+		lineageTag: c8102054-89c0-4728-b085-5ea837c69faa
 		summarizeBy: none
 		sourceColumn: is_management
 

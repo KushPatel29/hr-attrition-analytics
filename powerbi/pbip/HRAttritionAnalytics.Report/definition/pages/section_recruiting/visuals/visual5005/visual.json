@@ -35,17 +35,17 @@
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "recruiting_by_source"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "hire_rate"
+                  "Property": "Src Hire Rate"
                 }
               },
-              "queryRef": "recruiting_by_source.hire_rate",
-              "nativeQueryRef": "hire_rate"
+              "queryRef": "_Measures.Src Hire Rate",
+              "nativeQueryRef": "Src Hire Rate"
             }
           ]
         }
