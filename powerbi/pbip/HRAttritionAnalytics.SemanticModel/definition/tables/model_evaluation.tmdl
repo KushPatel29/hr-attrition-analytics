@@ -44,3 +44,4 @@ table model_evaluation
 				    Typed = Table.TransformColumnTypes(Promoted, {{"model", type text}, {"roc_auc", type number}, {"pr_auc", type number}, {"lift_at_decile", type number}, {"is_chosen", Int64.Type}})
 				in
 				    Typed
+

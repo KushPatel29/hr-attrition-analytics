@@ -8,10 +8,13 @@ table dim_date
 		sourceColumn: month
 
 	column month_start
-		dataType: datetime
+		dataType: dateTime
+		formatString: Long Date
 		lineageTag: e2eb5b96-c6e2-417e-9249-0e17ddd94c42
 		summarizeBy: none
 		sourceColumn: month_start
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column year
 		dataType: int64
@@ -42,3 +45,4 @@ table dim_date
 				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"month_start", type date}, {"year", Int64.Type}, {"quarter", type text}, {"month_num", Int64.Type}})
 				in
 				    Typed
+

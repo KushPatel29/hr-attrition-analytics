@@ -74,3 +74,4 @@ table flight_risk_scores
 				    Typed = Table.TransformColumnTypes(Promoted, {{"employee_id", Int64.Type}, {"employee_name", type text}, {"department", type text}, {"job_level", type text}, {"region", type text}, {"tenure_months", type number}, {"engagement_score", type number}, {"risk_score", type number}, {"risk_band", type text}, {"top_reason", type text}})
 				in
 				    Typed
+

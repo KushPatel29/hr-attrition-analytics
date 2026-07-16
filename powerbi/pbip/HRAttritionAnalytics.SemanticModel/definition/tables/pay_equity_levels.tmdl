@@ -85,3 +85,4 @@ table pay_equity_levels
 				    Typed = Table.TransformColumnTypes(Promoted, {{"job_level", type text}, {"level_rank", Int64.Type}, {"market_median", type number}, {"n_female", Int64.Type}, {"n_male", Int64.Type}, {"avg_salary_female", type number}, {"avg_salary_male", type number}, {"female_compa_ratio", type number}, {"male_compa_ratio", type number}, {"raw_gap_pct", type number}, {"gap_flag", type text}})
 				in
 				    Typed
+

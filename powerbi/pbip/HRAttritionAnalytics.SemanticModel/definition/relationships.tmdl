@@ -17,3 +17,4 @@ relationship 465943ed-c21f-41d9-a76c-3a5576d537ff
 relationship 67100f49-8445-49b6-9188-a7f7299b930f
 	fromColumn: workforce_kpis.month
 	toColumn: dim_date.month
+

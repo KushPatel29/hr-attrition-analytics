@@ -84,3 +84,4 @@ table attrition_by_dimension
 				    Typed = Table.TransformColumnTypes(Promoted, {{"dimension", type text}, {"category", type text}, {"sort_key", type text}, {"headcount_ever", Int64.Type}, {"active_headcount", Int64.Type}, {"terminations", Int64.Type}, {"voluntary_terms", Int64.Type}, {"attrition_rate", type number}, {"voluntary_share", type number}, {"pct_of_dimension_exits", type number}, {"attrition_rank", Int64.Type}})
 				in
 				    Typed
+

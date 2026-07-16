@@ -52,3 +52,4 @@ table recruiting_kpis
 				    Typed = Table.TransformColumnTypes(Promoted, {{"total_applications", Int64.Type}, {"total_hires", Int64.Type}, {"overall_hire_rate", type number}, {"offer_accept_rate", type number}, {"median_days_to_fill", type number}, {"avg_days_to_fill", type number}})
 				in
 				    Typed
+

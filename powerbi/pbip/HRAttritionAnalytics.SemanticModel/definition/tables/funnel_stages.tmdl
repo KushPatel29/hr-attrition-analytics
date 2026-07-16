@@ -45,3 +45,4 @@ table funnel_stages
 				    Typed = Table.TransformColumnTypes(Promoted, {{"stage", type text}, {"stage_order", Int64.Type}, {"candidates", Int64.Type}, {"conversion_from_prev", type number}, {"overall_conversion", type number}})
 				in
 				    Typed
+

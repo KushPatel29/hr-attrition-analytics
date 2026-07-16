@@ -160,3 +160,4 @@ table fact_employees
 				    Typed = Table.TransformColumnTypes(Promoted, {{"employee_id", Int64.Type}, {"employee_name", type text}, {"department_id", Int64.Type}, {"job_id", Int64.Type}, {"location_id", Int64.Type}, {"gender", type text}, {"ethnicity_group", type text}, {"age_band", type text}, {"hire_date", type text}, {"termination_date", type text}, {"term_type", type text}, {"is_active", Int64.Type}, {"tenure_months", type number}, {"base_salary", type number}, {"compa_ratio", type number}, {"performance_rating", Int64.Type}, {"engagement_score", type number}, {"overtime_hours", type number}, {"commute_km", type number}, {"months_since_promotion", type number}, {"manager_id", type text}, {"tenure_band", type text}, {"tenure_band_sort", Int64.Type}})
 				in
 				    Typed
+

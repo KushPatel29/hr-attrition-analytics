@@ -43,3 +43,4 @@ table dim_job
 				    Typed = Table.TransformColumnTypes(Promoted, {{"job_id", Int64.Type}, {"job_title", type text}, {"job_level", type text}, {"level_rank", Int64.Type}, {"is_management", Int64.Type}})
 				in
 				    Typed
+

@@ -5,11 +5,11 @@ table _Measures
 		formatString: #,0
 		lineageTag: 6fb5be48-9231-4a88-829e-e2aff085f89a
 
-	measure 'Headcount' = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 1)
+	measure Headcount = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 1)
 		formatString: #,0
 		lineageTag: ee9bbd7f-d71e-4ca7-9afe-699f43f59a59
 
-	measure 'Terminations' = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 0)
+	measure Terminations = CALCULATE(COUNTROWS(fact_employees), fact_employees[is_active] = 0)
 		formatString: #,0
 		lineageTag: 743aef94-0ecc-4745-a662-7a23c7ae381b
 
@@ -125,7 +125,7 @@ table _Measures
 		formatString: 0.0%
 		lineageTag: 08c89421-8a62-4af3-8d01-87c4f3a2909b
 
-	measure 'Candidates' = SUM(funnel_stages[candidates])
+	measure Candidates = SUM(funnel_stages[candidates])
 		formatString: #,0
 		lineageTag: d1a50635-1900-42ab-9363-234d529fe952
 
@@ -172,3 +172,4 @@ table _Measures
 				    Source = #table(type table [Value = Int64.Type], {})
 				in
 				    Source
+

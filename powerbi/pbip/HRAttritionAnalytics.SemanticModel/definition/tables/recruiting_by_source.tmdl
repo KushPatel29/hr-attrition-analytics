@@ -65,3 +65,4 @@ table recruiting_by_source
 				    Typed = Table.TransformColumnTypes(Promoted, {{"source", type text}, {"applications", Int64.Type}, {"offers", Int64.Type}, {"hires", Int64.Type}, {"hire_rate", type number}, {"offer_accept_rate", type number}, {"avg_days_to_fill", type number}, {"hire_rate_rank", Int64.Type}})
 				in
 				    Typed
+

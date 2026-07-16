@@ -79,3 +79,4 @@ table workforce_kpis
 				    Typed = Table.TransformColumnTypes(Promoted, {{"month", type text}, {"headcount", Int64.Type}, {"hires", Int64.Type}, {"terminations", Int64.Type}, {"voluntary_terms", Int64.Type}, {"involuntary_terms", Int64.Type}, {"monthly_turnover_rate", type number}, {"rolling_12m_terms", Int64.Type}, {"rolling_12m_avg_headcount", type number}, {"rolling_12m_attrition_rate", type number}})
 				in
 				    Typed
+

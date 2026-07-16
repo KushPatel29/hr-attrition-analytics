@@ -29,3 +29,4 @@ table dim_department
 				    Typed = Table.TransformColumnTypes(Promoted, {{"department_id", Int64.Type}, {"department", type text}, {"division", type text}})
 				in
 				    Typed
+

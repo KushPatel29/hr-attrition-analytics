@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "visual6006",
   "position": {
     "x": 840,
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "flight_risk_scores.employee_id",
-              "nativeQueryRef": "employee_id"
+              "nativeQueryRef": "employee_id",
+              "active": true
             }
           ]
         },
@@ -63,7 +64,8 @@
                 }
               },
               "queryRef": "_Measures.Avg Tenure (Scored)",
-              "nativeQueryRef": "Avg Tenure (Scored)"
+              "nativeQueryRef": "Avg Tenure (Scored)",
+              "active": true
             }
           ]
         },
@@ -87,7 +89,6 @@
         }
       }
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -109,6 +110,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

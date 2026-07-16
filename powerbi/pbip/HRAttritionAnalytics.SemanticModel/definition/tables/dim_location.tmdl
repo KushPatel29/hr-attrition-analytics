@@ -42,3 +42,4 @@ table dim_location
 				    Typed = Table.TransformColumnTypes(Promoted, {{"location_id", Int64.Type}, {"city", type text}, {"region", type text}, {"country", type text}, {"is_remote", Int64.Type}})
 				in
 				    Typed
+

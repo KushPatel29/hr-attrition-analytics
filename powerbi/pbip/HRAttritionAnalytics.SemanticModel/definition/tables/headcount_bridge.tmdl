@@ -31,3 +31,4 @@ table headcount_bridge
 				    Typed = Table.TransformColumnTypes(Promoted, {{"bucket", type text}, {"sort_order", Int64.Type}, {"value", Int64.Type}})
 				in
 				    Typed
+
