@@ -1,0 +1,235 @@
+intervention_id,employee_id,intervention_date,intervention_type
+1,16,2026-01-22,Stay interview
+2,20,2025-06-27,Out-of-cycle raise
+3,25,2025-09-27,Out-of-cycle raise
+4,37,2025-04-25,Stay interview
+5,55,2026-02-07,Stay interview
+6,56,2026-03-04,Out-of-cycle raise
+7,58,2026-02-07,Stay interview
+8,63,2025-07-13,Stay interview
+9,73,2025-05-01,Internal transfer
+10,98,2025-11-13,Internal transfer
+11,99,2025-08-20,Stay interview
+12,102,2025-09-23,Out-of-cycle raise
+13,106,2025-02-04,Development plan
+14,111,2025-07-10,Stay interview
+15,115,2024-11-14,Out-of-cycle raise
+16,126,2026-02-08,Flexible work arrangement
+17,130,2026-03-27,Flexible work arrangement
+18,132,2025-12-13,Development plan
+19,134,2026-01-11,Development plan
+20,137,2026-01-18,Stay interview
+21,139,2025-03-28,Out-of-cycle raise
+22,141,2025-05-18,Stay interview
+23,146,2025-05-10,Out-of-cycle raise
+24,148,2026-01-08,Stay interview
+25,151,2025-10-12,Out-of-cycle raise
+26,152,2025-10-24,Stay interview
+27,159,2026-03-11,Stay interview
+28,168,2026-01-26,Development plan
+29,182,2026-03-25,Stay interview
+30,185,2025-10-21,Stay interview
+31,186,2025-05-13,Out-of-cycle raise
+32,189,2025-11-26,Stay interview
+33,207,2024-05-22,Stay interview
+34,240,2025-10-05,Out-of-cycle raise
+35,242,2025-12-03,Out-of-cycle raise
+36,280,2026-05-11,Stay interview
+37,287,2026-01-04,Stay interview
+38,301,2025-12-01,Development plan
+39,361,2025-04-17,Flexible work arrangement
+40,369,2025-11-08,Development plan
+41,379,2025-04-17,Internal transfer
+42,381,2025-12-25,Stay interview
+43,472,2025-06-03,Out-of-cycle raise
+44,473,2026-03-26,Out-of-cycle raise
+45,478,2026-04-02,Flexible work arrangement
+46,488,2025-12-18,Internal transfer
+47,489,2025-08-06,Out-of-cycle raise
+48,493,2024-11-13,Out-of-cycle raise
+49,496,2026-01-11,Development plan
+50,505,2026-01-04,Stay interview
+51,506,2025-02-02,Stay interview
+52,513,2025-04-30,Flexible work arrangement
+53,519,2025-01-22,Development plan
+54,526,2025-01-24,Stay interview
+55,529,2025-01-31,Development plan
+56,564,2025-06-01,Stay interview
+57,567,2026-02-27,Out-of-cycle raise
+58,577,2026-03-19,Development plan
+59,584,2025-06-15,Development plan
+60,586,2026-02-19,Development plan
+61,588,2025-02-08,Stay interview
+62,590,2025-01-08,Internal transfer
+63,591,2025-09-11,Flexible work arrangement
+64,599,2025-03-07,Stay interview
+65,600,2025-01-29,Stay interview
+66,602,2024-11-12,Internal transfer
+67,613,2025-08-01,Stay interview
+68,618,2025-06-09,Flexible work arrangement
+69,623,2026-03-12,Internal transfer
+70,626,2025-06-22,Development plan
+71,630,2025-03-01,Internal transfer
+72,636,2025-06-24,Stay interview
+73,640,2025-03-16,Development plan
+74,654,2026-04-30,Stay interview
+75,667,2026-01-25,Development plan
+76,668,2025-10-06,Flexible work arrangement
+77,675,2025-11-13,Stay interview
+78,705,2025-11-01,Flexible work arrangement
+79,715,2025-11-17,Out-of-cycle raise
+80,716,2026-05-06,Out-of-cycle raise
+81,719,2025-06-23,Stay interview
+82,720,2026-01-22,Stay interview
+83,724,2025-04-24,Flexible work arrangement
+84,731,2025-08-09,Stay interview
+85,732,2025-02-22,Stay interview
+86,740,2025-04-01,Stay interview
+87,743,2025-11-02,Out-of-cycle raise
+88,755,2021-07-13,Development plan
+89,764,2026-01-06,Stay interview
+90,769,2025-12-25,Flexible work arrangement
+91,782,2025-05-13,Flexible work arrangement
+92,785,2026-05-13,Stay interview
+93,802,2025-03-14,Flexible work arrangement
+94,807,2025-06-20,Out-of-cycle raise
+95,809,2025-12-13,Stay interview
+96,821,2025-07-25,Out-of-cycle raise
+97,833,2025-04-17,Development plan
+98,836,2026-04-22,Out-of-cycle raise
+99,839,2026-04-25,Development plan
+100,851,2025-07-02,Stay interview
+101,852,2026-05-04,Flexible work arrangement
+102,857,2025-03-30,Development plan
+103,862,2025-04-13,Flexible work arrangement
+104,868,2025-10-16,Flexible work arrangement
+105,877,2025-09-26,Out-of-cycle raise
+106,889,2025-12-23,Out-of-cycle raise
+107,894,2026-02-24,Stay interview
+108,895,2025-07-18,Stay interview
+109,896,2025-11-19,Development plan
+110,897,2025-12-10,Development plan
+111,919,2025-01-27,Stay interview
+112,920,2026-04-10,Out-of-cycle raise
+113,925,2023-10-08,Flexible work arrangement
+114,935,2026-03-24,Development plan
+115,937,2025-10-11,Out-of-cycle raise
+116,940,2026-04-28,Development plan
+117,942,2025-03-08,Internal transfer
+118,955,2025-02-26,Stay interview
+119,956,2025-07-23,Development plan
+120,961,2026-01-17,Flexible work arrangement
+121,977,2025-12-13,Internal transfer
+122,986,2025-07-15,Out-of-cycle raise
+123,992,2025-09-10,Out-of-cycle raise
+124,995,2025-07-12,Development plan
+125,1007,2025-06-25,Out-of-cycle raise
+126,1017,2026-05-10,Internal transfer
+127,1036,2026-01-22,Stay interview
+128,1058,2024-07-03,Stay interview
+129,1059,2026-04-13,Development plan
+130,1061,2025-11-13,Internal transfer
+131,1071,2025-04-23,Internal transfer
+132,1074,2026-01-14,Stay interview
+133,1086,2025-05-05,Stay interview
+134,1087,2026-02-19,Out-of-cycle raise
+135,1091,2024-10-17,Out-of-cycle raise
+136,1099,2025-10-04,Out-of-cycle raise
+137,1100,2025-09-07,Stay interview
+138,1103,2025-11-28,Development plan
+139,1105,2026-05-23,Out-of-cycle raise
+140,1112,2025-05-10,Development plan
+141,1118,2026-03-06,Stay interview
+142,1139,2026-04-08,Development plan
+143,1142,2026-05-05,Development plan
+144,1154,2025-11-11,Flexible work arrangement
+145,1160,2025-08-02,Flexible work arrangement
+146,1192,2025-03-25,Stay interview
+147,1199,2025-12-31,Stay interview
+148,1207,2025-09-06,Flexible work arrangement
+149,1210,2025-12-22,Development plan
+150,1211,2025-08-15,Stay interview
+151,1216,2025-05-18,Out-of-cycle raise
+152,1217,2026-05-22,Development plan
+153,1218,2026-03-30,Out-of-cycle raise
+154,1231,2026-03-29,Flexible work arrangement
+155,1236,2026-05-28,Out-of-cycle raise
+156,1255,2026-03-31,Development plan
+157,1263,2025-07-07,Flexible work arrangement
+158,1271,2025-05-22,Out-of-cycle raise
+159,1274,2025-03-03,Stay interview
+160,1282,2025-03-16,Stay interview
+161,1290,2023-06-02,Out-of-cycle raise
+162,1294,2025-07-03,Internal transfer
+163,1297,2025-10-28,Development plan
+164,1302,2026-01-19,Flexible work arrangement
+165,1304,2025-08-07,Stay interview
+166,1312,2025-10-28,Internal transfer
+167,1313,2025-07-10,Stay interview
+168,1315,2026-05-23,Stay interview
+169,1319,2026-01-15,Out-of-cycle raise
+170,1321,2026-05-08,Out-of-cycle raise
+171,1325,2025-11-22,Stay interview
+172,1330,2025-09-29,Development plan
+173,1332,2025-09-24,Out-of-cycle raise
+174,1346,2026-02-15,Stay interview
+175,1368,2025-08-29,Flexible work arrangement
+176,1370,2025-11-02,Flexible work arrangement
+177,1376,2025-11-16,Internal transfer
+178,1394,2025-11-09,Stay interview
+179,1402,2025-05-07,Internal transfer
+180,1403,2025-01-30,Out-of-cycle raise
+181,1438,2026-04-28,Stay interview
+182,1440,2025-01-09,Stay interview
+183,1455,2025-09-15,Stay interview
+184,1463,2026-02-01,Flexible work arrangement
+185,1467,2025-09-19,Flexible work arrangement
+186,1470,2024-01-17,Out-of-cycle raise
+187,1488,2026-04-12,Flexible work arrangement
+188,1494,2026-03-01,Development plan
+189,1518,2025-01-12,Development plan
+190,1520,2025-11-24,Out-of-cycle raise
+191,1524,2026-02-22,Flexible work arrangement
+192,1529,2025-12-23,Stay interview
+193,1533,2025-02-23,Development plan
+194,1545,2026-04-21,Stay interview
+195,1555,2025-12-24,Out-of-cycle raise
+196,1571,2026-05-31,Stay interview
+197,1572,2025-06-18,Internal transfer
+198,1579,2025-07-09,Flexible work arrangement
+199,1588,2025-06-21,Out-of-cycle raise
+200,1611,2024-09-07,Out-of-cycle raise
+201,1616,2026-05-28,Internal transfer
+202,1632,2026-03-22,Stay interview
+203,1640,2025-04-29,Out-of-cycle raise
+204,1641,2026-03-12,Flexible work arrangement
+205,1642,2026-02-17,Flexible work arrangement
+206,1667,2025-05-31,Stay interview
+207,1670,2025-10-17,Development plan
+208,1685,2026-03-09,Development plan
+209,1688,2025-11-24,Development plan
+210,1713,2026-04-20,Out-of-cycle raise
+211,1714,2025-12-07,Stay interview
+212,1719,2025-05-20,Development plan
+213,1720,2025-12-03,Out-of-cycle raise
+214,1732,2026-03-07,Stay interview
+215,1736,2025-06-06,Development plan
+216,1752,2026-01-14,Stay interview
+217,1756,2025-07-11,Out-of-cycle raise
+218,1757,2025-09-25,Stay interview
+219,1762,2025-03-05,Flexible work arrangement
+220,1782,2025-12-24,Stay interview
+221,1788,2025-04-07,Stay interview
+222,1804,2022-11-08,Stay interview
+223,1828,2026-01-18,Out-of-cycle raise
+224,1830,2026-04-27,Stay interview
+225,1836,2026-05-30,Development plan
+226,1838,2025-12-25,Out-of-cycle raise
+227,1840,2026-05-20,Development plan
+228,1865,2026-01-15,Internal transfer
+229,1866,2026-04-16,Development plan
+230,1873,2025-10-01,Development plan
+231,1880,2026-02-06,Flexible work arrangement
+232,1894,2025-01-30,Stay interview
+233,1897,2025-09-15,Stay interview
+234,1899,2025-12-09,Internal transfer

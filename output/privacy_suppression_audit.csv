@@ -1,0 +1,143 @@
+department,job_level,gender,reason
+Customer Support,Analyst,Male,suppressed: complementary (two-cell rule)
+Customer Support,Analyst,Non-binary,suppressed: n < 5
+Customer Support,Director,Female,suppressed: n < 5
+Customer Support,Manager,Female,suppressed: n < 5
+Customer Support,Manager,Male,suppressed: complementary (two-cell rule)
+Customer Support,Senior Analyst,Female,suppressed: complementary (two-cell rule)
+Customer Support,Senior Analyst,Non-binary,suppressed: n < 5
+Customer Support,Senior Manager,Female,suppressed: n < 5
+Customer Support,Senior Manager,Male,suppressed: n < 5
+Customer Support,Senior Specialist,Female,suppressed: n < 5
+Customer Support,Senior Specialist,Male,suppressed: complementary (two-cell rule)
+Data & Analytics,Analyst,Female,suppressed: n < 5
+Data & Analytics,Analyst,Male,suppressed: complementary (two-cell rule)
+Data & Analytics,Director,Female,suppressed: n < 5
+Data & Analytics,Director,Male,suppressed: n < 5
+Data & Analytics,Lead,Male,suppressed: n < 5
+Data & Analytics,Lead,Non-binary,suppressed: n < 5
+Data & Analytics,Senior Manager,Female,suppressed: complementary (two-cell rule)
+Data & Analytics,Senior Manager,Male,suppressed: n < 5
+Data & Analytics,Senior Specialist,Female,suppressed: complementary (two-cell rule)
+Data & Analytics,Senior Specialist,Male,suppressed: n < 5
+Data & Analytics,Specialist,Female,suppressed: complementary (two-cell rule)
+Data & Analytics,Specialist,Non-binary,suppressed: n < 5
+Field Sales,Associate,Female,suppressed: complementary (two-cell rule)
+Field Sales,Associate,Non-binary,suppressed: n < 5
+Field Sales,Director,Female,suppressed: n < 5
+Field Sales,Lead,Female,suppressed: n < 5
+Field Sales,Lead,Non-binary,suppressed: n < 5
+Field Sales,Manager,Female,suppressed: n < 5
+Field Sales,Manager,Non-binary,suppressed: n < 5
+Field Sales,Senior Manager,Female,suppressed: n < 5
+Field Sales,Senior Manager,Male,suppressed: complementary (two-cell rule)
+Field Sales,Senior Specialist,Male,suppressed: complementary (two-cell rule)
+Field Sales,Senior Specialist,Non-binary,suppressed: n < 5
+Finance & Accounting,Director,Female,suppressed: n < 5
+Finance & Accounting,Director,Male,suppressed: n < 5
+Finance & Accounting,Senior Analyst,Male,suppressed: n < 5
+Finance & Accounting,Senior Analyst,Non-binary,suppressed: n < 5
+Finance & Accounting,Senior Manager,Female,suppressed: n < 5
+Finance & Accounting,Senior Manager,Male,suppressed: complementary (two-cell rule)
+Finance & Accounting,Senior Specialist,Female,suppressed: complementary (two-cell rule)
+Finance & Accounting,Senior Specialist,Male,suppressed: n < 5
+Finance & Accounting,Specialist,Male,suppressed: complementary (two-cell rule)
+Finance & Accounting,Specialist,Non-binary,suppressed: n < 5
+Human Resources,Analyst,Female,suppressed: complementary (two-cell rule)
+Human Resources,Analyst,Non-binary,suppressed: n < 5
+Human Resources,Associate,Female,suppressed: complementary (two-cell rule)
+Human Resources,Associate,Non-binary,suppressed: n < 5
+Human Resources,Director,Male,suppressed: n < 5
+Human Resources,Director,Non-binary,suppressed: n < 5
+Human Resources,Lead,Female,suppressed: n < 5
+Human Resources,Lead,Non-binary,suppressed: n < 5
+Human Resources,Manager,Female,suppressed: n < 5
+Human Resources,Manager,Male,suppressed: n < 5
+Human Resources,Senior Analyst,Male,suppressed: complementary (two-cell rule)
+Human Resources,Senior Analyst,Non-binary,suppressed: n < 5
+Human Resources,Senior Manager,Female,suppressed: n < 5
+Human Resources,Senior Manager,Male,suppressed: n < 5
+Human Resources,Senior Specialist,Male,suppressed: complementary (two-cell rule)
+Human Resources,Senior Specialist,Non-binary,suppressed: n < 5
+IT Operations,Analyst,Female,suppressed: complementary (two-cell rule)
+IT Operations,Analyst,Non-binary,suppressed: n < 5
+IT Operations,Associate,Female,suppressed: complementary (two-cell rule)
+IT Operations,Associate,Non-binary,suppressed: n < 5
+IT Operations,Director,Female,suppressed: n < 5
+IT Operations,Lead,Female,suppressed: n < 5
+IT Operations,Lead,Male,suppressed: complementary (two-cell rule)
+IT Operations,Manager,Female,suppressed: n < 5
+IT Operations,Manager,Non-binary,suppressed: n < 5
+IT Operations,Senior Analyst,Female,suppressed: complementary (two-cell rule)
+IT Operations,Senior Analyst,Male,suppressed: n < 5
+IT Operations,Specialist,Female,suppressed: complementary (two-cell rule)
+IT Operations,Specialist,Male,suppressed: n < 5
+Inside Sales,Director,Male,suppressed: n < 5
+Inside Sales,Manager,Female,suppressed: n < 5
+Inside Sales,Manager,Male,suppressed: n < 5
+Inside Sales,Senior Analyst,Female,suppressed: complementary (two-cell rule)
+Inside Sales,Senior Analyst,Non-binary,suppressed: n < 5
+Inside Sales,Senior Manager,Female,suppressed: n < 5
+Inside Sales,Senior Manager,Male,suppressed: complementary (two-cell rule)
+Inside Sales,Specialist,Male,suppressed: complementary (two-cell rule)
+Inside Sales,Specialist,Non-binary,suppressed: n < 5
+Manufacturing,Associate,Female,suppressed: complementary (two-cell rule)
+Manufacturing,Associate,Non-binary,suppressed: n < 5
+Manufacturing,Director,Female,suppressed: n < 5
+Manufacturing,Lead,Female,suppressed: n < 5
+Manufacturing,Lead,Male,suppressed: complementary (two-cell rule)
+Manufacturing,Manager,Female,suppressed: n < 5
+Manufacturing,Manager,Male,suppressed: complementary (two-cell rule)
+Manufacturing,Senior Manager,Female,suppressed: n < 5
+Manufacturing,Senior Manager,Male,suppressed: n < 5
+Manufacturing,Senior Specialist,Female,suppressed: complementary (two-cell rule)
+Manufacturing,Senior Specialist,Male,suppressed: n < 5
+Manufacturing,Specialist,Female,suppressed: n < 5
+Manufacturing,Specialist,Male,suppressed: complementary (two-cell rule)
+Marketing,Associate,Female,suppressed: n < 5
+Marketing,Associate,Male,suppressed: complementary (two-cell rule)
+Marketing,Director,Female,suppressed: n < 5
+Marketing,Manager,Female,suppressed: n < 5
+Marketing,Manager,Non-binary,suppressed: n < 5
+Marketing,Senior Manager,Female,suppressed: n < 5
+Marketing,Senior Manager,Non-binary,suppressed: n < 5
+Marketing,Senior Specialist,Female,suppressed: n < 5
+Marketing,Senior Specialist,Male,suppressed: complementary (two-cell rule)
+Marketing,Specialist,Female,suppressed: n < 5
+Marketing,Specialist,Male,suppressed: complementary (two-cell rule)
+Product Management,Director,Female,suppressed: n < 5
+Product Management,Director,Male,suppressed: n < 5
+Product Management,Director,Non-binary,suppressed: n < 5
+Product Management,Lead,Male,suppressed: n < 5
+Product Management,Lead,Non-binary,suppressed: n < 5
+Product Management,Manager,Female,suppressed: complementary (two-cell rule)
+Product Management,Manager,Male,suppressed: n < 5
+Product Management,Senior Analyst,Female,suppressed: complementary (two-cell rule)
+Product Management,Senior Analyst,Non-binary,suppressed: n < 5
+Product Management,Senior Manager,Female,suppressed: n < 5
+Product Management,Senior Manager,Non-binary,suppressed: n < 5
+Product Management,Specialist,Female,suppressed: complementary (two-cell rule)
+Product Management,Specialist,Non-binary,suppressed: n < 5
+Software Engineering,Director,Female,suppressed: n < 5
+Software Engineering,Director,Male,suppressed: n < 5
+Software Engineering,Lead,Female,suppressed: complementary (two-cell rule)
+Software Engineering,Lead,Male,suppressed: n < 5
+Software Engineering,Senior Manager,Female,suppressed: n < 5
+Software Engineering,Senior Manager,Male,suppressed: n < 5
+Software Engineering,Senior Manager,Non-binary,suppressed: n < 5
+Software Engineering,Senior Specialist,Female,suppressed: n < 5
+Software Engineering,Senior Specialist,Male,suppressed: complementary (two-cell rule)
+Supply Chain,Analyst,Female,suppressed: complementary (two-cell rule)
+Supply Chain,Analyst,Non-binary,suppressed: n < 5
+Supply Chain,Associate,Male,suppressed: complementary (two-cell rule)
+Supply Chain,Associate,Non-binary,suppressed: n < 5
+Supply Chain,Lead,Female,suppressed: complementary (two-cell rule)
+Supply Chain,Lead,Male,suppressed: n < 5
+Supply Chain,Senior Analyst,Female,suppressed: complementary (two-cell rule)
+Supply Chain,Senior Analyst,Male,suppressed: n < 5
+Supply Chain,Senior Manager,Male,suppressed: n < 5
+Supply Chain,Senior Manager,Non-binary,suppressed: n < 5
+Supply Chain,Senior Specialist,Female,suppressed: n < 5
+Supply Chain,Senior Specialist,Male,suppressed: complementary (two-cell rule)
+Supply Chain,Specialist,Female,suppressed: complementary (two-cell rule)
+Supply Chain,Specialist,Non-binary,suppressed: n < 5

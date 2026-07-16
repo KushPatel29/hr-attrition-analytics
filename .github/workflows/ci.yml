@@ -23,11 +23,20 @@ jobs:
       - name: Generate synthetic HR data
         run: python data_generator/generate_hr_data.py
 
+      - name: Generate intervention log
+        run: python data_generator/generate_interventions.py
+
       - name: Run SQL analytics engine (SQLite)
         run: python engine/run_hr_analytics.py
 
       - name: Train + score flight-risk model
         run: python ml/attrition_model.py
+
+      - name: Fairness audit (disparate-impact gate)
+        run: python ml/fairness_audit.py
+
+      - name: Survival analysis (Kaplan-Meier + Cox PH)
+        run: python ml/survival_analysis.py
 
       - name: Render README figures
         run: python analytics/make_visuals.py

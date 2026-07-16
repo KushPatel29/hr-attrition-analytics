@@ -18,6 +18,9 @@ visuals):
     recruiting_by_source.csv    channel ROI
     recruiting_kpis.csv         recruiting scorecard (incl. median time-to-fill)
     flight_risk_features.csv    ML feature view
+    masked_segment_metrics.csv  k-anonymity-masked segment metrics (K=5)
+    privacy_suppression_audit.csv  which cells were suppressed and why
+    intervention_effectiveness.csv retention of treated vs untreated at-risk
     summary.txt                 headline numbers
 
 Usage:
@@ -46,6 +49,7 @@ SOURCE_TABLES = {
     "comp_benchmark": "comp_benchmark.csv",
     "fact_employees": "fact_employees.csv",
     "fact_applications": "fact_applications.csv",
+    "fact_hr_interventions": "fact_hr_interventions.csv",
 }
 
 # SQL scripts executed in order (01 is the T-SQL reference DDL, not run here).
@@ -56,6 +60,8 @@ ANALYTICS_SCRIPTS = [
     "05_pay_equity.sql",
     "06_recruiting_funnel.sql",
     "07_flight_risk_features.sql",
+    "08_privacy_masking.sql",
+    "09_intervention_effectiveness.sql",
 ]
 
 # Result tables exported to output/
@@ -70,6 +76,9 @@ RESULT_TABLES = [
     "recruiting_by_source",
     "recruiting_kpis",
     "flight_risk_features",
+    "masked_segment_metrics",
+    "privacy_suppression_audit",
+    "intervention_effectiveness",
 ]
 
 

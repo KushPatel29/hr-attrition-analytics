@@ -47,7 +47,13 @@ NUMERIC = [
     "overtime_hours", "commute_km", "months_since_promotion", "level_rank",
     "engagement_vs_dept", "comp_gap_vs_level",
 ]
-CATEGORICAL = ["department", "division", "region", "gender", "age_band"]
+# Protected attributes (gender, ethnicity_group, age_band) are deliberately
+# NOT features. An HR risk score must not learn from who someone is — and
+# "we never showed the model gender" is only half the defense, because other
+# features can proxy for it. The other half is ml/fairness_audit.py, which
+# measures the *outcome*: high-risk selection rates across protected groups,
+# checked against the 80% disparate-impact rule on every run.
+CATEGORICAL = ["department", "division", "region"]
 
 # Human-readable driver phrasing for the top-reason explainability.
 REASON_TEXT = {

@@ -11,6 +11,11 @@
      comp_gap_vs_level  : compa_ratio minus the level's median compa_ratio
                           (how underpaid relative to same-level peers)
 
+   The view also carries the protected attributes (gender, ethnicity_group,
+   age_band). They are NOT model inputs — ml/attrition_model.py excludes them
+   from its feature list — but the fairness audit (ml/fairness_audit.py) needs
+   them to measure selection rates across groups. Auditable but not learnable.
+
    The model trains on all employees (left_flag known) and scores the currently
    active population. Runs as-is on SQLite (engine).
    =========================================================================== */
@@ -26,6 +31,7 @@ WITH emp AS (
         j.level_rank,
         l.region,
         e.gender,
+        e.ethnicity_group,
         e.age_band,
         e.is_active,
         CASE WHEN e.is_active = 0 THEN 1 ELSE 0 END AS left_flag,
@@ -49,6 +55,7 @@ SELECT
     level_rank,
     region,
     gender,
+    ethnicity_group,
     age_band,
     is_active,
     left_flag,

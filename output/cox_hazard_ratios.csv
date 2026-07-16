@@ -1,0 +1,7 @@
+covariate,hazard_ratio_per_sd,hr_ci_low,hr_ci_high,p_value
+compa_ratio,0.894,0.799,0.999,0.048776
+engagement_score,0.759,0.676,0.853,3e-06
+overtime_hours,1.148,1.032,1.277,0.010904
+commute_km,1.064,0.949,1.193,0.284452
+promo_stagnation_share,2.395,2.23,2.571,0.0
+performance_rating,0.996,0.888,1.116,0.942551

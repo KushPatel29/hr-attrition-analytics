@@ -1,0 +1,14 @@
+attribute,group,n,n_high,selection_rate,reference_group,di_ratio,p_value,evaluated,verdict
+gender,Female,639,100,0.1565,Male,1.064,0.6572,True,pass
+gender,Male,802,118,0.1471,Male,1.0,1.0,True,pass
+gender,Non-binary,42,5,0.119,Male,0.809,0.8224,True,pass
+ethnicity_group,Group A,505,78,0.1545,Group A,1.0,1.0,True,pass
+ethnicity_group,Group B,335,48,0.1433,Group A,0.928,0.6938,True,pass
+ethnicity_group,Group C,261,42,0.1609,Group A,1.042,0.8342,True,pass
+ethnicity_group,Group D,220,26,0.1182,Group A,0.765,0.2489,True,"outside band, not significant — monitor"
+ethnicity_group,Group E,162,29,0.179,Group A,1.159,0.4619,True,pass
+age_band,25-34,565,86,0.1522,25-34,1.0,1.0,True,pass
+age_band,35-44,447,65,0.1454,25-34,0.955,0.7903,True,pass
+age_band,45-54,244,32,0.1311,25-34,0.862,0.515,True,pass
+age_band,55+,99,20,0.202,25-34,1.327,0.2336,True,"outside band, not significant — monitor"
+age_band,<25,128,20,0.1562,25-34,1.027,0.8923,True,pass

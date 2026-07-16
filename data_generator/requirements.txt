@@ -3,3 +3,5 @@ numpy
 faker
 scikit-learn
 matplotlib
+scipy
+lifelines

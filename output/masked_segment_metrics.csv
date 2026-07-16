@@ -1,0 +1,240 @@
+department,job_level,level_rank,gender,n_band,avg_salary,avg_compa_ratio,avg_engagement,suppression
+Customer Support,Associate,1,Female,9,49811.0,0.9579,77.0,published
+Customer Support,Associate,1,Male,10,51420.0,0.9889,66.5,published
+Customer Support,Analyst,2,Female,13,65515.0,0.9927,74.8,published
+Customer Support,Analyst,2,Male,9,,,,suppressed: complementary (two-cell rule)
+Customer Support,Analyst,2,Non-binary,<5,,,,suppressed: n < 5
+Customer Support,Senior Analyst,3,Female,6,,,,suppressed: complementary (two-cell rule)
+Customer Support,Specialist,3,Female,7,74786.0,0.912,71.2,published
+Customer Support,Senior Analyst,3,Male,11,83982.0,1.0242,66.7,published
+Customer Support,Specialist,3,Male,7,83557.0,1.019,67.4,published
+Customer Support,Senior Analyst,3,Non-binary,<5,,,,suppressed: n < 5
+Customer Support,Senior Specialist,4,Female,<5,,,,suppressed: n < 5
+Customer Support,Senior Specialist,4,Male,10,,,,suppressed: complementary (two-cell rule)
+Customer Support,Lead,5,Male,8,116675.0,0.9888,67.8,published
+Customer Support,Manager,6,Female,<5,,,,suppressed: n < 5
+Customer Support,Manager,6,Male,6,,,,suppressed: complementary (two-cell rule)
+Customer Support,Senior Manager,7,Female,<5,,,,suppressed: n < 5
+Customer Support,Senior Manager,7,Male,<5,,,,suppressed: n < 5
+Customer Support,Director,8,Female,<5,,,,suppressed: n < 5
+Data & Analytics,Associate,1,Female,5,49040.0,0.9431,77.7,published
+Data & Analytics,Associate,1,Male,8,52713.0,1.0137,67.8,published
+Data & Analytics,Analyst,2,Female,<5,,,,suppressed: n < 5
+Data & Analytics,Analyst,2,Male,9,,,,suppressed: complementary (two-cell rule)
+Data & Analytics,Senior Analyst,3,Female,7,84614.0,1.0319,72.3,published
+Data & Analytics,Specialist,3,Female,5,,,,suppressed: complementary (two-cell rule)
+Data & Analytics,Senior Analyst,3,Male,12,81558.0,0.9946,77.6,published
+Data & Analytics,Specialist,3,Male,7,83914.0,1.0233,65.7,published
+Data & Analytics,Specialist,3,Non-binary,<5,,,,suppressed: n < 5
+Data & Analytics,Senior Specialist,4,Female,7,,,,suppressed: complementary (two-cell rule)
+Data & Analytics,Senior Specialist,4,Male,<5,,,,suppressed: n < 5
+Data & Analytics,Lead,5,Female,5,110260.0,0.9344,70.2,published
+Data & Analytics,Lead,5,Male,<5,,,,suppressed: n < 5
+Data & Analytics,Lead,5,Non-binary,<5,,,,suppressed: n < 5
+Data & Analytics,Manager,6,Female,6,138633.0,0.9763,74.0,published
+Data & Analytics,Manager,6,Male,8,140213.0,0.9874,75.6,published
+Data & Analytics,Senior Manager,7,Female,6,,,,suppressed: complementary (two-cell rule)
+Data & Analytics,Senior Manager,7,Male,<5,,,,suppressed: n < 5
+Data & Analytics,Director,8,Female,<5,,,,suppressed: n < 5
+Data & Analytics,Director,8,Male,<5,,,,suppressed: n < 5
+Field Sales,Associate,1,Female,6,,,,suppressed: complementary (two-cell rule)
+Field Sales,Associate,1,Male,14,53329.0,1.0255,70.1,published
+Field Sales,Associate,1,Non-binary,<5,,,,suppressed: n < 5
+Field Sales,Analyst,2,Female,10,65070.0,0.9859,71.8,published
+Field Sales,Analyst,2,Male,14,66657.0,1.01,71.1,published
+Field Sales,Senior Analyst,3,Female,9,78700.0,0.9598,80.7,published
+Field Sales,Specialist,3,Female,8,81175.0,0.9899,67.2,published
+Field Sales,Senior Analyst,3,Male,9,80678.0,0.9839,71.4,published
+Field Sales,Specialist,3,Male,5,84460.0,1.03,61.8,published
+Field Sales,Senior Specialist,4,Female,11,95073.0,0.9701,80.8,published
+Field Sales,Senior Specialist,4,Male,5,,,,suppressed: complementary (two-cell rule)
+Field Sales,Senior Specialist,4,Non-binary,<5,,,,suppressed: n < 5
+Field Sales,Lead,5,Female,<5,,,,suppressed: n < 5
+Field Sales,Lead,5,Male,10,116640.0,0.9885,67.3,published
+Field Sales,Lead,5,Non-binary,<5,,,,suppressed: n < 5
+Field Sales,Manager,6,Female,<5,,,,suppressed: n < 5
+Field Sales,Manager,6,Male,10,143550.0,1.0109,74.1,published
+Field Sales,Manager,6,Non-binary,<5,,,,suppressed: n < 5
+Field Sales,Senior Manager,7,Female,<5,,,,suppressed: n < 5
+Field Sales,Senior Manager,7,Male,5,,,,suppressed: complementary (two-cell rule)
+Field Sales,Director,8,Female,<5,,,,suppressed: n < 5
+Finance & Accounting,Associate,1,Female,6,51400.0,0.9885,76.3,published
+Finance & Accounting,Associate,1,Male,8,52850.0,1.0164,70.6,published
+Finance & Accounting,Analyst,2,Female,9,64644.0,0.9795,76.9,published
+Finance & Accounting,Analyst,2,Male,16,67350.0,1.0205,70.8,published
+Finance & Accounting,Senior Analyst,3,Female,13,75862.0,0.9251,69.0,published
+Finance & Accounting,Specialist,3,Female,12,80217.0,0.9783,71.3,published
+Finance & Accounting,Senior Analyst,3,Male,<5,,,,suppressed: n < 5
+Finance & Accounting,Specialist,3,Male,6,,,,suppressed: complementary (two-cell rule)
+Finance & Accounting,Senior Analyst,3,Non-binary,<5,,,,suppressed: n < 5
+Finance & Accounting,Specialist,3,Non-binary,<5,,,,suppressed: n < 5
+Finance & Accounting,Senior Specialist,4,Female,9,,,,suppressed: complementary (two-cell rule)
+Finance & Accounting,Senior Specialist,4,Male,<5,,,,suppressed: n < 5
+Finance & Accounting,Lead,5,Female,5,117040.0,0.9919,76.2,published
+Finance & Accounting,Lead,5,Male,9,117800.0,0.9983,64.9,published
+Finance & Accounting,Manager,6,Female,5,141840.0,0.9989,71.7,published
+Finance & Accounting,Manager,6,Male,5,145300.0,1.0232,70.2,published
+Finance & Accounting,Senior Manager,7,Female,<5,,,,suppressed: n < 5
+Finance & Accounting,Senior Manager,7,Male,5,,,,suppressed: complementary (two-cell rule)
+Finance & Accounting,Director,8,Female,<5,,,,suppressed: n < 5
+Finance & Accounting,Director,8,Male,<5,,,,suppressed: n < 5
+Human Resources,Associate,1,Female,9,,,,suppressed: complementary (two-cell rule)
+Human Resources,Associate,1,Male,12,51883.0,0.9977,76.1,published
+Human Resources,Associate,1,Non-binary,<5,,,,suppressed: n < 5
+Human Resources,Analyst,2,Female,11,,,,suppressed: complementary (two-cell rule)
+Human Resources,Analyst,2,Male,14,67871.0,1.0284,72.3,published
+Human Resources,Analyst,2,Non-binary,<5,,,,suppressed: n < 5
+Human Resources,Senior Analyst,3,Female,13,77046.0,0.9396,67.9,published
+Human Resources,Specialist,3,Female,11,79482.0,0.9693,66.6,published
+Human Resources,Senior Analyst,3,Male,10,,,,suppressed: complementary (two-cell rule)
+Human Resources,Specialist,3,Male,9,84622.0,1.032,63.1,published
+Human Resources,Senior Analyst,3,Non-binary,<5,,,,suppressed: n < 5
+Human Resources,Senior Specialist,4,Female,7,93671.0,0.9558,71.3,published
+Human Resources,Senior Specialist,4,Male,6,,,,suppressed: complementary (two-cell rule)
+Human Resources,Senior Specialist,4,Non-binary,<5,,,,suppressed: n < 5
+Human Resources,Lead,5,Female,<5,,,,suppressed: n < 5
+Human Resources,Lead,5,Male,8,118888.0,1.0075,70.3,published
+Human Resources,Lead,5,Non-binary,<5,,,,suppressed: n < 5
+Human Resources,Manager,6,Female,<5,,,,suppressed: n < 5
+Human Resources,Manager,6,Male,<5,,,,suppressed: n < 5
+Human Resources,Senior Manager,7,Female,<5,,,,suppressed: n < 5
+Human Resources,Senior Manager,7,Male,<5,,,,suppressed: n < 5
+Human Resources,Director,8,Male,<5,,,,suppressed: n < 5
+Human Resources,Director,8,Non-binary,<5,,,,suppressed: n < 5
+IT Operations,Associate,1,Female,11,,,,suppressed: complementary (two-cell rule)
+IT Operations,Associate,1,Male,11,52445.0,1.0086,66.5,published
+IT Operations,Associate,1,Non-binary,<5,,,,suppressed: n < 5
+IT Operations,Analyst,2,Female,17,,,,suppressed: complementary (two-cell rule)
+IT Operations,Analyst,2,Male,18,66078.0,1.0012,73.0,published
+IT Operations,Analyst,2,Non-binary,<5,,,,suppressed: n < 5
+IT Operations,Senior Analyst,3,Female,9,,,,suppressed: complementary (two-cell rule)
+IT Operations,Specialist,3,Female,7,,,,suppressed: complementary (two-cell rule)
+IT Operations,Senior Analyst,3,Male,<5,,,,suppressed: n < 5
+IT Operations,Specialist,3,Male,<5,,,,suppressed: n < 5
+IT Operations,Senior Specialist,4,Female,7,93114.0,0.9501,82.1,published
+IT Operations,Senior Specialist,4,Male,5,95100.0,0.9704,79.9,published
+IT Operations,Lead,5,Female,<5,,,,suppressed: n < 5
+IT Operations,Lead,5,Male,5,,,,suppressed: complementary (two-cell rule)
+IT Operations,Manager,6,Female,<5,,,,suppressed: n < 5
+IT Operations,Manager,6,Male,5,146660.0,1.0328,73.4,published
+IT Operations,Manager,6,Non-binary,<5,,,,suppressed: n < 5
+IT Operations,Senior Manager,7,Female,5,172040.0,1.0002,68.9,published
+IT Operations,Senior Manager,7,Male,5,169660.0,0.9864,77.6,published
+IT Operations,Director,8,Female,<5,,,,suppressed: n < 5
+Inside Sales,Associate,1,Female,5,50440.0,0.97,73.2,published
+Inside Sales,Associate,1,Male,7,53429.0,1.0275,68.6,published
+Inside Sales,Analyst,2,Female,21,64214.0,0.9729,74.2,published
+Inside Sales,Analyst,2,Male,16,66563.0,1.0085,66.4,published
+Inside Sales,Senior Analyst,3,Female,10,,,,suppressed: complementary (two-cell rule)
+Inside Sales,Specialist,3,Female,8,79875.0,0.9741,72.7,published
+Inside Sales,Senior Analyst,3,Male,12,84183.0,1.0266,69.4,published
+Inside Sales,Specialist,3,Male,6,,,,suppressed: complementary (two-cell rule)
+Inside Sales,Senior Analyst,3,Non-binary,<5,,,,suppressed: n < 5
+Inside Sales,Specialist,3,Non-binary,<5,,,,suppressed: n < 5
+Inside Sales,Senior Specialist,4,Female,8,93700.0,0.9561,81.1,published
+Inside Sales,Senior Specialist,4,Male,11,99418.0,1.0145,68.2,published
+Inside Sales,Lead,5,Female,6,116033.0,0.9834,70.7,published
+Inside Sales,Lead,5,Male,5,124400.0,1.0542,66.9,published
+Inside Sales,Manager,6,Female,<5,,,,suppressed: n < 5
+Inside Sales,Manager,6,Male,<5,,,,suppressed: n < 5
+Inside Sales,Senior Manager,7,Female,<5,,,,suppressed: n < 5
+Inside Sales,Senior Manager,7,Male,5,,,,suppressed: complementary (two-cell rule)
+Inside Sales,Director,8,Male,<5,,,,suppressed: n < 5
+Manufacturing,Associate,1,Female,5,,,,suppressed: complementary (two-cell rule)
+Manufacturing,Associate,1,Male,15,50900.0,0.9788,71.8,published
+Manufacturing,Associate,1,Non-binary,<5,,,,suppressed: n < 5
+Manufacturing,Analyst,2,Female,8,61775.0,0.936,64.3,published
+Manufacturing,Analyst,2,Male,14,68964.0,1.0449,75.2,published
+Manufacturing,Senior Analyst,3,Female,6,80967.0,0.9874,68.9,published
+Manufacturing,Specialist,3,Female,<5,,,,suppressed: n < 5
+Manufacturing,Senior Analyst,3,Male,8,84738.0,1.0334,67.2,published
+Manufacturing,Specialist,3,Male,8,,,,suppressed: complementary (two-cell rule)
+Manufacturing,Senior Specialist,4,Female,7,,,,suppressed: complementary (two-cell rule)
+Manufacturing,Senior Specialist,4,Male,<5,,,,suppressed: n < 5
+Manufacturing,Lead,5,Female,<5,,,,suppressed: n < 5
+Manufacturing,Lead,5,Male,5,,,,suppressed: complementary (two-cell rule)
+Manufacturing,Manager,6,Female,<5,,,,suppressed: n < 5
+Manufacturing,Manager,6,Male,8,,,,suppressed: complementary (two-cell rule)
+Manufacturing,Senior Manager,7,Female,<5,,,,suppressed: n < 5
+Manufacturing,Senior Manager,7,Male,<5,,,,suppressed: n < 5
+Manufacturing,Director,8,Female,<5,,,,suppressed: n < 5
+Marketing,Associate,1,Female,<5,,,,suppressed: n < 5
+Marketing,Associate,1,Male,14,,,,suppressed: complementary (two-cell rule)
+Marketing,Analyst,2,Female,11,66682.0,1.0103,72.4,published
+Marketing,Analyst,2,Male,13,66577.0,1.0088,73.6,published
+Marketing,Senior Analyst,3,Female,7,80314.0,0.9794,69.1,published
+Marketing,Specialist,3,Female,<5,,,,suppressed: n < 5
+Marketing,Senior Analyst,3,Male,13,82623.0,1.0076,73.8,published
+Marketing,Specialist,3,Male,7,,,,suppressed: complementary (two-cell rule)
+Marketing,Senior Specialist,4,Female,<5,,,,suppressed: n < 5
+Marketing,Senior Specialist,4,Male,9,,,,suppressed: complementary (two-cell rule)
+Marketing,Lead,5,Female,5,120260.0,1.0192,74.6,published
+Marketing,Lead,5,Male,5,114180.0,0.9676,64.0,published
+Marketing,Manager,6,Female,<5,,,,suppressed: n < 5
+Marketing,Manager,6,Male,8,138463.0,0.9751,67.2,published
+Marketing,Manager,6,Non-binary,<5,,,,suppressed: n < 5
+Marketing,Senior Manager,7,Female,<5,,,,suppressed: n < 5
+Marketing,Senior Manager,7,Male,5,181060.0,1.0527,56.5,published
+Marketing,Senior Manager,7,Non-binary,<5,,,,suppressed: n < 5
+Marketing,Director,8,Female,<5,,,,suppressed: n < 5
+Product Management,Associate,1,Female,9,50967.0,0.9801,65.9,published
+Product Management,Associate,1,Male,8,54013.0,1.0387,69.6,published
+Product Management,Analyst,2,Female,11,65500.0,0.9924,66.6,published
+Product Management,Analyst,2,Male,12,67958.0,1.0297,73.1,published
+Product Management,Senior Analyst,3,Female,8,,,,suppressed: complementary (two-cell rule)
+Product Management,Specialist,3,Female,6,,,,suppressed: complementary (two-cell rule)
+Product Management,Senior Analyst,3,Male,19,83858.0,1.0227,69.0,published
+Product Management,Specialist,3,Male,7,79643.0,0.9713,70.0,published
+Product Management,Senior Analyst,3,Non-binary,<5,,,,suppressed: n < 5
+Product Management,Specialist,3,Non-binary,<5,,,,suppressed: n < 5
+Product Management,Senior Specialist,4,Female,11,95491.0,0.9744,71.2,published
+Product Management,Senior Specialist,4,Male,10,104750.0,1.0689,61.0,published
+Product Management,Lead,5,Female,5,119620.0,1.0137,78.5,published
+Product Management,Lead,5,Male,<5,,,,suppressed: n < 5
+Product Management,Lead,5,Non-binary,<5,,,,suppressed: n < 5
+Product Management,Manager,6,Female,5,,,,suppressed: complementary (two-cell rule)
+Product Management,Manager,6,Male,<5,,,,suppressed: n < 5
+Product Management,Senior Manager,7,Female,<5,,,,suppressed: n < 5
+Product Management,Senior Manager,7,Male,5,159480.0,0.9272,77.4,published
+Product Management,Senior Manager,7,Non-binary,<5,,,,suppressed: n < 5
+Product Management,Director,8,Female,<5,,,,suppressed: n < 5
+Product Management,Director,8,Male,<5,,,,suppressed: n < 5
+Product Management,Director,8,Non-binary,<5,,,,suppressed: n < 5
+Software Engineering,Associate,1,Female,8,51713.0,0.9945,68.7,published
+Software Engineering,Associate,1,Male,14,52350.0,1.0067,73.9,published
+Software Engineering,Analyst,2,Female,8,62613.0,0.9487,64.8,published
+Software Engineering,Analyst,2,Male,20,65750.0,0.9962,70.7,published
+Software Engineering,Senior Analyst,3,Female,6,82767.0,1.0094,74.8,published
+Software Engineering,Specialist,3,Female,8,78525.0,0.9576,71.6,published
+Software Engineering,Senior Analyst,3,Male,14,84250.0,1.0274,79.6,published
+Software Engineering,Specialist,3,Male,11,84373.0,1.0289,63.5,published
+Software Engineering,Senior Specialist,4,Female,<5,,,,suppressed: n < 5
+Software Engineering,Senior Specialist,4,Male,10,,,,suppressed: complementary (two-cell rule)
+Software Engineering,Lead,5,Female,6,,,,suppressed: complementary (two-cell rule)
+Software Engineering,Lead,5,Male,<5,,,,suppressed: n < 5
+Software Engineering,Manager,6,Female,7,140229.0,0.9875,71.6,published
+Software Engineering,Manager,6,Male,8,146850.0,1.0341,73.4,published
+Software Engineering,Senior Manager,7,Female,<5,,,,suppressed: n < 5
+Software Engineering,Senior Manager,7,Male,<5,,,,suppressed: n < 5
+Software Engineering,Senior Manager,7,Non-binary,<5,,,,suppressed: n < 5
+Software Engineering,Director,8,Female,<5,,,,suppressed: n < 5
+Software Engineering,Director,8,Male,<5,,,,suppressed: n < 5
+Supply Chain,Associate,1,Female,10,50420.0,0.9696,69.1,published
+Supply Chain,Associate,1,Male,9,,,,suppressed: complementary (two-cell rule)
+Supply Chain,Associate,1,Non-binary,<5,,,,suppressed: n < 5
+Supply Chain,Analyst,2,Female,12,,,,suppressed: complementary (two-cell rule)
+Supply Chain,Analyst,2,Male,15,69947.0,1.0598,71.3,published
+Supply Chain,Analyst,2,Non-binary,<5,,,,suppressed: n < 5
+Supply Chain,Senior Analyst,3,Female,8,,,,suppressed: complementary (two-cell rule)
+Supply Chain,Specialist,3,Female,9,,,,suppressed: complementary (two-cell rule)
+Supply Chain,Senior Analyst,3,Male,<5,,,,suppressed: n < 5
+Supply Chain,Specialist,3,Male,15,82240.0,1.0029,70.8,published
+Supply Chain,Specialist,3,Non-binary,<5,,,,suppressed: n < 5
+Supply Chain,Senior Specialist,4,Female,<5,,,,suppressed: n < 5
+Supply Chain,Senior Specialist,4,Male,6,,,,suppressed: complementary (two-cell rule)
+Supply Chain,Lead,5,Female,7,,,,suppressed: complementary (two-cell rule)
+Supply Chain,Lead,5,Male,<5,,,,suppressed: n < 5
+Supply Chain,Manager,6,Female,8,142638.0,1.0045,70.6,published
+Supply Chain,Manager,6,Male,6,137900.0,0.9711,70.1,published
+Supply Chain,Senior Manager,7,Male,<5,,,,suppressed: n < 5
+Supply Chain,Senior Manager,7,Non-binary,<5,,,,suppressed: n < 5

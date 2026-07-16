@@ -26,8 +26,10 @@ def model():
         cols.setdefault(tname, set())
         for mo in re.finditer(r"^\tcolumn ([^\s=]+)", txt, re.M):
             cols[tname].add(mo.group(1))
-        for mo in re.finditer(r"^\tmeasure '([^']+)'", txt, re.M):
-            measures.add(mo.group(1))
+        # Desktop only quotes names that need it: measure 'Attrition %' but
+        # measure Headcount — accept both serializations.
+        for mo in re.finditer(r"^\tmeasure (?:'([^']+)'|([^\s=]+))", txt, re.M):
+            measures.add(mo.group(1) or mo.group(2))
     return cols, measures
 
 

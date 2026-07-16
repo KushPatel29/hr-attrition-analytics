@@ -4,7 +4,7 @@
    Canonical star schema for the HR attrition & retention mart, written in
    T-SQL (SQL Server / Microsoft Fabric Warehouse dialect). The runnable
    engine (engine/run_hr_analytics.py) loads the same tables into SQLite from
-   the CSVs in data/, then executes the analytics in sql/02..07 against them.
+   the CSVs in data/, then executes the analytics in sql/02..09 against them.
 
    Grain
      dim_department / dim_job / dim_location / dim_date : conformed dimensions
@@ -12,6 +12,8 @@
                            time snapshot as of 2026-06-30
      comp_benchmark      : external market pay by job level
      fact_applications   : one row per job application (recruiting funnel)
+     fact_hr_interventions : one row per retention action taken on an
+                           at-risk employee (stay interview, raise, ...)
    =========================================================================== */
 
 CREATE TABLE dim_department (
@@ -93,7 +95,15 @@ CREATE TABLE fact_applications (
     days_to_fill       INT          NULL
 );
 
+CREATE TABLE fact_hr_interventions (
+    intervention_id    INT          NOT NULL PRIMARY KEY,
+    employee_id        INT          NOT NULL REFERENCES fact_employees(employee_id),
+    intervention_date  DATE         NOT NULL,
+    intervention_type  VARCHAR(30)  NOT NULL    -- 'Stay interview', 'Out-of-cycle raise', ...
+);
+
 CREATE INDEX ix_emp_department ON fact_employees(department_id);
 CREATE INDEX ix_emp_job        ON fact_employees(job_id);
 CREATE INDEX ix_emp_active     ON fact_employees(is_active);
 CREATE INDEX ix_app_source     ON fact_applications(source);
+CREATE INDEX ix_int_employee   ON fact_hr_interventions(employee_id);
