@@ -5,7 +5,7 @@
     "x": 20,
     "y": 140,
     "z": 1004,
-    "height": 270,
+    "height": 180,
     "width": 400,
     "tabOrder": 1004
   },
@@ -67,6 +67,30 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Attrition Colour"
+                    }
+                  }
                 }
               }
             }

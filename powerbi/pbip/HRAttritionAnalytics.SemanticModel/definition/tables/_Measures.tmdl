@@ -157,6 +157,124 @@ table _Measures
 		formatString: #,0
 		lineageTag: 2fe16b7d-b7dc-4c22-9bfb-5a62e01ff644
 
+	/// The half of the KPI that was missing: attrition against what?
+	measure 'Attrition vs Target' = [Attrition Rate (T12M)] - [Attrition Target]
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 38423dbf-a24a-55e3-b7d9-95f73e040cf8
+		displayFolder: Verdict
+
+	/// The model decides what 'bad' means, once, instead of every reader deciding for themselves in the meeting.
+	measure 'Attrition Status' =
+			VAR Actual = [Attrition Rate (T12M)]
+			VAR Target = [Attrition Target]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        ISBLANK(Actual), "No data",
+			        Actual <= Target, "On target",
+			        Actual <= Target + 0.01, "Watch",
+			        "Off target"
+			    )
+		lineageTag: e20c7ceb-71c9-55f3-bde9-4d79ab825bca
+		displayFolder: Verdict
+
+	/// Bind to Conditional formatting -> Field value. The hex values are the Meridian Nocturne semantic colours, so report and theme cannot drift apart.
+	measure 'Attrition Colour' =
+			SWITCH(
+			    [Attrition Status],
+			    "On target", "#3DD68C",
+			    "Watch", "#F5A524",
+			    "No data", "#454A82",
+			    "#FF5C7A"
+			)
+		lineageTag: d829203c-da29-5cb3-8520-ef58867295b5
+		displayFolder: Verdict
+
+	/// Reference line under the callout, shown as the card's subtitle.
+	measure 'Attrition Reference' =
+			VAR Gap = [Attrition vs Target]
+			VAR Above = Gap >= 0
+			RETURN
+			    "Target " & FORMAT([Attrition Target], "0.0%") & "   "
+			        & IF(Above, "▲", "▼") & " "
+			        & FORMAT(ABS(Gap) * 100, "0.0") & " pts" & IF(Above, " over", " under")
+		lineageTag: d88470f5-d739-5d0f-956d-1ba435346045
+		displayFolder: Verdict
+
+	/// Card subtitle for Headcount.
+	measure 'Headcount Reference' = "Terminations " & FORMAT([Terminations], "#,0") & "   Voluntary " & FORMAT([Voluntary %], "0.0%")
+		lineageTag: 59e0917d-58bf-5cd3-8356-2cb3aafbf173
+		displayFolder: Verdict
+
+	/// A count of high-risk employees means nothing without its denominator.
+	measure 'High Risk Reference' = "of " & FORMAT([Scored Employees], "#,0") & " scored   avg score " & FORMAT([Avg Risk Score], "0.00")
+		lineageTag: 41d7948d-6574-5137-a0e4-ab74e2a044da
+		displayFolder: Verdict
+
+	/// Departments above the attrition target read red.
+	measure 'Department Attrition Colour' =
+			IF(
+			    [Separation Rate] > [Attrition Target],
+			    "#FF5C7A",
+			    "#454A82"
+			)
+		lineageTag: e3011e1b-d6a5-5879-9607-4819d53c8b75
+		displayFolder: Verdict
+
+	/// Highlights the largest value on the axis and recedes the rest.
+	/// The bare ALLSELECTED() is what makes this work inside a conditional
+	/// format: it restores the VISUAL's filter context, so VALUES() is the
+	/// axis rather than the single data point. Iterating the column alone
+	/// leaves the point's own filter in place and every bar matches itself;
+	/// iterating the table walks rows, which is not the axis unless the
+	/// dimension happens to have one row per value.
+	measure 'Tenure Band Colour' =
+			VAR Here = [Separation Rate]
+			VAR Extreme =
+			    CALCULATE(
+			        MAXX(VALUES(fact_employees[tenure_band]), [Separation Rate]),
+			        ALLSELECTED()
+			    )
+			RETURN
+			    IF(Here = Extreme, "#FF5C7A", "#454A82")
+		lineageTag: b89acd8a-2e71-5af7-91a9-6f199a42e2a4
+		displayFolder: Verdict
+
+	/// Highlights the largest value on the axis and recedes the rest.
+	/// The bare ALLSELECTED() is what makes this work inside a conditional
+	/// format: it restores the VISUAL's filter context, so VALUES() is the
+	/// axis rather than the single data point. Iterating the column alone
+	/// leaves the point's own filter in place and every bar matches itself;
+	/// iterating the table walks rows, which is not the axis unless the
+	/// dimension happens to have one row per value.
+	measure 'Source Hire Rate Colour' =
+			VAR Here = [Src Hire Rate]
+			VAR Extreme =
+			    CALCULATE(
+			        MAXX(VALUES(recruiting_by_source[source]), [Src Hire Rate]),
+			        ALLSELECTED()
+			    )
+			RETURN
+			    IF(Here = Extreme, "#3DD68C", "#454A82")
+		lineageTag: d8967292-b9b8-53d4-9300-f0942e7b8cd1
+		displayFolder: Verdict
+
+	/// Closes on the governance point, because on people data that IS the headline.
+	measure 'Workforce Insight' =
+			VAR Rate = [Attrition Rate (T12M)]
+			VAR Gap = Rate - [Attrition Target]
+			VAR WorstDept =
+			    MAXX(TOPN(1, VALUES(dim_department[department]), [Separation Rate], DESC), dim_department[department])
+			VAR WorstRate = CALCULATE([Separation Rate], dim_department[department] = WorstDept)
+			RETURN
+			    "Attrition " & FORMAT(Rate, "0.0%") & " against a " & FORMAT([Attrition Target], "0.0%")
+			        & " target — " & IF(Gap <= 0, "on target", FORMAT(Gap * 100, "0.0") & " pts over")
+			        & ". " & WorstDept & " is the hardest hit at " & FORMAT(WorstRate, "0.0%")
+			        & ", and " & FORMAT([High Risk Count], "#,0") & " of " & FORMAT([Scored Employees], "#,0")
+			        & " scored employees are flagged high risk. The model reads no protected attribute."
+		lineageTag: c6808a44-f177-59cd-a590-97aae82e154e
+		displayFolder: Verdict
+
 	column Value
 		dataType: int64
 		isHidden

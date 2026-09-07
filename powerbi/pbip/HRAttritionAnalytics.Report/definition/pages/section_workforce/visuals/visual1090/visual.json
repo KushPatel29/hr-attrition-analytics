@@ -1,38 +1,20 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "visual3005",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual1090",
   "position": {
     "x": 20,
-    "y": 430,
-    "z": 3005,
-    "height": 270,
-    "width": 400,
-    "tabOrder": 3005
+    "y": 330,
+    "z": 1090,
+    "height": 95,
+    "width": 1240,
+    "tabOrder": 1090
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "card",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_employees"
-                    }
-                  },
-                  "Property": "tenure_band"
-                }
-              },
-              "queryRef": "fact_employees.tenure_band",
-              "nativeQueryRef": "tenure_band",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -42,11 +24,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Headcount"
+                  "Property": "Workforce Insight"
                 }
               },
-              "queryRef": "_Measures.Headcount",
-              "nativeQueryRef": "Headcount"
+              "queryRef": "_Measures.Workforce Insight",
+              "nativeQueryRef": "Workforce Insight"
             }
           ]
         }
@@ -59,7 +41,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Headcount by Tenure Band'"
+                  "Value": "'What the workforce is telling you'"
                 }
               }
             },
@@ -74,9 +56,28 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "objects": {
       "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "wordWrap": [
         {
           "properties": {
             "show": {
@@ -89,23 +90,10 @@
           }
         }
       ],
-      "categoryAxis": [
+      "categoryLabels": [
         {
           "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
