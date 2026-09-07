@@ -4,7 +4,7 @@
 ![SQL](https://img.shields.io/badge/SQL-window%20functions%20%2B%20CTEs-CC2927)
 ![Power BI](https://img.shields.io/badge/Power%20BI-8--page%20dashboard-F2C811?logo=powerbi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-scikit--learn%20%2B%20lifelines-3776AB?logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-228%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-235%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 Every HR leadership meeting circles the same four questions: *who is leaving,
@@ -33,7 +33,7 @@ log** that measures whether retention actions actually worked.
 
 Everything is synthetic (Faker, fixed seeds — no real employee data), but the
 logic mirrors real workforce-analytics practice. CI re-runs the whole
-pipeline and all 228 tests on every push.
+pipeline and all 235 tests on every push.
 
 ## Headline findings (from the generated snapshot, 2026-06-30)
 
@@ -139,9 +139,10 @@ and three of them stop working entirely.
 
 ### "Women earn 4.5% less" — of which most is the exchange rate
 
-Pay is set against the **local** market, so a Bengaluru Senior Analyst and a
-New York Senior Analyst, both paid at their own median, differ by a factor of
-five. Any gender split that happens to sit differently across those markets
+Pay is set against the **local** market, and the priciest of the eight costs
+**4.9x** the cheapest, so a Bengaluru Senior Analyst and a New York Senior
+Analyst — both paid correctly at their own median — differ by roughly that
+much. Any gender split that happens to sit differently across those markets
 therefore reads as a pay gap that has nothing to do with pay decisions. Pooled
 within-level, Senior Manager comes out at **18.2%**; measured inside a single
 country and level, it is **3.4%**. The difference is geography, and the column
@@ -438,7 +439,7 @@ python ml/attrition_model.py                     # train + score flight risk
 python ml/fairness_audit.py                      # disparate-impact gate
 python ml/survival_analysis.py                   # Kaplan-Meier + Cox PH
 python analytics/make_visuals.py                 # render the figures
-pytest tests/ -v                                 # 228 invariants
+pytest tests/ -v                                 # 235 invariants
 ```
 
 Then open `powerbi/pbip/HRAttritionAnalytics.pbip` in Power BI Desktop.
