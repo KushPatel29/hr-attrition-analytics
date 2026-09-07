@@ -1,0 +1,197 @@
+/// Headcount, attrition, pay position and work-model mix per market, published by sql/12_global_workforce.sql. A company-wide rate is an average over markets that behave nothing like one another.
+table workforce_by_country
+	lineageTag: 2bfb6370-ea7e-511d-b558-abebee86c995
+
+	column country
+		dataType: string
+		lineageTag: 6d98c312-e212-5c41-a8f7-7fe9f974645c
+		summarizeBy: none
+		sourceColumn: country
+
+	column region
+		dataType: string
+		lineageTag: a0fcb099-e4db-5b40-ab64-3382edc2c045
+		summarizeBy: none
+		sourceColumn: region
+
+	column headcount
+		dataType: int64
+		formatString: #,0
+		lineageTag: bc92ff79-2c37-5ca7-82b4-efbbea7efb4b
+		summarizeBy: none
+		sourceColumn: headcount
+
+	column headcount_ever
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: 12ed5c03-1ef9-532e-abde-dec4dca4b42f
+		summarizeBy: none
+		sourceColumn: headcount_ever
+
+	column exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 3505e78b-329d-54bd-b833-9ca2719a7a0d
+		summarizeBy: none
+		sourceColumn: exits
+
+	column voluntary_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 740a9cc1-edff-58f1-ad11-04b9a2758773
+		summarizeBy: none
+		sourceColumn: voluntary_exits
+
+	column regretted_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: d22e002e-9a9f-5475-a37c-5b9d77fa6a90
+		summarizeBy: none
+		sourceColumn: regretted_exits
+
+	column managers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5f64cb6c-2ce9-5e65-8156-06fe3fe1650f
+		summarizeBy: none
+		sourceColumn: managers
+
+	column senior_roles
+		dataType: int64
+		formatString: #,0
+		lineageTag: c9e827c4-04e4-598a-9019-42880f33758f
+		summarizeBy: none
+		sourceColumn: senior_roles
+
+	column women
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: e4259f86-fecd-56e4-a88f-b3bfd241aa39
+		summarizeBy: none
+		sourceColumn: women
+
+	column remote
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: d6399563-d5dd-5bbb-b01e-b1cf992e224e
+		summarizeBy: none
+		sourceColumn: remote
+
+	column hybrid
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: f828d559-a94b-5408-ae4c-d295c3ee0e20
+		summarizeBy: none
+		sourceColumn: hybrid
+
+	column avg_engagement
+		dataType: double
+		formatString: 0.0
+		lineageTag: 79dc619c-b217-5ca2-a936-df79c02f9de1
+		summarizeBy: none
+		sourceColumn: avg_engagement
+
+	column avg_compa_ratio
+		dataType: double
+		formatString: 0.000
+		lineageTag: 35c14f32-c59f-5b75-b37c-f9067785ae7f
+		summarizeBy: none
+		sourceColumn: avg_compa_ratio
+
+	column avg_tenure_months
+		dataType: double
+		formatString: #,0.0
+		lineageTag: ae08b133-2305-5b9a-84f3-e7640e2c3b21
+		summarizeBy: none
+		sourceColumn: avg_tenure_months
+
+	column payroll
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 8b106d08-3459-5449-ab4e-87d71b2c2aea
+		summarizeBy: none
+		sourceColumn: payroll
+
+	column salary_index
+		dataType: double
+		formatString: 0.00
+		lineageTag: 8f7abd06-9f3b-52b7-8f50-ea64d6efa028
+		summarizeBy: none
+		sourceColumn: salary_index
+
+	column avg_salary
+		dataType: double
+		formatString: \$#,0
+		lineageTag: f4180dc5-2b5e-5e1c-98ea-805a891d6b43
+		summarizeBy: none
+		sourceColumn: avg_salary
+
+	column attrition_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f6c59f08-da89-58c9-9294-1131a09a8c18
+		summarizeBy: none
+		sourceColumn: attrition_rate
+
+	column voluntary_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 1ecd9c14-474d-5564-a47a-76a019250dd0
+		summarizeBy: none
+		sourceColumn: voluntary_share
+
+	column regretted_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 321a17b6-81d3-5110-94f2-45b9f5b52f4e
+		summarizeBy: none
+		sourceColumn: regretted_share
+
+	column women_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 8bed5dcc-70d7-59f0-a1c1-aa3fe814f3fb
+		summarizeBy: none
+		sourceColumn: women_share
+
+	column women_senior_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: d6cc7541-6f78-5110-b920-03f791018b5e
+		summarizeBy: none
+		sourceColumn: women_senior_share
+
+	column flexible_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b5eb9420-d66b-59c2-9bfd-efb1f0e70dd8
+		summarizeBy: none
+		sourceColumn: flexible_share
+
+	column share_of_headcount
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c95da2fb-3795-5460-97de-568648c04622
+		summarizeBy: none
+		sourceColumn: share_of_headcount
+
+	column share_of_payroll
+		dataType: double
+		formatString: 0.0%
+		lineageTag: af9319d8-b211-5953-9e3e-39ad8126261a
+		summarizeBy: none
+		sourceColumn: share_of_payroll
+
+	partition workforce_by_country = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\workforce_by_country.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"country", type text}, {"region", type text}, {"headcount", Int64.Type}, {"headcount_ever", Int64.Type}, {"exits", Int64.Type}, {"voluntary_exits", Int64.Type}, {"regretted_exits", Int64.Type}, {"managers", Int64.Type}, {"senior_roles", Int64.Type}, {"women", Int64.Type}, {"remote", Int64.Type}, {"hybrid", Int64.Type}, {"avg_engagement", type number}, {"avg_compa_ratio", type number}, {"avg_tenure_months", type number}, {"payroll", type number}, {"salary_index", type number}, {"avg_salary", type number}, {"attrition_rate", type number}, {"voluntary_share", type number}, {"regretted_share", type number}, {"women_share", type number}, {"women_senior_share", type number}, {"flexible_share", type number}, {"share_of_headcount", type number}, {"share_of_payroll", type number}})
+				in
+				    Typed

@@ -1,8 +1,8 @@
 cohort_label,sort_order,n_employees,n_retained,retention_rate,lift_vs_control
-No intervention (control),0,328,251,0.7652,
-Any intervention,1,228,202,0.886,0.1207
-Development plan,2,45,42,0.9333,0.1681
-Flexible work arrangement,2,34,28,0.8235,0.0583
-Internal transfer,2,21,19,0.9048,0.1395
-Out-of-cycle raise,2,53,47,0.8868,0.1215
-Stay interview,2,75,66,0.88,0.1148
+No intervention (control),0,492,367,0.7459,
+Any intervention,1,330,295,0.8939,0.148
+Development plan,2,63,58,0.9206,0.1747
+Flexible work arrangement,2,55,49,0.8909,0.145
+Internal transfer,2,32,28,0.875,0.1291
+Out-of-cycle raise,2,56,50,0.8929,0.1469
+Stay interview,2,124,110,0.8871,0.1412

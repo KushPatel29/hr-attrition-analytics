@@ -1,16 +1,37 @@
 HR ATTRITION & RETENTION - HEADLINE METRICS
 ====================================================
 Snapshot date              : 2026-06-30
-Active headcount           :    1,483
-Trailing-12m attrition     :    19.4%
-Trailing-12m terminations  :      278
+Active headcount           :    2,151
+Trailing-12m attrition     :    20.6%
+Trailing-12m terminations  :      433
 ----------------------------------------------------
-Adjusted gender pay gap     :     3.3%  (level-weighted)
-  female avg salary         : $    90,792
-  male   avg salary         : $    93,857
+Adjusted gender pay gap     :     4.5%  (level-weighted)
+  female avg salary         : $    69,942
+  male   avg salary         : $    74,596
 ----------------------------------------------------
-Applications                :    9,538
-Applied -> Hired conversion :     8.8%
-Offer accept rate           :    74.3%
-Median time-to-fill (days)  :       48
+Applications                :    9,532
+Applied -> Hired conversion :     8.7%
+Offer accept rate           :    74.2%
+Median time-to-fill (days)  :       46
+----------------------------------------------------
+Market-adjusted gender gap  :     3.7%  (within country x level)
+----------------------------------------------------
+GLOBAL WORKFORCE
+Countries                   :        8
+Largest market              :   Canada  37% of people, 48% of payroll
+Highest-attrition market    :    India  27.6% on 25% of headcount
+Attrition spread            :    14.5%  best to worst market
+Pay-market multiple         :      4.9x  priciest market vs cheapest
+----------------------------------------------------
+EXITS THAT ACTUALLY HURT
+Regretted exits             :      170  (26% of all exits)
+Salary walking out          : $11,068,000
+First-year exits            :      365  (56% of all exits)
+Stalled high performers     :       75  (rated 4+, 24 months without a move)
+----------------------------------------------------
+ORG DESIGN
+Management layers           :        4
+Managers                    :      351
+Spans under 4               :      39%
+Teams above their market    :       33 of 167 teams with 8+ reports
 ====================================================

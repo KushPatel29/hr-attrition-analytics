@@ -1,0 +1,169 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual076",
+  "position": {
+    "x": 20,
+    "y": 374,
+    "z": 1000,
+    "height": 204,
+    "width": 620,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_geo"
+                    }
+                  },
+                  "Property": "country"
+                }
+              },
+              "queryRef": "pay_equity_geo.country",
+              "nativeQueryRef": "country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_geo"
+                    }
+                  },
+                  "Property": "avg_compa_ratio"
+                }
+              },
+              "queryRef": "pay_equity_geo.avg_compa_ratio",
+              "nativeQueryRef": "avg_compa_ratio"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_geo"
+                    }
+                  },
+                  "Property": "avg_salary"
+                }
+              },
+              "queryRef": "pay_equity_geo.avg_salary",
+              "nativeQueryRef": "avg_salary"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_geo"
+                    }
+                  },
+                  "Property": "below_market_share"
+                }
+              },
+              "queryRef": "pay_equity_geo.below_market_share",
+              "nativeQueryRef": "below_market_share"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_geo"
+                    }
+                  },
+                  "Property": "market_adjusted_gap_pct"
+                }
+              },
+              "queryRef": "pay_equity_geo.market_adjusted_gap_pct",
+              "nativeQueryRef": "market_adjusted_gap_pct"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "pay_equity_geo"
+                  }
+                },
+                "Property": "headcount"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Pay position, market by market'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Compa-ratio is against each market's OWN median, so it compares; salary does not'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

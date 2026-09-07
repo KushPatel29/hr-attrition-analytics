@@ -1,7 +1,7 @@
 covariate,hazard_ratio_per_sd,hr_ci_low,hr_ci_high,p_value
-compa_ratio,0.894,0.799,0.999,0.048776
-engagement_score,0.759,0.676,0.853,3e-06
-overtime_hours,1.148,1.032,1.277,0.010904
-commute_km,1.064,0.949,1.193,0.284452
-promo_stagnation_share,2.395,2.23,2.571,0.0
-performance_rating,0.996,0.888,1.116,0.942551
+compa_ratio,0.835,0.764,0.914,8.5e-05
+engagement_score,0.797,0.73,0.872,1e-06
+overtime_hours,1.151,1.06,1.25,0.000816
+commute_km,1.028,0.936,1.128,0.566181
+promo_stagnation_share,2.328,2.212,2.45,0.0
+performance_rating,0.971,0.889,1.062,0.520445

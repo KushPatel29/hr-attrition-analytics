@@ -1,6 +1,6 @@
 source,applications,offers,hires,hire_rate,offer_accept_rate,avg_days_to_fill,hire_rate_rank
-Employee Referral,1672,257,203,0.1214,0.7899,49.9,1
-Agency,995,127,102,0.1025,0.8031,47.1,2
-LinkedIn,2903,371,261,0.0899,0.7035,47.9,3
-Career Site,1691,162,122,0.0721,0.7531,45.4,4
-Job Board,2277,218,155,0.0681,0.711,46.8,5
+Employee Referral,1745,261,206,0.1181,0.7893,44.3,1
+Agency,988,129,98,0.0992,0.7597,41.5,2
+LinkedIn,2797,340,250,0.0894,0.7353,44.7,3
+Job Board,2252,225,161,0.0715,0.7156,45.9,4
+Career Site,1750,166,117,0.0669,0.7048,43.6,5

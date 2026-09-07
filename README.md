@@ -2,19 +2,24 @@
 
 [![CI](https://github.com/KushPatel29/hr-attrition-analytics/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/hr-attrition-analytics/actions/workflows/ci.yml)
 ![SQL](https://img.shields.io/badge/SQL-window%20functions%20%2B%20CTEs-CC2927)
-![Power BI](https://img.shields.io/badge/Power%20BI-6--page%20dashboard-F2C811?logo=powerbi&logoColor=black)
+![Power BI](https://img.shields.io/badge/Power%20BI-8--page%20dashboard-F2C811?logo=powerbi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-scikit--learn%20%2B%20lifelines-3776AB?logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-70%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-228%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 Every HR leadership meeting circles the same four questions: *who is leaving,
 and why? Are we paying people fairly? Is the hiring funnel healthy? Which of
-our current employees will quit next?* This project answers all four with a
-**SQL-first** people-analytics mart — the analytics are hand-written SQL
+our current employees will quit next?* A multinational adds three more that a
+single-country dashboard cannot even frame: *which of those leavers did we
+actually want to keep? Does attrition follow the market or the manager? And is
+that pay gap a pay decision, or the exchange rate?* This project answers all
+seven with a **SQL-first** people-analytics mart — the analytics are hand-written SQL
 (window functions, CTEs, cohort survival, level-adjusted pay gaps) that a
 reviewer can read and audit, executed verbatim by a small Python engine, and
-surfaced in a **6-page Power BI dashboard** plus an **explainable
-flight-risk model**.
+surfaced in an **8-page Power BI dashboard** plus an **explainable
+flight-risk model**. The workforce is 2,800 people across **14 sites in 8
+countries**, because every one of those extra three questions is invisible
+in a single market.
 
 But there's a fifth question that people-analytics work has to answer before
 any of the others matter: *can this system be trusted with data about
@@ -28,20 +33,24 @@ log** that measures whether retention actions actually worked.
 
 Everything is synthetic (Faker, fixed seeds — no real employee data), but the
 logic mirrors real workforce-analytics practice. CI re-runs the whole
-pipeline and all 70 tests on every push.
+pipeline and all 228 tests on every push.
 
 ## Headline findings (from the generated snapshot, 2026-06-30)
 
 | Metric | Value |
 |--------|-------|
-| Active headcount | **1,483** |
-| Trailing-12-month attrition | **19.4%** (73% voluntary) |
-| Level-adjusted gender pay gap | **3.3%** — small but present in **all 8 levels** |
-| Applied → Hired conversion | **8.8%** · median time-to-fill **48 days** |
-| Flight-risk model | ROC-AUC **0.738**, top-decile lift **2.4×** — with zero protected attributes |
-| Strongest exit hazard (Cox) | promotion stagnation, **HR 2.4 per +1 SD** |
-| Low-engagement cohorts | lose 25% of their people by **month 33** (engaged cohorts: never in-window) |
-| Retention interventions | **+12.1 pts** retention among treated at-risk employees (planted effect — see caveat) |
+| Active headcount | **2,151** across **8 countries**, 14 sites |
+| Trailing-12-month attrition | **20.6%** — but **14.5 points** separate the best market from the worst |
+| Largest market | **Canada** — 37% of the people, **48%** of the payroll |
+| Fastest-churning market | **India** — 27.6% attrition on **25%** of the workforce |
+| Regretted exits | **170** (26% of all exits), **$11.1M** of salary |
+| First-year exits | **56% of every exit** happens inside 12 months |
+| Gender pay gap | **4.5%** level-adjusted, **3.7%** once market is held constant |
+| Teams above their own market | **33 of 167** teams with 8+ reports |
+| Org shape | **4 layers**, 351 managers, **39%** managing fewer than four people |
+| Flight-risk model | ROC-AUC **0.738**, top-decile lift **2.5x** — with zero protected attributes |
+| Strongest exit hazard (Cox) | promotion stagnation, **HR 2.3 per +1 SD** |
+| Retention interventions | **+14.8 pts** retention among treated at-risk employees (planted effect — see caveat) |
 
 The full write-up with the "so what" behind each number is in
 [`docs/INSIGHTS.md`](docs/INSIGHTS.md).
@@ -100,8 +109,10 @@ in `sql/` is exactly what runs.
 
 ![Retention curve](docs/retention_curve.png)
 
-**Gender pay gap, raw vs level-adjusted** — the honest finding is that a small
-gap favoring men shows up in *every* level, so it survives adjustment:
+**Gender pay gap, raw vs level-adjusted** — pooled across countries the
+per-level gaps swing from −1.5% to +18%, which is mostly the geographic mix of
+who sits where; held inside country and level they collapse to a consistent
+3-4%, and *that* is the number a review should act on:
 
 ![Pay equity](docs/pay_equity_gap.png)
 
@@ -119,6 +130,109 @@ the Cox model quantifies each driver (details in the next section):
 predict who left):
 
 ![Flight risk drivers](docs/flight_risk_drivers.png)
+
+## Three questions a single-country dashboard cannot frame
+
+The workforce spans 14 sites in 8 countries, each with its own labour market.
+That is not decoration: it changes what several of the standard metrics *mean*,
+and three of them stop working entirely.
+
+### "Women earn 4.5% less" — of which most is the exchange rate
+
+Pay is set against the **local** market, so a Bengaluru Senior Analyst and a
+New York Senior Analyst, both paid at their own median, differ by a factor of
+five. Any gender split that happens to sit differently across those markets
+therefore reads as a pay gap that has nothing to do with pay decisions. Pooled
+within-level, Senior Manager comes out at **18.2%**; measured inside a single
+country and level, it is **3.4%**. The difference is geography, and the column
+that says so is in the table rather than a footnote:
+
+| | Pooled across countries | Inside country x level |
+|---|---|---|
+| Company | 4.5% | **3.7%** |
+| Senior Manager | 18.2% | 3.4% |
+| Senior Analyst | 13.1% | 3.7% |
+| Lead | −1.5% | 4.3% |
+
+Compa-ratio, unlike salary, *is* comparable across markets — every country
+sits at 0.99 of its own median — so the page reports position against the local
+benchmark and keeps raw salary for the budgeting question it belongs to.
+
+The benchmark table is keyed on **(country, level)** and the join uses both.
+Keying it on level alone was not a rounding error: two job titles share level
+rank 3, so de-duplicating on rank left `Specialist` with no benchmark row at
+all and an INNER JOIN silently dropped every Specialist from the pay analysis.
+The test that reconciles the roll-up headcount against the active population is
+what caught it.
+
+### An attrition rate treats a managed-out low performer as a loss
+
+It is not one. Splitting exits three ways — **regretted** (voluntary, rated
+4-5), **non-regretted** (involuntary, or voluntary at 1-2) and **neutral**
+(voluntary at 3) — separates the departures that hurt from the ones that were
+the point. **170 exits, 26% of the total and $11.1M of salary**, were people
+the company wanted to keep. Salary, not a replacement-cost multiple: there is
+no recruiting-cost or ramp data here, and a made-up multiplier turns a
+measurement into an opinion.
+
+The same split surfaces the finding that reassigns the problem entirely:
+**56% of all exits happen inside the first year.** That is a hiring and
+onboarding failure, with a different owner and a different fix from anything in
+a retention budget.
+
+### Attrition clusters under managers — and proving it took two controls
+
+Teams differ. **33 of the 167 teams with 8 or more reports** lose people at
+least half again as fast as their **own market**. The company rate is the wrong
+comparison: ranking every team against it just produces a list of countries
+wearing managers' names.
+
+Even then, "it is the manager" is easy to assert and hard to earn. The claim is
+held to a permutation test, and that test passed with the manager effect
+**switched off** twice before it was right:
+
+* **shuffling globally** let geography leak in — managers are recruited
+  locally, so a team sits in one market, and markets here churn between 12% and
+  28%;
+* **shuffling within a market** still let seniority leak in — a manager's
+  reports sit below them, so a Director's team is managers and a Manager's team
+  is juniors, and tenure is the model's strongest driver.
+
+Permuting inside (country x level) cells holds both fixed. What still clusters
+by team after that is the manager, and the assertion now fails if the effect is
+removed from the generator.
+
+### And an org chart has to be a chart, not a loop
+
+The reporting graph is acyclic by construction — a manager always sits at a
+strictly higher level than their report — because the first version drew
+managers from a same-department pool that included their own peers. Two
+managers ended up managing each other, the recursive walk up the chain ran
+until its loop guard, and **every employee was reported as sitting 12 layers
+deep**. It rendered. It was even plausible. The test walks the graph explicitly
+rather than trusting the query that consumes it, since the loop guard would
+have hidden the cycle from both.
+
+The org is **4 layers** with 85% of people at the base, 351 managers, and
+**39% of them managing fewer than four people** — a layer that exists to manage
+two.
+
+### What this deliberately does not compute
+
+**Cost of attrition in dollars.** Recruiting spend, agency fees and
+productivity ramp are not in this data, and a "1.5x salary" rule of thumb
+borrowed from a blog post is an opinion wearing a number's clothes. Salary at
+risk is a fact; cost of attrition here would not be.
+
+**Currency conversion.** Salaries are already expressed on one scale, and no FX
+series exists to convert anything with. The salary index is a labour-market
+level, not an exchange rate, and the README says so rather than letting the
+reader assume otherwise.
+
+**Internal mobility rate.** There is no transfer or requisition-fill history
+tying a leaver to an internal replacement, so promotion velocity is reported
+from `months_since_promotion` and internal fill rate is not reported at all.
+
 
 ## The flight-risk model
 
@@ -225,11 +339,11 @@ score is leakage wearing a lanyard.
 
 ## The dashboard
 
-A 6-page interactive Power BI report, hand-authored as a Power BI Project
+An 8-page interactive Power BI report, hand-authored as a Power BI Project
 (TMDL model + PBIR definition) in [`powerbi/pbip/`](powerbi/pbip/) — open
 `HRAttritionAnalytics.pbip` in Power BI Desktop and Refresh
-([build guide](powerbi/BUILD_GUIDE.md)). 53 visuals across 6 pages, styled with
-the shared Meridian Corporate theme. Screenshots below are the live report
+([build guide](powerbi/BUILD_GUIDE.md)). 72 visuals across 8 pages, styled with
+the shared Meridian Nocturne theme. Screenshots below are the live report
 rendered in Power BI Desktop against the pipeline outputs.
 
 **Workforce Scorecard** — KPI cards, attrition gauge vs target, headcount trend,
@@ -237,33 +351,46 @@ and a 12-month **waterfall** bridge (begin + hires − terms = end):
 
 ![Workforce Scorecard](powerbi/screenshots/01-workforce-scorecard.png)
 
+**Global Workforce** — attrition market by market, what each market costs
+against what it carries, pay position against each market's own median, and the
+mix (engagement, flexible work, representation) behind it:
+
+![Global Workforce](powerbi/screenshots/02-global-workforce.png)
+
 **Attrition Deep-Dive** — rate by department, voluntary/involuntary **donut**,
 exits-by-level **treemap**, rolling-attrition trend, and the early-tenure risk
 spike:
 
-![Attrition Deep-Dive](powerbi/screenshots/02-attrition-deep-dive.png)
+![Attrition Deep-Dive](powerbi/screenshots/03-attrition-deep-dive.png)
+
+**Regretted Attrition & Org Design** — the exits that hurt, the first-year
+cliff, the 9-box talent grid, span-of-control bands, and the teams losing
+people faster than their own market:
+
+![Regretted Attrition and Org Design](powerbi/screenshots/04-org-design.png)
 
 **Retention & Cohorts** — cohort survival curves and the **retention-triangle
 matrix** (each hire-year cohort's % retained at each tenure milestone):
 
-![Retention & Cohorts](powerbi/screenshots/03-retention-cohorts.png)
+![Retention & Cohorts](powerbi/screenshots/05-retention-cohorts.png)
 
-**Pay Equity** — compa-ratio gauge, salary-by-gender columns, a **scatter**, and
-the per-level gap table straight from the SQL:
+**Pay Equity** — compa-ratio gauge, the gender gap before and after holding
+the market constant, a **scatter**, and the per-level table straight from the
+SQL with the geography effect broken out:
 
-![Pay Equity](powerbi/screenshots/04-pay-equity.png)
+![Pay Equity](powerbi/screenshots/06-pay-equity.png)
 
 **Recruiting Funnel** — the hiring **funnel**, hire-rate and time-to-fill by
 source, and a source scorecard:
 
-![Recruiting Funnel](powerbi/screenshots/05-recruiting-funnel.png)
+![Recruiting Funnel](powerbi/screenshots/07-recruiting-funnel.png)
 
 **Flight Risk (ML)** — high-risk **treemap**, risk-band mix, a tenure ×
 engagement **scatter** (the high-risk cluster sits at low tenure / low
 engagement), and an actionable **retention watch list** with per-employee
 reasons:
 
-![Flight Risk (ML)](powerbi/screenshots/06-flight-risk-ml.png)
+![Flight Risk (ML)](powerbi/screenshots/08-flight-risk-ml.png)
 
 ## Architecture
 
@@ -311,7 +438,7 @@ python ml/attrition_model.py                     # train + score flight risk
 python ml/fairness_audit.py                      # disparate-impact gate
 python ml/survival_analysis.py                   # Kaplan-Meier + Cox PH
 python analytics/make_visuals.py                 # render the figures
-pytest tests/ -v                                 # 52 invariants
+pytest tests/ -v                                 # 228 invariants
 ```
 
 Then open `powerbi/pbip/HRAttritionAnalytics.pbip` in Power BI Desktop.
@@ -327,7 +454,7 @@ Then open `powerbi/pbip/HRAttritionAnalytics.pbip` in Power BI Desktop.
   demonstrate pay-equity and fairness-audit technique on fictional data. They
   are carried by the feature view for auditing and excluded from every model.
 - **k-anonymity, not differential privacy.** Suppression with the two-cell
-  rule is the right-sized tool for a 1,900-person internal reporting table
+  rule is the right-sized tool for a 2,800-person internal reporting table
   and is fully verifiable by tests. Differential-privacy noise budgets earn
   their complexity on repeated public releases at much larger scale; adding
   one here would be decoration.

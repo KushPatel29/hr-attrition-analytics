@@ -30,3 +30,22 @@ ref table flight_risk_scores
 ref table model_evaluation
 ref table _Measures
 
+ref table workforce_by_country
+
+ref table geo_headline
+
+ref table attrition_headline
+
+ref table regretted_attrition
+
+ref table org_layers
+
+ref table manager_outliers
+
+ref table span_of_control
+
+ref table nine_box
+
+ref table pay_equity_geo
+
+ref table regretted_by_department

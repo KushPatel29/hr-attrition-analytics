@@ -1,6 +1,15 @@
-location_id,city,region,country,is_remote
-1,Vancouver,West,Canada,0
-2,Calgary,West,Canada,0
-3,Toronto,East,Canada,0
-4,Montreal,East,Canada,0
-5,Remote - Canada,Remote,Canada,1
+location_id,city,region,country,is_remote,salary_index,attrition_lift
+1,Vancouver,North America,Canada,0,1.0,0.0
+2,Calgary,North America,Canada,0,0.94,-0.05
+3,Toronto,North America,Canada,0,1.06,0.05
+4,Montreal,North America,Canada,0,0.92,-0.05
+5,Remote - Canada,North America,Canada,1,0.98,0.1
+6,New York,North America,United States,0,1.42,0.15
+7,Austin,North America,United States,0,1.24,0.1
+8,Guadalajara,Latin America,Mexico,0,0.41,0.35
+9,London,EMEA,United Kingdom,0,1.18,0.05
+10,Berlin,EMEA,Germany,0,1.02,-0.15
+11,Krakow,EMEA,Poland,0,0.46,0.3
+12,Bengaluru,APAC,India,0,0.29,0.55
+13,Hyderabad,APAC,India,0,0.27,0.5
+14,Singapore,APAC,Singapore,0,0.97,0.2

@@ -1,0 +1,81 @@
+/// Regretted exits by department, published on its own so a chart whose title names one dimension reads from a table that only has that one.
+table regretted_by_department
+	lineageTag: 8b1f2d27-2669-5843-b4ad-5a24036f3932
+
+	column department
+		dataType: string
+		lineageTag: b50df69f-f725-521a-898b-84d77313f5e4
+		summarizeBy: none
+		sourceColumn: department
+
+	column division
+		dataType: string
+		lineageTag: b8db1e83-d2dd-5ab7-85f3-99af3b5fe0f1
+		summarizeBy: none
+		sourceColumn: division
+
+	column headcount_ever
+		dataType: int64
+		formatString: #,0
+		lineageTag: 9bf17eec-25e8-52d5-a67a-f9f64db2da76
+		summarizeBy: none
+		sourceColumn: headcount_ever
+
+	column exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 068ba178-69fa-5689-ab9e-fb06262fc06a
+		summarizeBy: none
+		sourceColumn: exits
+
+	column regretted_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 237bd537-fcac-5dd2-9045-179cc07996cb
+		summarizeBy: none
+		sourceColumn: regretted_exits
+
+	column first_year_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5efd35da-19be-5a20-bb17-445ffd0c1ca4
+		summarizeBy: none
+		sourceColumn: first_year_exits
+
+	column regretted_salary
+		dataType: double
+		formatString: \$#,0
+		lineageTag: cf279bfb-2882-5b62-a501-c1a8458342a1
+		summarizeBy: none
+		sourceColumn: regretted_salary
+
+	column attrition_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e600d640-18e5-5ee4-8bb2-02384aecbd53
+		summarizeBy: none
+		sourceColumn: attrition_rate
+
+	column regretted_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ccc63eff-e2ed-5cc9-9bb8-25386bcfbc67
+		summarizeBy: none
+		sourceColumn: regretted_rate
+
+	column regretted_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b3e4820f-4c45-5942-af46-7cf5f8fb3d20
+		summarizeBy: none
+		sourceColumn: regretted_share
+
+	partition regretted_by_department = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\regretted_by_department.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"department", type text}, {"division", type text}, {"headcount_ever", Int64.Type}, {"exits", Int64.Type}, {"regretted_exits", Int64.Type}, {"first_year_exits", Int64.Type}, {"regretted_salary", type number}, {"attrition_rate", type number}, {"regretted_rate", type number}, {"regretted_share", type number}})
+				in
+				    Typed

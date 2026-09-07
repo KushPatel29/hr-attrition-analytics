@@ -1,0 +1,67 @@
+/// Pay position and the market-adjusted gender gap per country. Two different questions: are we paying people correctly for THEIR market (compa-ratio), and what does that market cost (raw salary).
+table pay_equity_geo
+	lineageTag: d5af72fa-eba3-52a8-916e-66c27d68f850
+
+	column country
+		dataType: string
+		lineageTag: d7685447-d4a0-5ad6-88b1-1cf2f6ec65fd
+		summarizeBy: none
+		sourceColumn: country
+
+	column region
+		dataType: string
+		lineageTag: d8be9641-3ce6-5867-a9c5-37f8429121fd
+		summarizeBy: none
+		sourceColumn: region
+
+	column headcount
+		dataType: int64
+		formatString: #,0
+		lineageTag: cf53a162-d368-5754-928f-1d85e45c0840
+		summarizeBy: none
+		sourceColumn: headcount
+
+	column avg_compa_ratio
+		dataType: double
+		formatString: 0.000
+		lineageTag: 42e59919-b77e-56b5-865b-cd38f0305680
+		summarizeBy: none
+		sourceColumn: avg_compa_ratio
+
+	column avg_salary
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 0594b1f0-0716-53bc-bd70-8421974c3d66
+		summarizeBy: none
+		sourceColumn: avg_salary
+
+	column payroll
+		dataType: double
+		formatString: \$#,0
+		lineageTag: e1fb68f9-7b1f-5604-aee9-4c663a491d3f
+		summarizeBy: none
+		sourceColumn: payroll
+
+	column below_market_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 3f1ad187-a235-523e-b223-663b9130c49f
+		summarizeBy: none
+		sourceColumn: below_market_share
+
+	column market_adjusted_gap_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7f189a11-6dc9-574c-8177-bf4f8e5d4e54
+		summarizeBy: none
+		sourceColumn: market_adjusted_gap_pct
+
+	partition pay_equity_geo = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\pay_equity_geo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"country", type text}, {"region", type text}, {"headcount", Int64.Type}, {"avg_compa_ratio", type number}, {"avg_salary", type number}, {"payroll", type number}, {"below_market_share", type number}, {"market_adjusted_gap_pct", type number}})
+				in
+				    Typed

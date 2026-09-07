@@ -65,34 +65,6 @@
                       "Entity": "pay_equity_levels"
                     }
                   },
-                  "Property": "avg_salary_female"
-                }
-              },
-              "queryRef": "pay_equity_levels.avg_salary_female",
-              "nativeQueryRef": "avg_salary_female"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "pay_equity_levels"
-                    }
-                  },
-                  "Property": "avg_salary_male"
-                }
-              },
-              "queryRef": "pay_equity_levels.avg_salary_male",
-              "nativeQueryRef": "avg_salary_male"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "pay_equity_levels"
-                    }
-                  },
                   "Property": "raw_gap_pct"
                 }
               },
@@ -107,11 +79,39 @@
                       "Entity": "pay_equity_levels"
                     }
                   },
-                  "Property": "gap_flag"
+                  "Property": "market_adjusted_gap_pct"
                 }
               },
-              "queryRef": "pay_equity_levels.gap_flag",
-              "nativeQueryRef": "gap_flag"
+              "queryRef": "pay_equity_levels.market_adjusted_gap_pct",
+              "nativeQueryRef": "market_adjusted_gap_pct"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "gap_explained_by_geography"
+                }
+              },
+              "queryRef": "pay_equity_levels.gap_explained_by_geography",
+              "nativeQueryRef": "gap_explained_by_geography"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "pay_equity_levels"
+                    }
+                  },
+                  "Property": "markets_compared"
+                }
+              },
+              "queryRef": "pay_equity_levels.markets_compared",
+              "nativeQueryRef": "markets_compared"
             }
           ]
         }
@@ -125,7 +125,27 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pay Equity by Level'"
+                  "Value": "'Pay equity by level'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Markets compared is how many countries had both genders at that level - the small-n caveat, in the table rather than a footnote'"
                 }
               }
             },

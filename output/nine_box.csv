@@ -1,0 +1,10 @@
+performance_band,performance_rank,potential_band,potential_rank,box_label,employees,share,avg_engagement,avg_months_since_promotion,salary,stalled
+High,3,High,3,Future leader,486,0.2259,71.5,11.7,33583900.0,41
+High,3,Medium,2,High performer,289,0.1344,70.8,12.7,21823900.0,30
+High,3,Low,1,Trusted expert,51,0.0237,70.2,11.8,3321300.0,4
+Medium,2,High,3,Growth bet,346,0.1609,70.2,12.0,25210400.0,36
+Medium,2,Medium,2,Core player,425,0.1976,71.4,12.1,32188300.0,35
+Medium,2,Low,1,Steady contributor,119,0.0553,69.5,12.4,8392300.0,11
+Low,1,High,3,Misplaced talent,101,0.047,72.2,12.3,7602200.0,8
+Low,1,Medium,2,Inconsistent,204,0.0948,71.9,12.9,14411700.0,27
+Low,1,Low,1,Underperforming,130,0.0604,68.8,12.3,9304700.0,16

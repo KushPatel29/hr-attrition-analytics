@@ -1,9 +1,10 @@
-job_level,level_rank,market_median,n_female,n_male,avg_salary_female,avg_salary_male,female_compa_ratio,male_compa_ratio,raw_gap_pct,gap_flag
-Associate,1,52000.0,86,130,51067.0,52530.0,0.9821,1.0102,0.0278,Within tolerance
-Analyst,2,66000.0,134,170,64919.0,67372.0,0.9836,1.0208,0.0364,Within tolerance
-Senior Analyst,3,82000.0,102,120,80022.0,83391.0,0.9759,1.017,0.0404,Within tolerance
-Senior Specialist,4,98000.0,81,83,94101.0,98918.0,0.9602,1.0094,0.0487,Within tolerance
-Lead,5,118000.0,53,70,116040.0,118363.0,0.9834,1.0031,0.0196,Within tolerance
-Manager,6,142000.0,52,75,137910.0,142664.0,0.9712,1.0047,0.0333,Within tolerance
-Senior Manager,7,172000.0,28,47,170411.0,171953.0,0.9908,0.9997,0.009,Within tolerance
-Director,8,210000.0,15,15,203873.0,204833.0,0.9708,0.9754,0.0047,Within tolerance
+job_level,level_rank,market_median,n_female,n_male,avg_salary_female,avg_salary_male,female_compa_ratio,male_compa_ratio,raw_gap_pct,gap_flag,n_compared,markets_compared,market_adjusted_gap_pct,gap_explained_by_geography
+Associate,1,40358.0,135,175,40829.0,40516.0,0.9795,1.0172,-0.0077,Within tolerance,310,8,0.031,-0.0387
+Analyst,2,50145.0,188,218,49772.0,49873.0,0.9683,1.0076,0.002,Within tolerance,406,8,0.0391,-0.0371
+Senior Analyst,3,64540.0,157,173,59957.0,68986.0,0.9772,1.0085,0.1309,Review: gap >= 5%,330,8,0.0366,0.0943
+Specialist,3,64522.0,110,136,61556.0,67707.0,0.9833,1.0122,0.0908,Review: gap >= 5%,246,8,0.0321,0.0587
+Senior Specialist,4,76218.0,110,127,75853.0,76679.0,0.974,1.0076,0.0108,Within tolerance,237,8,0.0388,-0.028
+Lead,5,96823.0,109,120,97513.0,96032.0,0.9736,1.0109,-0.0154,Within tolerance,229,8,0.0434,-0.0588
+Manager,6,109692.0,71,90,107931.0,113158.0,0.9752,1.0163,0.0462,Within tolerance,161,8,0.0382,0.008
+Senior Manager,7,140790.0,41,65,125702.0,153738.0,0.9732,1.022,0.1824,Review: gap >= 5%,101,7,0.0341,0.1483
+Director,8,151866.0,20,21,148620.0,160757.0,0.989,1.0252,0.0755,Review: gap >= 5%,35,4,0.0335,0.042

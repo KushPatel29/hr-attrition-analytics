@@ -59,7 +59,7 @@ def test_active_and_terminated_consistency(emp):
 
 def test_separation_rate_realistic(emp):
     # deterministic seed -> stable band across numpy versions
-    assert len(emp) == 1900
+    assert len(emp) == 2800
     sep_rate = (emp["is_active"] == 0).mean()
     assert 0.15 <= sep_rate <= 0.30, f"separation rate {sep_rate:.3f} out of expected band"
 

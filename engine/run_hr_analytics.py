@@ -21,6 +21,16 @@ visuals):
     masked_segment_metrics.csv  k-anonymity-masked segment metrics (K=5)
     privacy_suppression_audit.csv  which cells were suppressed and why
     intervention_effectiveness.csv retention of treated vs untreated at-risk
+    pay_equity_geo.csv          pay position and adjusted gap per country
+    regretted_attrition.csv     regretted vs non-regretted exits by dimension
+    regretted_by_department.csv the same, departments only (one axis)
+    attrition_headline.csv      company-wide exit-class figures (one row)
+    span_of_control.csv         reports, team attrition and span band per manager
+    org_layers.csv              headcount by reporting-chain depth
+    manager_outliers.csv        teams far from the company attrition rate
+    workforce_by_country.csv    headcount, attrition, pay and mix per market
+    nine_box.csv                performance x potential talent grid
+    geo_headline.csv            one row of geography headlines
     summary.txt                 headline numbers
 
 Usage:
@@ -62,6 +72,9 @@ ANALYTICS_SCRIPTS = [
     "07_flight_risk_features.sql",
     "08_privacy_masking.sql",
     "09_intervention_effectiveness.sql",
+    "10_regretted_attrition.sql",
+    "11_org_design.sql",
+    "12_global_workforce.sql",
 ]
 
 # Result tables exported to output/
@@ -79,6 +92,16 @@ RESULT_TABLES = [
     "masked_segment_metrics",
     "privacy_suppression_audit",
     "intervention_effectiveness",
+    "pay_equity_geo",
+    "regretted_attrition",
+    "regretted_by_department",
+    "attrition_headline",
+    "span_of_control",
+    "org_layers",
+    "manager_outliers",
+    "workforce_by_country",
+    "nine_box",
+    "geo_headline",
 ]
 
 
@@ -112,6 +135,12 @@ def write_summary(tables: dict) -> str:
     pay = tables["pay_equity"]
     adj = pay[pay["job_level"] == "ALL (level-adjusted)"].iloc[0]
     rec = tables["recruiting_kpis"].iloc[0]
+    geo = tables["geo_headline"].iloc[0]
+    ex = tables["attrition_headline"].iloc[0]
+    layers = tables["org_layers"]
+    spans = tables["span_of_control"]
+    outliers = tables["manager_outliers"]
+    mkt = pay[pay["job_level"] == "ALL (level + market-adjusted)"].iloc[0]
     funnel = tables["funnel_stages"]
     hired_conv = funnel[funnel["stage"] == "Hired"]["overall_conversion"].iloc[0]
 
@@ -131,6 +160,40 @@ def write_summary(tables: dict) -> str:
         f"Applied -> Hired conversion : {hired_conv:>8.1%}",
         f"Offer accept rate           : {rec['offer_accept_rate']:>8.1%}",
         f"Median time-to-fill (days)  : {rec['median_days_to_fill']:>8.0f}",
+        "-" * 52,
+        f"Market-adjusted gender gap  : {mkt['raw_gap_pct']:>8.1%}"
+        "  (within country x level)",
+        "-" * 52,
+        "GLOBAL WORKFORCE",
+        f"Countries                   : {int(geo['countries']):>8,}",
+        f"Largest market              : {geo['largest_market']:>8}"
+        f"  {geo['largest_market_headcount_share']:.0%} of people,"
+        f" {geo['largest_market_payroll_share']:.0%} of payroll",
+        f"Highest-attrition market    : {geo['worst_market']:>8}"
+        f"  {geo['worst_market_rate']:.1%} on"
+        f" {geo['worst_market_headcount_share']:.0%} of headcount",
+        f"Attrition spread            : {geo['attrition_spread']:>8.1%}"
+        "  best to worst market",
+        f"Pay-market multiple         : {geo['pay_market_multiple']:>8.1f}x"
+        "  priciest market vs cheapest",
+        "-" * 52,
+        "EXITS THAT ACTUALLY HURT",
+        f"Regretted exits             : {int(ex['regretted_exits']):>8,}"
+        f"  ({ex['regretted_share']:.0%} of all exits)",
+        f"Salary walking out          : ${ex['regretted_salary']:>10,.0f}",
+        f"First-year exits            : {int(ex['first_year_exits']):>8,}"
+        f"  ({ex['first_year_share']:.0%} of all exits)",
+        f"Stalled high performers     : {int(ex['stalled_high_performers']):>8,}"
+        "  (rated 4+, 24 months without a move)",
+        "-" * 52,
+        "ORG DESIGN",
+        f"Management layers           : {int(layers['layer'].max()):>8,}",
+        f"Managers                    : {len(spans):>8,}",
+        f"Spans under 4               : "
+        f"{(spans['span_band'] == '1. Thin (<4)').mean():>8.0%}",
+        f"Teams above their market    : "
+        f"{int((outliers['verdict'] == 'Well above market').sum()):>8,}"
+        f" of {len(outliers):,} teams with 8+ reports",
         "=" * 52,
     ]
     report = "\n".join(lines)

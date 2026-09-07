@@ -6,6 +6,7 @@ table pay_equity_levels
 		lineageTag: 00433478-a225-43cc-b639-b84f3bbe45d1
 		summarizeBy: none
 		sourceColumn: job_level
+		sortByColumn: level_rank
 
 	column level_rank
 		dataType: int64
@@ -76,13 +77,42 @@ table pay_equity_levels
 		summarizeBy: none
 		sourceColumn: gap_flag
 
+	column n_compared
+		dataType: int64
+		isHidden
+		formatString: #,0
+		lineageTag: de4e6506-e320-5217-a38c-de06604b6175
+		summarizeBy: none
+		sourceColumn: n_compared
+
+	column markets_compared
+		dataType: int64
+		formatString: 0
+		lineageTag: 342c0ab9-5250-556d-8567-0b130049e000
+		summarizeBy: none
+		sourceColumn: markets_compared
+
+	column market_adjusted_gap_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f2ae0c89-f1f5-56aa-ac99-f19139a45aaa
+		summarizeBy: none
+		sourceColumn: market_adjusted_gap_pct
+
+	column gap_explained_by_geography
+		dataType: double
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: c6d649e4-231a-576e-936e-d46bad17c66b
+		summarizeBy: none
+		sourceColumn: gap_explained_by_geography
+
 	partition pay_equity_levels = m
 		mode: import
 		source =
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\output\pay_equity_levels.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"job_level", type text}, {"level_rank", Int64.Type}, {"market_median", type number}, {"n_female", Int64.Type}, {"n_male", Int64.Type}, {"avg_salary_female", type number}, {"avg_salary_male", type number}, {"female_compa_ratio", type number}, {"male_compa_ratio", type number}, {"raw_gap_pct", type number}, {"gap_flag", type text}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"job_level", type text}, {"level_rank", Int64.Type}, {"market_median", type number}, {"n_female", Int64.Type}, {"n_male", Int64.Type}, {"avg_salary_female", type number}, {"avg_salary_male", type number}, {"female_compa_ratio", type number}, {"male_compa_ratio", type number}, {"raw_gap_pct", type number}, {"gap_flag", type text}, {"n_compared", Int64.Type}, {"markets_compared", Int64.Type}, {"market_adjusted_gap_pct", type number}, {"gap_explained_by_geography", type number}})
 				in
 				    Typed
 

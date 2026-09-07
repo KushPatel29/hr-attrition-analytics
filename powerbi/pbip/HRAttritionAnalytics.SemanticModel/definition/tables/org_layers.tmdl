@@ -1,0 +1,62 @@
+/// Active headcount by reporting-chain depth, walked from the actual manager graph rather than assumed from job titles.
+table org_layers
+	lineageTag: 55c91d5b-13e2-5db4-8671-30e605d29526
+
+	column layer
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d20cfff-d1ab-5646-9f1c-cc5f34e6f8bd
+		summarizeBy: none
+		sourceColumn: layer
+
+	column employees
+		dataType: int64
+		formatString: #,0
+		lineageTag: eaf9464c-a720-5c63-9ecf-8ee8d23847a9
+		summarizeBy: none
+		sourceColumn: employees
+
+	column avg_compa_ratio
+		dataType: double
+		formatString: 0.000
+		lineageTag: 738d4b30-d96a-5e45-b865-6cd9d4fdf6aa
+		summarizeBy: none
+		sourceColumn: avg_compa_ratio
+
+	column avg_engagement
+		dataType: double
+		formatString: 0.0
+		lineageTag: f7419c3a-0169-5955-86ff-d55d2a0be6df
+		summarizeBy: none
+		sourceColumn: avg_engagement
+
+	column avg_salary
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 1bd6ea02-6b08-5f3f-9d01-1cb2691ec016
+		summarizeBy: none
+		sourceColumn: avg_salary
+
+	column managers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 26fba318-51e0-534c-a1c3-13ba9958e29b
+		summarizeBy: none
+		sourceColumn: managers
+
+	column share_of_headcount
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 4f1f364c-6087-583e-a993-fa127a57d3a3
+		summarizeBy: none
+		sourceColumn: share_of_headcount
+
+	partition org_layers = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\org_layers.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"layer", Int64.Type}, {"employees", Int64.Type}, {"avg_compa_ratio", type number}, {"avg_engagement", type number}, {"avg_salary", type number}, {"managers", Int64.Type}, {"share_of_headcount", type number}})
+				in
+				    Typed

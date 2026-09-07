@@ -1,0 +1,121 @@
+/// Every manager's span, their team's attrition, and the span band. A layer that manages two people and a manager with thirty reports are different problems with the same job title.
+table span_of_control
+	lineageTag: b2a51dbf-2962-5102-abdf-e504672a085b
+
+	column manager_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fb783a0-3caf-54cb-b6bb-5f069ef07c14
+		summarizeBy: none
+		sourceColumn: manager_id
+
+	column department
+		dataType: string
+		lineageTag: bc3dd346-b106-59d6-a1e4-753246b6e30d
+		summarizeBy: none
+		sourceColumn: department
+
+	column division
+		dataType: string
+		lineageTag: 34c2e049-1b80-5079-900b-a8d9e75c2b42
+		summarizeBy: none
+		sourceColumn: division
+
+	column job_level
+		dataType: string
+		lineageTag: 57213d28-7ef1-5c36-8e5d-1a7f26d1ee71
+		summarizeBy: none
+		sourceColumn: job_level
+
+	column level_rank
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6ea5aa27-1a1a-5792-ac93-dbe12006e864
+		summarizeBy: none
+		sourceColumn: level_rank
+
+	column country
+		dataType: string
+		lineageTag: a326e481-a08c-5cd1-b3d7-d587513610a3
+		summarizeBy: none
+		sourceColumn: country
+
+	column region
+		dataType: string
+		lineageTag: 7f9a1be6-811b-5eb2-b5f8-62bdd0a863b2
+		summarizeBy: none
+		sourceColumn: region
+
+	column manager_active
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: efa9225f-ee7b-56aa-b46a-4d8c8659f8b1
+		summarizeBy: none
+		sourceColumn: manager_active
+
+	column reports_total
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0b94812e-5d89-5a77-9a7c-0f3daf81551f
+		summarizeBy: none
+		sourceColumn: reports_total
+
+	column reports_active
+		dataType: int64
+		formatString: #,0
+		lineageTag: 73ad141c-79e4-5131-b61f-68708fab24c5
+		summarizeBy: none
+		sourceColumn: reports_active
+
+	column reports_exited
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5a3f18e3-71bf-5bb5-9e4c-04f998401855
+		summarizeBy: none
+		sourceColumn: reports_exited
+
+	column reports_voluntary
+		dataType: int64
+		formatString: #,0
+		lineageTag: 02505ff4-0729-58d4-bea0-bca0ae736d22
+		summarizeBy: none
+		sourceColumn: reports_voluntary
+
+	column avg_engagement
+		dataType: double
+		formatString: 0.0
+		lineageTag: d84eb364-6ece-59e4-a6a8-88959a922258
+		summarizeBy: none
+		sourceColumn: avg_engagement
+
+	column avg_compa_ratio
+		dataType: double
+		formatString: 0.000
+		lineageTag: 33add937-8f6f-5741-be87-2b694f902133
+		summarizeBy: none
+		sourceColumn: avg_compa_ratio
+
+	column team_attrition_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 14b036d3-3d49-59cc-8363-fbd8d8ba6191
+		summarizeBy: none
+		sourceColumn: team_attrition_rate
+
+	column span_band
+		dataType: string
+		lineageTag: ec06dd23-c622-51a7-84d1-417fd938f811
+		summarizeBy: none
+		sourceColumn: span_band
+
+	partition span_of_control = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\span_of_control.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"manager_id", Int64.Type}, {"department", type text}, {"division", type text}, {"job_level", type text}, {"level_rank", Int64.Type}, {"country", type text}, {"region", type text}, {"manager_active", Int64.Type}, {"reports_total", Int64.Type}, {"reports_active", Int64.Type}, {"reports_exited", Int64.Type}, {"reports_voluntary", Int64.Type}, {"avg_engagement", type number}, {"avg_compa_ratio", type number}, {"team_attrition_rate", type number}, {"span_band", type text}})
+				in
+				    Typed

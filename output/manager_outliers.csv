@@ -1,0 +1,168 @@
+manager_id,department,division,country,region,job_level,reports_total,reports_active,reports_exited,avg_engagement,team_attrition_rate,market_rate,company_rate,gap_to_market,gap_to_company,verdict
+1061,Field Sales,Go-To-Market,India,APAC,Manager,11,2,9,67.3,0.8182,0.2759,0.2318,0.5423,0.5864,Well above market
+15,Customer Support,Operations,Canada,North America,Manager,11,3,8,74.1,0.7273,0.2228,0.2318,0.5045,0.4955,Well above market
+1603,Finance & Accounting,Corporate,India,APAC,Manager,8,2,6,78.3,0.75,0.2759,0.2318,0.4741,0.5182,Well above market
+2455,Software Engineering,Technology,Poland,EMEA,Manager,9,4,5,72.2,0.5556,0.2183,0.2318,0.3373,0.3238,Well above market
+2213,IT Operations,Technology,Canada,North America,Manager,9,4,5,65.6,0.5556,0.2228,0.2318,0.3328,0.3238,Well above market
+2447,Inside Sales,Go-To-Market,United States,North America,Manager,15,7,8,63.8,0.5333,0.2231,0.2318,0.3102,0.3015,Well above market
+1225,Human Resources,Corporate,Canada,North America,Manager,10,5,5,64.0,0.5,0.2228,0.2318,0.2772,0.2682,Well above market
+1510,Human Resources,Corporate,India,APAC,Manager,29,13,16,73.7,0.5517,0.2759,0.2318,0.2758,0.3199,Well above market
+282,IT Operations,Technology,Canada,North America,Manager,15,8,7,68.2,0.4667,0.2228,0.2318,0.2439,0.2349,Well above market
+607,Product Management,Technology,Canada,North America,Manager,13,7,6,66.3,0.4615,0.2228,0.2318,0.2387,0.2297,Well above market
+166,Inside Sales,Go-To-Market,Canada,North America,Manager,11,6,5,64.3,0.4545,0.2228,0.2318,0.2317,0.2227,Well above market
+2279,Data & Analytics,Technology,Canada,North America,Manager,9,5,4,75.8,0.4444,0.2228,0.2318,0.2216,0.2126,Well above market
+59,IT Operations,Technology,United States,North America,Manager,14,8,6,68.0,0.4286,0.2231,0.2318,0.2055,0.1968,Well above market
+269,Data & Analytics,Technology,Canada,North America,Manager,12,7,5,71.1,0.4167,0.2228,0.2318,0.1939,0.1849,Well above market
+723,Product Management,Technology,Canada,North America,Manager,12,7,5,71.1,0.4167,0.2228,0.2318,0.1939,0.1849,Well above market
+1933,Marketing,Go-To-Market,India,APAC,Manager,15,8,7,74.9,0.4667,0.2759,0.2318,0.1908,0.2349,Well above market
+216,Product Management,Technology,India,APAC,Manager,11,6,5,64.0,0.4545,0.2759,0.2318,0.1786,0.2227,Well above market
+2667,Supply Chain,Operations,Canada,North America,Manager,15,9,6,69.1,0.4,0.2228,0.2318,0.1772,0.1682,Well above market
+1260,Product Management,Technology,India,APAC,Manager,9,5,4,61.8,0.4444,0.2759,0.2318,0.1685,0.2126,Well above market
+2708,Manufacturing,Operations,Canada,North America,Manager,18,11,7,70.6,0.3889,0.2228,0.2318,0.1661,0.1571,Well above market
+1506,Product Management,Technology,Mexico,Latin America,Manager,10,6,4,60.1,0.4,0.2397,0.2318,0.1603,0.1682,Well above market
+661,Supply Chain,Operations,Mexico,Latin America,Manager,10,6,4,71.3,0.4,0.2397,0.2318,0.1603,0.1682,Well above market
+2308,IT Operations,Technology,Germany,EMEA,Manager,14,10,4,69.7,0.2857,0.1304,0.2318,0.1553,0.0539,Well above market
+1971,Product Management,Technology,Canada,North America,Manager,8,5,3,67.1,0.375,0.2228,0.2318,0.1522,0.1432,Well above market
+2596,Data & Analytics,Technology,Canada,North America,Manager,8,5,3,64.6,0.375,0.2228,0.2318,0.1522,0.1432,Well above market
+470,Manufacturing,Operations,United Kingdom,EMEA,Manager,15,10,5,71.3,0.3333,0.1902,0.2318,0.1431,0.1015,Well above market
+557,Software Engineering,Technology,Canada,North America,Manager,11,7,4,70.3,0.3636,0.2228,0.2318,0.1408,0.1318,Well above market
+2770,Product Management,Technology,Canada,North America,Manager,14,9,5,64.6,0.3571,0.2228,0.2318,0.1343,0.1253,Well above market
+440,Finance & Accounting,Corporate,Canada,North America,Manager,14,9,5,68.5,0.3571,0.2228,0.2318,0.1343,0.1253,Well above market
+1135,Product Management,Technology,India,APAC,Manager,15,9,6,67.2,0.4,0.2759,0.2318,0.1241,0.1682,In line
+1569,Finance & Accounting,Corporate,India,APAC,Manager,10,6,4,67.6,0.4,0.2759,0.2318,0.1241,0.1682,In line
+1750,Customer Support,Operations,India,APAC,Manager,10,6,4,71.1,0.4,0.2759,0.2318,0.1241,0.1682,In line
+1650,Inside Sales,Go-To-Market,Germany,EMEA,Manager,8,6,2,70.4,0.25,0.1304,0.2318,0.1196,0.0182,Well above market
+1112,IT Operations,Technology,India,APAC,Manager,18,11,7,69.1,0.3889,0.2759,0.2318,0.113,0.1571,In line
+417,Field Sales,Go-To-Market,Canada,North America,Manager,15,10,5,66.3,0.3333,0.2228,0.2318,0.1105,0.1015,In line
+157,Finance & Accounting,Corporate,Canada,North America,Manager,9,6,3,73.1,0.3333,0.2228,0.2318,0.1105,0.1015,In line
+439,Data & Analytics,Technology,Canada,North America,Manager,9,6,3,68.8,0.3333,0.2228,0.2318,0.1105,0.1015,In line
+2095,Customer Support,Operations,United Kingdom,EMEA,Manager,10,7,3,73.3,0.3,0.1902,0.2318,0.1098,0.0682,Well above market
+2374,Field Sales,Go-To-Market,United Kingdom,EMEA,Manager,10,7,3,70.2,0.3,0.1902,0.2318,0.1098,0.0682,Well above market
+589,Software Engineering,Technology,United Kingdom,EMEA,Manager,10,7,3,69.9,0.3,0.1902,0.2318,0.1098,0.0682,Well above market
+1196,Manufacturing,Operations,India,APAC,Manager,13,8,5,73.8,0.3846,0.2759,0.2318,0.1087,0.1528,In line
+1881,Finance & Accounting,Corporate,India,APAC,Manager,8,5,3,71.3,0.375,0.2759,0.2318,0.0991,0.1432,In line
+115,Product Management,Technology,India,APAC,Manager,11,7,4,67.8,0.3636,0.2759,0.2318,0.0877,0.1318,In line
+1948,Product Management,Technology,India,APAC,Manager,11,7,4,68.0,0.3636,0.2759,0.2318,0.0877,0.1318,In line
+1091,Field Sales,Go-To-Market,Canada,North America,Manager,13,9,4,64.4,0.3077,0.2228,0.2318,0.0849,0.0759,In line
+2173,Marketing,Go-To-Market,United States,North America,Manager,13,9,4,75.3,0.3077,0.2231,0.2318,0.0846,0.0759,In line
+1338,IT Operations,Technology,Canada,North America,Manager,10,7,3,67.1,0.3,0.2228,0.2318,0.0772,0.0682,In line
+1734,Product Management,Technology,Canada,North America,Manager,10,7,3,59.6,0.3,0.2228,0.2318,0.0772,0.0682,In line
+538,Inside Sales,Go-To-Market,Canada,North America,Manager,10,7,3,74.9,0.3,0.2228,0.2318,0.0772,0.0682,In line
+932,Inside Sales,Go-To-Market,Canada,North America,Manager,10,7,3,70.5,0.3,0.2228,0.2318,0.0772,0.0682,In line
+2488,Software Engineering,Technology,India,APAC,Manager,17,11,6,63.1,0.3529,0.2759,0.2318,0.077,0.1211,In line
+1818,Product Management,Technology,Canada,North America,Manager,14,10,4,69.9,0.2857,0.2228,0.2318,0.0629,0.0539,In line
+1755,Human Resources,Corporate,United States,North America,Manager,14,10,4,71.5,0.2857,0.2231,0.2318,0.0626,0.0539,In line
+747,Manufacturing,Operations,United Kingdom,EMEA,Manager,20,15,5,69.5,0.25,0.1902,0.2318,0.0598,0.0182,In line
+917,Human Resources,Corporate,Canada,North America,Manager,11,8,3,69.3,0.2727,0.2228,0.2318,0.0499,0.0409,In line
+2158,Inside Sales,Go-To-Market,United Kingdom,EMEA,Manager,13,10,3,62.1,0.2308,0.1902,0.2318,0.0406,-0.001,In line
+2134,Supply Chain,Operations,Canada,North America,Manager,19,14,5,66.5,0.2632,0.2228,0.2318,0.0404,0.0314,In line
+2695,Inside Sales,Go-To-Market,India,APAC,Manager,19,13,6,70.6,0.3158,0.2759,0.2318,0.0399,0.084,In line
+1486,Marketing,Go-To-Market,Poland,EMEA,Manager,31,23,8,74.9,0.2581,0.2183,0.2318,0.0398,0.0263,In line
+1803,Data & Analytics,Technology,India,APAC,Manager,16,11,5,66.9,0.3125,0.2759,0.2318,0.0366,0.0807,In line
+284,Software Engineering,Technology,Canada,North America,Manager,27,20,7,72.5,0.2593,0.2228,0.2318,0.0365,0.0275,In line
+1194,Field Sales,Go-To-Market,India,APAC,Manager,13,9,4,66.4,0.3077,0.2759,0.2318,0.0318,0.0759,In line
+886,Inside Sales,Go-To-Market,Poland,EMEA,Manager,12,9,3,74.4,0.25,0.2183,0.2318,0.0317,0.0182,In line
+267,Marketing,Go-To-Market,Singapore,APAC,Manager,12,9,3,66.8,0.25,0.2188,0.2318,0.0312,0.0182,In line
+1483,Human Resources,Corporate,Canada,North America,Manager,12,9,3,68.1,0.25,0.2228,0.2318,0.0272,0.0182,In line
+713,Inside Sales,Go-To-Market,Canada,North America,Manager,8,6,2,64.4,0.25,0.2228,0.2318,0.0272,0.0182,In line
+1990,Field Sales,Go-To-Market,United States,North America,Manager,8,6,2,68.0,0.25,0.2231,0.2318,0.0269,0.0182,In line
+2782,Finance & Accounting,Corporate,United States,North America,Director,8,6,2,75.9,0.25,0.2231,0.2318,0.0269,0.0182,In line
+749,Human Resources,Corporate,United States,North America,Manager,8,6,2,63.0,0.25,0.2231,0.2318,0.0269,0.0182,In line
+2632,Human Resources,Corporate,India,APAC,Manager,20,14,6,70.5,0.3,0.2759,0.2318,0.0241,0.0682,In line
+2750,Product Management,Technology,Germany,EMEA,Manager,14,12,2,76.5,0.1429,0.1304,0.2318,0.0125,-0.0889,In line
+2405,Customer Support,Operations,United Kingdom,EMEA,Manager,15,12,3,77.0,0.2,0.1902,0.2318,0.0098,-0.0318,In line
+2650,IT Operations,Technology,United Kingdom,EMEA,Manager,15,12,3,70.6,0.2,0.1902,0.2318,0.0098,-0.0318,In line
+1480,Manufacturing,Operations,Canada,North America,Director,13,10,3,61.6,0.2308,0.2228,0.2318,0.008,-0.001,In line
+1899,Inside Sales,Go-To-Market,Canada,North America,Manager,13,10,3,70.0,0.2308,0.2228,0.2318,0.008,-0.001,In line
+954,Supply Chain,Operations,India,APAC,Manager,39,28,11,71.2,0.2821,0.2759,0.2318,0.0062,0.0503,In line
+2450,Human Resources,Corporate,India,APAC,Manager,25,18,7,67.8,0.28,0.2759,0.2318,0.0041,0.0482,In line
+14,Data & Analytics,Technology,India,APAC,Manager,18,13,5,73.4,0.2778,0.2759,0.2318,0.0019,0.046,In line
+1163,Marketing,Go-To-Market,Canada,North America,Manager,18,14,4,70.8,0.2222,0.2228,0.2318,-0.0006,-0.0096,In line
+1391,Marketing,Go-To-Market,Canada,North America,Manager,9,7,2,67.5,0.2222,0.2228,0.2318,-0.0006,-0.0096,In line
+1549,Human Resources,Corporate,Canada,North America,Manager,9,7,2,58.6,0.2222,0.2228,0.2318,-0.0006,-0.0096,In line
+1893,IT Operations,Technology,Singapore,APAC,Manager,14,11,3,73.2,0.2143,0.2188,0.2318,-0.0045,-0.0175,In line
+1447,Software Engineering,Technology,Germany,EMEA,Manager,8,7,1,71.9,0.125,0.1304,0.2318,-0.0054,-0.1068,In line
+1551,Finance & Accounting,Corporate,Canada,North America,Manager,14,11,3,66.2,0.2143,0.2228,0.2318,-0.0085,-0.0175,In line
+106,Software Engineering,Technology,United States,North America,Manager,14,11,3,68.6,0.2143,0.2231,0.2318,-0.0088,-0.0175,In line
+1285,Inside Sales,Go-To-Market,India,APAC,Manager,15,11,4,70.4,0.2667,0.2759,0.2318,-0.0092,0.0349,In line
+2693,Product Management,Technology,Poland,EMEA,Manager,10,8,2,66.5,0.2,0.2183,0.2318,-0.0183,-0.0318,In line
+1370,Field Sales,Go-To-Market,Germany,EMEA,Manager,9,8,1,75.8,0.1111,0.1304,0.2318,-0.0193,-0.1207,In line
+2221,Customer Support,Operations,Germany,EMEA,Manager,9,8,1,67.7,0.1111,0.1304,0.2318,-0.0193,-0.1207,In line
+1605,Manufacturing,Operations,Canada,North America,Manager,20,16,4,67.7,0.2,0.2228,0.2318,-0.0228,-0.0318,In line
+2305,Field Sales,Go-To-Market,Canada,North America,Manager,10,8,2,77.3,0.2,0.2228,0.2318,-0.0228,-0.0318,In line
+556,Field Sales,Go-To-Market,Canada,North America,Manager,10,8,2,73.3,0.2,0.2228,0.2318,-0.0228,-0.0318,In line
+298,Manufacturing,Operations,United States,North America,Manager,10,8,2,66.5,0.2,0.2231,0.2318,-0.0231,-0.0318,In line
+1655,Manufacturing,Operations,India,APAC,Manager,8,6,2,75.5,0.25,0.2759,0.2318,-0.0259,0.0182,In line
+1781,Field Sales,Go-To-Market,India,APAC,Manager,8,6,2,59.9,0.25,0.2759,0.2318,-0.0259,0.0182,In line
+1836,Finance & Accounting,Corporate,India,APAC,Manager,8,6,2,68.7,0.25,0.2759,0.2318,-0.0259,0.0182,In line
+406,Customer Support,Operations,India,APAC,Manager,8,6,2,74.6,0.25,0.2759,0.2318,-0.0259,0.0182,In line
+2666,Product Management,Technology,Poland,EMEA,Manager,16,13,3,65.8,0.1875,0.2183,0.2318,-0.0308,-0.0443,In line
+981,Supply Chain,Operations,India,APAC,Manager,29,22,7,71.8,0.2414,0.2759,0.2318,-0.0345,0.0096,In line
+1777,Human Resources,Corporate,Poland,EMEA,Manager,11,9,2,69.5,0.1818,0.2183,0.2318,-0.0365,-0.05,In line
+1958,Inside Sales,Go-To-Market,India,APAC,Manager,17,13,4,68.4,0.2353,0.2759,0.2318,-0.0406,0.0035,In line
+399,Manufacturing,Operations,Canada,North America,Manager,22,18,4,67.5,0.1818,0.2228,0.2318,-0.041,-0.05,In line
+2368,Data & Analytics,Technology,Canada,North America,Manager,11,9,2,71.6,0.1818,0.2228,0.2318,-0.041,-0.05,In line
+2607,IT Operations,Technology,Canada,North America,Manager,11,9,2,74.0,0.1818,0.2228,0.2318,-0.041,-0.05,In line
+324,Field Sales,Go-To-Market,Canada,North America,Senior Manager,11,9,2,71.6,0.1818,0.2228,0.2318,-0.041,-0.05,In line
+1746,Supply Chain,Operations,Poland,EMEA,Manager,40,33,7,72.0,0.175,0.2183,0.2318,-0.0433,-0.0568,In line
+419,Product Management,Technology,India,APAC,Manager,13,10,3,65.2,0.2308,0.2759,0.2318,-0.0451,-0.001,In line
+1363,Human Resources,Corporate,Poland,EMEA,Manager,12,10,2,68.3,0.1667,0.2183,0.2318,-0.0516,-0.0651,In line
+387,Field Sales,Go-To-Market,India,APAC,Manager,9,7,2,77.8,0.2222,0.2759,0.2318,-0.0537,-0.0096,In line
+625,Finance & Accounting,Corporate,Canada,North America,Manager,18,15,3,69.5,0.1667,0.2228,0.2318,-0.0561,-0.0651,In line
+1996,Supply Chain,Operations,Canada,North America,Manager,12,10,2,68.5,0.1667,0.2228,0.2318,-0.0561,-0.0651,In line
+508,Field Sales,Go-To-Market,United States,North America,Manager,12,10,2,75.2,0.1667,0.2231,0.2318,-0.0564,-0.0651,In line
+1081,Finance & Accounting,Corporate,Canada,North America,Manager,19,16,3,70.8,0.1579,0.2228,0.2318,-0.0649,-0.0739,In line
+694,Manufacturing,Operations,Canada,North America,Manager,13,11,2,70.2,0.1538,0.2228,0.2318,-0.069,-0.078,In line
+1432,Data & Analytics,Technology,United States,North America,Manager,13,11,2,67.7,0.1538,0.2231,0.2318,-0.0693,-0.078,In line
+1904,Marketing,Go-To-Market,Canada,North America,Manager,20,17,3,66.1,0.15,0.2228,0.2318,-0.0728,-0.0818,In line
+2462,Inside Sales,Go-To-Market,India,APAC,Manager,10,8,2,69.6,0.2,0.2759,0.2318,-0.0759,-0.0318,In line
+937,Marketing,Go-To-Market,India,APAC,Manager,10,8,2,72.5,0.2,0.2759,0.2318,-0.0759,-0.0318,In line
+2060,Marketing,Go-To-Market,Canada,North America,Manager,14,12,2,67.7,0.1429,0.2228,0.2318,-0.0799,-0.0889,In line
+553,Marketing,Go-To-Market,Canada,North America,Manager,14,12,2,69.8,0.1429,0.2228,0.2318,-0.0799,-0.0889,In line
+1040,IT Operations,Technology,United States,North America,Manager,15,13,2,71.0,0.1333,0.2231,0.2318,-0.0898,-0.0985,In line
+2729,Human Resources,Corporate,United States,North America,Manager,15,13,2,73.5,0.1333,0.2231,0.2318,-0.0898,-0.0985,In line
+1314,Marketing,Go-To-Market,Singapore,APAC,Manager,8,7,1,72.1,0.125,0.2188,0.2318,-0.0938,-0.1068,In line
+592,IT Operations,Technology,India,APAC,Manager,11,9,2,83.2,0.1818,0.2759,0.2318,-0.0941,-0.05,In line
+599,Field Sales,Go-To-Market,India,APAC,Manager,11,9,2,70.4,0.1818,0.2759,0.2318,-0.0941,-0.05,In line
+865,Customer Support,Operations,India,APAC,Manager,11,9,2,75.0,0.1818,0.2759,0.2318,-0.0941,-0.05,In line
+107,Software Engineering,Technology,Canada,North America,Manager,16,14,2,70.2,0.125,0.2228,0.2318,-0.0978,-0.1068,In line
+2492,Product Management,Technology,Canada,North America,Manager,8,7,1,69.4,0.125,0.2228,0.2318,-0.0978,-0.1068,In line
+359,Data & Analytics,Technology,Canada,North America,Manager,8,7,1,69.4,0.125,0.2228,0.2318,-0.0978,-0.1068,In line
+385,Field Sales,Go-To-Market,Canada,North America,Manager,8,7,1,63.4,0.125,0.2228,0.2318,-0.0978,-0.1068,In line
+402,Supply Chain,Operations,Canada,North America,Manager,8,7,1,65.6,0.125,0.2228,0.2318,-0.0978,-0.1068,In line
+2517,Marketing,Go-To-Market,India,APAC,Manager,17,14,3,75.5,0.1765,0.2759,0.2318,-0.0994,-0.0553,In line
+1670,Software Engineering,Technology,Canada,North America,Manager,17,15,2,63.9,0.1176,0.2228,0.2318,-0.1052,-0.1142,In line
+204,Software Engineering,Technology,Canada,North America,Manager,17,15,2,67.8,0.1176,0.2228,0.2318,-0.1052,-0.1142,In line
+153,Manufacturing,Operations,India,APAC,Manager,12,10,2,66.8,0.1667,0.2759,0.2318,-0.1092,-0.0651,In line
+2692,Software Engineering,Technology,Canada,North America,Director,9,8,1,76.9,0.1111,0.2228,0.2318,-0.1117,-0.1207,Well below market
+656,Customer Support,Operations,Canada,North America,Manager,9,8,1,78.6,0.1111,0.2228,0.2318,-0.1117,-0.1207,Well below market
+935,Data & Analytics,Technology,Mexico,Latin America,Manager,8,7,1,72.0,0.125,0.2397,0.2318,-0.1147,-0.1068,In line
+1807,Customer Support,Operations,Singapore,APAC,Manager,10,9,1,72.5,0.1,0.2188,0.2318,-0.1188,-0.1318,Well below market
+596,Software Engineering,Technology,India,APAC,Manager,13,11,2,76.8,0.1538,0.2759,0.2318,-0.1221,-0.078,In line
+137,Inside Sales,Go-To-Market,Canada,North America,Manager,10,9,1,72.2,0.1,0.2228,0.2318,-0.1228,-0.1318,Well below market
+725,Customer Support,Operations,Canada,North America,Manager,10,9,1,74.5,0.1,0.2228,0.2318,-0.1228,-0.1318,Well below market
+1364,Finance & Accounting,Corporate,Germany,EMEA,Manager,8,8,0,69.5,0.0,0.1304,0.2318,-0.1304,-0.2318,Well below market
+2751,Inside Sales,Go-To-Market,Canada,North America,Manager,11,10,1,79.4,0.0909,0.2228,0.2318,-0.1319,-0.1409,Well below market
+805,Field Sales,Go-To-Market,Canada,North America,Manager,11,10,1,68.8,0.0909,0.2228,0.2318,-0.1319,-0.1409,Well below market
+201,Customer Support,Operations,Canada,North America,Manager,12,11,1,66.0,0.0833,0.2228,0.2318,-0.1395,-0.1485,Well below market
+2712,IT Operations,Technology,United States,North America,Manager,13,12,1,74.2,0.0769,0.2231,0.2318,-0.1462,-0.1549,Well below market
+2048,IT Operations,Technology,India,APAC,Director,8,7,1,68.6,0.125,0.2759,0.2318,-0.1509,-0.1068,Well below market
+2324,Software Engineering,Technology,Canada,North America,Manager,14,13,1,70.1,0.0714,0.2228,0.2318,-0.1514,-0.1604,Well below market
+928,Finance & Accounting,Corporate,Canada,North America,Manager,15,14,1,71.0,0.0667,0.2228,0.2318,-0.1561,-0.1651,Well below market
+2624,Customer Support,Operations,Canada,North America,Manager,20,19,1,69.4,0.05,0.2228,0.2318,-0.1728,-0.1818,Well below market
+272,Inside Sales,Go-To-Market,United Kingdom,EMEA,Manager,12,12,0,66.5,0.0,0.1902,0.2318,-0.1902,-0.2318,Well below market
+378,Manufacturing,Operations,India,APAC,Manager,13,12,1,71.8,0.0769,0.2759,0.2318,-0.199,-0.1549,Well below market
+842,Software Engineering,Technology,India,APAC,Manager,28,26,2,68.8,0.0714,0.2759,0.2318,-0.2045,-0.1604,Well below market
+392,Data & Analytics,Technology,India,APAC,Manager,17,16,1,73.6,0.0588,0.2759,0.2318,-0.2171,-0.173,Well below market
+798,Data & Analytics,Technology,India,APAC,Manager,17,16,1,65.4,0.0588,0.2759,0.2318,-0.2171,-0.173,Well below market
+240,Human Resources,Corporate,Poland,EMEA,Manager,12,12,0,67.5,0.0,0.2183,0.2318,-0.2183,-0.2318,Well below market
+279,IT Operations,Technology,Poland,EMEA,Manager,10,10,0,63.6,0.0,0.2183,0.2318,-0.2183,-0.2318,Well below market
+1930,Marketing,Go-To-Market,Canada,North America,Manager,12,12,0,68.1,0.0,0.2228,0.2318,-0.2228,-0.2318,Well below market
+1217,Manufacturing,Operations,Canada,North America,Manager,10,10,0,65.0,0.0,0.2228,0.2318,-0.2228,-0.2318,Well below market
+2778,Inside Sales,Go-To-Market,Canada,North America,Manager,10,10,0,71.0,0.0,0.2228,0.2318,-0.2228,-0.2318,Well below market
+2546,Customer Support,Operations,Canada,North America,Manager,8,8,0,77.3,0.0,0.2228,0.2318,-0.2228,-0.2318,Well below market
+2714,Finance & Accounting,Corporate,Canada,North America,Manager,8,8,0,67.1,0.0,0.2228,0.2318,-0.2228,-0.2318,Well below market
+550,IT Operations,Technology,India,APAC,Manager,21,20,1,69.4,0.0476,0.2759,0.2318,-0.2283,-0.1842,Well below market
+533,Customer Support,Operations,India,APAC,Manager,10,10,0,82.2,0.0,0.2759,0.2318,-0.2759,-0.2318,Well below market
+488,Product Management,Technology,India,APAC,Manager,9,9,0,67.8,0.0,0.2759,0.2318,-0.2759,-0.2318,Well below market
+2412,Field Sales,Go-To-Market,India,APAC,Manager,8,8,0,74.8,0.0,0.2759,0.2318,-0.2759,-0.2318,Well below market

@@ -1,0 +1,183 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual086",
+  "position": {
+    "x": 20,
+    "y": 374,
+    "z": 1000,
+    "height": 204,
+    "width": 620,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "manager_outliers"
+                    }
+                  },
+                  "Property": "department"
+                }
+              },
+              "queryRef": "manager_outliers.department",
+              "nativeQueryRef": "department"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "manager_outliers"
+                    }
+                  },
+                  "Property": "country"
+                }
+              },
+              "queryRef": "manager_outliers.country",
+              "nativeQueryRef": "country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "manager_outliers"
+                    }
+                  },
+                  "Property": "reports_total"
+                }
+              },
+              "queryRef": "manager_outliers.reports_total",
+              "nativeQueryRef": "reports_total"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "manager_outliers"
+                    }
+                  },
+                  "Property": "team_attrition_rate"
+                }
+              },
+              "queryRef": "manager_outliers.team_attrition_rate",
+              "nativeQueryRef": "team_attrition_rate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "manager_outliers"
+                    }
+                  },
+                  "Property": "market_rate"
+                }
+              },
+              "queryRef": "manager_outliers.market_rate",
+              "nativeQueryRef": "market_rate"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "manager_outliers"
+                    }
+                  },
+                  "Property": "gap_to_market"
+                }
+              },
+              "queryRef": "manager_outliers.gap_to_market",
+              "nativeQueryRef": "gap_to_market"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "manager_outliers"
+                  }
+                },
+                "Property": "gap_to_market"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Teams losing people faster than their own market'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Compared to their country, not the company'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

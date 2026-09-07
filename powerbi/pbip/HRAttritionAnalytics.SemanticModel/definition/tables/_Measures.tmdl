@@ -49,7 +49,7 @@ table _Measures
 		formatString: 0.00
 		lineageTag: b4b147c1-6fed-47dd-8b07-78c2d2ae7cf7
 
-	measure 'Attrition Rate (T12M)' = VAR L = CALCULATE(MAX(workforce_kpis[month]), ALL(workforce_kpis)) RETURN CALCULATE(MAX(workforce_kpis[rolling_12m_attrition_rate]), workforce_kpis[month] = L)
+	measure 'Attrition Rate (T12M)' = VAR vL = CALCULATE(MAX(workforce_kpis[month]), ALL(workforce_kpis)) RETURN CALCULATE(MAX(workforce_kpis[rolling_12m_attrition_rate]), workforce_kpis[month] = vL)
 		formatString: 0.0%
 		lineageTag: 3754c426-f2ea-4af8-b8be-adfb17dd84fb
 
@@ -165,14 +165,14 @@ table _Measures
 
 	/// The model decides what 'bad' means, once, instead of every reader deciding for themselves in the meeting.
 	measure 'Attrition Status' =
-			VAR Actual = [Attrition Rate (T12M)]
-			VAR Target = [Attrition Target]
+			VAR vActual = [Attrition Rate (T12M)]
+			VAR vTarget = [Attrition Target]
 			RETURN
 			    SWITCH(
 			        TRUE(),
-			        ISBLANK(Actual), "No data",
-			        Actual <= Target, "On target",
-			        Actual <= Target + 0.01, "Watch",
+			        ISBLANK(vActual), "No data",
+			        vActual <= vTarget, "On target",
+			        vActual <= vTarget + 0.01, "Watch",
 			        "Off target"
 			    )
 		lineageTag: e20c7ceb-71c9-55f3-bde9-4d79ab825bca
@@ -192,12 +192,12 @@ table _Measures
 
 	/// Reference line under the callout, shown as the card's subtitle.
 	measure 'Attrition Reference' =
-			VAR Gap = [Attrition vs Target]
-			VAR Above = Gap >= 0
+			VAR vGap = [Attrition vs Target]
+			VAR vAbove = vGap >= 0
 			RETURN
 			    "Target " & FORMAT([Attrition Target], "0.0%") & "   "
-			        & IF(Above, "▲", "▼") & " "
-			        & FORMAT(ABS(Gap) * 100, "0.0") & " pts" & IF(Above, " over", " under")
+			        & IF(vAbove, "▲", "▼") & " "
+			        & FORMAT(ABS(vGap) * 100, "0.0") & " pts" & IF(vAbove, " over", " under")
 		lineageTag: d88470f5-d739-5d0f-956d-1ba435346045
 		displayFolder: Verdict
 
@@ -229,14 +229,14 @@ table _Measures
 	/// iterating the table walks rows, which is not the axis unless the
 	/// dimension happens to have one row per value.
 	measure 'Tenure Band Colour' =
-			VAR Here = [Separation Rate]
-			VAR Extreme =
+			VAR vHere = [Separation Rate]
+			VAR vExtreme =
 			    CALCULATE(
 			        MAXX(VALUES(fact_employees[tenure_band]), [Separation Rate]),
 			        ALLSELECTED()
 			    )
 			RETURN
-			    IF(Here = Extreme, "#FF5C7A", "#454A82")
+			    IF(vHere = vExtreme, "#FF5C7A", "#454A82")
 		lineageTag: b89acd8a-2e71-5af7-91a9-6f199a42e2a4
 		displayFolder: Verdict
 
@@ -248,32 +248,480 @@ table _Measures
 	/// iterating the table walks rows, which is not the axis unless the
 	/// dimension happens to have one row per value.
 	measure 'Source Hire Rate Colour' =
-			VAR Here = [Src Hire Rate]
-			VAR Extreme =
+			VAR vHere = [Src Hire Rate]
+			VAR vExtreme =
 			    CALCULATE(
 			        MAXX(VALUES(recruiting_by_source[source]), [Src Hire Rate]),
 			        ALLSELECTED()
 			    )
 			RETURN
-			    IF(Here = Extreme, "#3DD68C", "#454A82")
+			    IF(vHere = vExtreme, "#3DD68C", "#454A82")
 		lineageTag: d8967292-b9b8-53d4-9300-f0942e7b8cd1
 		displayFolder: Verdict
 
 	/// Closes on the governance point, because on people data that IS the headline.
 	measure 'Workforce Insight' =
-			VAR Rate = [Attrition Rate (T12M)]
-			VAR Gap = Rate - [Attrition Target]
-			VAR WorstDept =
+			VAR vRate = [Attrition Rate (T12M)]
+			VAR vGap = vRate - [Attrition Target]
+			VAR vWorstDept =
 			    MAXX(TOPN(1, VALUES(dim_department[department]), [Separation Rate], DESC), dim_department[department])
-			VAR WorstRate = CALCULATE([Separation Rate], dim_department[department] = WorstDept)
+			VAR vWorstRate = CALCULATE([Separation Rate], dim_department[department] = vWorstDept)
 			RETURN
-			    "Attrition " & FORMAT(Rate, "0.0%") & " against a " & FORMAT([Attrition Target], "0.0%")
-			        & " target — " & IF(Gap <= 0, "on target", FORMAT(Gap * 100, "0.0") & " pts over")
-			        & ". " & WorstDept & " is the hardest hit at " & FORMAT(WorstRate, "0.0%")
+			    "Attrition " & FORMAT(vRate, "0.0%") & " against a " & FORMAT([Attrition Target], "0.0%")
+			        & " target — " & IF(vGap <= 0, "on target", FORMAT(vGap * 100, "0.0") & " pts over")
+			        & ". " & vWorstDept & " is the hardest hit at " & FORMAT(vWorstRate, "0.0%")
 			        & ", and " & FORMAT([High Risk Count], "#,0") & " of " & FORMAT([Scored Employees], "#,0")
 			        & " scored employees are flagged high risk. The model reads no protected attribute."
 		lineageTag: c6808a44-f177-59cd-a590-97aae82e154e
 		displayFolder: Verdict
+
+	/// Markets the company employs people in.
+	measure 'Countries' = MAX(geo_headline[countries])
+		formatString: 0
+		lineageTag: 1388848f-7bd9-53df-84fe-c37142947dd4
+		displayFolder: Global
+
+	/// Active employees in the markets in scope.
+	measure 'Global Headcount' = SUM(workforce_by_country[headcount])
+		formatString: #,0
+		lineageTag: b985f182-aa17-5cc7-bf2d-327a41fbeee3
+		displayFolder: Global
+
+	/// Annual base salary of active employees.
+	measure 'Global Payroll' = SUM(workforce_by_country[payroll])
+		formatString: \$#,0
+		lineageTag: 79a1799e-2bd1-5395-bbc3-9995343c565f
+		displayFolder: Global
+
+	/// Attrition inside the markets in scope. Computed from the components rather than averaged across countries: an average of rates weights a 100-person market the same as a 1,000-person one.
+	measure 'Market Attrition' =
+			DIVIDE(
+			    SUM(workforce_by_country[exits]),
+			    SUM(workforce_by_country[headcount_ever])
+			)
+		formatString: 0.0%
+		lineageTag: 39d26e16-1fb7-518f-892b-16e852e5c939
+		displayFolder: Global
+
+	/// Separations in the markets in scope.
+	measure 'Market Exits' = SUM(workforce_by_country[exits])
+		formatString: #,0
+		lineageTag: 57ff8c97-b4a5-50a2-88b8-24a0f177d35f
+		displayFolder: Global
+
+	/// Share of the company's people in the markets in scope.
+	measure 'Headcount Share' = SUM(workforce_by_country[share_of_headcount])
+		formatString: 0.0%
+		lineageTag: 9da95b05-c120-500f-9039-2806026d27e0
+		displayFolder: Global
+
+	/// Share of the company's payroll in the markets in scope.
+	measure 'Payroll Share' = SUM(workforce_by_country[share_of_payroll])
+		formatString: 0.0%
+		lineageTag: bf21d151-2aab-5fcd-abda-edffb686f8b0
+		displayFolder: Global
+
+	/// Payroll share divided by headcount share. Above 1 means a market costs more than its size; below 1 means it costs less. The single number that says what an offshore delivery centre is actually for.
+	measure 'Cost Intensity' = DIVIDE([Payroll Share], [Headcount Share])
+		formatString: 0.00
+		lineageTag: f16a854a-5119-507e-a926-f18970d53ded
+		displayFolder: Global
+
+	/// Best market to worst, among those with 100+ people. A company-wide rate is an average across this range.
+	measure 'Attrition Spread' = MAX(geo_headline[attrition_spread])
+		formatString: 0.0%
+		lineageTag: 3f83dd5c-9107-592b-bf63-d957510d1a98
+		displayFolder: Global
+
+	/// Priciest labour market against the cheapest. Why raw salary is never a fairness comparison here.
+	measure 'Pay Market Multiple' = MAX(geo_headline[pay_market_multiple])
+		formatString: 0.0
+		lineageTag: dffa11bd-b45e-535b-965a-ce10448a2a8e
+		displayFolder: Global
+
+	/// Highest-attrition market with at least 100 people.
+	measure 'Worst Market' = MAX(geo_headline[worst_market])
+		lineageTag: 975ee9f7-62e3-58d9-b615-8cbde277e0c7
+		displayFolder: Global
+
+	/// That market's attrition rate.
+	measure 'Worst Market Rate' = MAX(geo_headline[worst_market_rate])
+		formatString: 0.0%
+		lineageTag: 8c2c3eaf-acfa-5130-a783-c8124a294419
+		displayFolder: Global
+
+	/// The market with the most people.
+	measure 'Largest Market' = MAX(geo_headline[largest_market])
+		lineageTag: bbdf6ff7-c621-5b81-bbdf-fbe9097870d3
+		displayFolder: Global
+
+	/// Average pay position against each market's OWN median. Comparable across countries; raw salary is not.
+	measure 'Compa-Ratio (Market)' = AVERAGE(workforce_by_country[avg_compa_ratio])
+		formatString: 0.000
+		lineageTag: 7e5db849-64d4-51aa-bf49-88afde8a1ca7
+		displayFolder: Global
+
+	/// Gender pay gap measured inside country x level cells - the only comparison that is not partly a currency conversion.
+	measure 'Market Adjusted Gap' = CALCULATE(MAX(pay_equity[raw_gap_pct]), pay_equity[job_level] = "ALL (level + market-adjusted)")
+		formatString: 0.0%
+		lineageTag: 06acdeb9-1344-573f-a07f-8a3d5667203d
+		displayFolder: Global
+
+	/// Share of employees under 0.9 compa-ratio in their own market.
+	measure 'Below Market Share' = AVERAGE(pay_equity_geo[below_market_share])
+		formatString: 0.0%
+		lineageTag: 94403194-9ddc-5906-9ed1-76c944126818
+		displayFolder: Global
+
+	/// Voluntary departures of people rated 4 or 5.
+	measure 'Regretted Exits' = MAX(attrition_headline[regretted_exits])
+		formatString: #,0
+		lineageTag: 6bbba347-addc-56ab-8566-036c5bd62e0f
+		displayFolder: Org & Talent
+
+	/// Share of all exits that were regretted. A falling headline rate with a rising regretted share is a worse company, not a better one.
+	measure 'Regretted Share' = MAX(attrition_headline[regretted_share])
+		formatString: 0.0%
+		lineageTag: 3b7d2a05-910c-5247-85ce-0c3e52e38e66
+		displayFolder: Org & Talent
+
+	/// Annual base salary of the regretted leavers. Base salary, not a replacement-cost multiple: no recruiting cost or ramp data exists here, and a multiplier would turn a measurement into an opinion.
+	measure 'Salary Walking Out' = MAX(attrition_headline[regretted_salary])
+		formatString: \$#,0
+		lineageTag: 9c45953e-cf85-5c69-b303-87ffddbe3b04
+		displayFolder: Org & Talent
+
+	/// Exits inside 12 months of hire - a hiring and onboarding failure, with a different owner from retention.
+	measure 'First Year Exits' = MAX(attrition_headline[first_year_exits])
+		formatString: #,0
+		lineageTag: 49113c08-f2d1-5244-b6f9-51f3791f3a15
+		displayFolder: Org & Talent
+
+	/// Share of all exits that happened in the first year.
+	measure 'First Year Share' = MAX(attrition_headline[first_year_share])
+		formatString: 0.0%
+		lineageTag: 07c33cef-aaa0-5368-b054-582b295e6cc5
+		displayFolder: Org & Talent
+
+	/// Still here, rated 4+, and 24 months without a move. The population a retention budget is actually for.
+	measure 'Stalled High Performers' = MAX(attrition_headline[stalled_high_performers])
+		formatString: #,0
+		lineageTag: 5749521a-a916-5747-b4b8-31cb65ab49b1
+		displayFolder: Org & Talent
+
+	/// Salary of the stalled high performers.
+	measure 'Stalled Salary' = MAX(attrition_headline[stalled_salary])
+		formatString: \$#,0
+		lineageTag: 95a30a4f-0870-501b-a677-fb9590338a4d
+		displayFolder: Org & Talent
+
+	/// Exits in the selected dimension slice.
+	measure 'Exits by Class' = SUM(regretted_attrition[exits])
+		formatString: #,0
+		lineageTag: 2383265d-0446-53dc-b957-b0117c4b42b0
+		displayFolder: Org & Talent
+
+	/// Regretted exits in the selected dimension slice.
+	measure 'Regretted by Class' = SUM(regretted_attrition[regretted_exits])
+		formatString: #,0
+		lineageTag: 192cf3fd-931c-509c-b470-dd6584730bdd
+		displayFolder: Org & Talent
+
+	/// Regretted exits as a share of everyone who was ever there - not of exits, so a small population with two bad losses does not read as a crisis.
+	measure 'Regretted Rate' =
+			DIVIDE(
+			    SUM(regretted_attrition[regretted_exits]),
+			    SUM(regretted_attrition[headcount_ever])
+			)
+		formatString: 0.0%
+		lineageTag: d1b5fd62-c799-50f7-9dec-01c49a02d523
+		displayFolder: Org & Talent
+
+	/// People with at least one direct report.
+	measure 'Managers' = COUNTROWS(span_of_control)
+		formatString: #,0
+		lineageTag: 1d4bb098-cb16-58e1-a29d-f026e5ffed5b
+		displayFolder: Org & Talent
+
+	/// Average active direct reports per manager.
+	measure 'Avg Span' = AVERAGE(span_of_control[reports_active])
+		formatString: 0.0
+		lineageTag: df286f4a-ddf5-50fb-a27e-60494b92b7c0
+		displayFolder: Org & Talent
+
+	/// Managers with fewer than four active reports - a layer that exists to manage two people.
+	measure 'Thin Spans' = CALCULATE([Managers], span_of_control[span_band] = "1. Thin (<4)")
+		formatString: #,0
+		lineageTag: 60fadfbb-01a6-5a92-9819-70ba61705e1d
+		displayFolder: Org & Talent
+
+	/// Share of managers whose span is too thin to need a layer.
+	measure 'Thin Span Share' = DIVIDE([Thin Spans], [Managers])
+		formatString: 0.0%
+		lineageTag: 4b76d642-c5ee-5cd4-ba38-966d232919a2
+		displayFolder: Org & Talent
+
+	/// Deepest reporting chain, walked from the manager graph rather than assumed from job titles.
+	measure 'Layers' = MAX(org_layers[layer])
+		formatString: 0
+		lineageTag: 0c34278c-25a4-522e-9387-29d9a10e950a
+		displayFolder: Org & Talent
+
+	/// Active employees at the selected depth.
+	measure 'Layer Employees' = SUM(org_layers[employees])
+		formatString: #,0
+		lineageTag: ff6b4b5b-9177-541a-a5b7-925a275d8ae8
+		displayFolder: Org & Talent
+
+	/// Teams of 8+ whose attrition is at least half again their own market's rate.
+	measure 'Teams Above Market' = CALCULATE(COUNTROWS(manager_outliers), manager_outliers[verdict] = "Well above market")
+		formatString: #,0
+		lineageTag: a73fa398-bdcf-5f26-8386-4263102aaf32
+		displayFolder: Org & Talent
+
+	/// Teams big enough for a team rate to mean anything.
+	measure 'Teams Reviewed' = COUNTROWS(manager_outliers)
+		formatString: #,0
+		lineageTag: 71b6dab1-ac86-58df-88bc-6d36793f1f1c
+		displayFolder: Org & Talent
+
+	/// Attrition of the team in scope.
+	measure 'Team Attrition' = AVERAGE(manager_outliers[team_attrition_rate])
+		formatString: 0.0%
+		lineageTag: a6b4008e-db07-5258-8c21-d2b1df17c9fc
+		displayFolder: Org & Talent
+
+	/// Active employees in the selected talent boxes.
+	measure 'Talent Employees' = SUM(nine_box[employees])
+		formatString: #,0
+		lineageTag: 8a2abe04-7217-52a7-b806-67ca74c25612
+		displayFolder: Org & Talent
+
+	/// Of those, the ones 24 months without a move.
+	measure 'Talent Stalled' = SUM(nine_box[stalled])
+		formatString: #,0
+		lineageTag: 637765a4-2211-5c4d-a598-e7c53f5c78ce
+		displayFolder: Org & Talent
+
+	/// Reddens the market losing people fastest.
+	measure 'Market Attrition Colour' =
+			VAR vHere = [Market Attrition]
+			VAR vExtreme =
+			    CALCULATE(
+			        MAXX(VALUES(workforce_by_country[country]), [Market Attrition]),
+			        ALLSELECTED()
+			    )
+			RETURN
+			    IF(vHere = vExtreme, "#FF5C7A", "#454A82")
+		lineageTag: d7198edd-feca-545d-9e12-81aa97f9d07d
+		displayFolder: Global
+
+	/// Amber where a market costs more than its share of the people, green where it costs markedly less. Neither is good or bad on its own - it is what the operating model chose.
+	measure 'Cost Intensity Colour' =
+			VAR vHere = [Cost Intensity]
+			VAR vMost =
+			    CALCULATE(
+			        MAXX(VALUES(workforce_by_country[country]), [Cost Intensity]),
+			        ALLSELECTED()
+			    )
+			VAR vLeast =
+			    CALCULATE(
+			        MINX(VALUES(workforce_by_country[country]), [Cost Intensity]),
+			        ALLSELECTED()
+			    )
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        vHere = vMost, "#F5A524",
+			        vHere = vLeast, "#3DD68C",
+			        "#454A82"
+			    )
+		lineageTag: 3e25c5c2-2170-525c-9ef9-197ad8f4df8b
+		displayFolder: Global
+
+	/// Thin spans are a cost problem, wide ones a management one.
+	measure 'Span Colour' =
+			SWITCH(
+			    SELECTEDVALUE(span_of_control[span_band]),
+			    "1. Thin (<4)", "#F5A524",
+			    "3. Wide (>10)", "#FF5C7A",
+			    "#3DD68C"
+			)
+		lineageTag: 0dbc0239-7291-5d43-becd-135a30eec28f
+		displayFolder: Org & Talent
+
+	/// Greens the largest talent box.
+	measure 'Talent Colour' =
+			VAR vHere = [Talent Employees]
+			VAR vExtreme =
+			    CALCULATE(
+			        MAXX(VALUES(nine_box[box_label]), [Talent Employees]),
+			        ALLSELECTED()
+			    )
+			RETURN
+			    IF(vHere = vExtreme, "#3DD68C", "#454A82")
+		lineageTag: c5099160-1951-517b-b7ea-7bc2d7687104
+		displayFolder: Org & Talent
+
+	/// How much of the company sits in its fastest-churning market.
+	measure 'Concentration Status' =
+			VAR vShare = MAX(geo_headline[worst_market_headcount_share])
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        vShare <= 0.15, "On target",
+			        vShare <= 0.30, "Watch",
+			        "Off target"
+			    )
+		lineageTag: 181bcfe5-854d-53de-9800-f6e68190c972
+		displayFolder: Global
+
+	/// Colour for the concentration verdict.
+	measure 'Concentration Colour' =
+			SWITCH(
+			    [Concentration Status],
+			    "On target", "#3DD68C",
+			    "Watch", "#F5A524",
+			    "#FF5C7A"
+			)
+		lineageTag: 56a99bf1-a8ec-5b61-9385-7507d21548c6
+		displayFolder: Global
+
+	/// Card subtitle for the headcount card.
+	measure 'Geo Reference' = FORMAT([Countries], "0") & " markets   spread " & FORMAT([Attrition Spread], "0.0%") & " best to worst"
+		lineageTag: effceadb-086f-56af-bf31-46dbed946650
+		displayFolder: Global
+
+	/// Card subtitle for the payroll card.
+	measure 'Cost Reference' = [Largest Market] & " carries " & FORMAT(MAX(geo_headline[largest_market_payroll_share]), "0%") & " of payroll"
+		lineageTag: bf4233de-7da3-5683-9727-63c9f74aaddf
+		displayFolder: Global
+
+	/// Card subtitle for the concentration card.
+	measure 'Worst Market Reference' = [Worst Market] & " at " & FORMAT([Worst Market Rate], "0.0%") & "   " & [Concentration Status]
+		lineageTag: 6da8a31a-0c5b-5940-a40f-57c8237ee3bb
+		displayFolder: Global
+
+	/// Card subtitle for the pay card.
+	measure 'Pay Reference' = FORMAT([Compa-Ratio (Market)], "0.00") & " compa-ratio, own market"
+		lineageTag: 150aceda-1b75-52ba-ae9c-0ce36a90f053
+		displayFolder: Global
+
+	/// Card subtitle for the regretted-exits card.
+	measure 'Regretted Reference' = FORMAT([Regretted Share], "0.0%") & " of exits   " & FORMAT([Salary Walking Out], "$#,0") & " of salary"
+		lineageTag: b6c4f808-41c7-56a1-ad62-79d51ea1efe1
+		displayFolder: Org & Talent
+
+	/// Card subtitle for the first-year card.
+	measure 'First Year Reference' = FORMAT([First Year Share], "0.0%") & " of all exits happen inside 12 months"
+		lineageTag: ae4e333e-41d1-5b49-b24d-cf9bf1d20509
+		displayFolder: Org & Talent
+
+	/// Card subtitle for the layers card.
+	measure 'Span Reference' = FORMAT([Managers], "#,0") & " managers   " & FORMAT([Thin Span Share], "0.0%") & " manage fewer than four"
+		lineageTag: 5ec5fe94-aa1c-59e1-8257-270fa7172043
+		displayFolder: Org & Talent
+
+	/// Card subtitle for the stalled-talent card.
+	measure 'Stalled Reference' = FORMAT([Stalled Salary], "$#,0") & " of salary, no move in 2 years"
+		lineageTag: b7d03ec7-4f2c-51a3-b31b-f4d8c18fd971
+		displayFolder: Org & Talent
+
+	/// The geography headline as a deterministic sentence.
+	measure 'Global Insight' =
+			VAR vN = CALCULATE([Countries], ALL(geo_headline))
+			VAR vBig = CALCULATE([Largest Market], ALL(geo_headline))
+			VAR vBigPeople = CALCULATE(MAX(geo_headline[largest_market_headcount_share]), ALL(geo_headline))
+			VAR vBigPay = CALCULATE(MAX(geo_headline[largest_market_payroll_share]), ALL(geo_headline))
+			VAR vWorst = CALCULATE([Worst Market], ALL(geo_headline))
+			VAR vWorstRate = CALCULATE([Worst Market Rate], ALL(geo_headline))
+			VAR vWorstPeople = CALCULATE(MAX(geo_headline[worst_market_headcount_share]), ALL(geo_headline))
+			VAR vSpread = CALCULATE([Attrition Spread], ALL(geo_headline))
+			VAR vMultiple = CALCULATE([Pay Market Multiple], ALL(geo_headline))
+			VAR vGap = CALCULATE([Market Adjusted Gap], ALL(pay_equity))
+			RETURN
+			    "Across " & FORMAT(vN, "0") & " markets, " & vBig & " holds "
+			        & FORMAT(vBigPeople, "0%") & " of the people and " & FORMAT(vBigPay, "0%")
+			        & " of the payroll, while " & vWorst & " loses "
+			        & FORMAT(vWorstRate, "0.0%") & " of "
+			        & FORMAT(vWorstPeople, "0%") & " of the workforce. Best market to worst "
+			        & "is " & FORMAT(vSpread, "0.0%") & ", so a company-wide attrition rate "
+			        & "is an average over labour markets that behave nothing alike. Pay "
+			        & "spans a " & FORMAT(vMultiple, "0.0") & "x range between the priciest "
+			        & "market and the cheapest - which is why the gender gap is measured "
+			        & "inside country and level, where it is "
+			        & FORMAT(vGap, "0.0%") & ", not on raw salary." 
+		lineageTag: 1eb8b54b-a103-5045-84cd-6da6cdfb1fa2
+		displayFolder: Global
+
+	/// The org and talent headline as a deterministic sentence.
+	measure 'Org Insight' =
+			VAR vReg = CALCULATE([Regretted Exits], ALL(attrition_headline))
+			VAR vRegShare = CALCULATE([Regretted Share], ALL(attrition_headline))
+			VAR vMoney = CALCULATE([Salary Walking Out], ALL(attrition_headline))
+			VAR vFirstYear = CALCULATE([First Year Share], ALL(attrition_headline))
+			VAR vStalled = CALCULATE([Stalled High Performers], ALL(attrition_headline))
+			VAR vDepth = CALCULATE([Layers], ALL(org_layers))
+			VAR vThin = CALCULATE([Thin Span Share], ALL(span_of_control))
+			VAR vHot = CALCULATE([Teams Above Market], ALL(manager_outliers))
+			VAR vReviewed = CALCULATE([Teams Reviewed], ALL(manager_outliers))
+			RETURN
+			    FORMAT(vReg, "#,0") & " of the exits were people the company wanted to keep ("
+			        & FORMAT(vRegShare, "0%") & " of all of them, " & FORMAT(vMoney, "$#,0")
+			        & " of salary), and " & FORMAT(vFirstYear, "0%")
+			        & " of every exit happened inside the first year - which is a hiring "
+			        & "and onboarding problem with a different owner from retention. "
+			        & FORMAT(vHot, "0") & " of " & FORMAT(vReviewed, "0")
+			        & " teams big enough to judge lose people at least half again as fast "
+			        & "as their OWN market, so this is about managers rather than "
+			        & "geography. The org runs " & FORMAT(vDepth, "0") & " layers deep and "
+			        & FORMAT(vThin, "0%") & " of managers have fewer than four reports; "
+			        & FORMAT(vStalled, "#,0")
+			        & " strong performers have gone two years without a move." 
+		lineageTag: b0d6737b-2c02-5559-bea3-8f82f70d56f6
+		displayFolder: Org & Talent
+
+	/// The within-level gender gap pooled across countries. Published next to the market-adjusted number rather than on its own, because in a multinational most of it is geography.
+	measure 'Raw Gap (Level)' = AVERAGE(pay_equity_levels[raw_gap_pct])
+		formatString: 0.0%
+		lineageTag: 5e1ab047-3c11-5ef6-b15d-ef9b504db9fd
+		displayFolder: Global
+
+	/// The same gap measured inside a single country and level, where two salaries are actually comparable.
+	measure 'Market Gap (Level)' = AVERAGE(pay_equity_levels[market_adjusted_gap_pct])
+		formatString: 0.0%
+		lineageTag: 041f8766-238b-5f37-b7d7-1e886a6572a5
+		displayFolder: Global
+
+	/// How much of a level's apparent gap is where its men and women happen to sit rather than what they are paid.
+	measure 'Geography Effect' = AVERAGE(pay_equity_levels[gap_explained_by_geography])
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 9ec06d9e-6bd5-555f-9112-d01357e2f756
+		displayFolder: Global
+
+	/// Card subtitle for the market-adjusted pay gap.
+	measure 'Pay Gap Reference' = FORMAT([Raw Gap (Level)], "0.0%") & " before adjusting for market"
+		lineageTag: 3191f15a-6cba-5a62-9bed-76f84416c243
+		displayFolder: Global
+
+	/// Voluntary exits of people rated 4 or 5, by department.
+	measure 'Regretted by Department' = SUM(regretted_by_department[regretted_exits])
+		formatString: #,0
+		lineageTag: ff574c8a-7dd1-5643-bda7-289547cf9ecb
+		displayFolder: Org & Talent
+
+	/// Reddens the department losing the most people it wanted to keep.
+	measure 'Department Regretted Colour' =
+			VAR vHere = [Regretted by Department]
+			VAR vExtreme =
+			    CALCULATE(
+			        MAXX(VALUES(regretted_by_department[department]), [Regretted by Department]),
+			        ALLSELECTED()
+			    )
+			RETURN
+			    IF(vHere = vExtreme, "#FF5C7A", "#454A82")
+		lineageTag: d2881849-92b9-559d-a1d4-1f7ab9a57649
+		displayFolder: Org & Talent
 
 	column Value
 		dataType: int64

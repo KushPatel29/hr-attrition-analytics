@@ -1,0 +1,102 @@
+/// One row of geography headlines so the report, the README and the tests quote the same figures instead of each recomputing them.
+table geo_headline
+	lineageTag: 22a15946-733d-5bdd-9d09-fdaf3f831fe6
+
+	column countries
+		dataType: int64
+		formatString: 0
+		lineageTag: 1948da4f-a16c-5f27-97c6-62bf0562399a
+		summarizeBy: none
+		sourceColumn: countries
+
+	column headcount
+		dataType: int64
+		formatString: #,0
+		lineageTag: ee8a8e44-00c7-5dd0-8e13-3d6cc98b23ff
+		summarizeBy: none
+		sourceColumn: headcount
+
+	column payroll
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 50dd107b-9fb6-5da9-bae9-fefde97439b8
+		summarizeBy: none
+		sourceColumn: payroll
+
+	column company_attrition_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f7c7e117-9ca6-51d8-aed6-9790a1796131
+		summarizeBy: none
+		sourceColumn: company_attrition_rate
+
+	column largest_market
+		dataType: string
+		lineageTag: 4f8c7485-5d95-50a0-a6c3-9365d0c5c288
+		summarizeBy: none
+		sourceColumn: largest_market
+
+	column largest_market_headcount_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 0d38b048-ae63-5a57-b499-420cf82c3cc7
+		summarizeBy: none
+		sourceColumn: largest_market_headcount_share
+
+	column largest_market_payroll_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 3434e58d-5eb8-5d12-8793-82a80211968c
+		summarizeBy: none
+		sourceColumn: largest_market_payroll_share
+
+	column worst_market
+		dataType: string
+		lineageTag: 986df29e-0382-56ed-8fb8-2cbb7c61c5bd
+		summarizeBy: none
+		sourceColumn: worst_market
+
+	column worst_market_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 8cc97ea5-843c-5756-905e-434d0d69249e
+		summarizeBy: none
+		sourceColumn: worst_market_rate
+
+	column worst_market_headcount_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: b51560b7-64b7-53c0-87b7-23cb0b6a9aeb
+		summarizeBy: none
+		sourceColumn: worst_market_headcount_share
+
+	column headcount_in_hot_markets
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 73e25888-5ada-55bf-874a-8735c26e589f
+		summarizeBy: none
+		sourceColumn: headcount_in_hot_markets
+
+	column attrition_spread
+		dataType: double
+		formatString: 0.0%
+		lineageTag: ca462798-efd1-5714-9b83-17f50cc64a87
+		summarizeBy: none
+		sourceColumn: attrition_spread
+
+	column pay_market_multiple
+		dataType: double
+		formatString: 0.0
+		lineageTag: e840b2e6-fc05-5a74-b166-145a07253d2b
+		summarizeBy: none
+		sourceColumn: pay_market_multiple
+
+	partition geo_headline = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\geo_headline.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"countries", Int64.Type}, {"headcount", Int64.Type}, {"payroll", type number}, {"company_attrition_rate", type number}, {"largest_market", type text}, {"largest_market_headcount_share", type number}, {"largest_market_payroll_share", type number}, {"worst_market", type text}, {"worst_market_rate", type number}, {"worst_market_headcount_share", type number}, {"headcount_in_hot_markets", type number}, {"attrition_spread", type number}, {"pay_market_multiple", type number}})
+				in
+				    Typed

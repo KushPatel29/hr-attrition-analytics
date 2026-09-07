@@ -27,8 +27,7 @@
                 }
               },
               "queryRef": "pay_equity_levels.job_level",
-              "nativeQueryRef": "job_level",
-              "active": true
+              "nativeQueryRef": "job_level"
             }
           ]
         },
@@ -42,11 +41,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Avg Salary (F)"
+                  "Property": "Raw Gap (Level)"
                 }
               },
-              "queryRef": "_Measures.Avg Salary (F)",
-              "nativeQueryRef": "Avg Salary (F)"
+              "queryRef": "_Measures.Raw Gap (Level)",
+              "nativeQueryRef": "Raw Gap (Level)"
             },
             {
               "field": {
@@ -56,11 +55,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Avg Salary (M)"
+                  "Property": "Market Gap (Level)"
                 }
               },
-              "queryRef": "_Measures.Avg Salary (M)",
-              "nativeQueryRef": "Avg Salary (M)"
+              "queryRef": "_Measures.Market Gap (Level)",
+              "nativeQueryRef": "Market Gap (Level)"
             }
           ]
         }
@@ -73,7 +72,27 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Avg Salary by Level & Gender'"
+                  "Value": "'Most of the gap is geography, not pay'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'The same gender gap pooled across countries, then measured inside a single country and level - where two salaries are comparable'"
                 }
               }
             },
@@ -120,6 +139,26 @@
         {
           "properties": {
             "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TopRight'"
+                }
+              }
+            },
+            "showTitle": {
               "expr": {
                 "Literal": {
                   "Value": "false"

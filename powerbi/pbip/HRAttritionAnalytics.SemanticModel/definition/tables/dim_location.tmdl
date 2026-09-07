@@ -33,13 +33,28 @@ table dim_location
 		summarizeBy: none
 		sourceColumn: is_remote
 
+	column salary_index
+		dataType: double
+		formatString: 0.00
+		lineageTag: 72640fbf-36ee-5ee4-91f6-fd5be3eb75ad
+		summarizeBy: none
+		sourceColumn: salary_index
+
+	column attrition_lift
+		dataType: double
+		isHidden
+		formatString: 0.00
+		lineageTag: f40191b0-5181-574b-acc7-9de3ba4586d7
+		summarizeBy: none
+		sourceColumn: attrition_lift
+
 	partition dim_location = m
 		mode: import
 		source =
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_location.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"location_id", Int64.Type}, {"city", type text}, {"region", type text}, {"country", type text}, {"is_remote", Int64.Type}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"location_id", Int64.Type}, {"city", type text}, {"region", type text}, {"country", type text}, {"is_remote", Int64.Type}, {"salary_index", type number}, {"attrition_lift", type number}})
 				in
 				    Typed
 

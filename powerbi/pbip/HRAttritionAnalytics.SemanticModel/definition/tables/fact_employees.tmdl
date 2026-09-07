@@ -151,13 +151,33 @@ table fact_employees
 		summarizeBy: none
 		sourceColumn: tenure_band_sort
 
+	column potential_rating
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ddc73428-c277-5497-833f-10026c812ed0
+		summarizeBy: none
+		sourceColumn: potential_rating
+
+	column potential_label
+		dataType: string
+		lineageTag: 7c165866-49b9-5582-8640-2c81dd81ee83
+		summarizeBy: none
+		sourceColumn: potential_label
+
+	column work_model
+		dataType: string
+		lineageTag: e0b07139-48e6-5e50-9168-900e2061f588
+		summarizeBy: none
+		sourceColumn: work_model
+
 	partition fact_employees = m
 		mode: import
 		source =
 				let
 				    Source = Csv.Document(File.Contents(DataPath & "\data\fact_employees.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
 				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
-				    Typed = Table.TransformColumnTypes(Promoted, {{"employee_id", Int64.Type}, {"employee_name", type text}, {"department_id", Int64.Type}, {"job_id", Int64.Type}, {"location_id", Int64.Type}, {"gender", type text}, {"ethnicity_group", type text}, {"age_band", type text}, {"hire_date", type text}, {"termination_date", type text}, {"term_type", type text}, {"is_active", Int64.Type}, {"tenure_months", type number}, {"base_salary", type number}, {"compa_ratio", type number}, {"performance_rating", Int64.Type}, {"engagement_score", type number}, {"overtime_hours", type number}, {"commute_km", type number}, {"months_since_promotion", type number}, {"manager_id", type text}, {"tenure_band", type text}, {"tenure_band_sort", Int64.Type}})
+				    Typed = Table.TransformColumnTypes(Promoted, {{"employee_id", Int64.Type}, {"employee_name", type text}, {"department_id", Int64.Type}, {"job_id", Int64.Type}, {"location_id", Int64.Type}, {"gender", type text}, {"ethnicity_group", type text}, {"age_band", type text}, {"hire_date", type text}, {"termination_date", type text}, {"term_type", type text}, {"is_active", Int64.Type}, {"tenure_months", type number}, {"base_salary", type number}, {"compa_ratio", type number}, {"performance_rating", Int64.Type}, {"engagement_score", type number}, {"overtime_hours", type number}, {"commute_km", type number}, {"months_since_promotion", type number}, {"manager_id", type text}, {"tenure_band", type text}, {"tenure_band_sort", Int64.Type}, {"potential_rating", Int64.Type}, {"potential_label", type text}, {"work_model", type text}})
 				in
 				    Typed
 

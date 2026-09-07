@@ -1,0 +1,9 @@
+country,region,headcount,avg_compa_ratio,avg_salary,payroll,below_market_share,market_adjusted_gap_pct
+Canada,North America,806,0.9952,92633.0,74662100.0,0.1067,0.0363
+India,APAC,546,0.9943,25341.0,13836100.0,0.1026,0.0406
+United States,North America,202,0.9934,120538.0,24348700.0,0.104,0.0268
+Poland,EMEA,154,0.9943,42299.0,6514100.0,0.0519,0.0249
+United Kingdom,EMEA,132,1.0007,107612.0,14204800.0,0.1212,0.0365
+Mexico,Latin America,111,0.9966,37998.0,4217800.0,0.0901,0.0322
+Germany,EMEA,100,0.998,92403.0,9240300.0,0.12,0.0514
+Singapore,APAC,100,0.9935,88148.0,8814800.0,0.05,0.0476

@@ -1,0 +1,104 @@
+/// Company-wide exit classes: regretted, non-regretted, neutral, plus first-year exits and the salary walking out of the door.
+table attrition_headline
+	lineageTag: b20edba4-4e77-5f0c-8c2e-3bb38fbeed2a
+
+	column headcount_ever
+		dataType: int64
+		formatString: #,0
+		lineageTag: c5dd66e6-d5d3-5f8b-9c40-d2dbb12a77b7
+		summarizeBy: none
+		sourceColumn: headcount_ever
+
+	column active_headcount
+		dataType: int64
+		formatString: #,0
+		lineageTag: 5f81ed2f-bb9e-5445-8d76-e19d8ce6ecc4
+		summarizeBy: none
+		sourceColumn: active_headcount
+
+	column exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 88f5929a-8b7e-52ec-add5-c7ca057038c3
+		summarizeBy: none
+		sourceColumn: exits
+
+	column regretted_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0bbd59a7-a489-539d-aa70-a180473daaed
+		summarizeBy: none
+		sourceColumn: regretted_exits
+
+	column non_regretted_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: eed943d1-b92b-5f67-9634-9c82a7cea80e
+		summarizeBy: none
+		sourceColumn: non_regretted_exits
+
+	column neutral_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: c2b4ac6c-be46-5d27-b9cf-daff979f2a12
+		summarizeBy: none
+		sourceColumn: neutral_exits
+
+	column first_year_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 3e3aa0af-4324-55f9-945f-08bcc850a9be
+		summarizeBy: none
+		sourceColumn: first_year_exits
+
+	column regretted_salary
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 0326e873-bb48-5dfe-a4cf-98e598766155
+		summarizeBy: none
+		sourceColumn: regretted_salary
+
+	column attrition_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 9cc9ca66-3fbb-5799-8139-692f735eab96
+		summarizeBy: none
+		sourceColumn: attrition_rate
+
+	column regretted_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 66f7fbc4-3b1a-55f0-ba54-2453ac4ab0be
+		summarizeBy: none
+		sourceColumn: regretted_share
+
+	column first_year_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 11e98f3e-da2d-5642-9c2c-b0e6b169306b
+		summarizeBy: none
+		sourceColumn: first_year_share
+
+	column stalled_high_performers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4b4858fb-b1c8-5a26-bd9f-7a6fd67aa4a7
+		summarizeBy: none
+		sourceColumn: stalled_high_performers
+
+	column stalled_salary
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 3137cf2e-ac63-5ab7-97f8-7acc61260e8c
+		summarizeBy: none
+		sourceColumn: stalled_salary
+
+	partition attrition_headline = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\attrition_headline.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"headcount_ever", Int64.Type}, {"active_headcount", Int64.Type}, {"exits", Int64.Type}, {"regretted_exits", Int64.Type}, {"non_regretted_exits", Int64.Type}, {"neutral_exits", Int64.Type}, {"first_year_exits", Int64.Type}, {"regretted_salary", type number}, {"attrition_rate", type number}, {"regretted_share", type number}, {"first_year_share", type number}, {"stalled_high_performers", Int64.Type}, {"stalled_salary", type number}})
+				in
+				    Typed

@@ -1,0 +1,91 @@
+/// The talent review grid: performance against potential for active employees, with each box named rather than left as a coordinate.
+table nine_box
+	lineageTag: 41762b65-33c6-5826-b0b3-9d52d293f9ef
+
+	column performance_band
+		dataType: string
+		lineageTag: 2a19c57a-9cb0-55ce-8908-84c62d5f5999
+		summarizeBy: none
+		sourceColumn: performance_band
+		sortByColumn: performance_rank
+
+	column performance_rank
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6f50335f-92ba-5ed7-a809-ea84bd1ea2a4
+		summarizeBy: none
+		sourceColumn: performance_rank
+
+	column potential_band
+		dataType: string
+		lineageTag: 065dbd2b-de61-5e1d-a2fc-4af3bc337c9a
+		summarizeBy: none
+		sourceColumn: potential_band
+		sortByColumn: potential_rank
+
+	column potential_rank
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f14846da-9ee4-5c55-8295-3e1cea3ff496
+		summarizeBy: none
+		sourceColumn: potential_rank
+
+	column box_label
+		dataType: string
+		lineageTag: a35e725c-0db7-5b9c-be82-f8b9c738148c
+		summarizeBy: none
+		sourceColumn: box_label
+
+	column employees
+		dataType: int64
+		formatString: #,0
+		lineageTag: 03c23bcf-eed0-5768-b298-aa03590ecbc5
+		summarizeBy: none
+		sourceColumn: employees
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: cd75e62c-e557-58ab-ab6c-dd60fe64c8f8
+		summarizeBy: none
+		sourceColumn: share
+
+	column avg_engagement
+		dataType: double
+		formatString: 0.0
+		lineageTag: 794c037c-4600-5cda-b06f-823c8b5c6cd1
+		summarizeBy: none
+		sourceColumn: avg_engagement
+
+	column avg_months_since_promotion
+		dataType: double
+		formatString: 0.0
+		lineageTag: dcb7a6b7-46dd-54c6-b5e3-f2206069e460
+		summarizeBy: none
+		sourceColumn: avg_months_since_promotion
+
+	column salary
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 3c84a53e-4e6f-53b1-837f-3c68e2e64e4d
+		summarizeBy: none
+		sourceColumn: salary
+
+	column stalled
+		dataType: int64
+		formatString: #,0
+		lineageTag: eae0f07e-176a-5c40-918a-ef46161ee14c
+		summarizeBy: none
+		sourceColumn: stalled
+
+	partition nine_box = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\nine_box.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"performance_band", type text}, {"performance_rank", Int64.Type}, {"potential_band", type text}, {"potential_rank", Int64.Type}, {"box_label", type text}, {"employees", Int64.Type}, {"share", type number}, {"avg_engagement", type number}, {"avg_months_since_promotion", type number}, {"salary", type number}, {"stalled", Int64.Type}})
+				in
+				    Typed

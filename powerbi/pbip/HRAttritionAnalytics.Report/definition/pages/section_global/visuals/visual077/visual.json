@@ -1,0 +1,183 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual077",
+  "position": {
+    "x": 660,
+    "y": 374,
+    "z": 1000,
+    "height": 204,
+    "width": 600,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "workforce_by_country"
+                    }
+                  },
+                  "Property": "country"
+                }
+              },
+              "queryRef": "workforce_by_country.country",
+              "nativeQueryRef": "country"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "workforce_by_country"
+                    }
+                  },
+                  "Property": "region"
+                }
+              },
+              "queryRef": "workforce_by_country.region",
+              "nativeQueryRef": "region"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "workforce_by_country"
+                    }
+                  },
+                  "Property": "headcount"
+                }
+              },
+              "queryRef": "workforce_by_country.headcount",
+              "nativeQueryRef": "headcount"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "workforce_by_country"
+                    }
+                  },
+                  "Property": "avg_engagement"
+                }
+              },
+              "queryRef": "workforce_by_country.avg_engagement",
+              "nativeQueryRef": "avg_engagement"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "workforce_by_country"
+                    }
+                  },
+                  "Property": "flexible_share"
+                }
+              },
+              "queryRef": "workforce_by_country.flexible_share",
+              "nativeQueryRef": "flexible_share"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "workforce_by_country"
+                    }
+                  },
+                  "Property": "women_share"
+                }
+              },
+              "queryRef": "workforce_by_country.women_share",
+              "nativeQueryRef": "women_share"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "workforce_by_country"
+                  }
+                },
+                "Property": "headcount"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'The workforce by market'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Headcount, engagement and how many stay'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

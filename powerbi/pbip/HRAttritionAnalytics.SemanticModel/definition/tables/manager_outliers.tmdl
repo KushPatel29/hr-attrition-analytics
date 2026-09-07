@@ -1,0 +1,119 @@
+/// Teams of 8 or more whose attrition is far from THEIR OWN market's rate. Comparing every team to the company rate ranks countries wearing managers' names.
+table manager_outliers
+	lineageTag: d3095d86-9ed5-52f1-93d7-a5318342391a
+
+	column manager_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 4393ddb1-6add-5faa-a451-a6fcbaff0182
+		summarizeBy: none
+		sourceColumn: manager_id
+
+	column department
+		dataType: string
+		lineageTag: 8a924e3d-5634-575b-a17d-38521c5e7061
+		summarizeBy: none
+		sourceColumn: department
+
+	column division
+		dataType: string
+		lineageTag: d6acf8cf-f1ac-520b-9600-0ee31af67357
+		summarizeBy: none
+		sourceColumn: division
+
+	column country
+		dataType: string
+		lineageTag: 596a2660-cf51-5b4e-859f-098a489165cf
+		summarizeBy: none
+		sourceColumn: country
+
+	column region
+		dataType: string
+		lineageTag: 87278b18-923a-55d7-a7b7-a56e45ad6e07
+		summarizeBy: none
+		sourceColumn: region
+
+	column job_level
+		dataType: string
+		lineageTag: 4b921ad0-7bbc-5a3f-a0f4-1bd300289188
+		summarizeBy: none
+		sourceColumn: job_level
+
+	column reports_total
+		dataType: int64
+		formatString: #,0
+		lineageTag: 25bda319-ef96-5a15-8000-a4b022a7c36d
+		summarizeBy: none
+		sourceColumn: reports_total
+
+	column reports_active
+		dataType: int64
+		formatString: #,0
+		lineageTag: fd0484f4-8d37-50a5-ac63-45189c31f5cf
+		summarizeBy: none
+		sourceColumn: reports_active
+
+	column reports_exited
+		dataType: int64
+		formatString: #,0
+		lineageTag: 247a9dec-694e-5df5-986a-cc0b6736503f
+		summarizeBy: none
+		sourceColumn: reports_exited
+
+	column avg_engagement
+		dataType: double
+		formatString: 0.0
+		lineageTag: 5a046dcf-9c17-5e79-974a-dc26ff93abed
+		summarizeBy: none
+		sourceColumn: avg_engagement
+
+	column team_attrition_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 559c996a-a401-574a-943e-d907aff48ba6
+		summarizeBy: none
+		sourceColumn: team_attrition_rate
+
+	column market_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: e654d43d-5736-5c2d-9c81-b6ef3631cd69
+		summarizeBy: none
+		sourceColumn: market_rate
+
+	column company_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7942196c-8911-5a59-a2a5-6c86bacfe528
+		summarizeBy: none
+		sourceColumn: company_rate
+
+	column gap_to_market
+		dataType: double
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 459a7547-fcaf-5f07-855c-0365b1eb88ae
+		summarizeBy: none
+		sourceColumn: gap_to_market
+
+	column gap_to_company
+		dataType: double
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: e92fd6dc-0567-5213-b312-a5b120604279
+		summarizeBy: none
+		sourceColumn: gap_to_company
+
+	column verdict
+		dataType: string
+		lineageTag: 7363a629-c0ff-5c6e-8ec5-dbec62e2a37b
+		summarizeBy: none
+		sourceColumn: verdict
+
+	partition manager_outliers = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\manager_outliers.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"manager_id", Int64.Type}, {"department", type text}, {"division", type text}, {"country", type text}, {"region", type text}, {"job_level", type text}, {"reports_total", Int64.Type}, {"reports_active", Int64.Type}, {"reports_exited", Int64.Type}, {"avg_engagement", type number}, {"team_attrition_rate", type number}, {"market_rate", type number}, {"company_rate", type number}, {"gap_to_market", type number}, {"gap_to_company", type number}, {"verdict", type text}})
+				in
+				    Typed

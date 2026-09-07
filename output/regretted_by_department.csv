@@ -1,0 +1,13 @@
+department,division,headcount_ever,exits,regretted_exits,first_year_exits,regretted_salary,attrition_rate,regretted_rate,regretted_share
+Field Sales,Go-To-Market,226,57,20,35,1441300.0,0.2522,0.0885,0.3509
+Finance & Accounting,Corporate,244,52,19,31,1020800.0,0.2131,0.0779,0.3654
+Manufacturing,Operations,223,52,19,35,1273000.0,0.2332,0.0852,0.3654
+Supply Chain,Operations,246,59,18,31,1571200.0,0.2398,0.0732,0.3051
+Product Management,Technology,261,71,15,41,915500.0,0.272,0.0575,0.2113
+Data & Analytics,Technology,218,48,14,26,833600.0,0.2202,0.0642,0.2917
+Marketing,Go-To-Market,227,48,13,30,762500.0,0.2115,0.0573,0.2708
+Software Engineering,Technology,236,47,13,24,935700.0,0.1992,0.0551,0.2766
+Human Resources,Corporate,244,62,12,35,549100.0,0.2541,0.0492,0.1935
+IT Operations,Technology,230,51,11,23,751100.0,0.2217,0.0478,0.2157
+Inside Sales,Go-To-Market,248,64,11,35,569100.0,0.2581,0.0444,0.1719
+Customer Support,Operations,197,38,5,19,445100.0,0.1929,0.0254,0.1316

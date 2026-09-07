@@ -1,0 +1,109 @@
+/// Regretted vs non-regretted exits across country, region, department, division and level. A headline attrition rate treats a managed-out low performer and a resigning star as the same event.
+table regretted_attrition
+	lineageTag: 6a2026e7-f6a7-5915-b8aa-e1d96a820b5a
+
+	column dimension
+		dataType: string
+		lineageTag: eb3a6eeb-d0ad-5260-90cf-3f446072d599
+		summarizeBy: none
+		sourceColumn: dimension
+
+	column category
+		dataType: string
+		lineageTag: 9716916e-da35-525d-a7d2-e977a7323888
+		summarizeBy: none
+		sourceColumn: category
+
+	column sort_key
+		dataType: string
+		isHidden
+		lineageTag: 644bc95d-dbb9-5431-bdf7-957258d17602
+		summarizeBy: none
+		sourceColumn: sort_key
+
+	column headcount_ever
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4d8e1469-1e3b-5408-9e4a-0788f88065b9
+		summarizeBy: none
+		sourceColumn: headcount_ever
+
+	column exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 01537b20-89c9-5424-9b6f-34530a0a3b38
+		summarizeBy: none
+		sourceColumn: exits
+
+	column regretted_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 0b01462b-6cb7-569b-80af-4cc0e8f60c42
+		summarizeBy: none
+		sourceColumn: regretted_exits
+
+	column non_regretted_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: 313662fd-9894-5a32-a0ec-c464809fc53e
+		summarizeBy: none
+		sourceColumn: non_regretted_exits
+
+	column neutral_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: d8d3cc0c-2b25-5bdf-b6a4-4525724cac43
+		summarizeBy: none
+		sourceColumn: neutral_exits
+
+	column first_year_exits
+		dataType: int64
+		formatString: #,0
+		lineageTag: e4632256-1061-5307-b99a-634a6d4df994
+		summarizeBy: none
+		sourceColumn: first_year_exits
+
+	column regretted_salary
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 80244e40-948f-55d6-922d-0062a98801fe
+		summarizeBy: none
+		sourceColumn: regretted_salary
+
+	column attrition_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 8fb26a52-b9cf-5bc5-9042-320a7ac8ad28
+		summarizeBy: none
+		sourceColumn: attrition_rate
+
+	column regretted_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 74de5fb9-0dca-5716-82ad-ff0a2dd09965
+		summarizeBy: none
+		sourceColumn: regretted_rate
+
+	column regretted_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: dac115ae-ff1f-52aa-9b8c-d1ddd97f918d
+		summarizeBy: none
+		sourceColumn: regretted_share
+
+	column first_year_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 73d97d25-1e59-5313-b0d9-d594cd12472a
+		summarizeBy: none
+		sourceColumn: first_year_share
+
+	partition regretted_attrition = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\regretted_attrition.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"dimension", type text}, {"category", type text}, {"sort_key", type text}, {"headcount_ever", Int64.Type}, {"exits", Int64.Type}, {"regretted_exits", Int64.Type}, {"non_regretted_exits", Int64.Type}, {"neutral_exits", Int64.Type}, {"first_year_exits", Int64.Type}, {"regretted_salary", type number}, {"attrition_rate", type number}, {"regretted_rate", type number}, {"regretted_share", type number}, {"first_year_share", type number}})
+				in
+				    Typed

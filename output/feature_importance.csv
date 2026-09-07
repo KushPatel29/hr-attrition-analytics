@@ -1,30 +1,31 @@
 feature,weight,abs_weight
-tenure_months,-1.477,1.477
-department_Customer Support,-0.641,0.641
-comp_gap_vs_level,-0.6364,0.6364
-department_Data & Analytics,0.5311,0.5311
-compa_ratio,0.4511,0.4511
-months_since_promotion,0.4387,0.4387
-level_rank,0.3426,0.3426
-performance_rating,-0.3008,0.3008
-department_Manufacturing,0.2791,0.2791
-department_Human Resources,-0.2772,0.2772
-department_Supply Chain,0.2632,0.2632
-department_Software Engineering,-0.24,0.24
-engagement_score,-0.1726,0.1726
-engagement_vs_dept,-0.1696,0.1696
-department_Product Management,-0.1675,0.1675
-department_Finance & Accounting,0.1403,0.1403
-overtime_hours,0.1396,0.1396
-division_Corporate,-0.1369,0.1369
-division_Technology,0.1233,0.1233
-region_East,-0.1147,0.1147
-department_Field Sales,-0.1142,0.1142
-division_Operations,-0.0987,0.0987
-region_Remote,-0.088,0.088
-commute_km,0.0813,0.0813
-division_Go-To-Market,-0.0638,0.0638
-department_Inside Sales,0.0272,0.0272
-region_West,0.0266,0.0266
-department_Marketing,0.0231,0.0231
-department_IT Operations,-0.0003,0.0003
+tenure_months,-1.3542,1.3542
+comp_gap_vs_level,-0.5112,0.5112
+level_rank,0.3856,0.3856
+compa_ratio,0.3236,0.3236
+performance_rating,-0.309,0.309
+months_since_promotion,0.2984,0.2984
+region_APAC,0.2235,0.2235
+region_EMEA,-0.2165,0.2165
+department_Customer Support,-0.2002,0.2002
+engagement_score,-0.1823,0.1823
+department_Software Engineering,-0.1635,0.1635
+region_Latin America,-0.138,0.138
+department_Marketing,-0.1372,0.1372
+department_Inside Sales,0.1327,0.1327
+overtime_hours,0.1292,0.1292
+engagement_vs_dept,-0.1109,0.1109
+department_Supply Chain,0.1094,0.1094
+department_Human Resources,0.1039,0.1039
+division_Operations,-0.0963,0.0963
+department_Finance & Accounting,-0.0941,0.0941
+department_Product Management,0.0796,0.0796
+division_Technology,-0.0739,0.0739
+commute_km,0.0706,0.0706
+region_North America,-0.0285,0.0285
+division_Corporate,0.0098,0.0098
+department_IT Operations,0.0092,0.0092
+department_Manufacturing,-0.0055,0.0055
+department_Field Sales,0.0054,0.0054
+division_Go-To-Market,0.0008,0.0008
+department_Data & Analytics,0.0008,0.0008

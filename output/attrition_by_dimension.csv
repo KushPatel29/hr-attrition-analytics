@@ -1,42 +1,43 @@
 dimension,category,sort_key,headcount_ever,active_headcount,terminations,voluntary_terms,attrition_rate,voluntary_share,pct_of_dimension_exits,attrition_rank
-Age Band,25-34,25-34,723,565,158,109,0.2185,0.6899,0.3789,2
-Age Band,35-44,35-44,567,447,120,91,0.2116,0.7583,0.2878,5
-Age Band,45-54,45-54,321,244,77,55,0.2399,0.7143,0.1847,1
-Age Band,55+,55+,126,99,27,21,0.2143,0.7778,0.0647,4
-Age Band,<25,<25,163,128,35,28,0.2147,0.8,0.0839,3
-Department,Customer Support,Customer Support,129,112,17,9,0.1318,0.5294,0.0408,12
-Department,Data & Analytics,Data & Analytics,142,103,39,30,0.2746,0.7692,0.0935,1
-Department,Field Sales,Field Sales,166,134,32,22,0.1928,0.6875,0.0767,9
-Department,Finance & Accounting,Finance & Accounting,161,122,39,27,0.2422,0.6923,0.0935,5
-Department,Human Resources,Human Resources,165,139,26,17,0.1576,0.6538,0.0624,11
-Department,IT Operations,IT Operations,163,122,41,29,0.2515,0.7073,0.0983,3
-Department,Inside Sales,Inside Sales,170,135,35,26,0.2059,0.7429,0.0839,8
-Department,Manufacturing,Manufacturing,141,106,35,30,0.2482,0.8571,0.0839,4
-Department,Marketing,Marketing,146,113,33,23,0.226,0.697,0.0791,7
-Department,Product Management,Product Management,179,136,43,33,0.2402,0.7674,0.1031,6
-Department,Software Engineering,Software Engineering,169,137,32,22,0.1893,0.6875,0.0767,10
-Department,Supply Chain,Supply Chain,169,124,45,36,0.2663,0.8,0.1079,2
-Division,Corporate,Corporate,326,261,65,44,0.1994,0.6769,0.1559,4
-Division,Go-To-Market,Go-To-Market,482,382,100,71,0.2075,0.71,0.2398,3
-Division,Operations,Operations,439,342,97,75,0.221,0.7732,0.2326,2
-Division,Technology,Technology,653,498,155,114,0.2374,0.7355,0.3717,1
-Gender,Female,Female,835,639,196,143,0.2347,0.7296,0.47,2
-Gender,Male,Male,1008,802,206,151,0.2044,0.733,0.494,3
-Gender,Non-binary,Non-binary,57,42,15,10,0.2632,0.6667,0.036,1
-Job Level,Associate,01,288,223,65,49,0.2257,0.7538,0.1559,2
-Job Level,Analyst,02,419,310,109,79,0.2601,0.7248,0.2614,1
-Job Level,Senior Analyst,03,294,228,66,48,0.2245,0.7273,0.1583,3
-Job Level,Specialist,03,238,186,52,38,0.2185,0.7308,0.1247,5
-Job Level,Senior Specialist,04,209,168,41,29,0.1962,0.7073,0.0983,7
-Job Level,Lead,05,161,127,34,22,0.2112,0.6471,0.0815,6
-Job Level,Manager,06,158,130,28,23,0.1772,0.8214,0.0671,8
-Job Level,Senior Manager,07,92,79,13,10,0.1413,0.7692,0.0312,9
-Job Level,Director,08,41,32,9,6,0.2195,0.6667,0.0216,4
-Region,East,East,716,565,151,111,0.2109,0.7351,0.3621,2
-Region,Remote,Remote,348,283,65,46,0.1868,0.7077,0.1559,3
-Region,West,West,836,635,201,147,0.2404,0.7313,0.482,1
-Tenure Band,<1 yr,0,578,350,228,173,0.3945,0.7588,0.5468,1
-Tenure Band,1-2 yr,1,522,412,110,77,0.2107,0.7,0.2638,2
-Tenure Band,2-4 yr,2,575,505,70,46,0.1217,0.6571,0.1679,3
-Tenure Band,4-6 yr,3,173,165,8,7,0.0462,0.875,0.0192,4
-Tenure Band,6+ yr,4,52,51,1,1,0.0192,1.0,0.0024,5
+Age Band,25-34,25-34,974,756,218,156,0.2238,0.7156,0.3359,4
+Age Band,35-44,35-44,945,718,227,171,0.2402,0.7533,0.3498,2
+Age Band,45-54,45-54,445,351,94,69,0.2112,0.734,0.1448,5
+Age Band,55+,55+,205,150,55,44,0.2683,0.8,0.0847,1
+Age Band,<25,<25,231,176,55,41,0.2381,0.7455,0.0847,3
+Department,Customer Support,Customer Support,197,159,38,25,0.1929,0.6579,0.0586,12
+Department,Data & Analytics,Data & Analytics,218,170,48,34,0.2202,0.7083,0.074,8
+Department,Field Sales,Field Sales,226,169,57,48,0.2522,0.8421,0.0878,4
+Department,Finance & Accounting,Finance & Accounting,244,192,52,41,0.2131,0.7885,0.0801,9
+Department,Human Resources,Human Resources,244,182,62,46,0.2541,0.7419,0.0955,3
+Department,IT Operations,IT Operations,230,179,51,34,0.2217,0.6667,0.0786,7
+Department,Inside Sales,Inside Sales,248,184,64,47,0.2581,0.7344,0.0986,2
+Department,Manufacturing,Manufacturing,223,171,52,42,0.2332,0.8077,0.0801,6
+Department,Marketing,Marketing,227,179,48,39,0.2115,0.8125,0.074,10
+Department,Product Management,Product Management,261,190,71,47,0.272,0.662,0.1094,1
+Department,Software Engineering,Software Engineering,236,189,47,33,0.1992,0.7021,0.0724,11
+Department,Supply Chain,Supply Chain,246,187,59,45,0.2398,0.7627,0.0909,5
+Division,Corporate,Corporate,488,374,114,87,0.2336,0.7632,0.1757,2
+Division,Go-To-Market,Go-To-Market,701,532,169,134,0.2411,0.7929,0.2604,1
+Division,Operations,Operations,666,517,149,112,0.2237,0.7517,0.2296,4
+Division,Technology,Technology,945,728,217,148,0.2296,0.682,0.3344,3
+Gender,Female,Female,1222,941,281,206,0.23,0.7331,0.433,2
+Gender,Male,Male,1482,1125,357,265,0.2409,0.7423,0.5501,1
+Gender,Non-binary,Non-binary,96,85,11,10,0.1146,0.9091,0.0169,3
+Job Level,Associate,01,451,328,123,84,0.2727,0.6829,0.1895,1
+Job Level,Analyst,02,546,420,126,95,0.2308,0.754,0.1941,4
+Job Level,Specialist,03,340,255,85,64,0.25,0.7529,0.131,2
+Job Level,Senior Analyst,03,449,346,103,75,0.2294,0.7282,0.1587,5
+Job Level,Senior Specialist,04,308,245,63,49,0.2045,0.7778,0.0971,8
+Job Level,Lead,05,300,234,66,46,0.22,0.697,0.1017,6
+Job Level,Manager,06,210,167,43,41,0.2048,0.9535,0.0663,7
+Job Level,Senior Manager,07,140,114,26,15,0.1857,0.5769,0.0401,9
+Job Level,Director,08,56,42,14,12,0.25,0.8571,0.0216,2
+Region,APAC,APAC,882,646,236,177,0.2676,0.75,0.3636,1
+Region,EMEA,EMEA,475,386,89,63,0.1874,0.7079,0.1371,4
+Region,Latin America,Latin America,146,111,35,26,0.2397,0.7429,0.0539,2
+Region,North America,North America,1297,1008,289,215,0.2228,0.7439,0.4453,3
+Tenure Band,<1 yr,0,884,517,367,274,0.4152,0.7466,0.5655,1
+Tenure Band,1-2 yr,1,758,591,167,114,0.2203,0.6826,0.2573,2
+Tenure Band,2-4 yr,2,829,731,98,81,0.1182,0.8265,0.151,3
+Tenure Band,4-6 yr,3,239,225,14,10,0.0586,0.7143,0.0216,4
+Tenure Band,6+ yr,4,90,87,3,2,0.0333,0.6667,0.0046,5
