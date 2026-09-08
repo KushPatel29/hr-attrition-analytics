@@ -289,9 +289,16 @@ with the **four-fifths (80%) rule** from US employment practice. On this data
 the screen genuinely fires: the 55+ band comes out at DI 1.33, one ethnicity
 group at 0.77. The next step is what separates an audit from an alarm:
 EEOC guidance says small-sample disparities need a significance test before
-they count, and Fisher's exact test puts both groups at p ≈ 0.23 — noise,
-not signal (their underlying attrition base rates are flat). So both land on
-a **monitor list** rather than failing the build. A group outside the band
+they count, and Fisher's exact test puts both groups at p ≈ 0.23. That is the
+point where it is tempting to write "noise, not signal", and this README said
+exactly that until a reviewer pushed back. It does not follow: a
+non-significant result on a group this size means the sample cannot resolve
+the question, not that the disparity is absent. What can honestly be said is
+that the ratio is outside the band, the evidence for it is inconclusive here,
+and the underlying attrition base rates are flat. So both land on a
+**monitor list** rather than failing the build — and the ratio stays published
+with its sample size beside it, because a screen you cannot clear is not the
+same as a screen that passed. A group outside the band
 *with* statistical significance exits non-zero and CI goes red; the test
 suite proves the gate fires by planting a genuinely biased score and
 watching it fail.
