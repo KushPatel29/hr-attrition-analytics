@@ -14,6 +14,8 @@ document that needs editing. That is the intended cost.
 """
 import csv
 import re
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -147,9 +149,32 @@ def test_the_badge_and_page_count_are_real():
     text = README.read_text(encoding="utf-8")
     badge = re.search(r"tests-(\d+)%20passing", text)
     assert badge, "README no longer carries a test-count badge"
-    defined = sum(len(re.findall(r"^def test_", p.read_text(encoding="utf-8"), re.M))
-                  for p in (ROOT / "tests").glob("*.py"))
-    assert int(badge.group(1)) >= defined
+    # A lower bound is not a guard. This asserted only that the badge was at
+    # least the number of test *definitions*, so a badge could drift arbitrarily
+    # high — or stay behind while parametrised cases were added — and still
+    # pass. healthcare-claims-analytics had the strict version of this same
+    # confusion, pinned to definitions rather than cases, and published 182 for
+    # months while its suite collected 345. The badge means collected cases, so
+    # that is what gets counted, in a subprocess so the answer does not depend
+    # on how this run was invoked.
+    completed = subprocess.run(
+        [sys.executable, "-m", "pytest", "--collect-only", "-q", "-p", "no:cacheprovider",
+         str(ROOT / "tests")],
+        capture_output=True, text=True, cwd=ROOT,
+    )
+    # A module that fails to import is reported as an error and its tests are
+    # simply absent from the count, so an environment problem would otherwise
+    # surface as "the badge is wrong" -- a misleading failure that sends someone
+    # to edit a correct README. Say what actually happened instead.
+    errors = re.search(r"(\d+) errors?\b", completed.stdout)
+    assert not errors, (
+        "collection did not complete -- " + errors.group(0) + " during collection, "
+        "so the count below would be short. Fix the import error, not the badge: "
+        + completed.stdout[-2000:])
+    found = re.search(r"(\d+) tests? collected", completed.stdout)
+    assert found, "could not read a collected-test count: " + completed.stdout[-2000:]
+    assert int(badge.group(1)) == int(found.group(1)), (
+        f"badge claims {badge.group(1)} tests, the suite collects {found.group(1)}")
 
     pages = len(list((ROOT / "powerbi" / "pbip").glob(
         "*.Report/definition/pages/*/page.json")))
