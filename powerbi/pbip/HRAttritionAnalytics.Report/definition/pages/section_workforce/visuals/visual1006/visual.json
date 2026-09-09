@@ -79,7 +79,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Company-wide — not filtered by Region'"
+                  "Value": "'Company-wide \u2014 not filtered by Region'"
                 }
               }
             },
@@ -87,6 +87,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Waterfall chart titled 12-Month Headcount Bridge. Plots Bridge Value by bucket.'"
                 }
               }
             }

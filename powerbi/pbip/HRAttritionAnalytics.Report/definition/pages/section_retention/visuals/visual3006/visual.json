@@ -117,7 +117,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Company-wide cohorts — not filtered by Region'"
+                  "Value": "'Company-wide cohorts \u2014 not filtered by Region'"
                 }
               }
             },
@@ -125,6 +125,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Cohort Survival Detail. Shows cohort year, months since hire, eligible, retained and retention rate.'"
                 }
               }
             }

@@ -79,7 +79,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Company-wide — not filtered by Job Level'"
+                  "Value": "'Company-wide \u2014 not filtered by Job Level'"
                 }
               }
             },
@@ -87,6 +87,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Line chart titled Trailing-12mo Attrition Trend. Plots Rolling 12m Attrition by month start.'"
                 }
               }
             }

@@ -41,7 +41,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'All levels combined — not filtered by Job Level'"
+                  "Value": "'All levels combined \u2014 not filtered by Job Level'"
                 }
               }
             },
@@ -49,6 +49,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Shows Adjusted Pay Gap.'"
                 }
               }
             }

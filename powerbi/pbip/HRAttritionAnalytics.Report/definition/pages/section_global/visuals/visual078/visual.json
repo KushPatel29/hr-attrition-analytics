@@ -54,6 +54,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card titled What the geography is telling you. Shows Global Insight.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

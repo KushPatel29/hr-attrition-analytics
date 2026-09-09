@@ -41,7 +41,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'All sources — not filtered by Source'"
+                  "Value": "'All sources \u2014 not filtered by Source'"
                 }
               }
             },
@@ -49,6 +49,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Shows Median Time to Fill.'"
                 }
               }
             }

@@ -148,6 +148,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Pay position, market by market. Shows country, avg compa ratio, avg salary, below market share and market adjusted gap pct.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

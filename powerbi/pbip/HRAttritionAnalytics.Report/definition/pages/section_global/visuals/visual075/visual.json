@@ -110,6 +110,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bar chart titled What each market costs against what it carries. Plots Cost Intensity by country.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

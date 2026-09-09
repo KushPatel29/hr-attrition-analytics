@@ -162,6 +162,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled The workforce by market. Shows country, region, headcount, avg engagement, flexible share and women share.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

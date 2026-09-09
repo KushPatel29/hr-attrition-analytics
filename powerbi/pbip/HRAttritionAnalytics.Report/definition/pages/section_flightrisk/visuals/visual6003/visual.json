@@ -41,7 +41,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Whole model — not filtered by Risk Band'"
+                  "Value": "'Whole model \u2014 not filtered by Risk Band'"
                 }
               }
             },
@@ -49,6 +49,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card. Shows Model ROC-AUC.'"
                 }
               }
             }

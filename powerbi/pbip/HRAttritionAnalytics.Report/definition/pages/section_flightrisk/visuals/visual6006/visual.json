@@ -109,6 +109,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scatter chart titled Tenure vs Engagement by Risk. Plots Avg Engagement (Scored) and Avg Tenure (Scored) by employee id and risk band.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true

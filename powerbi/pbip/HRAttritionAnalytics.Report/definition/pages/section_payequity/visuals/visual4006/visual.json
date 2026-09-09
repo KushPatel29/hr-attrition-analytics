@@ -116,7 +116,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Segments under 5 people are withheld — same k-anonymity rule as the published grid'"
+                  "Value": "'Segments under 5 people are withheld \u2014 same k-anonymity rule as the published grid'"
                 }
               }
             },
@@ -124,6 +124,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scatter chart titled Salary vs Compa-Ratio by Gender. Plots Avg Compa-Ratio and Avg Salary by job level and gender.'"
                 }
               }
             }

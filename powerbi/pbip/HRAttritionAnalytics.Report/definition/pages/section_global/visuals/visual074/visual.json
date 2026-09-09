@@ -110,6 +110,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bar chart titled A company-wide attrition rate is an average over these. Plots Market Attrition by country.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

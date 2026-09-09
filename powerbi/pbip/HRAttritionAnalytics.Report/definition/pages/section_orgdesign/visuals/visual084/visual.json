@@ -110,6 +110,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bar chart titled Which departments lose the people they wanted to keep. Plots Regretted by Department by department.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

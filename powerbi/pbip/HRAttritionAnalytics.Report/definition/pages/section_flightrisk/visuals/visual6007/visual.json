@@ -124,6 +124,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Retention Watch List. Shows employee name, department, job level, risk score, risk band and top reason.'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }

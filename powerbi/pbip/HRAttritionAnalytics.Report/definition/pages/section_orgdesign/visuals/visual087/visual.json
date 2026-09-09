@@ -92,6 +92,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Column chart titled How wide the spans are. Plots Managers by span band.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

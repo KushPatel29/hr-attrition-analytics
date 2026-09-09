@@ -158,6 +158,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Pay equity by level. Shows job level, n female, n male, raw gap pct, market adjusted gap pct, gap explained by geography and markets compared.'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }

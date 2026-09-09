@@ -72,6 +72,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Gauge titled Avg Compa-Ratio vs Market (1.0). Shows Avg Compa-Ratio and Compa Target.'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }

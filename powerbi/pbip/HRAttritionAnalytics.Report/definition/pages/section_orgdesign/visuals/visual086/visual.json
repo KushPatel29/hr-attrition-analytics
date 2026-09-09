@@ -162,6 +162,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Teams losing people faster than their own market. Shows department, country, reports total, team attrition rate, market rate and gap to market.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

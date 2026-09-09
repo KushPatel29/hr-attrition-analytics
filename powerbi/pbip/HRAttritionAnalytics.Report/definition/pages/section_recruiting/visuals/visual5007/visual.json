@@ -138,6 +138,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Source Scorecard. Shows source, applications, offers, hires, hire rate, offer accept rate and avg days to fill.'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }
