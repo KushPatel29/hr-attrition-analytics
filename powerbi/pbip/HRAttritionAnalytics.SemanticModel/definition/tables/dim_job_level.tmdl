@@ -1,0 +1,42 @@
+/// Job level as a shared dimension rather than a column repeated in two tables.
+///
+/// The Pay Equity page had a Job Level slicer bound to pay_equity_levels, the
+/// pre-aggregated grid it sits above. That table is standalone, so the slicer
+/// moved the grid and the level chart and nothing else: the four KPI cards, the
+/// compa-ratio gauge and the salary-vs-compa-ratio scatter all read
+/// fact_employees and stayed at company-wide values. Two of eight visuals
+/// responded, with no indication that the other six were answering a different
+/// question.
+///
+/// Nine levels, one row each, joined to both sides - dim_job for the employee
+/// grain, pay_equity_levels for the published grid - so one selection now
+/// governs the whole page. Derived from dim_job.csv rather than added to the
+/// pipeline: the level list has exactly one source, and a level that appears in
+/// one place and not the other is impossible by construction.
+table dim_job_level
+	lineageTag: 6e1d70ab-4c93-4ac1-9b2f-2ad3c4f8b710
+
+	column job_level
+		dataType: string
+		lineageTag: 0a9d7f21-15b6-4a2e-9c74-8f6d1e30b542
+		summarizeBy: none
+		sourceColumn: job_level
+		sortByColumn: level_rank
+
+	column level_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c5e8b44-97a1-4d0f-b6e2-71c9a5d82f36
+		summarizeBy: none
+		sourceColumn: level_rank
+
+	partition dim_job_level = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\dim_job.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"job_level", type text}, {"level_rank", Int64.Type}}),
+				    Levels = Table.Distinct(Table.SelectColumns(Typed, {"job_level", "level_rank"}))
+				in
+				    Levels

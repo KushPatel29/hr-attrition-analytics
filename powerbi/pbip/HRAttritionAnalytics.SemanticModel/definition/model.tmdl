@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["dim_department", "dim_job", "dim_location", "dim_date", "fact_employees", "workforce_kpis", "headcount_bridge", "attrition_by_dimension", "retention_cohorts", "pay_equity", "pay_equity_levels", "funnel_stages", "recruiting_by_source", "recruiting_kpis", "flight_risk_scores", "model_evaluation", "_Measures", "DataPath"]
+annotation PBI_QueryOrder = ["dim_department", "dim_job", "dim_job_level", "dim_location", "dim_date", "fact_employees", "workforce_kpis", "headcount_bridge", "attrition_by_dimension", "retention_cohorts", "pay_equity", "pay_equity_levels", "funnel_stages", "recruiting_by_source", "recruiting_kpis", "flight_risk_scores", "model_evaluation", "_Measures", "DataPath"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -14,6 +14,7 @@ annotation PBI_ProTooling = ["DevMode"]
 
 ref table dim_department
 ref table dim_job
+ref table dim_job_level
 ref table dim_location
 ref table dim_date
 ref table fact_employees

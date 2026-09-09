@@ -18,3 +18,10 @@ relationship 67100f49-8445-49b6-9188-a7f7299b930f
 	fromColumn: workforce_kpis.month
 	toColumn: dim_date.month
 
+relationship 7f2c9a10-6b48-4d5e-8a31-c0e94b7d2158
+	fromColumn: dim_job.job_level
+	toColumn: dim_job_level.job_level
+
+relationship 91b45de2-0c73-4f86-a5d9-3e28f61ac407
+	fromColumn: pay_equity_levels.job_level
+	toColumn: dim_job_level.job_level

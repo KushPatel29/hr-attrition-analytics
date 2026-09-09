@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_job"
+                      "Entity": "dim_job_level"
                     }
                   },
                   "Property": "job_level"
                 }
               },
-              "queryRef": "dim_job.job_level",
+              "queryRef": "dim_job_level.job_level",
               "nativeQueryRef": "job_level",
               "active": true
             }

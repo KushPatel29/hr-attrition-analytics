@@ -37,15 +37,45 @@ table _Measures
 		formatString: #,0.0
 		lineageTag: 2b03002c-ae00-4ef3-af31-c11aa576e5ce
 
-	measure 'Avg Salary' = AVERAGE(fact_employees[base_salary])
+	/// K-anonymity, enforced where a reader can actually build a segment.
+	///
+	/// sql/08_privacy_masking.sql suppresses every department x level x gender
+	/// cell below this threshold before it can be published, and the README says
+	/// no dashboard filter can corner one person's salary. The dashboard did not
+	/// know that. The pay equity scatter plots average salary and compa-ratio by
+	/// job level and gender, and one of its 27 bubbles was Director x Non-binary,
+	/// n = 1, sitting at exactly $190,000 - one individual's compensation, on the
+	/// page, under that sentence. Cross-filter a department and 41 of the 275
+	/// cells are single people.
+	///
+	/// The masked grid is computed offline and protects the grid it was computed
+	/// for. This protects any slice a reader assembles, including ones nobody
+	/// anticipated, which is the harder half. What it cannot do is complementary
+	/// suppression: the two-cell rule needs to see the whole grid at once, and a
+	/// measure only ever sees the cell it is in. Primary suppression here, the
+	/// two-cell rule in the SQL, and the README says which is which.
+	measure 'K-Anonymity Threshold' = 5
+		formatString: 0
+		lineageTag: 5a4e9c31-70b2-4d68-83f1-6ce2b0a94d17
+		displayFolder: Privacy
+
+	/// How many people the current filter context is describing. Distinct rather
+	/// than COUNTROWS so a fan-out through a relationship cannot inflate a small
+	/// cell over the threshold.
+	measure 'Segment Headcount' = DISTINCTCOUNT(fact_employees[employee_id])
+		formatString: #,0
+		lineageTag: 8b1f52d7-3a06-4e91-95c4-0d7fa8e61b23
+		displayFolder: Privacy
+
+	measure 'Avg Salary' = IF([Segment Headcount] >= [K-Anonymity Threshold], AVERAGE(fact_employees[base_salary]))
 		formatString: \$#,0
 		lineageTag: 9da29fd1-a646-4344-bd69-48ab03c7cd28
 
-	measure 'Avg Engagement' = AVERAGE(fact_employees[engagement_score])
+	measure 'Avg Engagement' = IF([Segment Headcount] >= [K-Anonymity Threshold], AVERAGE(fact_employees[engagement_score]))
 		formatString: #,0.0
 		lineageTag: e33ede9c-d4a9-4bc6-a655-d866e297a8f8
 
-	measure 'Avg Compa-Ratio' = AVERAGE(fact_employees[compa_ratio])
+	measure 'Avg Compa-Ratio' = IF([Segment Headcount] >= [K-Anonymity Threshold], AVERAGE(fact_employees[compa_ratio]))
 		formatString: 0.00
 		lineageTag: b4b147c1-6fed-47dd-8b07-78c2d2ae7cf7
 
@@ -191,6 +221,15 @@ table _Measures
 		displayFolder: Verdict
 
 	/// Reference line under the callout, shown as the card's subtitle.
+	/// The trailing-12-month rate comes from the pre-aggregated monthly series,
+	/// which carries no region - so the Region slicer on the workforce page cannot
+	/// reach this card. It says so rather than leaving the reader to assume the
+	/// number moved with everything else. Separate from 'Attrition Reference'
+	/// because that one also serves a card the slicer does reach.
+	measure 'Attrition (T12M) Reference' = [Attrition Reference] & "  ·  not filtered by Region"
+		lineageTag: 2f9c6a58-1d47-4b83-9e05-7ac3d1f2b694
+		displayFolder: Verdict
+
 	measure 'Attrition Reference' =
 			VAR vGap = [Attrition vs Target]
 			VAR vAbove = vGap >= 0
@@ -700,7 +739,7 @@ table _Measures
 		displayFolder: Global
 
 	/// Card subtitle for the market-adjusted pay gap.
-	measure 'Pay Gap Reference' = FORMAT([Raw Gap (Level)], "0.0%") & " before adjusting for market"
+	measure 'Pay Gap Reference' = FORMAT([Raw Gap (Level)], "0.0%") & " before adjusting for market  ·  not filtered by Job Level"
 		lineageTag: 3191f15a-6cba-5a62-9bed-76f84416c243
 		displayFolder: Global
 

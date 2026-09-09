@@ -4,7 +4,7 @@
 ![SQL](https://img.shields.io/badge/SQL-window%20functions%20%2B%20CTEs-CC2927)
 ![Power BI](https://img.shields.io/badge/Power%20BI-8--page%20dashboard-F2C811?logo=powerbi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-scikit--learn%20%2B%20lifelines-3776AB?logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-357%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-394%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 Every HR leadership meeting circles the same four questions: *who is leaving,
@@ -33,7 +33,7 @@ log** that measures whether retention actions actually worked.
 
 Everything is synthetic (Faker, fixed seeds — no real employee data), but the
 logic mirrors real workforce-analytics practice. CI re-runs the whole
-pipeline and all 357 tests on every push.
+pipeline and all 394 tests on every push.
 
 ## Headline findings (from the generated snapshot, 2026-06-30)
 
@@ -280,6 +280,24 @@ suppress at least two cells, so subtraction only ever recovers a blend) keeps
 A [suppression audit table](sql/08_privacy_masking.sql) records what was
 withheld and why — keys only, no metrics, so the audit itself leaks nothing.
 
+That covered the grid the SQL publishes. It did not cover the dashboard, which
+is what the sentence above actually promises. The Power BI model averaged
+`base_salary` with nothing in front of it, and the pay equity page plots that
+average by job level and gender: one of its 27 bubbles was Director ×
+Non-binary, **n = 1**, sitting at exactly $190,000. Cross-filter a department
+and 41 of the 275 cells are single people. The guardrail was real and the
+report walked around it.
+
+The floor is now in the model as well — `Avg Salary`, `Avg Compa-Ratio` and
+`Avg Engagement` return blank below K, so it applies to any segment a reader
+assembles rather than only the one computed in advance. The two are not the
+same thing and the difference is worth stating: **the DAX floor is primary
+suppression only.** The two-cell rule needs to see the whole grid at once and a
+measure only ever sees the cell it is in, so complementary suppression stays in
+the SQL. [`tests/test_dashboard_k_anonymity.py`](tests/test_dashboard_k_anonymity.py)
+holds the two thresholds equal and proves the floor fires on this data —
+without that last check the guard could pass while protecting nothing.
+
 ### 2. Bias is a build break, not a slide in a deck
 
 [`ml/fairness_audit.py`](ml/fairness_audit.py) runs after every scoring pass
@@ -446,7 +464,7 @@ python ml/attrition_model.py                     # train + score flight risk
 python ml/fairness_audit.py                      # disparate-impact gate
 python ml/survival_analysis.py                   # Kaplan-Meier + Cox PH
 python analytics/make_visuals.py                 # render the figures
-pytest tests/ -v                                 # 357 invariants
+pytest tests/ -v                                 # 394 invariants
 ```
 
 Then open `powerbi/pbip/HRAttritionAnalytics.pbip` in Power BI Desktop.
