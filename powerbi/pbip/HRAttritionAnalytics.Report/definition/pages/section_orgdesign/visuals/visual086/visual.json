@@ -3,9 +3,9 @@
   "name": "visual086",
   "position": {
     "x": 20,
-    "y": 374,
+    "y": 397,
     "z": 1000,
-    "height": 204,
+    "height": 177,
     "width": 620,
     "tabOrder": 1000
   },
@@ -28,7 +28,8 @@
                 }
               },
               "queryRef": "manager_outliers.department",
-              "nativeQueryRef": "department"
+              "nativeQueryRef": "department",
+              "displayName": "Department"
             },
             {
               "field": {
@@ -42,7 +43,8 @@
                 }
               },
               "queryRef": "manager_outliers.country",
-              "nativeQueryRef": "country"
+              "nativeQueryRef": "country",
+              "displayName": "Country"
             },
             {
               "field": {
@@ -56,7 +58,8 @@
                 }
               },
               "queryRef": "manager_outliers.reports_total",
-              "nativeQueryRef": "reports_total"
+              "nativeQueryRef": "reports_total",
+              "displayName": "Reports Total"
             },
             {
               "field": {
@@ -70,7 +73,8 @@
                 }
               },
               "queryRef": "manager_outliers.team_attrition_rate",
-              "nativeQueryRef": "team_attrition_rate"
+              "nativeQueryRef": "team_attrition_rate",
+              "displayName": "Team Attrition Rate"
             },
             {
               "field": {
@@ -84,7 +88,8 @@
                 }
               },
               "queryRef": "manager_outliers.market_rate",
-              "nativeQueryRef": "market_rate"
+              "nativeQueryRef": "market_rate",
+              "displayName": "Market Rate"
             },
             {
               "field": {
@@ -98,7 +103,8 @@
                 }
               },
               "queryRef": "manager_outliers.gap_to_market",
-              "nativeQueryRef": "gap_to_market"
+              "nativeQueryRef": "gap_to_market",
+              "displayName": "Gap To Market"
             }
           ]
         }

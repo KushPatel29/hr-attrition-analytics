@@ -3,10 +3,10 @@
   "name": "visual5007",
   "position": {
     "x": 470,
-    "y": 430,
+    "y": 459,
     "z": 5007,
-    "height": 270,
-    "width": 620,
+    "height": 245,
+    "width": 790,
     "tabOrder": 5007
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "recruiting_by_source.source",
-              "nativeQueryRef": "source"
+              "nativeQueryRef": "source",
+              "displayName": "Source"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "recruiting_by_source.applications",
-              "nativeQueryRef": "applications"
+              "nativeQueryRef": "applications",
+              "displayName": "Applications"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "recruiting_by_source.offers",
-              "nativeQueryRef": "offers"
+              "nativeQueryRef": "offers",
+              "displayName": "Offers"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "recruiting_by_source.hires",
-              "nativeQueryRef": "hires"
+              "nativeQueryRef": "hires",
+              "displayName": "Hires"
             },
             {
               "field": {
@@ -83,7 +87,8 @@
                 }
               },
               "queryRef": "recruiting_by_source.hire_rate",
-              "nativeQueryRef": "hire_rate"
+              "nativeQueryRef": "hire_rate",
+              "displayName": "Hire Rate"
             },
             {
               "field": {
@@ -97,7 +102,8 @@
                 }
               },
               "queryRef": "recruiting_by_source.offer_accept_rate",
-              "nativeQueryRef": "offer_accept_rate"
+              "nativeQueryRef": "offer_accept_rate",
+              "displayName": "Offer Accept Rate"
             },
             {
               "field": {
@@ -111,7 +117,8 @@
                 }
               },
               "queryRef": "recruiting_by_source.avg_days_to_fill",
-              "nativeQueryRef": "avg_days_to_fill"
+              "nativeQueryRef": "avg_days_to_fill",
+              "displayName": "Avg Days To Fill"
             }
           ]
         }
@@ -146,6 +153,121 @@
               "expr": {
                 "Literal": {
                   "Value": "'Table titled Source Scorecard. Shows source, applications, offers, hires, hire rate, offer accept rate and avg days to fill.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "139D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "recruiting_by_source.source"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "recruiting_by_source.applications"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "recruiting_by_source.offers"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "60D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "recruiting_by_source.hires"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "88D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "recruiting_by_source.hire_rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "145D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "recruiting_by_source.offer_accept_rate"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "138D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "recruiting_by_source.avg_days_to_fill"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

@@ -3,10 +3,10 @@
   "name": "visual3006",
   "position": {
     "x": 440,
-    "y": 430,
+    "y": 459,
     "z": 3006,
-    "height": 270,
-    "width": 620,
+    "height": 245,
+    "width": 820,
     "tabOrder": 3006
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "retention_cohorts.cohort_year",
-              "nativeQueryRef": "cohort_year"
+              "nativeQueryRef": "cohort_year",
+              "displayName": "Cohort Year"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "retention_cohorts.months_since_hire",
-              "nativeQueryRef": "months_since_hire"
+              "nativeQueryRef": "months_since_hire",
+              "displayName": "Months Since Hire"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "retention_cohorts.eligible",
-              "nativeQueryRef": "eligible"
+              "nativeQueryRef": "eligible",
+              "displayName": "Eligible"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "retention_cohorts.retained",
-              "nativeQueryRef": "retained"
+              "nativeQueryRef": "retained",
+              "displayName": "Retained"
             },
             {
               "field": {
@@ -83,7 +87,8 @@
                 }
               },
               "queryRef": "retention_cohorts.retention_rate",
-              "nativeQueryRef": "retention_rate"
+              "nativeQueryRef": "retention_rate",
+              "displayName": "Retention Rate"
             }
           ]
         }
@@ -138,6 +143,93 @@
               "expr": {
                 "Literal": {
                   "Value": "'Table titled Cohort Survival Detail. Shows cohort year, months since hire, eligible, retained and retention rate.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "149D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "retention_cohorts.cohort_year"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "211D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "retention_cohorts.months_since_hire"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "retention_cohorts.eligible"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "retention_cohorts.retained"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "180D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "retention_cohorts.retention_rate"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

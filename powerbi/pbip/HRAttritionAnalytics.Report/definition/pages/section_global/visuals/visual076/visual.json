@@ -3,9 +3,9 @@
   "name": "visual076",
   "position": {
     "x": 20,
-    "y": 374,
+    "y": 397,
     "z": 1000,
-    "height": 204,
+    "height": 177,
     "width": 620,
     "tabOrder": 1000
   },
@@ -28,7 +28,8 @@
                 }
               },
               "queryRef": "pay_equity_geo.country",
-              "nativeQueryRef": "country"
+              "nativeQueryRef": "country",
+              "displayName": "Country"
             },
             {
               "field": {
@@ -42,7 +43,8 @@
                 }
               },
               "queryRef": "pay_equity_geo.avg_compa_ratio",
-              "nativeQueryRef": "avg_compa_ratio"
+              "nativeQueryRef": "avg_compa_ratio",
+              "displayName": "Avg Compa Ratio"
             },
             {
               "field": {
@@ -56,7 +58,8 @@
                 }
               },
               "queryRef": "pay_equity_geo.avg_salary",
-              "nativeQueryRef": "avg_salary"
+              "nativeQueryRef": "avg_salary",
+              "displayName": "Avg Salary"
             },
             {
               "field": {
@@ -70,7 +73,8 @@
                 }
               },
               "queryRef": "pay_equity_geo.below_market_share",
-              "nativeQueryRef": "below_market_share"
+              "nativeQueryRef": "below_market_share",
+              "displayName": "Below Market Share"
             },
             {
               "field": {
@@ -84,7 +88,8 @@
                 }
               },
               "queryRef": "pay_equity_geo.market_adjusted_gap_pct",
-              "nativeQueryRef": "market_adjusted_gap_pct"
+              "nativeQueryRef": "market_adjusted_gap_pct",
+              "displayName": "Market Adjusted Gap Pct"
             }
           ]
         }

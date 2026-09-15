@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Recruiting Funnel - filters open",
+  "name": "p7FiltersOpen",
+  "options": {
+    "targetVisualNames": [
+      "p7FilterPanel",
+      "p7PanelBg",
+      "p7PanelTitle",
+      "p7PanelClose",
+      "visual5008",
+      "p7PanelClear"
+    ],
+    "applyOnlyToTargetVisuals": true,
+    "suppressData": true,
+    "suppressActiveSection": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "section_recruiting",
+    "sections": {
+      "section_recruiting": {
+        "visualContainers": {
+          "p7PanelBg": {},
+          "p7PanelTitle": {},
+          "p7PanelClose": {},
+          "visual5008": {},
+          "p7PanelClear": {}
+        },
+        "visualContainerGroups": {
+          "p7FilterPanel": {
+            "isHidden": false
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,10 +3,10 @@
   "name": "visual6007",
   "position": {
     "x": 20,
-    "y": 430,
+    "y": 459,
     "z": 6007,
-    "height": 270,
-    "width": 940,
+    "height": 245,
+    "width": 1240,
     "tabOrder": 6007
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "flight_risk_scores.employee_name",
-              "nativeQueryRef": "employee_name"
+              "nativeQueryRef": "employee_name",
+              "displayName": "Employee"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "flight_risk_scores.department",
-              "nativeQueryRef": "department"
+              "nativeQueryRef": "department",
+              "displayName": "Department"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "flight_risk_scores.job_level",
-              "nativeQueryRef": "job_level"
+              "nativeQueryRef": "job_level",
+              "displayName": "Job Level"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "flight_risk_scores.risk_score",
-              "nativeQueryRef": "risk_score"
+              "nativeQueryRef": "risk_score",
+              "displayName": "Risk Score"
             },
             {
               "field": {
@@ -83,7 +87,8 @@
                 }
               },
               "queryRef": "flight_risk_scores.risk_band",
-              "nativeQueryRef": "risk_band"
+              "nativeQueryRef": "risk_band",
+              "displayName": "Risk Band"
             },
             {
               "field": {
@@ -97,7 +102,8 @@
                 }
               },
               "queryRef": "flight_risk_scores.top_reason",
-              "nativeQueryRef": "top_reason"
+              "nativeQueryRef": "top_reason",
+              "displayName": "Top Reason"
             }
           ]
         }
@@ -132,6 +138,107 @@
               "expr": {
                 "Literal": {
                   "Value": "'Table titled Retention Watch List. Shows employee name, department, job level, risk score, risk band and top reason.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "258D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "flight_risk_scores.employee_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "229D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "flight_risk_scores.department"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "200D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "flight_risk_scores.job_level"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "137D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "flight_risk_scores.risk_score"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "126D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "flight_risk_scores.risk_band"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "248D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "flight_risk_scores.top_reason"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

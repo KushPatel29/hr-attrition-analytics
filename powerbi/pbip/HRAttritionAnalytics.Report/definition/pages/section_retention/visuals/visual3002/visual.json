@@ -2,66 +2,104 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "visual3002",
   "position": {
-    "x": 620,
-    "y": 20,
+    "x": 860,
+    "y": 88,
     "z": 3002,
-    "height": 100,
-    "width": 290,
+    "height": 91,
+    "width": 400,
     "tabOrder": 3002
   },
   "visual": {
-    "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
+    "visualType": "image",
+    "objects": {
+      "image": [
+        {
+          "properties": {
+            "sourceType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'imageUrl'"
+                }
+              }
+            },
+            "sourceUrl": {
+              "expr": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Retention @ 12mo"
-                }
-              },
-              "queryRef": "_Measures.Retention @ 12mo",
-              "nativeQueryRef": "Retention @ 12mo"
-            }
-          ]
-        }
-      }
-    },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "subTitle": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Company-wide cohorts \u2014 not filtered by Region'"
+                  "Property": "KPI SVG Retention @ 12mo @492"
                 }
               }
             },
-            "show": {
+            "fit": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Fit'"
                 }
               }
             }
           }
         }
-      ],
+      ]
+    },
+    "visualContainerObjects": {
       "general": [
         {
           "properties": {
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Card. Shows Retention @ 12mo.'"
+                  "Value": "'KPI tile: Retention @ 12mo.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

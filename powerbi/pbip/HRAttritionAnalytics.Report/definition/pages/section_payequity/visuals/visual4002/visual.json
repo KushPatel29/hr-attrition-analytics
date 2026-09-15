@@ -3,37 +3,48 @@
   "name": "visual4002",
   "position": {
     "x": 620,
-    "y": 20,
+    "y": 88,
     "z": 4002,
-    "height": 100,
+    "height": 107,
     "width": 290,
     "tabOrder": 4002
   },
   "visual": {
-    "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
+    "visualType": "image",
+    "objects": {
+      "image": [
+        {
+          "properties": {
+            "sourceType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'imageUrl'"
+                }
+              }
+            },
+            "sourceUrl": {
+              "expr": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Avg Compa-Ratio"
+                  "Property": "KPI SVG Avg Compa-Ratio"
                 }
-              },
-              "queryRef": "_Measures.Avg Compa-Ratio",
-              "nativeQueryRef": "Avg Compa-Ratio"
+              }
+            },
+            "fit": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fit'"
+                }
+              }
             }
-          ]
+          }
         }
-      }
+      ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "general": [
         {
@@ -41,7 +52,54 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Card. Shows Avg Compa-Ratio.'"
+                  "Value": "'KPI tile: Avg Compa-Ratio.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

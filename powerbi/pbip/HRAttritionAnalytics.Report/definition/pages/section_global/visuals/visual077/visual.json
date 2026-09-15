@@ -3,9 +3,9 @@
   "name": "visual077",
   "position": {
     "x": 660,
-    "y": 374,
+    "y": 397,
     "z": 1000,
-    "height": 204,
+    "height": 177,
     "width": 600,
     "tabOrder": 1000
   },
@@ -28,7 +28,8 @@
                 }
               },
               "queryRef": "workforce_by_country.country",
-              "nativeQueryRef": "country"
+              "nativeQueryRef": "country",
+              "displayName": "Country"
             },
             {
               "field": {
@@ -42,7 +43,8 @@
                 }
               },
               "queryRef": "workforce_by_country.region",
-              "nativeQueryRef": "region"
+              "nativeQueryRef": "region",
+              "displayName": "Region"
             },
             {
               "field": {
@@ -56,7 +58,8 @@
                 }
               },
               "queryRef": "workforce_by_country.headcount",
-              "nativeQueryRef": "headcount"
+              "nativeQueryRef": "headcount",
+              "displayName": "Headcount"
             },
             {
               "field": {
@@ -70,7 +73,8 @@
                 }
               },
               "queryRef": "workforce_by_country.avg_engagement",
-              "nativeQueryRef": "avg_engagement"
+              "nativeQueryRef": "avg_engagement",
+              "displayName": "Avg Engagement"
             },
             {
               "field": {
@@ -84,7 +88,8 @@
                 }
               },
               "queryRef": "workforce_by_country.flexible_share",
-              "nativeQueryRef": "flexible_share"
+              "nativeQueryRef": "flexible_share",
+              "displayName": "Flexible Share"
             },
             {
               "field": {
@@ -98,7 +103,8 @@
                 }
               },
               "queryRef": "workforce_by_country.women_share",
-              "nativeQueryRef": "women_share"
+              "nativeQueryRef": "women_share",
+              "displayName": "Women Share"
             }
           ]
         }

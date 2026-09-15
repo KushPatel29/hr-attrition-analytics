@@ -2,71 +2,42 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
   "name": "visual1001",
   "position": {
-    "x": 320,
-    "y": 20,
+    "x": 335,
+    "y": 88,
     "z": 1001,
-    "height": 118,
-    "width": 290,
+    "height": 107,
+    "width": 295,
     "tabOrder": 1001
   },
   "visual": {
-    "visualType": "card",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Attrition Rate (T12M)"
-                }
-              },
-              "queryRef": "_Measures.Attrition Rate (T12M)",
-              "nativeQueryRef": "Attrition Rate (T12M)"
-            }
-          ]
-        }
-      }
-    },
-    "drillFilterOtherVisuals": true,
-    "visualContainerObjects": {
-      "subTitle": [
+    "visualType": "image",
+    "objects": {
+      "image": [
         {
           "properties": {
-            "text": {
+            "sourceType": {
               "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Attrition (T12M) Reference"
+                "Literal": {
+                  "Value": "'imageUrl'"
                 }
               }
             },
-            "show": {
+            "sourceUrl": {
               "expr": {
-                "Literal": {
-                  "Value": "true"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "KPI SVG Attrition Rate (T12M) | Attrition (T12M) Reference | Attrition Colour"
                 }
               }
-            }
-          }
-        }
-      ],
-      "general": [
-        {
-          "properties": {
-            "altText": {
+            },
+            "fit": {
               "expr": {
                 "Literal": {
-                  "Value": "'Card. Shows Attrition Rate (T12M).'"
+                  "Value": "'Fit'"
                 }
               }
             }
@@ -74,23 +45,61 @@
         }
       ]
     },
-    "objects": {
-      "labels": [
+    "visualContainerObjects": {
+      "general": [
         {
           "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Attrition Colour"
-                    }
-                  }
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KPI tile: Attrition Rate (T12M), with Attrition (T12M) Reference.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

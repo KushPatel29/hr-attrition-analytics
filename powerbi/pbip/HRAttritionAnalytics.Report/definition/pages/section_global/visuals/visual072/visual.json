@@ -3,70 +3,41 @@
   "name": "visual072",
   "position": {
     "x": 660,
-    "y": 20,
+    "y": 88,
     "z": 1000,
-    "height": 118,
+    "height": 107,
     "width": 300,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "card",
-    "drillFilterOtherVisuals": true,
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Worst Market Rate"
-                }
-              },
-              "queryRef": "_Measures.Worst Market Rate",
-              "nativeQueryRef": "Worst Market Rate"
-            }
-          ]
-        }
-      }
-    },
-    "visualContainerObjects": {
-      "subTitle": [
+    "visualType": "image",
+    "objects": {
+      "image": [
         {
           "properties": {
-            "text": {
+            "sourceType": {
               "expr": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Worst Market Reference"
+                "Literal": {
+                  "Value": "'imageUrl'"
                 }
               }
             },
-            "show": {
+            "sourceUrl": {
               "expr": {
-                "Literal": {
-                  "Value": "true"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "KPI SVG Worst Market Rate | Worst Market Reference | Concentration Colour"
                 }
               }
-            }
-          }
-        }
-      ],
-      "general": [
-        {
-          "properties": {
-            "altText": {
+            },
+            "fit": {
               "expr": {
                 "Literal": {
-                  "Value": "'Card. Shows Worst Market Rate.'"
+                  "Value": "'Fit'"
                 }
               }
             }
@@ -74,23 +45,61 @@
         }
       ]
     },
-    "objects": {
-      "labels": [
+    "visualContainerObjects": {
+      "general": [
         {
           "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Measures"
-                        }
-                      },
-                      "Property": "Concentration Colour"
-                    }
-                  }
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'KPI tile: Worst Market Rate, with Worst Market Reference.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

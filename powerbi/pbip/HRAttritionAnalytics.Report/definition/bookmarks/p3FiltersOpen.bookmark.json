@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Attrition Deep-Dive - filters open",
+  "name": "p3FiltersOpen",
+  "options": {
+    "targetVisualNames": [
+      "p3FilterPanel",
+      "p3PanelBg",
+      "p3PanelTitle",
+      "p3PanelClose",
+      "visual2009",
+      "p3PanelClear"
+    ],
+    "applyOnlyToTargetVisuals": true,
+    "suppressData": true,
+    "suppressActiveSection": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "section_attrition",
+    "sections": {
+      "section_attrition": {
+        "visualContainers": {
+          "p3PanelBg": {},
+          "p3PanelTitle": {},
+          "p3PanelClose": {},
+          "visual2009": {},
+          "p3PanelClear": {}
+        },
+        "visualContainerGroups": {
+          "p3FilterPanel": {
+            "isHidden": false
+          }
+        }
+      }
+    }
+  }
+}

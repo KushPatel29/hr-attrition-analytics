@@ -4,7 +4,7 @@
 ![SQL](https://img.shields.io/badge/SQL-window%20functions%20%2B%20CTEs-CC2927)
 ![Power BI](https://img.shields.io/badge/Power%20BI-8--page%20dashboard-F2C811?logo=powerbi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-scikit--learn%20%2B%20lifelines-3776AB?logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-629%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-798%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 Every HR leadership meeting circles the same four questions: *who is leaving,
@@ -368,9 +368,33 @@ score is leakage wearing a lanyard.
 An 8-page interactive Power BI report, hand-authored as a Power BI Project
 (TMDL model + PBIR definition) in [`powerbi/pbip/`](powerbi/pbip/) — open
 `HRAttritionAnalytics.pbip` in Power BI Desktop and Refresh
-([build guide](powerbi/BUILD_GUIDE.md)). 72 visuals across 8 pages, styled with
+([build guide](powerbi/BUILD_GUIDE.md)). 125 visuals across 8 pages, styled with
 the shared Meridian Nocturne theme. Screenshots below are the live report
 rendered in Power BI Desktop against the pipeline outputs.
+
+### How the report is built
+
+- **31 KPI tiles are SVG drawn by DAX measures** (`dataCategory: ImageUrl`),
+  each from the measure its card already showed, the card's reference line and,
+  where one exists, its status colour. Rates carry a progress rail.
+- **Every page opens with a header** stating the page, its place in the report
+  and the filters in effect, with Previous and Next page buttons.
+- **Slicers:** slicers with up to four short values are button slicers in the
+  header; the rest sit in a filter panel that two bookmarks open and close
+  without resetting a filter, while the header and the Filters button
+  (`Filters · 2`) keep the filter state on screen.
+- **Tables read as tables:** columns get plain headers (`Employee`, not
+  `employee_name`) and widths that fill the visual, and each narrative card has
+  room for its whole sentence.
+- **Dark filter chrome:** the theme now styles the filter pane, filter cards and
+  dropdown lists, which had opened white.
+
+Microsoft's `powerbi-report-author validate` passes with no errors or warnings,
+and every page was rendered in Power BI Desktop for the screenshots below.
+[`tests/test_report_interactions.py`](tests/test_report_interactions.py)
+pins the ways these patterns fail silently: an unescaped `%` turns every SVG
+fill black, a bookmark that also captures data resets the filters, and a button
+pointing at a deleted bookmark does nothing.
 
 **Workforce Scorecard** — KPI cards, attrition gauge vs target, headcount trend,
 and a 12-month **waterfall** bridge (begin + hires − terms = end):
