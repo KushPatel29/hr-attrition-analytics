@@ -253,6 +253,13 @@
                   "Value": "'section_flightrisk'"
                 }
               }
+            },
+            "tooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Go to Flight Risk (ML). Ctrl+click in Power BI Desktop \u00b7 click in the Power BI service'"
+                }
+              }
             }
           }
         }

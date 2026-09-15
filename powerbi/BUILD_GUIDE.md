@@ -19,6 +19,14 @@ whole dashboard diffs and reviews like code.
    (Transform data → Edit parameters) to the absolute path of this repo on
    your machine, then **Refresh**. `DataPath` defaults to the path this
    project was generated at.
+4. Use **Home > Refresh**, not the yellow bar's "Refresh now". If you opened
+   the project in an earlier session, Desktop can load an old local cache
+   (`.pbi/cache.abf`, not committed) and "Refresh now" reloads only the tables
+   it thinks are empty, so the tiles keep last session's numbers. A full
+   refresh reloads all 16 tables from the CSVs.
+5. **Ctrl+click** the buttons. Desktop is an editor, so a plain click selects
+   Previous, Next, Filters or Clear all filters instead of following it; the
+   tooltips say so. In the Power BI service a plain click works.
 
 ## What's inside
 
