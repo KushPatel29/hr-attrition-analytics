@@ -1,0 +1,5 @@
+function,control,evidence,status
+GOVERN,"Document authority, prohibited uses and accountable owners",responsible_use_policy.json; intervention_portfolio.csv,Implemented
+MAP,"Define intended context, affected cohorts, harms and limits",README responsible-use case; responsible_use_decision_packet.md,Implemented
+MEASURE,"Measure model quality, slice outcomes, privacy and uncertainty",model_evaluation.csv; slice_assurance.csv; privacy_suppression_audit.csv,Implemented
+MANAGE,"Require approvals, pilot controls, monitoring and rollback triggers",release_gates.csv; intervention_portfolio.csv,Review required

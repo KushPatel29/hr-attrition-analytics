@@ -1,0 +1,31 @@
+{
+  "artifacts": {
+    "ai_rmf_crosswalk.csv": {
+      "bytes": 608,
+      "sha256": "1d82b0634681026e9ddf3dcbb244b5d628e03db7b64766992131611a1ee24627"
+    },
+    "intervention_portfolio.csv": {
+      "bytes": 2428,
+      "sha256": "32a93e83d96f536849cdba44e410f0363cc07de0743afdbec8fcafce5d54c402"
+    },
+    "release_gates.csv": {
+      "bytes": 1045,
+      "sha256": "c7b053e66a9f84e53337252f6686b60cebc83d1156566e515cd521931efe5019"
+    },
+    "responsible_use_decision_packet.md": {
+      "bytes": 3713,
+      "sha256": "4bc88d5201d01d9ba47de6863b3eb929cac7cc5813d92798db6a80945651bcbe"
+    },
+    "responsible_use_summary.json": {
+      "bytes": 295,
+      "sha256": "30b5bba6e38ecb330839da2af39e9befeab42ad36ac2a1737a054bbcb52e5086"
+    },
+    "slice_assurance.csv": {
+      "bytes": 2018,
+      "sha256": "9fa6093ce16f293eba5306770f62ff684472f23289379f099216a39f24cde10d"
+    }
+  },
+  "policy_sha256": "4b0552964321fc910e106619973d90b2a5ddc2684a2c577bbac9c1baacfe81cb",
+  "schema_version": "1.0.0",
+  "snapshot_date": "2026-06-30"
+}

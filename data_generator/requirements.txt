@@ -1,7 +1,7 @@
-pandas
-numpy
-faker
-scikit-learn
-matplotlib
-scipy
-lifelines
+pandas==2.3.3
+numpy==2.5.3
+faker==40.39.0
+scikit-learn==1.9.1
+matplotlib==3.11.2
+scipy==1.18.1
+lifelines==0.30.3

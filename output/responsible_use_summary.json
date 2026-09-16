@@ -1,0 +1,13 @@
+{
+  "authority": "Cohort-level planning only; no individual employment action",
+  "gate_counts": {
+    "block": 0,
+    "pass": 6,
+    "review": 2
+  },
+  "monitor_slices": 1,
+  "policy_version": "1.0.0",
+  "proposals": 6,
+  "release_posture": "REVIEW_REQUIRED",
+  "snapshot_date": "2026-06-30"
+}

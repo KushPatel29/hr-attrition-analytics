@@ -1,0 +1,14 @@
+attribute,group,n,n_high,selection_rate,reference_group,di_ratio,p_value,publishable,screen_state,uncertainty_statement
+gender,Female,941,154,0.1637,Male,1.236,0.0528,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+gender,Male,1125,149,0.1324,Male,1.0,1.0,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+gender,Non-binary,85,17,0.2,Male,1.51,0.0999,True,Outside band — monitor,"Observed disparity is inconclusive, not cleared; retain on monitor list."
+ethnicity_group,Group A,770,112,0.1455,Group A,1.0,1.0,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+ethnicity_group,Group B,493,81,0.1643,Group A,1.13,0.3784,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+ethnicity_group,Group C,354,61,0.1723,Group A,1.185,0.2485,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+ethnicity_group,Group D,287,37,0.1289,Group A,0.886,0.5513,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+ethnicity_group,Group E,247,29,0.1174,Group A,0.807,0.2912,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+age_band,25-34,756,107,0.1415,25-34,1.0,1.0,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+age_band,35-44,718,124,0.1727,25-34,1.22,0.1147,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+age_band,45-54,351,48,0.1368,25-34,0.966,0.853,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+age_band,55+,150,20,0.1333,25-34,0.942,0.8977,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.
+age_band,<25,176,21,0.1193,25-34,0.843,0.543,True,Within review band,No four-fifths screen exception in this snapshot; continue monitoring.

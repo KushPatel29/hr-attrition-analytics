@@ -8,6 +8,7 @@ on:
   push:
     branches: [master, main]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   hr-analytics-tests:
@@ -20,9 +21,10 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: |
-          pip install -r data_generator/requirements.txt
-          pip install pytest jsonschema
+        run: pip install -r requirements-dev.txt
+
+      - name: Compile the decision application and governance builder
+        run: python -m py_compile app.py governance/build_responsible_use_evidence.py
 
       - name: Generate synthetic HR data
         run: python data_generator/generate_hr_data.py
@@ -42,8 +44,32 @@ jobs:
       - name: Survival analysis (Kaplan-Meier + Cox PH)
         run: python ml/survival_analysis.py
 
+      - name: Build the governed workforce decision evidence
+        run: python governance/build_responsible_use_evidence.py
+
+      - name: Assert the governed evidence is reproducible
+        run: |
+          git diff --exit-code --stat -- \
+            output/intervention_portfolio.csv \
+            output/slice_assurance.csv \
+            output/ai_rmf_crosswalk.csv \
+            output/release_gates.csv \
+            output/responsible_use_summary.json \
+            output/responsible_use_manifest.json \
+            output/responsible_use_decision_packet.md \
+            || (echo "::error::responsible-use evidence is not reproducible" && exit 1)
+
       - name: Render README figures
         run: python analytics/make_visuals.py
 
       - name: Run test suite
         run: pytest tests/ -v
+
+      - name: The README test badge must match collection
+        run: |
+          collected=$(python -m pytest --collect-only -q 2>/dev/null | grep -oE '[0-9]+ tests? collected' | grep -oE '^[0-9]+')
+          claimed=$(grep -oE 'badge/tests-[0-9%C,]+%20passing' README.md | head -1 | sed -E 's|badge/tests-||; s|%20passing||; s|%2C||g; s|,||g')
+          echo "suite collects: ${collected:-<none>}   README badge: ${claimed:-<none>}"
+          if [ -z "$collected" ] || [ -z "$claimed" ] || [ "$collected" != "$claimed" ]; then
+            echo "::error::README badge and collected suite disagree"; exit 1
+          fi

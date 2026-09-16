@@ -1,0 +1,31 @@
+{
+  "policy_version": "1.0.0",
+  "snapshot_date": "2026-06-30",
+  "product_name": "Workforce Decision Room",
+  "decision_scope": "Cohort-level retention planning and workforce policy evaluation",
+  "decision_owner": "VP People & Culture",
+  "model_owner": "People Analytics Lead",
+  "risk_owner": "Employment Counsel / Privacy Officer",
+  "minimum_publishable_group": 30,
+  "four_fifths_band": [0.8, 1.25],
+  "allowed_uses": [
+    "Prioritize cohort-level retention experiments",
+    "Compare aggregate workforce signals across sufficiently large groups",
+    "Monitor intervention outcomes and distributional effects",
+    "Prepare questions for qualified HR, privacy and employment-law review"
+  ],
+  "prohibited_uses": [
+    "Make or recommend termination, promotion, compensation or discipline decisions about a person",
+    "Expose, export or rank named employees by predicted flight risk",
+    "Treat a non-significant disparity as evidence that no fairness risk exists",
+    "Claim the synthetic intervention uplift is causal",
+    "Use a protected attribute as a model feature or decision rule",
+    "Publish a slice below the minimum group size"
+  ],
+  "required_approvals": [
+    "People Analytics Lead",
+    "HR Business Partner",
+    "Employment Counsel / Privacy Officer"
+  ],
+  "monitoring_cadence": "Monthly during pilot; quarterly after controlled release"
+}

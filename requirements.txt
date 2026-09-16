@@ -1,0 +1,2 @@
+-r data_generator/requirements.txt
+streamlit==1.64.0

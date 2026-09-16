@@ -1,0 +1,9 @@
+gate_id,gate,status,evidence,owner
+HR-GOV-01,Aggregate-only decision surface,PASS,No person identifier or individual risk score in intervention portfolio,People Analytics Lead
+HR-GOV-02,Protected attributes excluded from model inputs,PASS,Feature importance contains no protected attribute prefix,People Analytics Lead
+HR-GOV-03,Predictive floor,PASS,Chosen model ROC-AUC 0.738,People Analytics Lead
+HR-GOV-04,Privacy suppression active,PASS,152 suppression-audit records; minimum group policy enforced,Employment Counsel / Privacy Officer
+HR-GOV-05,Slice assurance,REVIEW,1 slices outside screen band and retained for review,Employment Counsel / Privacy Officer
+HR-GOV-06,Intervention evidence claim,PASS,"Observed uplift is labelled descriptive and synthetic, never causal",VP People & Culture
+HR-GOV-07,Human approval before pilot,REVIEW,"6 proposals require named HR, privacy and legal approval",VP People & Culture
+HR-GOV-08,Rollback and monitoring plan,PASS,Each proposal names a monitoring metric and rollback trigger,VP People & Culture

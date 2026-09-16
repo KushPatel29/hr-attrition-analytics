@@ -4,22 +4,27 @@
 ![SQL](https://img.shields.io/badge/SQL-window%20functions%20%2B%20CTEs-CC2927)
 ![Power BI](https://img.shields.io/badge/Power%20BI-8--page%20dashboard-F2C811?logo=powerbi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-scikit--learn%20%2B%20lifelines-3776AB?logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-799%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-822%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-Every HR leadership meeting circles the same four questions: *who is leaving,
-and why? Are we paying people fairly? Is the hiring funnel healthy? Which of
-our current employees will quit next?* A multinational adds three more that a
-single-country dashboard cannot even frame: *which of those leavers did we
-actually want to keep? Does attrition follow the market or the manager? And is
-that pay gap a pay decision, or the exchange rate?* This project answers all
-seven with a **SQL-first** people-analytics mart — the analytics are hand-written SQL
+**[Open the live Workforce Decision Room](https://kush-workforce-decision-room.streamlit.app/)**
+· [review the release packet](output/responsible_use_decision_packet.md)
+· [read the responsible-use model](governance/RESPONSIBLE_USE.md)
+
+Every HR leadership meeting circles the same questions: *where is regretted
+attrition concentrated, why are people leaving, are we paying fairly, is the
+hiring funnel healthy, and which cohort-level intervention is worth testing?*
+A multinational adds three more that a single-country dashboard cannot frame:
+*does attrition follow the market or the manager, is a pay gap a pay decision
+or geographic mix, and can an intervention be evaluated without turning a
+prediction into a decision about a person?* This project answers them with a
+**SQL-first** people-analytics mart — the analytics are hand-written SQL
 (window functions, CTEs, cohort survival, level-adjusted pay gaps) that a
 reviewer can read and audit, executed verbatim by a small Python engine, and
-surfaced in an **8-page Power BI dashboard** plus an **explainable
-flight-risk model**. The workforce is 2,800 people across **14 sites in 8
-countries**, because every one of those extra three questions is invisible
-in a single market.
+surfaced in an **8-page Power BI dashboard**, an explainable model evaluation,
+and a governed **Streamlit decision room**. The workforce is 2,800 synthetic
+people across **14 sites in 8 countries**, because the extra questions are
+invisible in a single market.
 
 But there's a fifth question that people-analytics work has to answer before
 any of the others matter: *can this system be trusted with data about
@@ -28,12 +33,41 @@ quits — this is the most sensitive data a company holds. So the pipeline also
 ships the guardrails: **k-anonymity masking** so no dashboard filter can
 corner a single person's salary, a **fairness audit** that breaks the build
 on statistically significant disparate impact, **survival analysis** that
-treats time honestly instead of averaging over it, and an **intervention
-log** that measures whether retention actions actually worked.
+treats time honestly instead of averaging over it, and a governed intervention
+portfolio that keeps person-level scores out of the live decision surface.
 
 Everything is synthetic (Faker, fixed seeds — no real employee data), but the
 logic mirrors real workforce-analytics practice. CI re-runs the whole
-pipeline and all 482 tests on every push.
+pipeline, rebuilds the evidence pack byte for byte, and runs all **822 tests**
+on every push.
+
+## Live governed decision room
+
+The Streamlit product is intentionally not an employee watch list. It converts
+aggregate evidence into six reviewable retention proposals and then asks the
+questions a real release meeting must answer:
+
+- **Authority:** is the requested decision limited to a cohort pilot, with
+  termination, promotion, compensation and discipline explicitly prohibited?
+- **Evidence:** is the signal descriptive, predictive or causal—and is that
+  limit visible at the point of decision?
+- **Fairness and privacy:** are small groups suppressed, protected attributes
+  excluded from model inputs, and inconclusive disparities kept on the monitor
+  list rather than called “fair”?
+- **Execution:** does every proposal name an owner, approval path, monitoring
+  measure and rollback trigger?
+
+The generated release posture is **REVIEW REQUIRED**: six controls pass, two
+require named human review, and none are blocked. The app exposes the exact
+CSV/JSON/Markdown evidence behind that state and verifies every artifact
+against its SHA-256 manifest.
+
+The operating map uses the four NIST AI RMF 1.0 core functions—GOVERN, MAP,
+MEASURE and MANAGE—as a practical structure, not a certification claim. The
+authoritative framework is [NIST AI 100-1](https://doi.org/10.6028/NIST.AI.100-1).
+The four-fifths ratio is treated as a screening measure, consistent with the
+[Uniform Guidelines Q&A published by the U.S. EEOC](https://www.eeoc.gov/laws/guidance/questions-and-answers-clarify-and-provide-common-interpretation-uniform-guidelines),
+not as a standalone legal conclusion.
 
 ## Headline findings (from the generated snapshot, 2026-06-30)
 
@@ -242,7 +276,7 @@ on a held-out 30% of employees:
 
 | Model | ROC-AUC | PR-AUC | Lift @ top 10% |
 |-------|:------:|:-----:|:-----:|
-| Baseline (prevalence) | 0.500 | 0.219 | 1.4× |
+| Baseline (prevalence) | 0.500 | 0.232 | 1.1× |
 | **Logistic Regression (shipped)** | **0.738** | 0.452 | **2.4×** |
 | Random Forest | 0.731 | 0.476 | 2.7× |
 
@@ -330,15 +364,15 @@ question — how long does a cohort survive — with **Kaplan-Meier curves**
 as survivors-forever) and a **Cox proportional-hazards model** for the
 drivers. Median survival is never reached at ~16% voluntary attrition, so
 the honest headline is **t25**: a cohort with engagement below 60 loses a
-quarter of its people by month 33, the 60–75 band by month 42, and the 75+
-band not within the observation window at all.
+quarter of its people by month 29, the 60–75 band by month 46, and the 75+
+band by month 66.
 
 The Cox fit also caught a trap worth telling: raw `months_since_promotion`
 came out *protective* (HR 0.78, p < 1e-4) — backwards, and mechanically so,
 because someone who left at month 12 can't be 30 months past a promotion.
 The covariate was capped by tenure and proxying for survival itself.
 Normalizing to *share of tenure without promotion* recovers the real,
-planted effect: **HR 2.4 per +1 SD**, the strongest hazard in the model.
+planted effect: **HR 2.3 per +1 SD**, the strongest hazard in the model.
 Cross-sectional covariates lie to survival models; that's the first thing
 to fix with real HRIS event history.
 
@@ -347,8 +381,8 @@ to fix with real HRIS event history.
 `data/fact_hr_interventions.csv` is a synthetic log of retention actions
 (stay interviews, out-of-cycle raises, development plans) taken on at-risk
 employees, and [`09_intervention_effectiveness.sql`](sql/09_intervention_effectiveness.sql)
-closes the loop: treated at-risk employees retain at **88.6%** vs **76.5%**
-for the untreated — a **+12.1 point** lift, recovered by the SQL with three
+closes the loop: treated at-risk employees retain at **89.4%** vs **74.6%**
+for the untreated — a **+14.8 point** lift, recovered by the SQL with three
 choices that each change the answer if skipped (compare within the at-risk
 cohort only; exclude dismissals; drop employees who never had the runway to
 receive an intervention, or short-tenure quitters stack the control group).
@@ -437,8 +471,9 @@ source, and a source scorecard:
 
 **Flight Risk (ML)** — high-risk **treemap**, risk-band mix, a tenure ×
 engagement **scatter** (the high-risk cluster sits at low tenure / low
-engagement), and an actionable **retention watch list** with per-employee
-reasons:
+engagement), and an internal synthetic score-evaluation table. The public live
+decision room does not load this person-level table; it permits cohort-level
+planning only:
 
 ![Flight Risk (ML)](powerbi/screenshots/08-flight-risk-ml.png)
 
@@ -456,8 +491,10 @@ flowchart LR
     OUT --> FAIR[ml/fairness_audit.py<br/>CI gate]
     DATA --> SURV[ml/survival_analysis.py]
     SURV -->|KM + Cox| OUT
+    OUT --> GOV[responsible-use evidence builder]
+    GOV -->|gates + portfolio + manifest| APP[Streamlit decision room]
     OUT --> VIZ[analytics/make_visuals.py]
-    OUT --> PBI[Power BI 6-page dashboard]
+    OUT --> PBI[Power BI 8-page dashboard]
     DATA --> PBI
 ```
 
@@ -470,11 +507,13 @@ hr-attrition-analytics/
 ├── sql/              01 schema DDL + 02..09 analytics (window functions, CTEs, k-anon masking)
 ├── engine/           run_hr_analytics.py  (SQLite executes the SQL end-to-end)
 ├── ml/               attrition_model.py · fairness_audit.py · survival_analysis.py
+├── governance/       policy + deterministic responsible-use evidence builder
 ├── analytics/        make_visuals.py      (README figures)
-├── output/           SQL + ML results consumed by Power BI
+├── output/           SQL, ML and governed release evidence
 ├── docs/             rendered figures + INSIGHTS.md (findings write-up)
 ├── powerbi/          pbip/ (TMDL + PBIR), screenshots/, dax_measures.dax, BUILD_GUIDE.md
-└── tests/            data / SQL / ML / fairness / privacy / Power BI-integrity invariants
+├── app.py            live aggregate Workforce Decision Room
+└── tests/            data / SQL / ML / fairness / privacy / governance / Power BI contracts
 ```
 
 ## Run it
@@ -487,8 +526,10 @@ python engine/run_hr_analytics.py                # execute the SQL, write output
 python ml/attrition_model.py                     # train + score flight risk
 python ml/fairness_audit.py                      # disparate-impact gate
 python ml/survival_analysis.py                   # Kaplan-Meier + Cox PH
+python governance/build_responsible_use_evidence.py  # release gates + evidence pack
 python analytics/make_visuals.py                 # render the figures
-pytest tests/ -v                                 # 482 invariants
+streamlit run app.py                             # governed cohort decision room
+pytest tests/ -v                                 # 822 checks
 ```
 
 Then open `powerbi/pbip/HRAttritionAnalytics.pbip` in Power BI Desktop.
