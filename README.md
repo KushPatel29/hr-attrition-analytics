@@ -277,8 +277,8 @@ on a held-out 30% of employees:
 | Model | ROC-AUC | PR-AUC | Lift @ top 10% |
 |-------|:------:|:-----:|:-----:|
 | Baseline (prevalence) | 0.500 | 0.232 | 1.1× |
-| **Logistic Regression (shipped)** | **0.738** | 0.452 | **2.4×** |
-| Random Forest | 0.731 | 0.476 | 2.7× |
+| **Logistic Regression (shipped)** | **0.738** | 0.474 | **2.5×** |
+| Random Forest | 0.731 | 0.495 | 2.7× |
 
 Logistic regression is shipped over the (essentially tied) random forest
 because a retention score a business partner has to defend needs **per-employee
