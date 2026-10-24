@@ -1,8 +1,8 @@
 """
 Fairness audit — measures who the flight-risk model flags, not just how well.
 
-An HR risk model gets shut down by legal the moment it discriminates against a
-protected group, so this audit runs right after scoring, on every pipeline run:
+This synthetic audit screens which groups the model flags. It does not establish
+legal compliance or authorize an employment decision. It runs after scoring:
 
   1. INPUT check: protected attributes (gender, ethnicity_group, age_band)
      must not appear in the model's feature lists. This catches the obvious
@@ -14,15 +14,12 @@ protected group, so this audit runs right after scoring, on every pipeline run:
 
          DI(group) = selection_rate(group) / selection_rate(reference)
 
-     checked against the four-fifths (80%) rule used in US employment law:
+     checked against a four-fifths-inspired screening band:
      0.80 <= DI <= 1.25.
 
-  3. SIGNIFICANCE adjudication: the four-fifths rule is a screen, not a
-     verdict. EEOC guidance is explicit that selection-rate differences
-     "based on small numbers" that are "not statistically significant" may
-     not constitute adverse impact — a 99-person group needs only a handful
-     of extra flags to blow past 1.25 by pure noise. So a group outside the
-     band is tested against the reference group with Fisher's exact test:
+  3. ADDITIONAL SIGNIFICANCE CHECK: the ratio is a screen, not a verdict.
+     A group outside the band is tested against the reference group with
+     Fisher's exact test. Low power can leave a material disparity unresolved:
        * outside band AND p < 0.05  ->  FAIL (the build breaks)
        * outside band AND p >= 0.05 ->  'monitor' (reported, not fatal)
      Groups below MIN_GROUP_N are reported but never judged at all.
@@ -57,7 +54,7 @@ from attrition_model import CATEGORICAL, NUMERIC  # noqa: E402
 
 PROTECTED = ["gender", "ethnicity_group", "age_band"]
 DI_LOW, DI_HIGH = 0.80, 1.25   # four-fifths rule, symmetric
-MIN_GROUP_N = 30               # below this, ratios are noise — report, don't judge
+MIN_GROUP_N = 30               # below this floor, report the group without a verdict
 
 
 def check_model_inputs() -> None:
@@ -138,10 +135,10 @@ def main() -> pd.DataFrame:
         sys.exit(1)
     watch = audit[audit["verdict"].str.startswith("outside band")]
     if len(watch):
-        print(f"\nAudit passed with {len(watch)} group(s) on the monitor list "
-              "(outside four-fifths, not statistically significant).")
+        print(f"\nScreen completed with {len(watch)} unresolved group(s) on the monitor list "
+              "(outside the ratio band, not statistically significant; human review required).")
     else:
-        print("\nAll evaluated groups within the four-fifths band. Audit passed.")
+        print("\nAll evaluated groups within the configured band. This screen does not establish absence of bias.")
     return audit
 
 

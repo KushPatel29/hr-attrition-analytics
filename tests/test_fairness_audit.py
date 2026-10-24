@@ -70,7 +70,7 @@ def test_gate_catches_planted_bias():
     assert out.loc["Target", "verdict"] == "FAIL: significant disparate impact"
 
 
-def test_gate_ignores_small_sample_noise():
+def test_gate_reports_small_groups_without_clearance():
     """A tiny group with a wild ratio is reported, never judged."""
     df = pd.DataFrame({
         "risk_band": ["High"] * 3 + ["Low"] * 7 + ["High"] * 100 + ["Low"] * 900,
