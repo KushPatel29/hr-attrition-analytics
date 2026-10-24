@@ -27,11 +27,11 @@ protected group, so this audit runs right after scoring, on every pipeline run:
        * outside band AND p >= 0.05 ->  'monitor' (reported, not fatal)
      Groups below MIN_GROUP_N are reported but never judged at all.
 
-     On this dataset the screen genuinely fires — the 55+ band and one
-     ethnicity group sit outside four-fifths — and the significance test
-     shows both are small-sample noise (p ~ 0.23), while the underlying
-     attrition base rates are flat across age. The audit's job is exactly
-     this: distinguish a discriminatory model from a small denominator.
+     A non-significant result does not establish the absence of bias.
+     Unresolved disparities remain visible for monitoring and human review.
+     Current counts and examples are exported from output/fairness_audit.csv
+     to output/fairness_evidence.json by governance/publish_fairness_evidence.py;
+     CI rejects stale narrative facts instead of keeping a hard-coded example.
 
 The audit is a gate, not a report: a significant disparity makes the script
 exit non-zero, which fails CI. Bias becomes a build break.

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-06-30",
+  "data_classification": "synthetic",
+  "scored_population": 2151,
+  "source": {
+    "path": "output/fairness_audit.csv",
+    "hash_normalization": "UTF-8 with CRLF normalized to LF",
+    "sha256": "10ffda584be1e4f1083a03f6d0e3c023aa01be847b4f9dba228eec74a1afb8e9"
+  },
+  "screen": {
+    "ratio_band": [
+      0.8,
+      1.25
+    ],
+    "minimum_group_n": 30,
+    "significance_level": 0.05
+  },
+  "warnings": [
+    {
+      "attribute": "gender",
+      "group": "Non-binary",
+      "n": 85,
+      "n_high": 17,
+      "reference_group": "Male",
+      "reference_n": 1125,
+      "reference_n_high": 149,
+      "di_ratio": 1.51,
+      "p_value": 0.0999,
+      "verdict": "outside band, not significant — monitor"
+    }
+  ],
+  "interpretation": "A non-significant result does not establish the absence of bias. Unresolved disparities remain visible for monitoring and human review.",
+  "authority": "Synthetic model-screening evidence only; no employment action or legal compliance conclusion is authorized."
+}

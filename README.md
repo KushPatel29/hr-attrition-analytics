@@ -337,23 +337,25 @@ without that last check the guard could pass while protecting nothing.
 [`ml/fairness_audit.py`](ml/fairness_audit.py) runs after every scoring pass
 and checks the **high-risk selection rate** for every gender, ethnicity, and
 age group against the reference group — the disparate-impact ratio, screened
-with the **four-fifths (80%) rule** from US employment practice. On this data
-the screen genuinely fires: the 55+ band comes out at DI 1.33, one ethnicity
-group at 0.77. The next step is what separates an audit from an alarm:
-EEOC guidance says small-sample disparities need a significance test before
-they count, and Fisher's exact test puts both groups at p ≈ 0.23. That is the
-point where it is tempting to write "noise, not signal", and this README said
-exactly that until a reviewer pushed back. It does not follow: a
-non-significant result on a group this size means the sample cannot resolve
-the question, not that the disparity is absent. What can honestly be said is
-that the ratio is outside the band, the evidence for it is inconclusive here,
-and the underlying attrition base rates are flat. So both land on a
-**monitor list** rather than failing the build — and the ratio stays published
-with its sample size beside it, because a screen you cannot clear is not the
-same as a screen that passed. A group outside the band
-*with* statistical significance exits non-zero and CI goes red; the test
-suite proves the gate fires by planting a genuinely biased score and
-watching it fail.
+with the **four-fifths (80%) rule** from US employment practice. The
+screen flags groups outside its configured ratio band. Fisher's exact test is
+used as an additional screening check; a non-significant result does not clear
+a disparity. An unresolved group stays visible on the monitor list, and the
+responsible-use packet still requires human review. A statistically significant
+out-of-band result exits non-zero; tests inject a disparity to prove the gate
+fires. This is synthetic model-screening evidence, not a legal compliance finding.
+
+<!-- fairness-evidence:start -->
+**Current synthetic snapshot: 2026-06-30 · 2,151 scored people.**
+
+| Monitored / unresolved group | High-risk flags | Reference flags | Ratio | Fisher p |
+|---|---:|---:|---:|---:|
+| gender: Non-binary | 17 / 85 | Male: 149 / 1,125 | 1.510 | 0.0999 |
+
+A non-significant result does not establish the absence of bias. Unresolved disparities remain visible for monitoring and human review.
+
+The [versioned evidence](output/fairness_evidence.json) records the source CSV hash, snapshot, counts and screening policy. Rebuild with `python governance/publish_fairness_evidence.py --write`; CI checks for drift.
+<!-- fairness-evidence:end -->
 
 ### 3. "When do people leave" is a different question from "who"
 

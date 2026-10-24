@@ -41,6 +41,9 @@ jobs:
       - name: Fairness audit (disparate-impact gate)
         run: python ml/fairness_audit.py
 
+      - name: The public fairness example must match the audit counts
+        run: python governance/publish_fairness_evidence.py
+
       - name: Survival analysis (Kaplan-Meier + Cox PH)
         run: python ml/survival_analysis.py
 
