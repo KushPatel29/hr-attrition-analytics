@@ -31,5 +31,10 @@
     }
   ],
   "interpretation": "A non-significant result does not establish the absence of bias. Unresolved disparities remain visible for monitoring and human review.",
-  "authority": "Synthetic model-screening evidence only; no employment action or legal compliance conclusion is authorized."
+  "authority": "Synthetic model-screening evidence only; no employment action or legal compliance conclusion is authorized.",
+  "display": {
+    "stat": "p = 0.0999",
+    "title": "The fairness screen still needs review",
+    "summary": "Synthetic snapshot 2026-06-30: Non-binary: 17 of 85 high-risk flags, versus 149 of 1,125 in the Male reference group (ratio 1.510; Fisher p = 0.0999). A non-significant result does not establish the absence of bias. Unresolved disparities remain visible for monitoring and human review."
+  }
 }

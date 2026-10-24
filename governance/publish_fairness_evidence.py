@@ -38,7 +38,7 @@ def build_evidence(root=ROOT):
                    for attr in {r["attribute"] for r in rows}}
     if len(set(populations.values())) != 1:
         raise ValueError("Fairness attributes must cover the same scored population")
-    return {
+    evidence = {
         "schema_version": 1, "snapshot_date": policy["snapshot_date"],
         "data_classification": "synthetic", "scored_population": next(iter(populations.values())),
         "source": {"path": "output/fairness_audit.csv",
@@ -51,6 +51,20 @@ def build_evidence(root=ROOT):
         "interpretation": "A non-significant result does not establish the absence of bias. Unresolved disparities remain visible for monitoring and human review.",
         "authority": "Synthetic model-screening evidence only; no employment action or legal compliance conclusion is authorized.",
     }
+    facts = []
+    for row in warnings:
+        facts.append(f"{row['group']}: {row['n_high']} of {row['n']} high-risk flags, "
+                     f"versus {row['reference_n_high']} of {row['reference_n']:,} "
+                     f"in the {row['reference_group']} reference group "
+                     f"(ratio {row['di_ratio']:.3f}; Fisher p = {row['p_value']:.4f})")
+    evidence["display"] = {
+        "stat": f"p = {warnings[0]['p_value']:.4f}" if len(warnings) == 1 else f"{len(warnings)} unresolved groups",
+        "title": "The fairness screen still needs review",
+        "summary": f"Synthetic snapshot {evidence['snapshot_date']}: "
+                   + ("; ".join(facts) + ". " if facts else "No out-of-band warning in this snapshot. ")
+                   + evidence["interpretation"],
+    }
+    return evidence
 
 
 def render_markdown(evidence):
