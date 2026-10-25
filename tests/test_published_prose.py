@@ -147,7 +147,7 @@ def test_the_claim_the_split_exists_for_still_holds(prose):
 
 def test_the_badge_and_page_count_are_real():
     text = README.read_text(encoding="utf-8")
-    badge = re.search(r"tests-(\d+)%20passing", text)
+    badge = re.search(r"tests-(\d+)%20collected", text)
     assert badge, "README no longer carries a test-count badge"
     # A lower bound is not a guard. This asserted only that the badge was at
     # least the number of test *definitions*, so a badge could drift arbitrarily
