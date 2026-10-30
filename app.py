@@ -232,7 +232,7 @@ with tab_release:
         st.dataframe(
             display_gates,
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
             column_config={
                 "Control": st.column_config.TextColumn(width="small"),
                 "Decision test": st.column_config.TextColumn(width="medium"),
@@ -259,7 +259,7 @@ with tab_release:
             data=packet,
             file_name="workforce-decision-room-release-packet.md",
             mime="text/markdown",
-            use_container_width=True,
+            width="stretch",
         )
     with st.expander("Approval checklist", expanded=True):
         for role in policy["required_approvals"]:
@@ -314,7 +314,7 @@ with tab_portfolio:
         st.dataframe(
             effects[["cohort_label", "n_employees", "retention_rate", "lift_vs_control"]],
             hide_index=True,
-            use_container_width=True,
+            width="stretch",
             column_config={
                 "cohort_label": "Cohort",
                 "n_employees": st.column_config.NumberColumn("Population", format="%d"),
@@ -326,7 +326,7 @@ with tab_portfolio:
             "The uplift was planted in synthetic data and is descriptive—not a causal effect. A real pilot must pre-register outcomes and use a controlled or defensible quasi-experimental design."
         )
     with st.expander("View the full intervention register"):
-        st.dataframe(portfolio, hide_index=True, use_container_width=True)
+        st.dataframe(portfolio, hide_index=True, width="stretch")
 
 with tab_signals:
     st.markdown("## Read workforce conditions before choosing an intervention")
@@ -370,7 +370,7 @@ with tab_signals:
             ]
         ],
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
     )
 
 with tab_fairness:
@@ -429,7 +429,7 @@ with tab_fairness:
             ]
         ],
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         column_config={
             "Selection rate": st.column_config.NumberColumn(format="%.1%%"),
             "DI ratio": st.column_config.NumberColumn(format="%.3f"),
@@ -442,7 +442,7 @@ with tab_fairness:
         st.write(
             f"The pipeline recorded **{len(privacy):,}** suppression decisions. The release product uses aggregate artifacts and does not load the individual score register."
         )
-        st.dataframe(privacy.head(100), hide_index=True, use_container_width=True)
+        st.dataframe(privacy.head(100), hide_index=True, width="stretch")
 
 with tab_evidence:
     st.markdown("## Trace the claim to the control and artifact")
@@ -459,7 +459,7 @@ with tab_evidence:
             }
         ),
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         column_config={
             "Function": st.column_config.TextColumn(width="small"),
             "Operational control": st.column_config.TextColumn(width="large"),
@@ -481,7 +481,7 @@ with tab_evidence:
     st.dataframe(
         pd.DataFrame(manifest_rows),
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
         column_config={"SHA-256": st.column_config.TextColumn(width="large")},
     )
     e_left, e_right = st.columns(2)
@@ -489,7 +489,7 @@ with tab_evidence:
         st.link_button(
             "Open repository",
             "https://github.com/KushPatel29/hr-attrition-analytics",
-            use_container_width=True,
+            width="stretch",
         )
     with e_right:
         st.download_button(
@@ -497,7 +497,7 @@ with tab_evidence:
             data=json.dumps(manifest, indent=2, sort_keys=True),
             file_name="responsible-use-manifest.json",
             mime="application/json",
-            use_container_width=True,
+            width="stretch",
         )
 
 st.divider()

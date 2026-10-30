@@ -4,7 +4,7 @@
 ![SQL](https://img.shields.io/badge/SQL-window%20functions%20%2B%20CTEs-CC2927)
 ![Power BI](https://img.shields.io/badge/Power%20BI-8--page%20dashboard-F2C811?logo=powerbi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-scikit--learn%20%2B%20lifelines-3776AB?logo=python&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-822%20collected-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-823%20collected-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **[Open the live Workforce Decision Room](https://kush-workforce-decision-room.streamlit.app/)**
@@ -38,7 +38,7 @@ portfolio that keeps person-level scores out of the live decision surface.
 
 Everything is synthetic (Faker, fixed seeds — no real employee data), but the
 logic mirrors real workforce-analytics practice. CI re-runs the whole
-pipeline, rebuilds the evidence pack byte for byte, and collects all **822 tests**
+pipeline, rebuilds the evidence pack byte for byte, and collects all **823 tests**
 on every push.
 
 ## Live governed decision room
@@ -531,7 +531,7 @@ python ml/survival_analysis.py                   # Kaplan-Meier + Cox PH
 python governance/build_responsible_use_evidence.py  # release gates + evidence pack
 python analytics/make_visuals.py                 # render the figures
 streamlit run app.py                             # governed cohort decision room
-pytest tests/ -v                                 # 822 checks
+pytest tests/ -v                                 # 823 checks
 ```
 
 Then open `powerbi/pbip/HRAttritionAnalytics.pbip` in Power BI Desktop.
