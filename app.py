@@ -109,6 +109,10 @@ p, li { line-height: 1.62; }
   .gate-ledger { grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+/* KPI tiles wrap their text instead of ending in an ellipsis at laptop width. */
+:is([data-testid="stMetricLabel"], [data-testid="stMetricValue"], [data-testid="stMetricDelta"]),
+:is([data-testid="stMetricLabel"], [data-testid="stMetricValue"], [data-testid="stMetricDelta"]) :is(div, p, span, label) { white-space: normal !important; overflow: visible !important; text-overflow: clip !important; overflow-wrap: anywhere; height: auto !important; max-height: none !important; -webkit-line-clamp: unset !important; line-height: 1.25; }
+div[data-testid="stMetric"] div:has(> [data-testid="stMetricDelta"]) { overflow: visible; height: auto; }
 </style>
 """,
     unsafe_allow_html=True,
